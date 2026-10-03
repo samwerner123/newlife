@@ -1,7 +1,7 @@
 # SeasonScout — куда поехать в любой месяц
 
-Англоязычный сайт для зарубежной аудитории, в первую очередь из США и Великобритании. Для каждого из **242 направлений** есть:
-- оценка погоды по месяцам;
+Англоязычный сайт для зарубежной аудитории, в первую очередь из США и Великобритании. Для каждого из **282 направлений** есть:
+- оценка погоды по месяцам и оценка сезона (высокий, межсезонье, низкий);
 - климатические графики;
 - температура моря и световой день;
 - бюджет на день;
@@ -9,7 +9,7 @@
 - практическая информация;
 - партнёрские ссылки Travelpayouts.
 
-Сайт статический (Astro), около **4700 страниц**. Ни база данных, ни сервер не нужны. Размещается бесплатно на Cloudflare Pages.
+Сайт статический (Astro), около **5550 страниц**. Ни база данных, ни сервер не нужны. Размещается бесплатно на Cloudflare Pages.
 
 🔁 **Продолжение работы:** [`docs/HANDOFF.md`](docs/HANDOFF.md) — что сделано и что делать дальше.
 
@@ -21,17 +21,18 @@
 
 | Тип страницы | Пример URL | Под какой запрос |
 |---|---|---|
-| Подборки по месяцам (12 видов × 12 месяцев) | `/warm-places-to-visit-in-december/` | «warm places to visit in December», «cheap places to travel in March», «best places to visit in South America in July» |
+| Подборки по месяцам (17 видов × 12 месяцев) | `/warm-places-to-visit-in-december/`, `/romantic-getaways-in-february/` | «warm places to visit in December», «cheap places to travel in March», «best places to visit in the Middle East in December», «best national parks to visit in October» |
+| Где смотреть осенние краски | `/where-to-see-fall-foliage-in-october/` | «where to see fall foliage in October» (только 6 месяцев, когда есть что смотреть) |
 | Где кататься на лыжах в месяце | `/where-to-ski-in-july/` | «where to ski in July», «skiing in August» |
 | Рождество и Новый год | `/christmas-destinations/` | «warm places to go for Christmas», «best places to spend Christmas» |
 | Куда поехать в месяце | `/where-to-go-in-october/` | «best places to travel in October» |
-| Страна или регион (60 шт.) | `/best-time-to-visit-caribbean/`, `/best-time-to-visit-japan/` | «best time to visit the Caribbean / Japan / Scandinavia / Southeast Asia» |
-| Страна в месяце (60 × 12) | `/thailand-in-december/` | «Thailand in December» |
-| Направление (242 шт.) | `/destinations/iceland/` | «best time to visit Iceland» |
-| Направление в месяце (242 × 12) | `/destinations/iceland/october/` | «Iceland in October» |
-| Сравнения (382 шт., только пары со спросом) | `/compare/maui-vs-oahu/` | «Maui vs Oahu», «Tulum vs Cancun» |
-| Гиды (37 шт.) | `/guides/ski-season/`, `/guides/christmas-markets-europe/` | сезоны, сафари, киты, муссоны, сакура, северное сияние |
-| Инструменты | `/trip-finder/`, `/map/`, `/compare/custom/`, `/saved/` | «where should I travel», карта погоды, сравнение любых двух мест |
+| Страна или регион (68 шт.) | `/best-time-to-visit-caribbean/`, `/best-time-to-visit-japan/` | «best time to visit the Caribbean / Japan / Scandinavia / Southeast Asia» |
+| Страна в месяце (68 × 12) | `/thailand-in-december/` | «Thailand in December» |
+| Направление (282 шт.) | `/destinations/iceland/` | «best time to visit Iceland» |
+| Направление в месяце (282 × 12) | `/destinations/iceland/october/` | «Iceland in October» |
+| Сравнения (432 шт., только пары со спросом) | `/compare/maui-vs-oahu/` | «Maui vs Oahu», «Tulum vs Cancun» |
+| Гиды (49 шт.) | `/guides/ski-season/`, `/guides/best-time-to-visit-europe/` | сезоны, сафари, киты, муссоны, сакура, карнавалы, Пасха, звёздное небо, дорожные маршруты |
+| Инструменты | `/trip-finder/`, `/map/`, `/compare/custom/`, `/packing-list-generator/`, `/saved/` | «where should I travel», карта погоды, сравнение любых двух мест, «what to pack for …» |
 | Виджет для блогеров | `/embed/{направление}/` | обратные ссылки (код вставки есть на каждой странице направления) |
 | Страницы доверия | `/about-us/`, `/editorial-policy/`, `/advertise/`, `/contact/` | требования Google и партнёрских программ |
 
@@ -43,7 +44,8 @@
 - Кнопки «поделиться» (на телефоне открывается системное меню), версия для печати.
 - Офлайн-кэш недавно открытых страниц (service worker).
 - Зоны нажатия от 44 px. Широкие таблицы прокручиваются вбок, а первая колонка остаётся на месте.
-- Lighthouse: производительность 95–100, доступность 96–100, SEO 92–100 (подробности в [`docs/AUDIT.md`](docs/AUDIT.md)).
+- Подсказка с расшифровкой оценки погоды на каждой плашке «Great 86».
+- Lighthouse (повторный прогон): производительность 99–100, доступность, best practices и SEO — 100; axe — 0 нарушений в обеих темах (подробности в [`docs/AUDIT.md`](docs/AUDIT.md), повторить — `npm run audit`).
 
 ## Партнёрские ссылки (главное для заработка)
 
@@ -86,6 +88,7 @@ npm run dev          # локально: http://localhost:4321
 npm run build        # сборка в dist/
 npm run check        # проверка типов
 npm run check:site   # после сборки: битые ссылки, schema.org, h1, title, description
+npm run audit        # после сборки и при запущенном preview: Lighthouse + axe (нужен npm i --no-save lighthouse@12 @axe-core/playwright playwright-core)
 npm run climate      # климат (src/data/climate.json), можно указать slug
 npm run images       # фото и авторы (src/data/images.json)
 npm run sea          # температура моря (src/data/sea.json)
@@ -99,11 +102,13 @@ npm run plan         # пересчитать docs/CONTENT_PLAN.md
 ## Откуда данные
 
 - **Климат:** нормы национальных метеослужб, обычно за 1991–2020 годы, из таблиц «Climate data» в Википедии. Если в таблице нет осадков, они берутся из NASA POWER. Источник и метеостанция указаны на каждой странице.
-- **Температура моря:** Open-Meteo Marine API, средние за 2023–2025 годы. Есть для 140 прибрежных направлений.
+- **Температура моря:** Open-Meteo Marine API, средние за 2023–2025 годы. Есть для 167 прибрежных направлений.
 - **Световой день:** рассчитывается по широте с учётом рефракции.
-- **Горнолыжные сезоны:** поле `ski` в `src/data/destinations.json`, 16 направлений.
+- **Горнолыжные сезоны:** поле `ski` в `src/data/destinations.json`, 17 направлений.
+- **Осенние краски:** поле `foliage` (где смотреть и месяцы пика), 36 направлений.
+- **Сезоны** (`src/lib/seasonality.ts`): оценка, а не данные бронирований — погода месяца относительно лучших месяцев направления, каникулы и праздники, «зимнее солнце», лыжный сезон, пик листопада и сакуры, сезонные закрытия. Метод описан на `/about/#seasons`.
 - **Оценка погоды** (`src/lib/score.ts`): 55% температура и 45% осадки, с поправками на ураганы, муссоны, сезон дыма и закрытие отелей на зиму. Формула описана на `/about/`.
-- **Фото:** Wikimedia Commons, только свободные лицензии. Авторы указаны на страницах и на `/photo-credits/`.
+- **Фото:** Wikimedia Commons, только свободные лицензии. Подписей под фото нет (по просьбе владельца); авторы и лицензии перечислены на `/photo-credits/`, ссылка есть в футере каждой страницы — этого требуют лицензии CC BY и CC BY-SA.
 - **Тексты:**
   - `src/data/destinations.json` — направления;
   - `src/data/hubs.json` — страны и регионы;
@@ -133,8 +138,8 @@ src/
   lib/                   оценка погоды, данные, подборки, сравнения, гиды, SEO
   components/            карточки, графики, фильтры, календарь, поиск, бронирование, «поделиться», избранное
   layouts/               базовый шаблон и шаблон гидов
-  pages/                 все типы страниц, инструменты, API для них (api/destinations.json), виджет (embed/)
-scripts/                 сбор климата, фото, температуры моря, поиск сравнений, проверка сайта, IndexNow, пины, план
+  pages/                 все типы страниц, инструменты, API для них (api/destinations.json, api/packing.json), виджет (embed/)
+scripts/                 сбор климата, фото, температуры моря, поиск сравнений, проверка сайта, аудит, IndexNow, пины, план
 marketing/               материалы для продвижения
 docs/                    план развития и отчёт об аудите
 .github/workflows/       CI, ежемесячная пересборка, мониторинг
