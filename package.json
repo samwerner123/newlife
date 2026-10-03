@@ -16,7 +16,8 @@
     "map": "node scripts/make-map.mjs",
     "indexnow": "node scripts/indexnow.mjs",
     "comparisons": "node scripts/find-comparisons.mjs",
-    "pins": "node scripts/make-pins.mjs"
+    "pins": "node scripts/make-pins.mjs",
+    "audit": "node scripts/audit.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

@@ -23,7 +23,7 @@ const hero = variant === 'hero';
       <Image
         src={p.src}
         alt={alt}
-        widths={hero ? [480, 720, 960, 1280] : [240, 400, 640]}
+        widths={hero ? [480, 720, 800, 960, 1280] : [240, 400, 640]}
         sizes={sizes ?? (hero ? '(max-width: 1160px) 100vw, 1128px' : '(max-width: 640px) 100vw, 380px')}
         loading={hero || eager ? 'eager' : 'lazy'}
         fetchpriority={hero || eager ? 'high' : 'auto'}
