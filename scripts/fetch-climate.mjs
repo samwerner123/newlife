@@ -123,6 +123,10 @@ function parseBox(body) {
     .replace(/\{\{[^}]*\}\}/g, '')
     .replace(/<br\s*\/?>/gi, ', ')
     .replace(/<[^>]+>/g, '')
+    .replace(/&ndash;/g, '–')
+    .replace(/&mdash;/g, '—')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
     .trim();
   const rainDaysUnit = (p['unit precipitation days'] || p['unit rain days'] || '').replace(/<[^>]+>/g, '').trim();
@@ -172,11 +176,19 @@ const failed = [];
 for (const dest of destinations) {
   if (only.length && !only.includes(dest.slug)) continue;
   process.stdout.write(`${dest.slug}: `);
+  // climateWiki may be a list of candidate articles, tried in order.
   let box;
-  try {
-    box = await findBox(dest.wiki);
-  } catch (e) {
-    console.log(`SKIPPED — ${e.message}`);
+  const errors = [];
+  for (const title of [].concat(dest.climateWiki || dest.wiki)) {
+    try {
+      box = await findBox(title);
+      break;
+    } catch (e) {
+      errors.push(e.message);
+    }
+  }
+  if (!box) {
+    console.log(`SKIPPED — ${errors.join(' / ')}`);
     failed.push(dest.slug);
     continue;
   }
@@ -196,6 +208,7 @@ for (const dest of destinations) {
     })),
     source: { page: box.page, location: box.location, rain: rainSource, rainDaysUnit: box.rainDaysUnit },
   };
+  await fs.writeFile(OUT, JSON.stringify(out, null, 2) + '\n'); // save progress after each destination
   console.log(`${box.location.slice(0, 70)} | ` +
     out[dest.slug].months.map((m) => `${Math.round(m.high)}/${Math.round(m.low)}/${m.rain}`).join(' '));
   await sleep(2500);

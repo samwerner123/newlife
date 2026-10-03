@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../config';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Terms of use', href: '/terms/' },
+];
+---
+
+<Base title="Terms of Use" description={`Terms of use for ${SITE.name}.`}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="prose section-tight">
+      <h1>Terms of use</h1>
+      <p>By using {SITE.name} you agree to these terms.</p>
+      <h2>Information only</h2>
+      <p>
+        Our content is general travel information. Climate averages describe typical conditions, not forecasts, and prices,
+        events and entry requirements change. Check official sources — including weather forecasts, government travel advice
+        and entry rules — before you travel.
+      </p>
+      <h2>Third-party sites</h2>
+      <p>
+        We link to booking sites and other third parties. We don't control them and aren't responsible for their content,
+        prices, availability or services. Bookings are a contract between you and the provider.
+      </p>
+      <h2>Content and licences</h2>
+      <p>
+        Text and design are © {SITE.name}. Photos are used under the licences listed on our <a href="/photo-credits/">photo
+        credits</a> page; climate data is credited on each page.
+      </p>
+      <h2>Liability</h2>
+      <p>
+        We work hard to keep information accurate but can't guarantee it is complete or up to date, and we aren't liable for
+        decisions made on the basis of it.
+      </p>
+      <h2>Changes</h2>
+      <p>We may update these terms from time to time; the current version always applies.</p>
+    </article>
+  </div>
+</Base>

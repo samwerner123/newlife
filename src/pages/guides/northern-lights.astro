@@ -1,0 +1,66 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+const spots = [
+  { slug: 'tromso', why: 'Right under the auroral oval, with tours that chase clear skies inland. Whale watching adds to winter trips.' },
+  { slug: 'iceland', why: 'Easy to combine with waterfalls and glaciers; drive out of Reykjavík to escape light pollution.' },
+  { slug: 'alaska', why: 'Fairbanks, north of Anchorage, has some of the most reliable aurora viewing in North America.' },
+  { slug: 'scottish-highlands', why: 'On strong nights the "Mirrie Dancers" show up over the Highlands and Skye — a bonus rather than a sure thing.' },
+  { slug: 'banff', why: 'Occasional displays over the Rockies; much stronger chances further north in Yukon and the Northwest Territories.' },
+];
+const rows = spots.map((s) => ({ ...s, d: bySlug.get(s.slug) })).filter((r) => r.d);
+const winter = [9, 11, 1]; // Oct, Dec, Feb
+---
+
+<Guide slug="northern-lights" photo="tromso">
+  <p>
+    The northern lights (aurora borealis) appear when charged particles from the sun hit the upper atmosphere. They happen
+    all year, but you can only see them when it's <strong>dark and clear</strong> — so the season in the far north runs
+    from about <strong>September to March</strong>, when the nights are long.
+  </p>
+  <p>
+    The sun's activity runs in roughly 11-year cycles, and the current cycle peaked around 2024–2026, which has produced some
+    exceptionally strong displays. Activity stays elevated for a couple of years after the peak, so the next few winters are
+    still a good time to go.
+  </p>
+
+  <h2>When to go</h2>
+  <ul>
+    <li><b>September–October:</b> autumn colours, milder temperatures and lakes that aren't frozen — great for reflections.</li>
+    <li><b>November–January:</b> the longest nights, but often the cloudiest months; in Tromsø the sun doesn't rise at all.</li>
+    <li><b>February–March:</b> long nights plus more daylight for activities, snow cover and frequently clearer skies.</li>
+  </ul>
+  <p>
+    Around the equinoxes (late September and late March), geomagnetic activity tends to be slightly higher, which gives those
+    weeks a small statistical edge.
+  </p>
+
+  <h2>Where to see the northern lights</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Destination</th><th scope="col">Oct</th><th scope="col">Dec</th><th scope="col">Feb</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d!.url}>{r.d!.name}</a></th>
+              {winter.map((m) => <td><a href={destMonthUrl(r.d!, m)}>{deg(r.d!.months[m].high)} / {deg(r.d!.months[m].low)}</a></td>)}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Average daily high / low temperatures. Wrap up warmly — you'll be standing outside for hours.</p>
+  <ul>{rows.map((r) => <li><a href={r.d!.url}><b>{r.d!.name}</b></a>: {r.why}</li>)}</ul>
+
+  <h2>Tips for better odds</h2>
+  <ul>
+    <li><b>Stay at least three nights</b> — the more nights you have, the better your chance of a clear one.</li>
+    <li><b>Get away from city lights</b> and look north; the best displays are often between 10 pm and 2 am.</li>
+    <li><b>Check two forecasts:</b> the aurora (KP index) and, just as important, cloud cover.</li>
+    <li><b>Join a chase tour</b> — guides drive to wherever skies are clearest.</li>
+    <li><b>Use your phone's night mode</b> or a tripod: cameras often pick up colours your eyes can't.</li>
+  </ul>
+</Guide>

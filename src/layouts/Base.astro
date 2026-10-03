@@ -17,18 +17,29 @@ const { title, description, jsonLd = [], ogType = 'website', image } = Astro.pro
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 // Keep titles short enough for search results: drop the brand suffix on long titles.
 const fullTitle = title.includes(SITE.name) || title.length > 52 ? title : `${title} | ${SITE.name}`;
-const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
+const ogImage = new URL(image ?? '/og-default.png', Astro.site).toString();
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // Units preference before first paint: saved choice, else °F for US English browsers.
+      (function () {
+        var u = null;
+        try { u = localStorage.getItem('units'); } catch (e) {}
+        if (u !== 'metric' && u !== 'imperial') u = /^en-(US|LR)$/i.test(navigator.language || '') ? 'imperial' : 'metric';
+        document.documentElement.setAttribute('data-units', u);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)" />
@@ -37,8 +48,8 @@ const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
-    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
   </head>
   <body>
@@ -49,6 +60,52 @@ const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
     </main>
     <Footer />
     <div id="tip" role="tooltip" aria-hidden="true"></div>
+    <script>
+      // Converts the server-rendered metric values (°C, mm) when the visitor prefers imperial units.
+      const root = document.documentElement;
+      const toF = (c: number) => Math.round((c * 9) / 5 + 32);
+      const toIn = (mm: number) => (mm / 25.4).toFixed(mm >= 254 ? 0 : 1);
+      const conv = (s: string) =>
+        s
+          .replace(/(-?\d+(?:\.\d+)?)°C/g, (_, c) => `${toF(+c)}°F`)
+          .replace(/(\d+(?:\.\d+)?)(\s?)mm\b/g, (_, mm, sp) => `${toIn(+mm)}${sp}in`)
+          .replace(/°C/g, '°F')
+          .replace(/, mm\b/g, ', in');
+
+      function convert(el: ParentNode) {
+        for (const n of el.querySelectorAll<HTMLElement>('[data-u]')) {
+          const v = Number(n.dataset.v);
+          n.textContent = n.dataset.u === 'c' ? `${toF(v)}°` : `${toIn(v)}`;
+        }
+        const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+          acceptNode: (t) =>
+            t.parentElement?.closest('script,style,[data-u],[data-no-units]') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+        });
+        const texts: Text[] = [];
+        while (walker.nextNode()) texts.push(walker.currentNode as Text);
+        for (const t of texts) {
+          if (/°C|mm\b/.test(t.data)) t.data = conv(t.data);
+        }
+        for (const n of el.querySelectorAll<HTMLElement>('[data-tip],[aria-label],[title]')) {
+          for (const a of ['data-tip', 'aria-label', 'title']) {
+            const v = n.getAttribute(a);
+            if (v && /°C|mm\b/.test(v)) n.setAttribute(a, conv(v));
+          }
+        }
+      }
+
+      if (root.dataset.units === 'imperial') convert(document.body);
+      (window as unknown as { __convertUnits: typeof convert }).__convertUnits = (el) => {
+        if (root.dataset.units === 'imperial') convert(el);
+      };
+      document.querySelectorAll('[data-units-toggle]').forEach((b) => b.addEventListener('click', () => {
+        const next = root.dataset.units === 'imperial' ? 'metric' : 'imperial';
+        try {
+          localStorage.setItem('units', next);
+        } catch {}
+        location.reload();
+      }));
+    </script>
     <script>
       // One shared tooltip for every element carrying data-tip ("first line\nmore lines").
       // Values come from our own data, but we still build the DOM with textContent.

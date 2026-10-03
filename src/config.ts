@@ -7,4 +7,6 @@ export const SITE = {
     'Find the best places to travel in any month. 38 destinations rated month by month using official climate normals, with daily budgets and booking links.',
   // Year shown in budget notes ("approximate 2026 prices").
   priceYear: 2026,
+  // Public contact address shown on /contact/ (leave empty until the inbox exists).
+  email: '',
 };

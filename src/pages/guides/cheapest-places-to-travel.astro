@@ -1,0 +1,64 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { destinations, monthRanges, MONTH_SHORT, usd } from '../../lib/data';
+import { SITE } from '../../config';
+
+const sorted = [...destinations].sort((a, b) => a.budget.low - b.budget.low || a.name.localeCompare(b.name));
+const top = sorted.slice(0, 10);
+---
+
+<Guide slug="cheapest-places-to-travel" photo="hanoi">
+  <p>
+    How far your money goes depends far more on where you travel than on how you travel. A comfortable day in Kathmandu or
+    Hanoi costs less than a hostel bed and a sandwich in Reykjavík. Below, every destination we cover is ranked by its typical
+    daily budget per person — with the months when the weather is best, so you can get value <em>and</em> sunshine.
+  </p>
+  <p class="small muted">
+    Budgets are approximate {SITE.priceYear} costs per person in US dollars, excluding flights. "Budget" means hostels or
+    guesthouses, local food and public transport; "mid-range" means a comfortable hotel, restaurants and some paid
+    activities.
+  </p>
+
+  <h2>The 10 cheapest destinations</h2>
+  <ol>
+    {top.map((d) => <li><a href={d.url}><b>{d.name}</b></a> — from {usd(d.budget.low)}/day. Best: {monthRanges(d.bestMonths, MONTH_SHORT) || 'see guide'}.</li>)}
+  </ol>
+
+  <h2>Every destination by daily budget</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Destination</th><th scope="col">Budget</th><th scope="col">Mid-range</th><th scope="col">Best months</th></tr></thead>
+      <tbody>
+        {
+          sorted.map((d) => (
+            <tr>
+              <th scope="row"><a href={d.url}>{d.name}</a></th>
+              <td>{usd(d.budget.low)}</td>
+              <td>{usd(d.budget.mid)}</td>
+              <td class="left">{monthRanges(d.bestMonths, MONTH_SHORT) || '—'}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How to save money anywhere</h2>
+  <ul>
+    <li><b>Travel in shoulder season</b> — the weeks just before and after peak season often have great weather and lower prices.</li>
+    <li><b>Be flexible with dates and airports</b> when searching for flights.</li>
+    <li><b>Eat where locals eat:</b> markets, street food and lunch menus are far cheaper than tourist restaurants.</li>
+    <li><b>Use public transport</b> and walkable neighbourhoods instead of taxis.</li>
+  </ul>
+  <p>
+    Month by month: <a href="/cheap-places-to-travel-in-january/">cheap places to travel in January</a>,
+    <a href="/cheap-places-to-travel-in-july/">July</a> or <a href="/cheap-places-to-travel-in-october/">October</a>.
+  </p>
+</Guide>
+
+<style>
+  td.left {
+    text-align: left;
+    white-space: normal;
+  }
+</style>

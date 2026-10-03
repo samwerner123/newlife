@@ -1,14 +1,18 @@
 ---
 import Logo from './Logo.astro';
 import { SITE } from '../config';
-import { MONTHS, monthUrl } from '../lib/data';
+import { MONTHS, monthUrl, hubByName } from '../lib/data';
 
 const year = new Date().getFullYear();
+const nowM = new Date().getMonth();
+const popular = ['Hawaii', 'Japan', 'Costa Rica', 'Greece', 'Italy', 'Thailand', 'Mexico', 'Portugal', 'Florida', 'Spain']
+  .map((n) => hubByName.get(n))
+  .filter((h) => h !== undefined);
 ---
 
 <footer class="site-footer">
   <div class="container cols">
-    <div>
+    <div class="brand">
       <Logo />
       <p class="muted small">{SITE.tagline}. Ratings are based on official climate normals and updated as new data is published.</p>
     </div>
@@ -19,22 +23,41 @@ const year = new Date().getFullYear();
       </ul>
     </div>
     <div>
-      <h2 class="eyebrow">Site</h2>
+      <h2 class="eyebrow">Best time to visit</h2>
       <ul>
+        {popular.map((h) => <li><a href={h!.url}>{h!.name}</a></li>)}
+        <li><a href="/countries/">All countries →</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="eyebrow">Explore</h2>
+      <ul>
+        <li><a href={`/warm-places-to-visit-in-${MONTHS[nowM].toLowerCase()}/`}>Warm places this month</a></li>
         <li><a href="/destinations/">All destinations</a></li>
+        <li><a href="/compare/">Compare destinations</a></li>
         <li><a href="/calendar/">Travel calendar</a></li>
-        <li><a href="/about/">How we rate destinations</a></li>
+        <li><a href="/guides/">Travel guides</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="eyebrow">About</h2>
+      <ul>
+        <li><a href="/about-us/">About us</a></li>
+        <li><a href="/about/">How we rate</a></li>
+        <li><a href="/editorial-policy/">Editorial policy</a></li>
+        <li><a href="/contact/">Contact</a></li>
         <li><a href="/affiliate-disclosure/">Affiliate disclosure</a></li>
-        <li><a href="/photo-credits/">Photo credits</a></li>
         <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/terms/">Terms</a></li>
+        <li><a href="/photo-credits/">Photo credits</a></li>
       </ul>
     </div>
   </div>
   <div class="container fine">
     <p class="disclosure">
-      Some links on this site are affiliate links: if you book through them we may earn a commission at no extra cost
-      to you. It never affects our ratings. Climate data: national meteorological services (via Wikipedia, CC BY-SA)
-      and NASA POWER. Photos: Wikimedia Commons contributors — see <a href="/photo-credits/">photo credits</a>.
+      Some links on this site are affiliate links: if you book through them we may earn a commission at no extra cost to
+      you. It never affects our ratings. Climate data: national meteorological services (via Wikipedia, CC BY-SA) and NASA
+      POWER. Photos: Wikimedia Commons contributors — see <a href="/photo-credits/">photo credits</a>.
     </p>
     <p class="disclosure">© {year} {SITE.name}</p>
   </div>
@@ -49,25 +72,27 @@ const year = new Date().getFullYear();
   }
   .cols {
     display: grid;
-    grid-template-columns: 1.4fr 1.6fr 1fr;
-    gap: 28px;
+    grid-template-columns: 1.3fr 1.5fr 1fr 1fr 1fr;
+    gap: 24px;
   }
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    gap: 6px;
+    gap: 2px;
     font-size: 0.9375rem;
   }
   .months {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  a {
+  li a {
+    display: inline-block;
+    padding: 4px 0;
     color: var(--text-2);
     text-decoration: none;
   }
-  a:hover {
+  li a:hover {
     color: var(--text);
     text-decoration: underline;
   }
@@ -76,9 +101,17 @@ const year = new Date().getFullYear();
     padding-top: 16px;
     border-top: 1px solid var(--border);
   }
-  @media (max-width: 760px) {
+  @media (max-width: 960px) {
     .cols {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
+    .brand {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (pointer: coarse) {
+    li a {
+      padding: 8px 0;
     }
   }
 </style>

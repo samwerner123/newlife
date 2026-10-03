@@ -1,0 +1,12 @@
+---
+import HubView from '../components/HubView.astro';
+import { hubs, type Hub } from '../lib/data';
+
+export function getStaticPaths() {
+  return hubs.map((hub) => ({ params: { hub: hub.slug }, props: { hub } }));
+}
+
+const { hub } = Astro.props as { hub: Hub };
+---
+
+<HubView hub={hub} />

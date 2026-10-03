@@ -1,0 +1,56 @@
+---
+interface Props {
+  items: { q: string; a: string }[];
+  title?: string;
+}
+const { items, title = 'Frequently asked questions' } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <section class="faq">
+      <h2>{title}</h2>
+      {items.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </section>
+  )
+}
+
+<style>
+  .faq {
+    max-width: 75ch;
+  }
+  details {
+    border-bottom: 1px solid var(--border);
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 650;
+    padding: 14px 28px 14px 0;
+    position: relative;
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::after {
+    content: '+';
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: var(--muted);
+  }
+  details[open] summary::after {
+    content: '–';
+  }
+  details p {
+    margin: 0 0 14px;
+    color: var(--text-2);
+  }
+</style>

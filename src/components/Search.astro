@@ -1,0 +1,207 @@
+---
+// Header search: a native <dialog> that loads /search.json on first open.
+---
+
+<button type="button" class="s-open" data-search-open aria-label="Search destinations">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+</button>
+<dialog class="s-dialog" data-search-dialog aria-label="Search">
+  <form method="dialog" class="s-form" role="search">
+    <input type="search" placeholder="Search destinations, countries, months…" aria-label="Search" autocomplete="off" data-search-input />
+    <button type="submit" class="s-close" aria-label="Close search">Esc</button>
+  </form>
+  <ul class="s-results" role="listbox" data-search-results></ul>
+  <p class="s-empty small muted" data-search-empty hidden>No matches — try a country, city or month.</p>
+</dialog>
+
+<script>
+  type Item = [string, string, string, string];
+  const dlg = document.querySelector<HTMLDialogElement>('[data-search-dialog]')!;
+  const input = dlg.querySelector<HTMLInputElement>('[data-search-input]')!;
+  const list = dlg.querySelector<HTMLUListElement>('[data-search-results]')!;
+  const empty = dlg.querySelector<HTMLElement>('[data-search-empty]')!;
+  let index: Item[] | null = null;
+  let active = 0;
+
+  const fold = (s: string) => s.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+  async function load() {
+    if (!index) index = await (await fetch('/search.json')).json();
+  }
+
+  function render() {
+    const q = fold(input.value.trim());
+    list.replaceChildren();
+    if (!index || !q) {
+      empty.hidden = true;
+      return;
+    }
+    const words = q.split(/\s+/);
+    const hits = index
+      .map((it) => {
+        const hay = fold(`${it[0]} ${it[3]}`);
+        if (!words.every((w) => hay.includes(w))) return null;
+        const title = fold(it[0]);
+        const score = (title.startsWith(q) ? 0 : title.includes(q) ? 1 : 2) + (it[2] === 'Destination' || it[2] === 'Country' ? 0 : 0.5);
+        return { it, score };
+      })
+      .filter((x): x is { it: Item; score: number } => x !== null)
+      .sort((a, b) => a.score - b.score || a.it[0].length - b.it[0].length)
+      .slice(0, 12);
+    active = 0;
+    hits.forEach(({ it }, i) => {
+      const li = document.createElement('li');
+      li.setAttribute('role', 'option');
+      const a = document.createElement('a');
+      a.href = it[1];
+      const t = document.createElement('span');
+      t.className = 's-title';
+      t.textContent = it[0];
+      const k = document.createElement('span');
+      k.className = 's-kind';
+      k.textContent = it[3] ? `${it[2]} · ${it[3]}` : it[2];
+      a.append(t, k);
+      li.append(a);
+      if (i === 0) li.classList.add('is-active');
+      list.append(li);
+    });
+    empty.hidden = hits.length > 0;
+  }
+
+  function move(d: number) {
+    const items = [...list.children] as HTMLElement[];
+    if (!items.length) return;
+    items[active]?.classList.remove('is-active');
+    active = (active + d + items.length) % items.length;
+    items[active].classList.add('is-active');
+    items[active].scrollIntoView({ block: 'nearest' });
+  }
+
+  document.querySelectorAll('[data-search-open]').forEach((b) =>
+    b.addEventListener('click', async () => {
+      dlg.showModal();
+      input.focus();
+      await load();
+      render();
+    }),
+  );
+  input.addEventListener('input', render);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+    if (e.key === 'Enter') {
+      const a = list.children[active]?.querySelector('a');
+      if (a) { e.preventDefault(); location.href = a.href; }
+    }
+  });
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  document.addEventListener('keydown', (e) => {
+    if ((e.key === '/' || (e.key === 'k' && (e.metaKey || e.ctrlKey))) && !dlg.open && !(e.target as HTMLElement).closest('input,textarea,select')) {
+      e.preventDefault();
+      (document.querySelector('[data-search-open]') as HTMLButtonElement)?.click();
+    }
+  });
+</script>
+
+<style>
+  .s-open {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-2);
+    cursor: pointer;
+  }
+  .s-dialog {
+    width: min(640px, calc(100vw - 32px));
+    max-height: min(70vh, 640px);
+    margin: 10vh auto auto;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: var(--shadow);
+  }
+  .s-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+  }
+  .s-form {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .s-form input {
+    flex: 1;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    font-size: 1rem;
+  }
+  .s-close {
+    min-width: 56px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text-2);
+    font: inherit;
+    font-size: 0.8125rem;
+    cursor: pointer;
+  }
+  .s-results {
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    overflow-y: auto;
+    max-height: calc(min(70vh, 640px) - 80px);
+  }
+  /* Result rows are created by script, so they need :global() to receive styles. */
+  .s-results :global(a) {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-height: 48px;
+    justify-content: center;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .s-results :global(li.is-active a),
+  .s-results :global(a:hover) {
+    background: var(--surface-2);
+  }
+  .s-results :global(.s-title) {
+    font-weight: 650;
+  }
+  .s-results :global(.s-kind) {
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+  .s-empty {
+    padding: 0 18px 16px;
+  }
+  @media (max-width: 640px) {
+    .s-dialog {
+      width: 100vw;
+      max-width: 100vw;
+      height: 100dvh;
+      max-height: 100dvh;
+      margin: 0;
+      border-radius: 0;
+    }
+    .s-results {
+      max-height: calc(100dvh - 80px);
+    }
+  }
+</style>

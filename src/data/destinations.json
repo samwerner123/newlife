@@ -3,6 +3,7 @@
     "slug": "lisbon",
     "name": "Lisbon",
     "country": "Portugal",
+    "hub": "Portugal",
     "region": "Europe",
     "lat": 38.72,
     "lon": -9.14,
@@ -10,6 +11,7 @@
     "wiki": "Lisbon",
     "climate": "temperate",
     "currency": "EUR",
+    "tz": "UTC+0 (+1 in summer)",
     "budget": {
       "low": 70,
       "mid": 160
@@ -34,12 +36,27 @@
     "adjust": {},
     "events": {
       "6": "Santo António festivities fill Alfama with sardine grills and street parties in mid-June."
-    }
+    },
+    "stay": [
+      [
+        "Baixa & Chiado",
+        "Central, elegant and walkable"
+      ],
+      [
+        "Alfama",
+        "Historic lanes and fado bars"
+      ],
+      [
+        "Príncipe Real",
+        "Leafy, stylish and quieter"
+      ]
+    ]
   },
   {
     "slug": "porto",
     "name": "Porto",
     "country": "Portugal",
+    "hub": "Portugal",
     "region": "Europe",
     "lat": 41.15,
     "lon": -8.61,
@@ -47,6 +64,7 @@
     "wiki": "Porto",
     "climate": "temperate",
     "currency": "EUR",
+    "tz": "UTC+0 (+1 in summer)",
     "budget": {
       "low": 60,
       "mid": 140
@@ -71,12 +89,27 @@
     "events": {
       "6": "São João on the night of 23–24 June is the city's biggest street party.",
       "9": "Grape harvest season in the Douro Valley runs through September into early October."
-    }
+    },
+    "stay": [
+      [
+        "Ribeira",
+        "Riverside old town"
+      ],
+      [
+        "Baixa",
+        "Central with cafés and nightlife"
+      ],
+      [
+        "Vila Nova de Gaia",
+        "Port cellars and city views"
+      ]
+    ]
   },
   {
     "slug": "barcelona",
     "name": "Barcelona",
     "country": "Spain",
+    "hub": "Spain",
     "region": "Europe",
     "lat": 41.39,
     "lon": 2.17,
@@ -84,6 +117,7 @@
     "wiki": "Barcelona",
     "climate": "temperate",
     "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
     "budget": {
       "low": 85,
       "mid": 190
@@ -110,12 +144,27 @@
     "events": {
       "6": "Sant Joan (23 June) lights up the beaches with bonfires and fireworks.",
       "9": "La Mercè festival around 24 September brings free concerts and human towers."
-    }
+    },
+    "stay": [
+      [
+        "Gothic Quarter",
+        "Medieval lanes in the centre"
+      ],
+      [
+        "Eixample",
+        "Gaudí buildings and great restaurants"
+      ],
+      [
+        "Barceloneta",
+        "Steps from the beach"
+      ]
+    ]
   },
   {
     "slug": "seville",
     "name": "Seville",
     "country": "Spain",
+    "hub": "Spain",
     "region": "Europe",
     "lat": 37.39,
     "lon": -5.98,
@@ -123,6 +172,7 @@
     "wiki": "Seville",
     "climate": "temperate",
     "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
     "budget": {
       "low": 65,
       "mid": 150
@@ -156,12 +206,27 @@
     "events": {
       "4": "Feria de Abril and often Holy Week processions — book accommodation early.",
       "3": "Orange-blossom season; Semana Santa sometimes falls in March."
-    }
+    },
+    "stay": [
+      [
+        "Santa Cruz",
+        "Old quarter by the Alcázar"
+      ],
+      [
+        "Triana",
+        "Flamenco and tapas across the river"
+      ],
+      [
+        "Arenal",
+        "Central, near the cathedral and river"
+      ]
+    ]
   },
   {
     "slug": "rome",
     "name": "Rome",
     "country": "Italy",
+    "hub": "Italy",
     "region": "Europe",
     "lat": 41.9,
     "lon": 12.5,
@@ -169,6 +234,7 @@
     "wiki": "Rome",
     "climate": "temperate",
     "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
     "budget": {
       "low": 85,
       "mid": 190
@@ -194,12 +260,27 @@
     "events": {
       "8": "Ferragosto (15 August): many Romans leave the city and some shops close.",
       "12": "Christmas brings nativity scenes across the city and celebrations at the Vatican."
-    }
+    },
+    "stay": [
+      [
+        "Centro Storico",
+        "Walk to the Pantheon and Piazza Navona"
+      ],
+      [
+        "Trastevere",
+        "Charming lanes and trattorias"
+      ],
+      [
+        "Monti",
+        "Hip area near the Colosseum"
+      ]
+    ]
   },
   {
     "slug": "athens",
     "name": "Athens",
     "country": "Greece",
+    "hub": "Greece",
     "region": "Europe",
     "lat": 37.98,
     "lon": 23.73,
@@ -207,6 +288,7 @@
     "wiki": "Athens",
     "climate": "temperate",
     "currency": "EUR",
+    "tz": "UTC+2 (+3 in summer)",
     "budget": {
       "low": 65,
       "mid": 150
@@ -231,12 +313,27 @@
     "adjust": {},
     "events": {
       "6": "The Athens Epidaurus Festival season of theatre and music runs through summer."
-    }
+    },
+    "stay": [
+      [
+        "Plaka",
+        "Historic streets below the Acropolis"
+      ],
+      [
+        "Koukaki",
+        "Quieter, near the Acropolis Museum"
+      ],
+      [
+        "Psyrri",
+        "Lively bars and street food"
+      ]
+    ]
   },
   {
     "slug": "istanbul",
     "name": "Istanbul",
     "country": "Türkiye",
+    "hub": "Türkiye",
     "region": "Europe",
     "lat": 41.01,
     "lon": 28.98,
@@ -244,6 +341,7 @@
     "wiki": "Istanbul",
     "climate": "temperate",
     "currency": "TRY",
+    "tz": "UTC+3",
     "budget": {
       "low": 45,
       "mid": 110
@@ -268,7 +366,21 @@
     "adjust": {},
     "events": {
       "4": "The Tulip Festival fills Emirgan Park and city squares with millions of blooms."
-    }
+    },
+    "stay": [
+      [
+        "Sultanahmet",
+        "Next to Hagia Sophia and the Blue Mosque"
+      ],
+      [
+        "Beyoğlu & Galata",
+        "Nightlife, rooftops and İstiklal Avenue"
+      ],
+      [
+        "Kadıköy",
+        "Local food scene on the Asian side"
+      ]
+    ]
   },
   {
     "slug": "prague",
@@ -281,6 +393,7 @@
     "wiki": "Prague",
     "climate": "temperate",
     "currency": "CZK",
+    "tz": "UTC+1 (+2 in summer)",
     "budget": {
       "low": 60,
       "mid": 140
@@ -304,7 +417,21 @@
     "adjust": {},
     "events": {
       "12": "Christmas markets on Old Town and Wenceslas Squares run from late November into early January."
-    }
+    },
+    "stay": [
+      [
+        "Old Town",
+        "Central and atmospheric"
+      ],
+      [
+        "Malá Strana",
+        "Baroque streets below the castle"
+      ],
+      [
+        "Vinohrady",
+        "Local cafés and better value"
+      ]
+    ]
   },
   {
     "slug": "budapest",
@@ -317,6 +444,7 @@
     "wiki": "Budapest",
     "climate": "temperate",
     "currency": "HUF",
+    "tz": "UTC+1 (+2 in summer)",
     "budget": {
       "low": 55,
       "mid": 130
@@ -341,7 +469,21 @@
     "events": {
       "8": "Sziget Festival and the St Stephen's Day fireworks on 20 August.",
       "12": "Christmas markets at Vörösmarty Square and the basilica, plus steaming outdoor baths."
-    }
+    },
+    "stay": [
+      [
+        "District V",
+        "Central, near the river and Parliament"
+      ],
+      [
+        "Jewish Quarter (District VII)",
+        "Ruin bars and nightlife"
+      ],
+      [
+        "Castle District",
+        "Quiet, historic Buda side"
+      ]
+    ]
   },
   {
     "slug": "krakow",
@@ -354,6 +496,7 @@
     "wiki": "Kraków",
     "climate": "temperate",
     "currency": "PLN",
+    "tz": "UTC+1 (+2 in summer)",
     "budget": {
       "low": 45,
       "mid": 110
@@ -377,12 +520,27 @@
     "adjust": {},
     "events": {
       "12": "One of Europe's best-value Christmas markets fills the Main Market Square."
-    }
+    },
+    "stay": [
+      [
+        "Old Town",
+        "Inside the historic centre"
+      ],
+      [
+        "Kazimierz",
+        "Bohemian cafés and bars"
+      ],
+      [
+        "Podgórze",
+        "Quieter, across the river"
+      ]
+    ]
   },
   {
     "slug": "split",
     "name": "Split",
     "country": "Croatia",
+    "hub": "Croatia",
     "region": "Europe",
     "lat": 43.51,
     "lon": 16.44,
@@ -390,6 +548,7 @@
     "wiki": "Split, Croatia",
     "climate": "temperate",
     "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
     "budget": {
       "low": 70,
       "mid": 160
@@ -413,7 +572,21 @@
     "adjust": {},
     "events": {
       "7": "Peak season: the sea reaches 24–26°C, but crowds and prices peak too."
-    }
+    },
+    "stay": [
+      [
+        "Old Town",
+        "Inside Diocletian's Palace walls"
+      ],
+      [
+        "Bačvice",
+        "Near the city beach"
+      ],
+      [
+        "Varoš",
+        "Stone houses below Marjan Hill"
+      ]
+    ]
   },
   {
     "slug": "tbilisi",
@@ -426,6 +599,7 @@
     "wiki": "Tbilisi",
     "climate": "temperate",
     "currency": "GEL",
+    "tz": "UTC+4",
     "budget": {
       "low": 35,
       "mid": 85
@@ -451,7 +625,21 @@
     "events": {
       "9": "Rtveli, the grape harvest, runs through September–October in the Kakheti wine region.",
       "10": "Late harvest season and Tbilisoba city festival in October."
-    }
+    },
+    "stay": [
+      [
+        "Old Tbilisi",
+        "Balconied lanes and sulphur baths"
+      ],
+      [
+        "Sololaki",
+        "Elegant, central and quiet"
+      ],
+      [
+        "Vake",
+        "Upscale, leafy district"
+      ]
+    ]
   },
   {
     "slug": "malta",
@@ -464,6 +652,7 @@
     "wiki": "Valletta",
     "climate": "temperate",
     "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
     "budget": {
       "low": 70,
       "mid": 150
@@ -487,12 +676,27 @@
     "adjust": {},
     "events": {
       "9": "The sea is still around 25°C, with far fewer visitors than August."
-    }
+    },
+    "stay": [
+      [
+        "Valletta",
+        "Historic capital with boutique hotels"
+      ],
+      [
+        "Sliema",
+        "Seafront promenade and shopping"
+      ],
+      [
+        "St Julian's",
+        "Nightlife and restaurants"
+      ]
+    ]
   },
   {
     "slug": "tenerife",
     "name": "Tenerife",
     "country": "Spain (Canary Islands)",
+    "hub": "Spain",
     "region": "Europe",
     "lat": 28.05,
     "lon": -16.57,
@@ -501,6 +705,7 @@
     "imagePage": "Teide National Park",
     "climate": "temperate",
     "currency": "EUR",
+    "tz": "UTC+0 (+1 in summer)",
     "budget": {
       "low": 70,
       "mid": 150
@@ -524,12 +729,27 @@
     "adjust": {},
     "events": {
       "2": "Santa Cruz Carnival is one of the largest carnivals in the world."
-    }
+    },
+    "stay": [
+      [
+        "Costa Adeje",
+        "Upscale resorts in the sunny south"
+      ],
+      [
+        "Los Cristianos",
+        "Family-friendly beaches and boat trips"
+      ],
+      [
+        "Puerto de la Cruz",
+        "Traditional town on the green north coast"
+      ]
+    ]
   },
   {
     "slug": "bangkok",
     "name": "Bangkok",
     "country": "Thailand",
+    "hub": "Thailand",
     "region": "Asia",
     "lat": 13.76,
     "lon": 100.5,
@@ -537,6 +757,7 @@
     "wiki": "Bangkok",
     "climate": "tropical",
     "currency": "THB",
+    "tz": "UTC+7",
     "budget": {
       "low": 35,
       "mid": 90
@@ -562,12 +783,27 @@
     "events": {
       "4": "Songkran (13–15 April), the Thai New Year, turns the city into a giant water fight.",
       "11": "Loy Krathong: floating offerings and lanterns on the November full moon."
-    }
+    },
+    "stay": [
+      [
+        "Sukhumvit",
+        "Nightlife, malls and the Skytrain"
+      ],
+      [
+        "Riverside",
+        "Luxury hotels on the Chao Phraya"
+      ],
+      [
+        "Old Town (Rattanakosin)",
+        "Next to the Grand Palace and temples"
+      ]
+    ]
   },
   {
     "slug": "chiang-mai",
     "name": "Chiang Mai",
     "country": "Thailand",
+    "hub": "Thailand",
     "region": "Asia",
     "lat": 18.79,
     "lon": 98.98,
@@ -575,6 +811,7 @@
     "wiki": "Chiang Mai",
     "climate": "tropical",
     "currency": "THB",
+    "tz": "UTC+7",
     "budget": {
       "low": 30,
       "mid": 75
@@ -612,12 +849,27 @@
     "events": {
       "11": "Yi Peng lantern festival on the November full moon.",
       "4": "Songkran water fights around the old city moat are legendary."
-    }
+    },
+    "stay": [
+      [
+        "Old City",
+        "Temples and guesthouses inside the moat"
+      ],
+      [
+        "Nimmanhaemin",
+        "Trendy cafés and co-working"
+      ],
+      [
+        "Riverside",
+        "Quieter boutique hotels"
+      ]
+    ]
   },
   {
     "slug": "phuket",
     "name": "Phuket",
     "country": "Thailand",
+    "hub": "Thailand",
     "region": "Asia",
     "lat": 7.88,
     "lon": 98.39,
@@ -626,6 +878,7 @@
     "imagePage": "Ko Phi Phi Don",
     "climate": "tropical",
     "currency": "THB",
+    "tz": "UTC+7",
     "budget": {
       "low": 45,
       "mid": 120
@@ -674,7 +927,21 @@
     },
     "events": {
       "10": "The Phuket Vegetarian Festival takes place in late September or October."
-    }
+    },
+    "stay": [
+      [
+        "Kata & Karon",
+        "Family-friendly beaches"
+      ],
+      [
+        "Patong",
+        "Nightlife central"
+      ],
+      [
+        "Old Phuket Town",
+        "Colourful heritage streets"
+      ]
+    ]
   },
   {
     "slug": "bali",
@@ -688,6 +955,7 @@
     "imagePage": "Pura Ulun Danu Bratan",
     "climate": "tropical",
     "currency": "IDR",
+    "tz": "UTC+8",
     "budget": {
       "low": 35,
       "mid": 90
@@ -712,12 +980,27 @@
     "adjust": {},
     "events": {
       "3": "Nyepi, the Day of Silence, shuts the whole island — airport included — for 24 hours (usually March)."
-    }
+    },
+    "stay": [
+      [
+        "Ubud",
+        "Rice terraces, yoga and culture"
+      ],
+      [
+        "Seminyak",
+        "Beach clubs and boutiques"
+      ],
+      [
+        "Uluwatu",
+        "Cliffs, surf and sunsets"
+      ]
+    ]
   },
   {
     "slug": "hanoi",
     "name": "Hanoi",
     "country": "Vietnam",
+    "hub": "Vietnam",
     "region": "Asia",
     "lat": 21.03,
     "lon": 105.85,
@@ -725,6 +1008,7 @@
     "wiki": "Hanoi",
     "climate": "temperate",
     "currency": "VND",
+    "tz": "UTC+7",
     "budget": {
       "low": 30,
       "mid": 70
@@ -757,12 +1041,27 @@
     },
     "events": {
       "2": "Tết (Lunar New Year, late January or February) is festive, but many shops close for days."
-    }
+    },
+    "stay": [
+      [
+        "Old Quarter",
+        "Street food and buzzing lanes"
+      ],
+      [
+        "French Quarter",
+        "Elegant boulevards and hotels"
+      ],
+      [
+        "Tay Ho (West Lake)",
+        "Quieter lakeside area"
+      ]
+    ]
   },
   {
     "slug": "da-nang",
     "name": "Da Nang & Hoi An",
     "country": "Vietnam",
+    "hub": "Vietnam",
     "region": "Asia",
     "lat": 16.05,
     "lon": 108.2,
@@ -770,6 +1069,7 @@
     "wiki": "Da Nang",
     "climate": "tropical",
     "currency": "VND",
+    "tz": "UTC+7",
     "budget": {
       "low": 30,
       "mid": 75
@@ -810,7 +1110,21 @@
     },
     "events": {
       "6": "The Da Nang International Fireworks Festival usually runs in June–July."
-    }
+    },
+    "stay": [
+      [
+        "My Khe Beach",
+        "Beachfront hotels in Da Nang"
+      ],
+      [
+        "Hoi An Ancient Town",
+        "Lantern-lit heritage streets"
+      ],
+      [
+        "An Bang Beach",
+        "Laid-back beach near Hoi An"
+      ]
+    ]
   },
   {
     "slug": "kuala-lumpur",
@@ -824,6 +1138,7 @@
     "imagePage": "Kuala Lumpur City Centre",
     "climate": "tropical",
     "currency": "MYR",
+    "tz": "UTC+8",
     "budget": {
       "low": 35,
       "mid": 85
@@ -847,12 +1162,27 @@
     "adjust": {},
     "events": {
       "8": "Merdeka (Independence Day) celebrations on 31 August."
-    }
+    },
+    "stay": [
+      [
+        "KLCC",
+        "Near the Petronas Towers"
+      ],
+      [
+        "Bukit Bintang",
+        "Shopping, food and nightlife"
+      ],
+      [
+        "Chinatown",
+        "Budget-friendly and central"
+      ]
+    ]
   },
   {
     "slug": "tokyo",
     "name": "Tokyo",
     "country": "Japan",
+    "hub": "Japan",
     "region": "Asia",
     "lat": 35.68,
     "lon": 139.69,
@@ -860,6 +1190,7 @@
     "wiki": "Tokyo",
     "climate": "temperate",
     "currency": "JPY",
+    "tz": "UTC+9",
     "budget": {
       "low": 80,
       "mid": 180
@@ -891,7 +1222,21 @@
       "3": "Cherry blossom season usually peaks in late March to early April.",
       "4": "Cherry blossoms early in the month; Golden Week (late April–early May) is very busy.",
       "11": "Autumn leaves peak from mid-November into early December."
-    }
+    },
+    "stay": [
+      [
+        "Shinjuku",
+        "Transport hub with nightlife"
+      ],
+      [
+        "Shibuya",
+        "Youthful energy and shopping"
+      ],
+      [
+        "Asakusa",
+        "Traditional temples and good value"
+      ]
+    ]
   },
   {
     "slug": "seoul",
@@ -904,6 +1249,7 @@
     "wiki": "Seoul",
     "climate": "temperate",
     "currency": "KRW",
+    "tz": "UTC+9",
     "budget": {
       "low": 65,
       "mid": 150
@@ -929,7 +1275,21 @@
     "events": {
       "4": "Cherry blossoms along Yeouido and Seokchon Lake in early April.",
       "10": "Autumn foliage season starts in late October."
-    }
+    },
+    "stay": [
+      [
+        "Myeongdong",
+        "Shopping and street food"
+      ],
+      [
+        "Hongdae",
+        "Nightlife and indie culture"
+      ],
+      [
+        "Insadong & Bukchon",
+        "Tea houses and hanok streets"
+      ]
+    ]
   },
   {
     "slug": "goa",
@@ -943,6 +1303,7 @@
     "imagePage": "Palolem",
     "climate": "tropical",
     "currency": "INR",
+    "tz": "UTC+5:30",
     "budget": {
       "low": 30,
       "mid": 80
@@ -984,7 +1345,21 @@
     "events": {
       "12": "Christmas and New Year parties mean peak prices — book ahead.",
       "2": "Goa Carnival takes over Panaji in February or early March."
-    }
+    },
+    "stay": [
+      [
+        "Palolem (South Goa)",
+        "Calm beach with huts"
+      ],
+      [
+        "Anjuna & Vagator (North Goa)",
+        "Parties and flea markets"
+      ],
+      [
+        "Panaji",
+        "Portuguese heritage capital"
+      ]
+    ]
   },
   {
     "slug": "sri-lanka",
@@ -998,6 +1373,7 @@
     "imagePage": "Galle Fort",
     "climate": "tropical",
     "currency": "LKR",
+    "tz": "UTC+5:30",
     "budget": {
       "low": 35,
       "mid": 85
@@ -1022,7 +1398,21 @@
     "adjust": {},
     "events": {
       "8": "Kandy Esala Perahera, a grand procession with decorated elephants, takes place in July or August."
-    }
+    },
+    "stay": [
+      [
+        "Galle Fort",
+        "Colonial fort with boutique stays"
+      ],
+      [
+        "Mirissa",
+        "Beach and whale watching"
+      ],
+      [
+        "Colombo",
+        "Capital for arrivals and food"
+      ]
+    ]
   },
   {
     "slug": "kathmandu",
@@ -1035,6 +1425,7 @@
     "wiki": "Kathmandu",
     "climate": "highland",
     "currency": "NPR",
+    "tz": "UTC+5:45",
     "budget": {
       "low": 25,
       "mid": 60
@@ -1058,7 +1449,21 @@
     "adjust": {},
     "events": {
       "10": "Dashain and Tihar festivals (October–November) coincide with the clearest mountain views."
-    }
+    },
+    "stay": [
+      [
+        "Thamel",
+        "Backpacker hub with shops and cafés"
+      ],
+      [
+        "Patan",
+        "Quieter, historic Durbar Square"
+      ],
+      [
+        "Boudha",
+        "Near the great stupa"
+      ]
+    ]
   },
   {
     "slug": "dubai",
@@ -1072,6 +1477,7 @@
     "imagePage": "Dubai Marina",
     "climate": "temperate",
     "currency": "AED",
+    "tz": "UTC+4",
     "budget": {
       "low": 90,
       "mid": 220
@@ -1095,7 +1501,21 @@
     "adjust": {},
     "events": {
       "12": "Dubai Shopping Festival runs from mid-December into January."
-    }
+    },
+    "stay": [
+      [
+        "Downtown",
+        "Burj Khalifa and Dubai Mall"
+      ],
+      [
+        "Dubai Marina & JBR",
+        "Beach and waterfront dining"
+      ],
+      [
+        "Deira & Bur Dubai",
+        "Souks and better value"
+      ]
+    ]
   },
   {
     "slug": "marrakech",
@@ -1109,6 +1529,7 @@
     "imagePage": "Jemaa el-Fnaa",
     "climate": "temperate",
     "currency": "MAD",
+    "tz": "UTC+1",
     "budget": {
       "low": 40,
       "mid": 100
@@ -1130,12 +1551,27 @@
     "best": "March–May and September–November: warm days and comfortable evenings.",
     "avoid": "July–August is scorching; winter nights can be close to freezing.",
     "adjust": {},
-    "events": {}
+    "events": {},
+    "stay": [
+      [
+        "Medina riads",
+        "Courtyard houses in the old city"
+      ],
+      [
+        "Gueliz",
+        "Modern district with restaurants"
+      ],
+      [
+        "Palmeraie",
+        "Resorts in the palm groves"
+      ]
+    ]
   },
   {
     "slug": "cairo",
     "name": "Cairo",
     "country": "Egypt",
+    "hub": "Egypt",
     "region": "Middle East & Africa",
     "lat": 30.04,
     "lon": 31.24,
@@ -1144,6 +1580,7 @@
     "imagePage": "Giza pyramid complex",
     "climate": "temperate",
     "currency": "EGP",
+    "tz": "UTC+2 (+3 in summer)",
     "budget": {
       "low": 35,
       "mid": 90
@@ -1165,7 +1602,21 @@
     "best": "October–April: warm, dry days that suit sightseeing.",
     "avoid": "June–August: intense heat, often 35–40°C.",
     "adjust": {},
-    "events": {}
+    "events": {},
+    "stay": [
+      [
+        "Giza",
+        "Pyramid views from your hotel"
+      ],
+      [
+        "Zamalek",
+        "Leafy Nile island with cafés"
+      ],
+      [
+        "Garden City",
+        "Riverside hotels near the centre"
+      ]
+    ]
   },
   {
     "slug": "cape-town",
@@ -1178,6 +1629,7 @@
     "wiki": "Cape Town",
     "climate": "temperate",
     "currency": "ZAR",
+    "tz": "UTC+2",
     "budget": {
       "low": 50,
       "mid": 120
@@ -1203,7 +1655,21 @@
     "events": {
       "9": "Whale watching in Hermanus is at its best in September–October.",
       "12": "Peak summer season with long days and holiday crowds."
-    }
+    },
+    "stay": [
+      [
+        "V&A Waterfront",
+        "Harbour shops and restaurants"
+      ],
+      [
+        "City Bowl",
+        "Central, below Table Mountain"
+      ],
+      [
+        "Camps Bay",
+        "Beachfront with mountain views"
+      ]
+    ]
   },
   {
     "slug": "zanzibar",
@@ -1216,6 +1682,7 @@
     "wiki": "Zanzibar City",
     "climate": "tropical",
     "currency": "TZS",
+    "tz": "UTC+3",
     "budget": {
       "low": 45,
       "mid": 120
@@ -1248,19 +1715,35 @@
     },
     "events": {
       "7": "Dry, breezy season and the start of east-coast kitesurfing."
-    }
+    },
+    "stay": [
+      [
+        "Stone Town",
+        "Historic heart with rooftop restaurants"
+      ],
+      [
+        "Nungwi",
+        "Beaches and sunsets in the north"
+      ],
+      [
+        "Paje",
+        "Kitesurfing on the east coast"
+      ]
+    ]
   },
   {
     "slug": "mexico-city",
     "name": "Mexico City",
     "country": "Mexico",
-    "region": "Americas",
+    "hub": "Mexico",
+    "region": "North America",
     "lat": 19.43,
     "lon": -99.13,
     "iata": "MEX",
     "wiki": "Mexico City",
     "climate": "highland",
     "currency": "MXN",
+    "tz": "UTC−6",
     "budget": {
       "low": 45,
       "mid": 110
@@ -1303,19 +1786,35 @@
     "events": {
       "11": "Día de Muertos (31 October–2 November): altars, parades and marigolds everywhere.",
       "10": "The Day of the Dead parade and preparations fill the city in late October."
-    }
+    },
+    "stay": [
+      [
+        "Roma Norte",
+        "Cafés, bars and leafy streets"
+      ],
+      [
+        "Condesa",
+        "Parks and nightlife"
+      ],
+      [
+        "Centro Histórico",
+        "Near the Zócalo and museums"
+      ]
+    ]
   },
   {
     "slug": "cancun",
     "name": "Cancún & Riviera Maya",
     "country": "Mexico",
-    "region": "Americas",
+    "hub": "Mexico",
+    "region": "North America",
     "lat": 21.16,
     "lon": -86.85,
     "iata": "CUN",
     "wiki": "Cancún",
     "climate": "tropical",
     "currency": "MXN",
+    "tz": "UTC−5",
     "budget": {
       "low": 70,
       "mid": 170
@@ -1365,19 +1864,35 @@
     },
     "events": {
       "3": "Spring break crowds arrive in March and prices rise."
-    }
+    },
+    "stay": [
+      [
+        "Hotel Zone",
+        "Beach resorts and nightlife"
+      ],
+      [
+        "Playa del Carmen",
+        "Walkable beach town"
+      ],
+      [
+        "Tulum",
+        "Boho beach hotels near the ruins"
+      ]
+    ]
   },
   {
     "slug": "medellin",
     "name": "Medellín",
     "country": "Colombia",
-    "region": "Americas",
+    "hub": "Colombia",
+    "region": "Central & South America",
     "lat": 6.24,
     "lon": -75.58,
     "iata": "MDE",
     "wiki": "Medellín",
     "climate": "highland",
     "currency": "COP",
+    "tz": "UTC−5",
     "budget": {
       "low": 35,
       "mid": 85
@@ -1402,13 +1917,28 @@
     "events": {
       "8": "Feria de las Flores — the flower festival and silleteros parade — takes place in early August.",
       "12": "Alumbrados: spectacular Christmas lights along the river."
-    }
+    },
+    "stay": [
+      [
+        "El Poblado",
+        "Restaurants and nightlife"
+      ],
+      [
+        "Laureles",
+        "Local feel, quieter"
+      ],
+      [
+        "Envigado",
+        "Residential and good value"
+      ]
+    ]
   },
   {
     "slug": "cartagena",
     "name": "Cartagena",
     "country": "Colombia",
-    "region": "Americas",
+    "hub": "Colombia",
+    "region": "Central & South America",
     "lat": 10.39,
     "lon": -75.51,
     "iata": "CTG",
@@ -1416,6 +1946,7 @@
     "imagePage": "Castillo San Felipe de Barajas",
     "climate": "tropical",
     "currency": "COP",
+    "tz": "UTC−5",
     "budget": {
       "low": 50,
       "mid": 120
@@ -1440,19 +1971,35 @@
     "adjust": {},
     "events": {
       "1": "The Hay Festival brings writers and musicians to the old town in late January."
-    }
+    },
+    "stay": [
+      [
+        "Walled City",
+        "Colonial heart"
+      ],
+      [
+        "Getsemaní",
+        "Street art and nightlife"
+      ],
+      [
+        "Bocagrande",
+        "Beachfront high-rises"
+      ]
+    ]
   },
   {
     "slug": "cusco",
     "name": "Cusco & Machu Picchu",
     "country": "Peru",
-    "region": "Americas",
+    "hub": "Peru",
+    "region": "Central & South America",
     "lat": -13.53,
     "lon": -71.97,
     "iata": "CUZ",
     "wiki": "Cusco",
     "climate": "highland",
     "currency": "PEN",
+    "tz": "UTC−5",
     "budget": {
       "low": 40,
       "mid": 95
@@ -1495,19 +2042,34 @@
     "events": {
       "6": "Inti Raymi, the Inca Festival of the Sun, is held on 24 June.",
       "2": "The classic Inca Trail closes for maintenance all of February."
-    }
+    },
+    "stay": [
+      [
+        "San Blas",
+        "Bohemian artisan quarter"
+      ],
+      [
+        "Plaza de Armas area",
+        "Central and convenient"
+      ],
+      [
+        "Sacred Valley",
+        "Lower altitude for acclimatising"
+      ]
+    ]
   },
   {
     "slug": "buenos-aires",
     "name": "Buenos Aires",
     "country": "Argentina",
-    "region": "Americas",
+    "region": "Central & South America",
     "lat": -34.6,
     "lon": -58.38,
     "iata": "BUE",
     "wiki": "Buenos Aires",
     "climate": "temperate",
     "currency": "ARS",
+    "tz": "UTC−3",
     "budget": {
       "low": 50,
       "mid": 120
@@ -1532,19 +2094,34 @@
     "adjust": {},
     "events": {
       "8": "The Tango BA Festival y Mundial brings dancers from around the world in August."
-    }
+    },
+    "stay": [
+      [
+        "Palermo",
+        "Parks, bars and restaurants"
+      ],
+      [
+        "Recoleta",
+        "Elegant and safe"
+      ],
+      [
+        "San Telmo",
+        "Tango and antiques"
+      ]
+    ]
   },
   {
     "slug": "rio-de-janeiro",
     "name": "Rio de Janeiro",
     "country": "Brazil",
-    "region": "Americas",
+    "region": "Central & South America",
     "lat": -22.91,
     "lon": -43.17,
     "iata": "RIO",
     "wiki": "Rio de Janeiro",
     "climate": "tropical",
     "currency": "BRL",
+    "tz": "UTC−3",
     "budget": {
       "low": 50,
       "mid": 120
@@ -1570,6 +2147,4786 @@
     "events": {
       "2": "Carnival (February or March) is the world's biggest party — prices soar.",
       "12": "New Year's Eve on Copacabana beach draws millions."
-    }
+    },
+    "stay": [
+      [
+        "Ipanema",
+        "Beach and upscale dining"
+      ],
+      [
+        "Copacabana",
+        "Classic beachfront, good value"
+      ],
+      [
+        "Santa Teresa",
+        "Bohemian hillside"
+      ]
+    ]
+  },
+  {
+    "slug": "oahu",
+    "name": "Oahu (Honolulu)",
+    "country": "United States",
+    "hub": "Hawaii",
+    "region": "North America",
+    "lat": 21.31,
+    "lon": -157.86,
+    "iata": "HNL",
+    "wiki": "Honolulu",
+    "imagePage": "Waikiki",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−10",
+    "budget": {
+      "low": 130,
+      "mid": 280
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "city",
+      "nature"
+    ],
+    "tagline": "Waikiki, the North Shore and Pearl Harbor on Hawaii's most visited island.",
+    "intro": "Oahu mixes the city energy of Honolulu and Waikiki with world-famous surf on the North Shore and green mountain hikes. It has the most flights, hotels and things to do of any Hawaiian island.",
+    "highlights": [
+      "Sunrise hike up Diamond Head",
+      "Pearl Harbor National Memorial",
+      "Big-wave watching on the North Shore in winter",
+      "Snorkelling at Hanauma Bay",
+      "Kailua and Lanikai beaches"
+    ],
+    "best": "April–June and September–October: sunny, less rain and lower prices than the winter peak.",
+    "avoid": "Mid-December to March is the wettest and priciest stretch, although still warm.",
+    "adjust": {},
+    "events": {
+      "12": "Winter swell season: giant waves and pro surf contests on the North Shore (November–February)."
+    },
+    "stay": [
+      [
+        "Waikiki",
+        "Beachfront hotels, restaurants and nightlife in one walkable strip"
+      ],
+      [
+        "Ko Olina",
+        "Resort lagoons on the sunny, quieter west coast"
+      ],
+      [
+        "North Shore",
+        "Laid-back surf towns and vacation rentals"
+      ]
+    ]
+  },
+  {
+    "slug": "maui",
+    "name": "Maui",
+    "country": "United States",
+    "hub": "Hawaii",
+    "region": "North America",
+    "lat": 20.89,
+    "lon": -156.47,
+    "iata": "OGG",
+    "wiki": "Kahului, Hawaii",
+    "imagePage": "Haleakalā",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−10",
+    "budget": {
+      "low": 150,
+      "mid": 320
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "wildlife"
+    ],
+    "tagline": "The Road to Hana, Haleakalā sunrises and whale-filled winter waters.",
+    "intro": "Maui is Hawaii's classic honeymoon island: golden beaches in Kaanapali and Wailea, the rainforest Road to Hana and the summit of Haleakalā volcano. From December to April humpback whales gather offshore.",
+    "highlights": [
+      "Sunrise at Haleakalā summit (reservation needed)",
+      "Driving the Road to Hana",
+      "Whale watching from Lahaina or Maalaea (Dec–Apr)",
+      "Snorkelling Molokini Crater",
+      "Beach days in Wailea and Kaanapali"
+    ],
+    "best": "April–May and September–November: dry, sunny and outside the busy holiday seasons.",
+    "avoid": "Christmas–March is the priciest period; winter brings more rain to the north-east coast.",
+    "adjust": {},
+    "events": {
+      "2": "Peak humpback whale season (January–March)."
+    },
+    "stay": [
+      [
+        "Kaanapali",
+        "Long beach lined with resorts on the sunny west coast"
+      ],
+      [
+        "Wailea",
+        "Upscale resorts and calm swimming beaches"
+      ],
+      [
+        "Paia",
+        "Bohemian surf town at the start of the Road to Hana"
+      ]
+    ]
+  },
+  {
+    "slug": "kauai",
+    "name": "Kauai",
+    "country": "United States",
+    "hub": "Hawaii",
+    "region": "North America",
+    "lat": 21.98,
+    "lon": -159.35,
+    "iata": "LIH",
+    "wiki": "Lihue, Hawaii",
+    "imagePage": "Kauai",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−10",
+    "budget": {
+      "low": 150,
+      "mid": 320
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature"
+    ],
+    "tagline": "Hawaii's Garden Isle: the Nā Pali Coast, Waimea Canyon and quiet beaches.",
+    "intro": "Kauai is the greenest and least developed of the main Hawaiian islands. Dramatic sea cliffs, waterfalls and a canyon nicknamed the Grand Canyon of the Pacific make it a favourite for hikers.",
+    "highlights": [
+      "Nā Pali Coast by boat, helicopter or the Kalalau Trail",
+      "Waimea Canyon lookouts",
+      "Hanalei Bay and the North Shore",
+      "Kayaking the Wailua River",
+      "Poipu Beach on the sunny south shore"
+    ],
+    "best": "May–October: the driest months, with calm seas for Nā Pali boat tours.",
+    "avoid": "November–March brings heavy rain, especially on the north shore.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "Poipu",
+        "Sunniest area with beaches and resorts on the south shore"
+      ],
+      [
+        "Princeville & Hanalei",
+        "Lush north shore with stunning bays (wetter in winter)"
+      ],
+      [
+        "Kapaa",
+        "Central east side with good-value stays"
+      ]
+    ]
+  },
+  {
+    "slug": "big-island",
+    "name": "Big Island (Hawaiʻi)",
+    "country": "United States",
+    "hub": "Hawaii",
+    "region": "North America",
+    "lat": 19.64,
+    "lon": -155.99,
+    "iata": "KOA",
+    "wiki": "Kailua, Hawaii County, Hawaii",
+    "imagePage": "Hawaiʻi Volcanoes National Park",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−10",
+    "budget": {
+      "low": 130,
+      "mid": 280
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "wildlife"
+    ],
+    "tagline": "Active volcanoes, manta-ray night dives and black-sand beaches.",
+    "intro": "Hawaii's largest island has everything from lava fields in Hawaiʻi Volcanoes National Park to snow-capped Mauna Kea and coffee farms in Kona. The sunny Kona side is where most visitors stay.",
+    "highlights": [
+      "Hawaiʻi Volcanoes National Park",
+      "Night snorkel with manta rays off Kona",
+      "Stargazing at Mauna Kea",
+      "Punaluʻu black-sand beach and its turtles",
+      "Kona coffee farm tours"
+    ],
+    "best": "April–May and September–October for dry, sunny weather on the Kona coast.",
+    "avoid": "Winter is busiest and pricier; the Hilo side is rainy year-round.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "Kailua-Kona",
+        "Sunny west-coast town with restaurants and tours"
+      ],
+      [
+        "Waikoloa",
+        "Resort coast with the island's best beaches"
+      ],
+      [
+        "Volcano Village",
+        "Rainforest cabins next to the national park"
+      ]
+    ]
+  },
+  {
+    "slug": "guanacaste",
+    "name": "Guanacaste",
+    "country": "Costa Rica",
+    "hub": "Costa Rica",
+    "region": "Central & South America",
+    "lat": 10.63,
+    "lon": -85.44,
+    "iata": "LIR",
+    "wiki": "Liberia, Costa Rica",
+    "imagePage": "Tamarindo, Costa Rica",
+    "climate": "tropical",
+    "currency": "CRC",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 70,
+      "mid": 170
+    },
+    "tags": [
+      "beach",
+      "nature",
+      "wildlife"
+    ],
+    "tagline": "Costa Rica's sunniest coast: surf towns, dry forest and Pacific sunsets.",
+    "intro": "Guanacaste, in the north-west, is Costa Rica's driest region and its main beach destination. Tamarindo, Nosara and the Papagayo Peninsula offer surfing, yoga retreats and all-inclusive resorts.",
+    "highlights": [
+      "Surfing in Tamarindo or Nosara",
+      "Rincón de la Vieja volcano hikes",
+      "Sunset at Playa Conchal",
+      "Snorkelling and boat trips in Papagayo Bay",
+      "Turtle nesting at Ostional"
+    ],
+    "best": "December–April: the dry season, with almost guaranteed sunshine.",
+    "avoid": "September–October is the wettest period; some businesses close.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "Tamarindo",
+        "Lively surf town with plenty of restaurants"
+      ],
+      [
+        "Nosara",
+        "Quiet yoga and surf hub with jungle-backed beaches"
+      ],
+      [
+        "Papagayo Peninsula",
+        "Luxury resorts on calm bays"
+      ]
+    ]
+  },
+  {
+    "slug": "san-jose-costa-rica",
+    "name": "San José & Central Valley",
+    "country": "Costa Rica",
+    "hub": "Costa Rica",
+    "region": "Central & South America",
+    "lat": 9.93,
+    "lon": -84.08,
+    "iata": "SJO",
+    "wiki": "San José, Costa Rica",
+    "imagePage": "Arenal Volcano",
+    "climate": "highland",
+    "currency": "CRC",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 50,
+      "mid": 120
+    },
+    "tags": [
+      "city",
+      "nature",
+      "culture"
+    ],
+    "tagline": "Spring-like highlands, coffee farms and the gateway to Arenal.",
+    "intro": "Most trips to Costa Rica start in San José and the Central Valley, a mild highland region of coffee plantations and volcanoes. It's the hub for trips to Arenal, Monteverde and both coasts.",
+    "highlights": [
+      "Poás or Irazú volcano day trip",
+      "Coffee farm tour",
+      "Day trip to Arenal and La Fortuna waterfall",
+      "Monteverde cloud-forest hanging bridges",
+      "Mercado Central and the National Theatre"
+    ],
+    "best": "December–April: dry, sunny and comfortably warm.",
+    "avoid": "September–October bring the heaviest afternoon rains.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "Escazú",
+        "Leafy suburb with good restaurants"
+      ],
+      [
+        "Barrio Amón",
+        "Historic centre with boutique hotels"
+      ],
+      [
+        "Alajuela",
+        "Close to the airport for early flights"
+      ]
+    ]
+  },
+  {
+    "slug": "manuel-antonio",
+    "name": "Manuel Antonio",
+    "country": "Costa Rica",
+    "hub": "Costa Rica",
+    "region": "Central & South America",
+    "lat": 9.43,
+    "lon": -84.16,
+    "iata": "SJO",
+    "wiki": "Quepos",
+    "imagePage": "Manuel Antonio National Park",
+    "climate": "tropical",
+    "currency": "CRC",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 70,
+      "mid": 170
+    },
+    "tags": [
+      "beach",
+      "nature",
+      "wildlife"
+    ],
+    "tagline": "Sloths, monkeys and white-sand coves in a tiny national park.",
+    "intro": "Manuel Antonio National Park packs rainforest trails, wildlife and beautiful beaches into a small area on the central Pacific coast. It's one of the easiest places in Costa Rica to see sloths and monkeys.",
+    "highlights": [
+      "Guided wildlife walk in Manuel Antonio National Park",
+      "Playa Espadilla and Playa Manuel Antonio",
+      "Sunset catamaran cruise",
+      "Sportfishing from Quepos",
+      "Mangrove kayaking"
+    ],
+    "best": "December–April: dry, sunny and great for wildlife spotting.",
+    "avoid": "September–November is very wet on the Pacific coast.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "Manuel Antonio hillside",
+        "Hotels with ocean views near the park"
+      ],
+      [
+        "Quepos",
+        "Cheaper town base with a marina"
+      ],
+      [
+        "Playa Espadilla",
+        "Beachfront stays at the park entrance"
+      ]
+    ]
+  },
+  {
+    "slug": "puerto-viejo",
+    "name": "Puerto Viejo & Caribbean Coast",
+    "country": "Costa Rica",
+    "hub": "Costa Rica",
+    "region": "Central & South America",
+    "lat": 9.99,
+    "lon": -83.03,
+    "iata": "SJO",
+    "wiki": "Limón",
+    "imagePage": "Cahuita National Park",
+    "climate": "tropical",
+    "currency": "CRC",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 50,
+      "mid": 120
+    },
+    "tags": [
+      "beach",
+      "nature",
+      "wildlife",
+      "nightlife"
+    ],
+    "tagline": "Reggae, rainforest and Afro-Caribbean food on Costa Rica's other coast.",
+    "intro": "The Caribbean coast has a different rhythm: Afro-Caribbean culture, jungle-backed beaches and Cahuita National Park. Its weather pattern is the reverse of the Pacific, with drier spells in September–October.",
+    "highlights": [
+      "Snorkelling in Cahuita National Park",
+      "Cycling to Playa Cocles and Punta Uva",
+      "Jaguar Rescue Center",
+      "Chocolate farm tour",
+      "Tortuguero turtle nesting (July–October)"
+    ],
+    "best": "September–October and February–April are the driest windows here.",
+    "avoid": "November–January and July can be very rainy.",
+    "adjust": {},
+    "events": {
+      "9": "While the Pacific coast is soaked, September–October are among the driest months here."
+    },
+    "stay": [
+      [
+        "Puerto Viejo",
+        "Lively village with bars and cafés"
+      ],
+      [
+        "Playa Cocles",
+        "Surf beach a short bike ride away"
+      ],
+      [
+        "Punta Uva",
+        "Quiet, idyllic beach stays"
+      ]
+    ]
+  },
+  {
+    "slug": "iceland",
+    "name": "Iceland",
+    "country": "Iceland",
+    "region": "Europe",
+    "lat": 64.15,
+    "lon": -21.94,
+    "iata": "REK",
+    "wiki": "Reykjavík",
+    "imagePage": "Skógafoss",
+    "climate": "temperate",
+    "currency": "ISK",
+    "tz": "UTC+0",
+    "budget": {
+      "low": 130,
+      "mid": 280
+    },
+    "tags": [
+      "nature",
+      "wildlife",
+      "city"
+    ],
+    "tagline": "Waterfalls, glaciers, geothermal lagoons and the northern lights.",
+    "intro": "Iceland is a land of volcanoes, glaciers and thundering waterfalls, easily explored from Reykjavík on the Golden Circle and South Coast. Summer brings the midnight sun; winter is northern-lights season.",
+    "highlights": [
+      "Golden Circle: Þingvellir, Geysir and Gullfoss",
+      "South Coast waterfalls and black-sand beaches",
+      "Soak in the Blue Lagoon or Sky Lagoon",
+      "Northern lights hunt (September–March)",
+      "Glacier hike or ice-cave tour"
+    ],
+    "best": "June–August for mild weather, long days and open highland roads; September–March for the northern lights.",
+    "avoid": "November–February has only 4–6 hours of daylight and frequent storms.",
+    "adjust": {},
+    "events": {
+      "6": "Midnight sun: almost 24 hours of daylight around the June solstice.",
+      "10": "Northern lights season is in full swing (September–March).",
+      "2": "Prime time for ice caves and northern lights."
+    },
+    "stay": [
+      [
+        "Reykjavík centre",
+        "Walkable base with restaurants and tours"
+      ],
+      [
+        "South Coast (Vík, Hella)",
+        "Countryside guesthouses near waterfalls"
+      ],
+      [
+        "Golden Circle",
+        "Cabins and farm stays away from city lights"
+      ]
+    ]
+  },
+  {
+    "slug": "miami",
+    "name": "Miami",
+    "country": "United States",
+    "hub": "Florida",
+    "region": "North America",
+    "lat": 25.76,
+    "lon": -80.19,
+    "iata": "MIA",
+    "wiki": "Miami",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 250
+    },
+    "tags": [
+      "beach",
+      "city",
+      "nightlife",
+      "food"
+    ],
+    "tagline": "Art Deco beaches, Cuban coffee and year-round sunshine.",
+    "intro": "Miami pairs South Beach's Art Deco glamour with Latin culture in Little Havana and street art in Wynwood. It's the winter-sun escape for much of North America and the gateway to the Florida Keys and the Everglades.",
+    "highlights": [
+      "Art Deco Historic District and South Beach",
+      "Little Havana and Calle Ocho",
+      "Wynwood Walls street art",
+      "Airboat ride in the Everglades",
+      "Day trip down the Florida Keys"
+    ],
+    "best": "November–April: warm, dry and sunny with lower humidity.",
+    "avoid": "June–October is hot, humid and stormy, with peak hurricane risk in August–October.",
+    "adjust": {
+      "8": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "12": "Art Basel Miami Beach (early December).",
+      "3": "Spring break crowds and Miami Music Week (March)."
+    },
+    "stay": [
+      [
+        "South Beach",
+        "Art Deco hotels, beach and nightlife"
+      ],
+      [
+        "Brickell & Downtown",
+        "High-rise hotels near restaurants and bars"
+      ],
+      [
+        "Coconut Grove",
+        "Leafy, relaxed bayfront neighbourhood"
+      ]
+    ]
+  },
+  {
+    "slug": "orlando",
+    "name": "Orlando",
+    "country": "United States",
+    "hub": "Florida",
+    "region": "North America",
+    "lat": 28.54,
+    "lon": -81.38,
+    "iata": "ORL",
+    "wiki": "Orlando, Florida",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 100,
+      "mid": 230
+    },
+    "tags": [
+      "family",
+      "city"
+    ],
+    "tagline": "Theme-park capital of the world: Disney, Universal and more.",
+    "intro": "Orlando is home to Walt Disney World, Universal Orlando and SeaWorld, plus water parks and outlet malls. Weather matters: summer afternoons bring heat and thunderstorms, while winter is mild and pleasant.",
+    "highlights": [
+      "Walt Disney World's four theme parks",
+      "Universal Studios and Islands of Adventure",
+      "Kennedy Space Center day trip",
+      "Springs and manatees at Blue Spring State Park",
+      "Disney Springs and International Drive"
+    ],
+    "best": "March–May and October–November: warm, drier and less humid.",
+    "avoid": "June–September is hot and humid with daily storms; school holidays are the most crowded.",
+    "adjust": {},
+    "events": {
+      "10": "Halloween events at Disney and Universal (September–October).",
+      "12": "Holiday decorations and parades at the theme parks."
+    },
+    "stay": [
+      [
+        "Walt Disney World resorts",
+        "Park perks like early entry and free transport"
+      ],
+      [
+        "Universal area",
+        "Walkable to Universal's parks and CityWalk"
+      ],
+      [
+        "International Drive",
+        "Good-value hotels between the parks"
+      ]
+    ]
+  },
+  {
+    "slug": "key-west",
+    "name": "Key West & Florida Keys",
+    "country": "United States",
+    "hub": "Florida",
+    "region": "North America",
+    "lat": 24.56,
+    "lon": -81.78,
+    "iata": "EYW",
+    "wiki": "Key West, Florida",
+    "imagePage": "Key West",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 140,
+      "mid": 300
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nightlife"
+    ],
+    "tagline": "Sunset celebrations, coral reefs and the end of the Overseas Highway.",
+    "intro": "The Florida Keys string 120 miles of islands south from Miami, ending in quirky Key West. Expect snorkelling on North America's only living coral reef, fishing, and nightly sunset parties at Mallory Square.",
+    "highlights": [
+      "Drive the Overseas Highway and Seven Mile Bridge",
+      "Sunset at Mallory Square",
+      "Snorkelling at John Pennekamp or Looe Key",
+      "Dry Tortugas National Park day trip",
+      "Ernest Hemingway Home"
+    ],
+    "best": "December–May: dry, sunny and breezy.",
+    "avoid": "August–October is peak hurricane season, and summers are hot and humid.",
+    "adjust": {
+      "8": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "10": "Fantasy Fest costume festival (late October)."
+    },
+    "stay": [
+      [
+        "Old Town Key West",
+        "Historic guesthouses near Duval Street"
+      ],
+      [
+        "Islamorada",
+        "Fishing and resort hub in the Upper Keys"
+      ],
+      [
+        "Marathon",
+        "Central Keys base with family-friendly beaches"
+      ]
+    ]
+  },
+  {
+    "slug": "puerto-rico",
+    "name": "Puerto Rico",
+    "country": "Puerto Rico",
+    "region": "Caribbean",
+    "lat": 18.47,
+    "lon": -66.11,
+    "iata": "SJU",
+    "wiki": "San Juan, Puerto Rico",
+    "imagePage": "Old San Juan",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 90,
+      "mid": 200
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "city",
+      "nature",
+      "nightlife"
+    ],
+    "tagline": "Colourful Old San Juan, rainforest hikes and bioluminescent bays.",
+    "intro": "Puerto Rico combines a 500-year-old colonial capital with El Yunque rainforest, glowing bioluminescent bays and great beaches. US citizens need no passport, and flights from the mainland are short.",
+    "highlights": [
+      "Old San Juan and Castillo San Felipe del Morro",
+      "El Yunque National Forest",
+      "Night kayak in a bioluminescent bay",
+      "Flamenco Beach on Culebra",
+      "Food tour in Santurce and La Placita"
+    ],
+    "best": "Mid-April to June: sunny, outside hurricane season and cheaper than winter.",
+    "avoid": "August–October is peak hurricane season.",
+    "adjust": {
+      "8": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "1": "Fiestas de la Calle San Sebastián street festival in Old San Juan (mid-January)."
+    },
+    "stay": [
+      [
+        "Old San Juan",
+        "Historic streets, forts and restaurants"
+      ],
+      [
+        "Condado",
+        "Beachfront hotels and nightlife"
+      ],
+      [
+        "Rincón",
+        "Surf town on the west coast with epic sunsets"
+      ]
+    ]
+  },
+  {
+    "slug": "bahamas",
+    "name": "Bahamas",
+    "country": "Bahamas",
+    "region": "Caribbean",
+    "lat": 25.05,
+    "lon": -77.35,
+    "iata": "NAS",
+    "wiki": "Nassau, Bahamas",
+    "imagePage": "Nassau, Bahamas",
+    "climate": "tropical",
+    "currency": "BSD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 130,
+      "mid": 280
+    },
+    "tags": [
+      "beach",
+      "islands"
+    ],
+    "tagline": "Turquoise water, swimming pigs and 700 islands off Florida.",
+    "intro": "The Bahamas start just 80 km off Florida, with Nassau and Paradise Island as the main hub and the Exumas for jaw-dropping turquoise sandbars. Expect resort beaches, snorkelling and island hopping.",
+    "highlights": [
+      "Swimming pigs and sandbars of the Exumas",
+      "Cable Beach and Paradise Island",
+      "Snorkelling at Thunderball Grotto",
+      "Harbour Island's pink-sand beach",
+      "Fish fry at Arawak Cay"
+    ],
+    "best": "Mid-December to mid-April: dry, sunny and pleasantly warm.",
+    "avoid": "August–October is peak hurricane season.",
+    "adjust": {
+      "8": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "12": "Junkanoo street parade on Boxing Day and New Year's Day."
+    },
+    "stay": [
+      [
+        "Cable Beach",
+        "Long beach lined with resorts near Nassau"
+      ],
+      [
+        "Paradise Island",
+        "Atlantis and upscale resorts"
+      ],
+      [
+        "Exumas",
+        "Remote island lodges and turquoise sandbars"
+      ]
+    ]
+  },
+  {
+    "slug": "aruba",
+    "name": "Aruba",
+    "country": "Aruba",
+    "region": "Caribbean",
+    "lat": 12.52,
+    "lon": -70.03,
+    "iata": "AUA",
+    "wiki": "Aruba",
+    "imagePage": "Eagle Beach",
+    "climate": "tropical",
+    "currency": "AWG",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 120,
+      "mid": 260
+    },
+    "tags": [
+      "beach",
+      "islands"
+    ],
+    "tagline": "Sunny, dry and outside the hurricane belt.",
+    "intro": "Aruba sits off Venezuela, south of the main hurricane belt, which makes it one of the most reliable sun destinations in the Caribbean. Constant trade winds keep it comfortable and great for kitesurfing.",
+    "highlights": [
+      "Eagle Beach and Palm Beach",
+      "Arikok National Park and the Natural Pool",
+      "Snorkelling the Antilla shipwreck",
+      "Flamingo Beach on Renaissance Island",
+      "Kitesurfing at Boca Grandi"
+    ],
+    "best": "Any time — it's dry year-round; April–August offers lower prices.",
+    "avoid": "October–December is slightly rainier, though still mostly sunny.",
+    "adjust": {},
+    "events": {
+      "2": "Aruba Carnival parades (January–February)."
+    },
+    "stay": [
+      [
+        "Palm Beach",
+        "High-rise resorts, restaurants and nightlife"
+      ],
+      [
+        "Eagle Beach",
+        "Low-rise hotels on one of the Caribbean's best beaches"
+      ],
+      [
+        "Oranjestad",
+        "Colourful capital with harbour views"
+      ]
+    ]
+  },
+  {
+    "slug": "turks-and-caicos",
+    "name": "Turks and Caicos",
+    "country": "Turks and Caicos",
+    "region": "Caribbean",
+    "lat": 21.78,
+    "lon": -72.26,
+    "iata": "PLS",
+    "wiki": "Providenciales",
+    "climateWiki": [
+      "Grand Turk Island",
+      "Cockburn Town",
+      "Turks and Caicos Islands",
+      "Providenciales"
+    ],
+    "imagePage": "Providenciales",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 180,
+      "mid": 380
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "luxury"
+    ],
+    "tagline": "Grace Bay's powder-white sand and some of the clearest water anywhere.",
+    "intro": "Turks and Caicos is a small archipelago south-east of the Bahamas, famous for Grace Bay Beach and luxury resorts. Reefs, calm lagoons and whale migrations make it a top pick for water lovers.",
+    "highlights": [
+      "Grace Bay Beach",
+      "Snorkelling at Smith's Reef and Bight Reef",
+      "Boat trip to Iguana Island and Half Moon Bay",
+      "Kayaking Mangrove Cay",
+      "Whale watching off Grand Turk (January–April)"
+    ],
+    "best": "December–April: dry, sunny and breezy.",
+    "avoid": "August–October is peak hurricane season.",
+    "adjust": {
+      "8": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "2": "Humpback whale migration past Grand Turk (January–April)."
+    },
+    "stay": [
+      [
+        "Grace Bay",
+        "The main beach with most resorts and restaurants"
+      ],
+      [
+        "Long Bay",
+        "Kitesurfing beach with villas"
+      ],
+      [
+        "Grand Turk",
+        "Quiet historic island and cruise port"
+      ]
+    ]
+  },
+  {
+    "slug": "jamaica",
+    "name": "Jamaica",
+    "country": "Jamaica",
+    "region": "Caribbean",
+    "lat": 18.47,
+    "lon": -77.92,
+    "iata": "MBJ",
+    "wiki": "Montego Bay",
+    "imagePage": "Negril",
+    "climate": "tropical",
+    "currency": "JMD",
+    "tz": "UTC−5",
+    "budget": {
+      "low": 70,
+      "mid": 180
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "nightlife"
+    ],
+    "tagline": "Reggae, jerk chicken, waterfalls and all-inclusive beaches.",
+    "intro": "Jamaica's north coast — Montego Bay, Ocho Rios and Negril — is packed with resorts, waterfalls and beach bars. Inland, the Blue Mountains grow some of the world's most prized coffee.",
+    "highlights": [
+      "Climbing Dunn's River Falls",
+      "Seven Mile Beach and Rick's Café in Negril",
+      "Bob Marley Museum or Nine Mile",
+      "Blue Mountains coffee tour",
+      "Rafting the Martha Brae River"
+    ],
+    "best": "December–April: dry, sunny and lively.",
+    "avoid": "August–October is peak hurricane season.",
+    "adjust": {
+      "8": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "2": "Bob Marley's birthday celebrations in February."
+    },
+    "stay": [
+      [
+        "Montego Bay",
+        "Airport hub with resorts and nightlife"
+      ],
+      [
+        "Negril",
+        "Seven Mile Beach and cliffside sunsets"
+      ],
+      [
+        "Ocho Rios",
+        "Waterfalls and adventure parks nearby"
+      ]
+    ]
+  },
+  {
+    "slug": "punta-cana",
+    "name": "Punta Cana",
+    "country": "Dominican Republic",
+    "region": "Caribbean",
+    "lat": 18.58,
+    "lon": -68.4,
+    "iata": "PUJ",
+    "wiki": "Punta Cana",
+    "climate": "tropical",
+    "currency": "DOP",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 80,
+      "mid": 200
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nightlife"
+    ],
+    "tagline": "Palm-lined beaches and the Caribbean's biggest all-inclusive scene.",
+    "intro": "Punta Cana, on the eastern tip of the Dominican Republic, is lined with long white beaches and all-inclusive resorts. Catamaran trips to Saona Island and cenote swims fill the days.",
+    "highlights": [
+      "Bávaro and Macao beaches",
+      "Catamaran trip to Saona Island",
+      "Swimming in the Hoyo Azul cenote",
+      "Snorkelling at Catalina Island",
+      "Day trip to colonial Santo Domingo"
+    ],
+    "best": "December–April: dry, sunny and breezy.",
+    "avoid": "August–October is peak hurricane season; sargassum can affect beaches in summer.",
+    "adjust": {
+      "8": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "2": "Dominican Carnival celebrations every Sunday in February."
+    },
+    "stay": [
+      [
+        "Bávaro",
+        "Most resorts, shops and restaurants"
+      ],
+      [
+        "Cap Cana",
+        "Upscale marina and golf resorts"
+      ],
+      [
+        "Uvero Alto",
+        "Quiet, secluded resorts to the north"
+      ]
+    ]
+  },
+  {
+    "slug": "galapagos",
+    "name": "Galápagos Islands",
+    "country": "Ecuador",
+    "region": "Central & South America",
+    "lat": -0.74,
+    "lon": -90.31,
+    "iata": "GPS",
+    "wiki": "Galápagos Islands",
+    "imagePage": "Galápagos tortoise",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 150,
+      "mid": 330
+    },
+    "tags": [
+      "islands",
+      "wildlife",
+      "nature"
+    ],
+    "tagline": "Giant tortoises, sea lions and fearless wildlife on Darwin's islands.",
+    "intro": "The Galápagos Islands are a once-in-a-lifetime wildlife destination, where animals show no fear of people. Visit by cruise or base yourself on Santa Cruz or San Cristóbal for day trips.",
+    "highlights": [
+      "Giant tortoises in the Santa Cruz highlands",
+      "Snorkelling with sea lions and turtles",
+      "Blue-footed boobies on North Seymour",
+      "Kicker Rock on San Cristóbal",
+      "Tortuga Bay beach"
+    ],
+    "best": "December–May: warm seas, calmer water and sunny skies.",
+    "avoid": "August–September brings cooler, choppier seas and grey skies (but great marine life).",
+    "adjust": {},
+    "events": {
+      "6": "Start of the cool garúa season: richer marine life but cooler water."
+    },
+    "stay": [
+      [
+        "Puerto Ayora (Santa Cruz)",
+        "Main hub for day trips and diving"
+      ],
+      [
+        "San Cristóbal",
+        "Sea lions on the waterfront and the airport"
+      ],
+      [
+        "Isabela",
+        "Quiet island with flamingos and volcanoes"
+      ]
+    ]
+  },
+  {
+    "slug": "bora-bora",
+    "name": "Bora Bora",
+    "country": "French Polynesia",
+    "region": "Oceania",
+    "lat": -16.5,
+    "lon": -151.74,
+    "iata": "BOB",
+    "wiki": "Bora Bora",
+    "climate": "tropical",
+    "currency": "XPF",
+    "tz": "UTC−10",
+    "budget": {
+      "low": 180,
+      "mid": 450
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "luxury"
+    ],
+    "tagline": "Overwater bungalows in a turquoise lagoon beneath Mount Otemanu.",
+    "intro": "Bora Bora is the ultimate honeymoon island: a lagoon in every shade of blue around a dramatic volcanic peak. Most visitors fly in via Tahiti and stay at an overwater resort.",
+    "highlights": [
+      "Overwater bungalow stay",
+      "Lagoon tour with sharks and rays",
+      "Snorkelling coral gardens",
+      "Matira Beach",
+      "4x4 tour around Mount Otemanu"
+    ],
+    "best": "May–October: the dry season, with sunny skies and lower humidity.",
+    "avoid": "December–March is the wet season, with heavy showers and cyclone risk.",
+    "adjust": {
+      "1": [
+        -5,
+        "Cyclone season"
+      ],
+      "2": [
+        -5,
+        "Cyclone season"
+      ],
+      "3": [
+        -5,
+        "Cyclone season"
+      ]
+    },
+    "events": {
+      "7": "Heiva festival of Polynesian dance and sport (July)."
+    },
+    "stay": [
+      [
+        "Motu resorts",
+        "Overwater bungalows on islets facing Otemanu"
+      ],
+      [
+        "Matira Point",
+        "Beachfront hotels and guesthouses"
+      ],
+      [
+        "Vaitape",
+        "Budget guesthouses in the main village"
+      ]
+    ]
+  },
+  {
+    "slug": "fiji",
+    "name": "Fiji",
+    "country": "Fiji",
+    "region": "Oceania",
+    "lat": -17.8,
+    "lon": 177.42,
+    "iata": "NAN",
+    "wiki": "Nadi",
+    "imagePage": "Mamanuca Islands",
+    "climate": "tropical",
+    "currency": "FJD",
+    "tz": "UTC+12",
+    "budget": {
+      "low": 70,
+      "mid": 180
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature"
+    ],
+    "tagline": "Friendly islands, coral reefs and bula spirit in the South Pacific.",
+    "intro": "Fiji's 300-plus islands are known for warm hospitality, coral reefs and family-friendly resorts. Most visitors land in Nadi and head out to the Mamanuca or Yasawa islands.",
+    "highlights": [
+      "Island hopping in the Mamanucas and Yasawas",
+      "Snorkelling and diving on soft-coral reefs",
+      "Cloud 9 floating bar",
+      "Sabeto mud pools and hot springs",
+      "Kava ceremony in a village"
+    ],
+    "best": "May–October: the dry season, with lower humidity.",
+    "avoid": "December–March is hot and wet, with cyclone risk.",
+    "adjust": {
+      "1": [
+        -5,
+        "Cyclone season"
+      ],
+      "2": [
+        -5,
+        "Cyclone season"
+      ],
+      "3": [
+        -5,
+        "Cyclone season"
+      ]
+    },
+    "events": {},
+    "stay": [
+      [
+        "Denarau Island",
+        "Resort hub near Nadi airport"
+      ],
+      [
+        "Mamanuca Islands",
+        "Short boat ride to classic island resorts"
+      ],
+      [
+        "Coral Coast",
+        "Beach resorts along the main island's south"
+      ]
+    ]
+  },
+  {
+    "slug": "mallorca",
+    "name": "Mallorca",
+    "country": "Spain",
+    "hub": "Spain",
+    "region": "Europe",
+    "lat": 39.57,
+    "lon": 2.65,
+    "iata": "PMI",
+    "wiki": "Palma de Mallorca",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1",
+    "budget": {
+      "low": 75,
+      "mid": 170
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "nightlife"
+    ],
+    "tagline": "Turquoise coves, mountain villages and a lively capital.",
+    "intro": "Mallorca is the largest Balearic island, with hidden coves, the Serra de Tramuntana mountains and stylish Palma. It ranges from family resorts to quiet stone villages.",
+    "highlights": [
+      "Palma Cathedral and old town",
+      "Swimming in Caló des Moro or Cala Mondragó",
+      "Driving the Serra de Tramuntana to Sóller",
+      "Deià and Valldemossa villages",
+      "Caves of Drach"
+    ],
+    "best": "May–June and September–October: warm sea and sunshine without peak crowds.",
+    "avoid": "July–August is hot and crowded; many resorts close November–March.",
+    "adjust": {},
+    "events": {
+      "9": "Sea still around 25°C with fewer crowds."
+    },
+    "stay": [
+      [
+        "Palma",
+        "City base with restaurants and culture"
+      ],
+      [
+        "Sóller",
+        "Mountain town with a pretty port"
+      ],
+      [
+        "Alcúdia",
+        "Family-friendly beaches in the north"
+      ]
+    ]
+  },
+  {
+    "slug": "madeira",
+    "name": "Madeira",
+    "country": "Portugal",
+    "hub": "Portugal",
+    "region": "Europe",
+    "lat": 32.65,
+    "lon": -16.91,
+    "iata": "FNC",
+    "wiki": "Funchal",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+0",
+    "budget": {
+      "low": 60,
+      "mid": 140
+    },
+    "tags": [
+      "nature",
+      "islands",
+      "food"
+    ],
+    "tagline": "Eternal spring: levada walks, cliffs and flower-filled Funchal.",
+    "intro": "Madeira is a subtropical Portuguese island in the Atlantic with mild weather all year. Hikers come for the levada irrigation trails and mountain peaks; others for Funchal's gardens and Madeira wine.",
+    "highlights": [
+      "Levada walks through laurel forest",
+      "Sunrise at Pico do Arieiro",
+      "Funchal's Mercado dos Lavradores",
+      "Cable car and toboggan ride in Monte",
+      "Porto Moniz natural pools"
+    ],
+    "best": "April–October for the sunniest weather, though it's mild year-round.",
+    "avoid": "November–February is wetter, especially in the north and mountains.",
+    "adjust": {},
+    "events": {
+      "12": "New Year's Eve fireworks over Funchal bay are among the world's biggest.",
+      "5": "Flower Festival parades in Funchal (spring)."
+    },
+    "stay": [
+      [
+        "Funchal",
+        "Capital with the most hotels and restaurants"
+      ],
+      [
+        "Calheta",
+        "Sunny south-west coast with a beach"
+      ],
+      [
+        "Santana",
+        "Rural north for hikers"
+      ]
+    ]
+  },
+  {
+    "slug": "algarve",
+    "name": "Algarve",
+    "country": "Portugal",
+    "hub": "Portugal",
+    "region": "Europe",
+    "lat": 37.02,
+    "lon": -7.93,
+    "iata": "FAO",
+    "wiki": "Faro, Portugal",
+    "imagePage": "Lagos, Portugal",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+0",
+    "budget": {
+      "low": 65,
+      "mid": 150
+    },
+    "tags": [
+      "beach",
+      "nature",
+      "food"
+    ],
+    "tagline": "Golden cliffs, sea caves and over 300 days of sun.",
+    "intro": "The Algarve is Portugal's southern coast, famed for golden cliffs, sea caves and sandy coves. Lagos, Albufeira and Tavira each offer a different take, from lively to laid-back.",
+    "highlights": [
+      "Boat trip to Benagil Cave",
+      "Ponta da Piedade cliffs near Lagos",
+      "Seven Hanging Valleys trail",
+      "Ria Formosa lagoon",
+      "Old town of Tavira"
+    ],
+    "best": "May–June and September–October: warm, sunny and less crowded.",
+    "avoid": "July–August is busiest; winter is mild but too cool for most to swim.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "Lagos",
+        "Lively town near the best cliffs and coves"
+      ],
+      [
+        "Albufeira",
+        "Big resort with nightlife"
+      ],
+      [
+        "Tavira",
+        "Quiet, pretty town in the east"
+      ]
+    ]
+  },
+  {
+    "slug": "krabi",
+    "name": "Krabi",
+    "country": "Thailand",
+    "hub": "Thailand",
+    "region": "Asia",
+    "lat": 8.09,
+    "lon": 98.91,
+    "iata": "KBV",
+    "wiki": "Krabi (town)",
+    "imagePage": "Railay Beach",
+    "climate": "tropical",
+    "currency": "THB",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 40,
+      "mid": 110
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature"
+    ],
+    "tagline": "Limestone cliffs, island hopping and Railay's famous beaches.",
+    "intro": "Krabi province on the Andaman coast is known for towering limestone karsts, emerald islands and rock climbing. Ao Nang is the main base for boat trips to Railay, the Hong Islands and Phi Phi.",
+    "highlights": [
+      "Railay Beach and Phra Nang Cave",
+      "Four Islands tour",
+      "Kayaking the Hong Islands",
+      "Emerald Pool and hot springs",
+      "Rock climbing in Railay"
+    ],
+    "best": "November–April: calm seas, sunshine and ideal boat-trip conditions.",
+    "avoid": "May–October brings the monsoon and rough seas.",
+    "adjust": {
+      "5": [
+        -10,
+        "Southwest monsoon: rough seas"
+      ],
+      "6": [
+        -10,
+        "Southwest monsoon: rough seas"
+      ],
+      "7": [
+        -10,
+        "Southwest monsoon: rough seas"
+      ],
+      "8": [
+        -10,
+        "Southwest monsoon: rough seas"
+      ],
+      "9": [
+        -10,
+        "Southwest monsoon: rough seas"
+      ],
+      "10": [
+        -10,
+        "Southwest monsoon: rough seas"
+      ]
+    },
+    "events": {},
+    "stay": [
+      [
+        "Ao Nang",
+        "Main beach town with boats to the islands"
+      ],
+      [
+        "Railay",
+        "Car-free peninsula with cliffs and beaches"
+      ],
+      [
+        "Koh Lanta",
+        "Quieter island for longer stays"
+      ]
+    ]
+  },
+  {
+    "slug": "koh-samui",
+    "name": "Koh Samui",
+    "country": "Thailand",
+    "hub": "Thailand",
+    "region": "Asia",
+    "lat": 9.51,
+    "lon": 100.01,
+    "iata": "USM",
+    "wiki": "Ko Samui",
+    "climate": "tropical",
+    "currency": "THB",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 50,
+      "mid": 130
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "wellness",
+      "nightlife"
+    ],
+    "tagline": "Palm-fringed beaches and a different rainy season to Phuket.",
+    "intro": "Koh Samui sits in the Gulf of Thailand, so its weather pattern differs from Phuket: it stays fairly dry in summer, with the main rains in October–December. It's the gateway to Koh Phangan and Ang Thong Marine Park.",
+    "highlights": [
+      "Ang Thong National Marine Park",
+      "Chaweng and Lamai beaches",
+      "Big Buddha temple",
+      "Fisherman's Village night market",
+      "Day trip to Koh Phangan or Koh Tao"
+    ],
+    "best": "January–August: mostly dry, with summer good when the Andaman coast is wet.",
+    "avoid": "October–December is the main rainy season in the Gulf.",
+    "adjust": {},
+    "events": {
+      "8": "Still good beach weather while Phuket and Krabi are in monsoon season."
+    },
+    "stay": [
+      [
+        "Chaweng",
+        "Busiest beach with nightlife"
+      ],
+      [
+        "Bophut & Fisherman's Village",
+        "Charming, mid-range base"
+      ],
+      [
+        "Lamai",
+        "Quieter beach with good value"
+      ]
+    ]
+  },
+  {
+    "slug": "amalfi-coast",
+    "name": "Amalfi Coast",
+    "country": "Italy",
+    "hub": "Italy",
+    "region": "Europe",
+    "lat": 40.63,
+    "lon": 14.6,
+    "iata": "NAP",
+    "wiki": "Salerno",
+    "imagePage": "Positano",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1",
+    "budget": {
+      "low": 110,
+      "mid": 250
+    },
+    "tags": [
+      "beach",
+      "food",
+      "nature"
+    ],
+    "tagline": "Cliffside villages, lemon groves and boat days on the Tyrrhenian Sea.",
+    "intro": "The Amalfi Coast's pastel villages — Positano, Amalfi and Ravello — cling to cliffs south of Naples. Boats, hiking trails and long lunches are the order of the day.",
+    "highlights": [
+      "Positano's beach and steep lanes",
+      "Path of the Gods hike",
+      "Boat trip to Capri and the Blue Grotto",
+      "Gardens of Villa Rufolo in Ravello",
+      "Pompeii day trip"
+    ],
+    "best": "May–June and September: warm sea and sunshine with fewer crowds.",
+    "avoid": "July–August is crowded and expensive; many hotels close November–March.",
+    "adjust": {
+      "11": [
+        -5,
+        "Many hotels and ferries close for winter"
+      ],
+      "12": [
+        -5,
+        "Many hotels and ferries close for winter"
+      ],
+      "1": [
+        -5,
+        "Many hotels and ferries close for winter"
+      ],
+      "2": [
+        -5,
+        "Many hotels and ferries close for winter"
+      ]
+    },
+    "events": {
+      "7": "Ravello Festival of music in the gardens (summer)."
+    },
+    "stay": [
+      [
+        "Positano",
+        "Iconic, photogenic and pricey"
+      ],
+      [
+        "Amalfi",
+        "Central hub for ferries and buses"
+      ],
+      [
+        "Sorrento",
+        "Better-value base with trains to Pompeii"
+      ]
+    ]
+  },
+  {
+    "slug": "antalya",
+    "name": "Antalya",
+    "country": "Türkiye",
+    "hub": "Türkiye",
+    "region": "Europe",
+    "lat": 36.9,
+    "lon": 30.7,
+    "iata": "AYT",
+    "wiki": "Antalya",
+    "climate": "temperate",
+    "currency": "TRY",
+    "tz": "UTC+3",
+    "budget": {
+      "low": 45,
+      "mid": 110
+    },
+    "tags": [
+      "beach",
+      "history",
+      "family"
+    ],
+    "tagline": "Turkish Riviera sunshine, ancient ruins and great-value resorts.",
+    "intro": "Antalya is the gateway to Türkiye's Turquoise Coast, with a charming old harbour, Roman ruins and long beaches. The season runs from spring to late autumn, with some of Europe's warmest water.",
+    "highlights": [
+      "Kaleiçi old town and harbour",
+      "Düden and Kurşunlu waterfalls",
+      "Ancient Perge and Aspendos",
+      "Konyaaltı and Lara beaches",
+      "Boat trip along the coast to Kemer"
+    ],
+    "best": "May–June and September–October: hot sun and warm sea without the July–August peak.",
+    "avoid": "July–August often tops 35°C; winter is mild but rainy.",
+    "adjust": {},
+    "events": {
+      "10": "The sea stays warm (around 24°C) into October."
+    },
+    "stay": [
+      [
+        "Kaleiçi",
+        "Boutique hotels in the old town"
+      ],
+      [
+        "Lara",
+        "Big all-inclusive resorts on a sandy beach"
+      ],
+      [
+        "Konyaaltı",
+        "City beach with mountain views"
+      ]
+    ]
+  },
+  {
+    "slug": "new-orleans",
+    "name": "New Orleans",
+    "country": "United States",
+    "region": "North America",
+    "lat": 29.95,
+    "lon": -90.07,
+    "iata": "MSY",
+    "wiki": "New Orleans",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−6 (−5 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 200
+    },
+    "tags": [
+      "city",
+      "food",
+      "nightlife",
+      "culture"
+    ],
+    "tagline": "Jazz, Creole cooking and the party that is Mardi Gras.",
+    "intro": "New Orleans is America's most musical city, with live jazz on Frenchmen Street, Creole and Cajun food, and historic architecture in the French Quarter and Garden District.",
+    "highlights": [
+      "French Quarter and Jackson Square",
+      "Live jazz on Frenchmen Street",
+      "Beignets at Café du Monde",
+      "Garden District mansions by streetcar",
+      "Swamp tour in the bayou"
+    ],
+    "best": "February–May and October–November: warm, festival-filled and less humid.",
+    "avoid": "June–September is hot, humid and stormy, with hurricane risk.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "2": "Mardi Gras parades (February or early March).",
+      "4": "French Quarter Festival (April) and Jazz Fest (late April–early May)."
+    },
+    "stay": [
+      [
+        "French Quarter",
+        "Historic heart, lively day and night"
+      ],
+      [
+        "Garden District",
+        "Elegant, quieter streets on the streetcar line"
+      ],
+      [
+        "Marigny",
+        "Near Frenchmen Street's music clubs"
+      ]
+    ]
+  },
+  {
+    "slug": "madrid",
+    "name": "Madrid",
+    "country": "Spain",
+    "hub": "Spain",
+    "region": "Europe",
+    "lat": 40.42,
+    "lon": -3.7,
+    "iata": "MAD",
+    "wiki": "Madrid",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1",
+    "budget": {
+      "low": 75,
+      "mid": 170
+    },
+    "tags": [
+      "city",
+      "culture",
+      "food",
+      "nightlife"
+    ],
+    "tagline": "World-class art, tapas bars and nights that start at midnight.",
+    "intro": "Spain's capital has three of Europe's greatest art museums, grand boulevards and the Retiro park. Madrileños eat late and party later.",
+    "highlights": [
+      "Prado, Reina Sofía and Thyssen museums",
+      "Retiro Park",
+      "Royal Palace",
+      "Tapas on Calle Cava Baja",
+      "Day trip to Toledo or Segovia"
+    ],
+    "best": "April–June and September–October: warm, sunny and pleasant for walking.",
+    "avoid": "July–August is very hot and some locals leave; winter is cold but sunny.",
+    "adjust": {},
+    "events": {
+      "5": "San Isidro festival with street parties (mid-May)."
+    },
+    "stay": [
+      [
+        "Sol & Centro",
+        "Central for sightseeing"
+      ],
+      [
+        "Malasaña",
+        "Hip bars and vintage shops"
+      ],
+      [
+        "Salamanca",
+        "Upscale shopping district"
+      ]
+    ]
+  },
+  {
+    "slug": "kyoto",
+    "name": "Kyoto",
+    "country": "Japan",
+    "hub": "Japan",
+    "region": "Asia",
+    "lat": 35.01,
+    "lon": 135.77,
+    "iata": "OSA",
+    "wiki": "Kyoto",
+    "imagePage": "Kiyomizu-dera",
+    "climate": "temperate",
+    "currency": "JPY",
+    "tz": "UTC+9",
+    "budget": {
+      "low": 75,
+      "mid": 170
+    },
+    "tags": [
+      "city",
+      "culture",
+      "history",
+      "food"
+    ],
+    "tagline": "Temples, geisha districts and Japan's most beautiful seasons.",
+    "intro": "Kyoto was Japan's capital for over a thousand years and still has around 1,600 temples, traditional teahouses and zen gardens. Cherry blossoms in spring and red maples in autumn make it magical — and busy.",
+    "highlights": [
+      "Fushimi Inari's thousand torii gates",
+      "Kiyomizu-dera and the lanes of Higashiyama",
+      "Arashiyama bamboo grove",
+      "Gion at dusk",
+      "Day trip to Nara's deer park"
+    ],
+    "best": "Late March–May and October–November: mild weather with blossoms or autumn leaves.",
+    "avoid": "June is the rainy season and July–August is very hot and humid.",
+    "adjust": {
+      "6": [
+        -8,
+        "Tsuyu rainy season"
+      ]
+    },
+    "events": {
+      "4": "Cherry blossoms usually peak in late March to early April.",
+      "7": "Gion Matsuri, one of Japan's biggest festivals, fills July.",
+      "11": "Autumn leaves peak from mid to late November."
+    },
+    "stay": [
+      [
+        "Higashiyama",
+        "Walkable to temples and Gion"
+      ],
+      [
+        "Downtown (Kawaramachi)",
+        "Restaurants, shopping and transport"
+      ],
+      [
+        "Kyoto Station",
+        "Best for day trips by train"
+      ]
+    ]
+  },
+  {
+    "slug": "hokkaido",
+    "name": "Hokkaido (Sapporo)",
+    "country": "Japan",
+    "hub": "Japan",
+    "region": "Asia",
+    "lat": 43.06,
+    "lon": 141.35,
+    "iata": "SPK",
+    "wiki": "Sapporo",
+    "imagePage": "Otaru",
+    "climate": "temperate",
+    "currency": "JPY",
+    "tz": "UTC+9",
+    "budget": {
+      "low": 70,
+      "mid": 160
+    },
+    "tags": [
+      "nature",
+      "food",
+      "city"
+    ],
+    "tagline": "Powder snow, lavender fields and Japan's best seafood.",
+    "intro": "Hokkaido is Japan's northern island: world-class powder snow in winter, cool green summers with flower fields, and famous seafood and ramen. Sapporo is the gateway city.",
+    "highlights": [
+      "Sapporo Snow Festival (February)",
+      "Skiing in Niseko or Furano",
+      "Lavender fields of Furano (July)",
+      "Otaru canal and glassworks",
+      "Fresh seafood at Nijo Market"
+    ],
+    "best": "June–September for mild, comfortable summers; December–March for snow and skiing.",
+    "avoid": "April and November are muddy shoulder months with little to see.",
+    "adjust": {},
+    "events": {
+      "2": "Sapporo Snow Festival with giant ice sculptures (early February).",
+      "7": "Lavender season in Furano and Biei (July)."
+    },
+    "stay": [
+      [
+        "Sapporo (Susukino)",
+        "City base with nightlife and food"
+      ],
+      [
+        "Niseko",
+        "Ski resort with international dining"
+      ],
+      [
+        "Furano",
+        "Countryside for flowers and skiing"
+      ]
+    ]
+  },
+  {
+    "slug": "okinawa",
+    "name": "Okinawa",
+    "country": "Japan",
+    "hub": "Japan",
+    "region": "Asia",
+    "lat": 26.21,
+    "lon": 127.68,
+    "iata": "OKA",
+    "wiki": "Naha",
+    "imagePage": "Kerama Islands",
+    "climate": "tropical",
+    "currency": "JPY",
+    "tz": "UTC+9",
+    "budget": {
+      "low": 70,
+      "mid": 160
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "culture"
+    ],
+    "tagline": "Japan's subtropical islands: coral reefs and Ryukyu culture.",
+    "intro": "Okinawa is a chain of subtropical islands with white beaches, coral reefs and a distinct Ryukyu culture. Naha is the hub, with the Kerama Islands' clear water just a ferry ride away.",
+    "highlights": [
+      "Snorkelling in the Kerama Islands",
+      "Churaumi Aquarium",
+      "Shuri Castle and Kokusai Street",
+      "Cape Manzamo cliffs",
+      "Beach days on Ishigaki or Miyako"
+    ],
+    "best": "April–June and October: warm sea and fewer typhoons.",
+    "avoid": "August–September is peak typhoon season; winter is mild but cool for swimming.",
+    "adjust": {
+      "8": [
+        -5,
+        "Typhoon season"
+      ],
+      "9": [
+        -5,
+        "Typhoon season"
+      ]
+    },
+    "events": {
+      "1": "Japan's earliest cherry blossoms bloom here in late January–February."
+    },
+    "stay": [
+      [
+        "Naha",
+        "City base with markets and nightlife"
+      ],
+      [
+        "Onna",
+        "Resort coast with beaches"
+      ],
+      [
+        "Kerama Islands",
+        "Island guesthouses for divers"
+      ]
+    ]
+  },
+  {
+    "slug": "santorini",
+    "name": "Santorini",
+    "country": "Greece",
+    "hub": "Greece",
+    "region": "Europe",
+    "lat": 36.42,
+    "lon": 25.43,
+    "iata": "JTR",
+    "wiki": "Santorini",
+    "imagePage": "Oia, Greece",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 230
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "wine",
+      "luxury"
+    ],
+    "tagline": "White villages on a volcanic caldera and the world's most famous sunset.",
+    "intro": "Santorini's cliff-top villages of Oia and Fira overlook a flooded volcanic caldera. Add black-sand beaches, volcanic wineries and sunset views, and it's no wonder it's Greece's top honeymoon island.",
+    "highlights": [
+      "Sunset in Oia",
+      "Caldera boat trip with hot springs",
+      "Fira to Oia cliff walk",
+      "Red Beach and Perissa black-sand beach",
+      "Wine tasting at volcanic vineyards"
+    ],
+    "best": "May–June and September–October: warm, sunny and less crowded.",
+    "avoid": "July–August is very crowded; many hotels and restaurants close November–March.",
+    "adjust": {
+      "11": [
+        -10,
+        "Most hotels, restaurants and ferries close for winter"
+      ],
+      "12": [
+        -10,
+        "Most hotels, restaurants and ferries close for winter"
+      ],
+      "1": [
+        -10,
+        "Most hotels, restaurants and ferries close for winter"
+      ],
+      "2": [
+        -10,
+        "Most hotels, restaurants and ferries close for winter"
+      ],
+      "3": [
+        -10,
+        "Most hotels, restaurants and ferries close for winter"
+      ]
+    },
+    "events": {
+      "10": "Shoulder season: warm sea and far fewer cruise crowds."
+    },
+    "stay": [
+      [
+        "Oia",
+        "Iconic sunset views and cave hotels"
+      ],
+      [
+        "Fira",
+        "Central capital with nightlife"
+      ],
+      [
+        "Kamari & Perissa",
+        "Beach towns with better prices"
+      ]
+    ]
+  },
+  {
+    "slug": "crete",
+    "name": "Crete",
+    "country": "Greece",
+    "hub": "Greece",
+    "region": "Europe",
+    "lat": 35.34,
+    "lon": 25.13,
+    "iata": "HER",
+    "wiki": "Heraklion",
+    "imagePage": "Balos",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 60,
+      "mid": 140
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "history",
+      "food",
+      "nature"
+    ],
+    "tagline": "Greece's largest island: Minoan palaces, gorges and pink-sand beaches.",
+    "intro": "Crete has it all — the Minoan Palace of Knossos, the Samaria Gorge, Venetian harbours and beaches like Balos and Elafonisi. Its long season makes it one of Europe's best autumn sun spots.",
+    "highlights": [
+      "Palace of Knossos",
+      "Hiking the Samaria Gorge",
+      "Balos Lagoon and Elafonisi beach",
+      "Chania's Venetian harbour",
+      "Cretan food and raki in mountain villages"
+    ],
+    "best": "May–June and September–October: warm sea, sunshine and open gorges.",
+    "avoid": "July–August is hot and busy; winter is mild but rainy.",
+    "adjust": {},
+    "events": {
+      "10": "The sea stays warm (around 23°C) into October."
+    },
+    "stay": [
+      [
+        "Chania",
+        "Romantic old town and west-coast beaches"
+      ],
+      [
+        "Heraklion",
+        "Airport hub near Knossos"
+      ],
+      [
+        "Elounda",
+        "Luxury resorts in the east"
+      ]
+    ]
+  },
+  {
+    "slug": "mykonos",
+    "name": "Mykonos",
+    "country": "Greece",
+    "hub": "Greece",
+    "region": "Europe",
+    "lat": 37.45,
+    "lon": 25.33,
+    "iata": "JMK",
+    "wiki": "Mykonos",
+    "imagePage": "Paraportiani",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 260
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nightlife",
+      "luxury"
+    ],
+    "tagline": "Windmills, beach clubs and the Aegean's liveliest nightlife.",
+    "intro": "Mykonos is the glamorous party island of the Cyclades, with whitewashed lanes, famous windmills and beach clubs. Day trips to the sacred island of Delos add history.",
+    "highlights": [
+      "Little Venice at sunset",
+      "The windmills of Kato Mili",
+      "Beach clubs at Psarou and Paradise",
+      "Day trip to ancient Delos",
+      "Exploring Mykonos Town's lanes"
+    ],
+    "best": "June and September: warm, sunny and lively without peak prices.",
+    "avoid": "July–August is very expensive and windy (meltemi); the island largely closes November–April.",
+    "adjust": {
+      "11": [
+        -10,
+        "Most hotels and beach clubs close for winter"
+      ],
+      "12": [
+        -10,
+        "Most hotels and beach clubs close for winter"
+      ],
+      "1": [
+        -10,
+        "Most hotels and beach clubs close for winter"
+      ],
+      "2": [
+        -10,
+        "Most hotels and beach clubs close for winter"
+      ],
+      "3": [
+        -10,
+        "Most hotels and beach clubs close for winter"
+      ]
+    },
+    "events": {
+      "7": "Peak party season — book months ahead."
+    },
+    "stay": [
+      [
+        "Mykonos Town (Chora)",
+        "Walkable to bars, shops and the port"
+      ],
+      [
+        "Ornos",
+        "Family-friendly beach close to town"
+      ],
+      [
+        "Platis Gialos",
+        "Beach base with boats to other bays"
+      ]
+    ]
+  },
+  {
+    "slug": "corfu",
+    "name": "Corfu",
+    "country": "Greece",
+    "hub": "Greece",
+    "region": "Europe",
+    "lat": 39.62,
+    "lon": 19.92,
+    "iata": "CFU",
+    "wiki": "Corfu",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 65,
+      "mid": 150
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "history"
+    ],
+    "tagline": "Green Ionian island with Venetian old town and turquoise coves.",
+    "intro": "Corfu is lusher and greener than the Aegean islands, with a UNESCO-listed old town shaped by Venetian, French and British rule. Coves like Paleokastritsa have some of Greece's clearest water.",
+    "highlights": [
+      "Corfu Old Town and its fortresses",
+      "Paleokastritsa bays and monastery",
+      "Achilleion Palace",
+      "Canal d'Amour in Sidari",
+      "Boat trip to Paxos and Antipaxos"
+    ],
+    "best": "May–June and September: warm, sunny and green.",
+    "avoid": "November–March is rainy and many resorts close.",
+    "adjust": {},
+    "events": {
+      "4": "Orthodox Easter with pot-throwing from balconies in the old town (April or May)."
+    },
+    "stay": [
+      [
+        "Corfu Town",
+        "Historic centre with restaurants"
+      ],
+      [
+        "Paleokastritsa",
+        "Scenic west-coast bays"
+      ],
+      [
+        "Kassiopi",
+        "Quiet harbour village in the north-east"
+      ]
+    ]
+  },
+  {
+    "slug": "venice",
+    "name": "Venice",
+    "country": "Italy",
+    "hub": "Italy",
+    "region": "Europe",
+    "lat": 45.44,
+    "lon": 12.32,
+    "iata": "VCE",
+    "wiki": "Venice",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 95,
+      "mid": 220
+    },
+    "tags": [
+      "city",
+      "culture",
+      "history",
+      "food"
+    ],
+    "tagline": "Canals, palaces and gondolas in a city like no other.",
+    "intro": "Venice is built on more than 100 islands in a lagoon, with no cars and countless canals. Explore beyond St Mark's Square to find quiet campos, cicchetti bars and the colourful islands of Murano and Burano.",
+    "highlights": [
+      "St Mark's Basilica and Doge's Palace",
+      "Gondola or traghetto ride on the Grand Canal",
+      "Cicchetti crawl in Cannaregio",
+      "Islands of Murano and Burano",
+      "Rialto Market"
+    ],
+    "best": "April–June and September–October: pleasant weather and long evenings.",
+    "avoid": "July–August is hot and crowded; November can bring acqua alta flooding.",
+    "adjust": {},
+    "events": {
+      "2": "Carnival of Venice with masks and costumes (February).",
+      "9": "Venice Film Festival (late August–early September).",
+      "11": "Acqua alta (high water) season peaks in November."
+    },
+    "stay": [
+      [
+        "San Marco",
+        "Central and atmospheric, but pricey"
+      ],
+      [
+        "Cannaregio",
+        "Local feel, bars and good value"
+      ],
+      [
+        "Dorsoduro",
+        "Art galleries and quieter canals"
+      ]
+    ]
+  },
+  {
+    "slug": "florence",
+    "name": "Florence",
+    "country": "Italy",
+    "hub": "Italy",
+    "region": "Europe",
+    "lat": 43.77,
+    "lon": 11.26,
+    "iata": "FLR",
+    "wiki": "Florence",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 85,
+      "mid": 190
+    },
+    "tags": [
+      "city",
+      "culture",
+      "history",
+      "food",
+      "wine"
+    ],
+    "tagline": "Renaissance art, the Duomo and Tuscan wine country on the doorstep.",
+    "intro": "Florence is the cradle of the Renaissance, home to Michelangelo's David, the Uffizi and Brunelleschi's dome. It's also the perfect base for Chianti wine tours and Tuscan hill towns.",
+    "highlights": [
+      "Uffizi Gallery and Michelangelo's David",
+      "Climb Brunelleschi's dome",
+      "Sunset at Piazzale Michelangelo",
+      "Chianti wine tour",
+      "Day trip to Siena or San Gimignano"
+    ],
+    "best": "April–June and September–October: warm, sunny and ideal for countryside trips.",
+    "avoid": "July–August is hot and crowded; some places close in mid-August.",
+    "adjust": {},
+    "events": {
+      "4": "Scoppio del Carro (Explosion of the Cart) on Easter Sunday.",
+      "9": "Grape harvest season in Chianti (September–October)."
+    },
+    "stay": [
+      [
+        "Centro storico",
+        "Steps from the Duomo and museums"
+      ],
+      [
+        "Oltrarno",
+        "Artisan workshops and local trattorias"
+      ],
+      [
+        "Santa Croce",
+        "Lively squares and nightlife"
+      ]
+    ]
+  },
+  {
+    "slug": "sicily",
+    "name": "Sicily",
+    "country": "Italy",
+    "hub": "Italy",
+    "region": "Europe",
+    "lat": 38.12,
+    "lon": 13.36,
+    "iata": "PMO",
+    "wiki": "Palermo",
+    "imagePage": "Taormina",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 65,
+      "mid": 150
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "history",
+      "food"
+    ],
+    "tagline": "Greek temples, Mount Etna, street food and long warm autumns.",
+    "intro": "Sicily is the Mediterranean's largest island, layered with Greek, Arab and Norman history. Palermo's markets, Taormina's views, Mount Etna and baroque towns like Noto make it a feast in every sense.",
+    "highlights": [
+      "Palermo's street-food markets",
+      "Valley of the Temples in Agrigento",
+      "Hiking Mount Etna",
+      "Taormina and its Greek theatre",
+      "Ortigia island in Syracuse"
+    ],
+    "best": "May–June and September–October: hot sun, warm sea and fewer crowds.",
+    "avoid": "July–August can be scorching; winter is mild but rainy.",
+    "adjust": {},
+    "events": {
+      "10": "Warm sea and harvest festivals well into October."
+    },
+    "stay": [
+      [
+        "Palermo",
+        "Vibrant capital with food and culture"
+      ],
+      [
+        "Taormina",
+        "Clifftop resort town near Etna"
+      ],
+      [
+        "Ortigia (Syracuse)",
+        "Baroque island old town"
+      ]
+    ]
+  },
+  {
+    "slug": "ireland",
+    "name": "Ireland",
+    "country": "Ireland",
+    "region": "Europe",
+    "lat": 53.35,
+    "lon": -6.26,
+    "iata": "DUB",
+    "wiki": "Dublin",
+    "imagePage": "Cliffs of Moher",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 100,
+      "mid": 220
+    },
+    "tags": [
+      "city",
+      "nature",
+      "culture",
+      "nightlife"
+    ],
+    "tagline": "Green landscapes, cliffs, castles and the world's friendliest pubs.",
+    "intro": "Ireland combines lively Dublin with wild Atlantic scenery: the Cliffs of Moher, the Ring of Kerry and Connemara. Rain is possible any day — and the west is wetter than Dublin, whose figures are shown here.",
+    "highlights": [
+      "Dublin's Trinity College, Temple Bar and Guinness Storehouse",
+      "Cliffs of Moher",
+      "Driving the Ring of Kerry",
+      "Galway and Connemara",
+      "Giant's Causeway (Northern Ireland)"
+    ],
+    "best": "May–September: the longest, mildest and driest days.",
+    "avoid": "November–February is dark, wet and windy.",
+    "adjust": {},
+    "events": {
+      "3": "St Patrick's Day parades and festivals (17 March)."
+    },
+    "stay": [
+      [
+        "Dublin",
+        "Capital with pubs, museums and tours"
+      ],
+      [
+        "Galway",
+        "Lively west-coast city near Connemara"
+      ],
+      [
+        "Killarney",
+        "Base for the Ring of Kerry"
+      ]
+    ]
+  },
+  {
+    "slug": "ho-chi-minh-city",
+    "name": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "hub": "Vietnam",
+    "region": "Asia",
+    "lat": 10.82,
+    "lon": 106.63,
+    "iata": "SGN",
+    "wiki": "Ho Chi Minh City",
+    "imagePage": "Bến Thành Market",
+    "climate": "tropical",
+    "currency": "VND",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 30,
+      "mid": 70
+    },
+    "tags": [
+      "city",
+      "food",
+      "nightlife",
+      "history"
+    ],
+    "tagline": "Saigon's scooters, street food and the Mekong Delta.",
+    "intro": "Ho Chi Minh City (Saigon) is Vietnam's buzzing economic capital, with French colonial landmarks, rooftop bars and some of Asia's best street food. The Mekong Delta and Cu Chi Tunnels are easy day trips.",
+    "highlights": [
+      "War Remnants Museum",
+      "Ben Thanh Market and street-food tours",
+      "Cu Chi Tunnels",
+      "Mekong Delta boat trip",
+      "Rooftop bars in District 1"
+    ],
+    "best": "December–April: the dry season, with sunny days.",
+    "avoid": "June–September brings daily tropical downpours.",
+    "adjust": {},
+    "events": {
+      "2": "Tết (Lunar New Year) brings flower streets — and closures."
+    },
+    "stay": [
+      [
+        "District 1",
+        "Central for sights, food and nightlife"
+      ],
+      [
+        "District 3",
+        "Local feel with great food"
+      ],
+      [
+        "Thao Dien",
+        "Leafy expat area by the river"
+      ]
+    ]
+  },
+  {
+    "slug": "luxor",
+    "name": "Luxor",
+    "country": "Egypt",
+    "hub": "Egypt",
+    "region": "Middle East & Africa",
+    "lat": 25.69,
+    "lon": 32.64,
+    "iata": "LXR",
+    "wiki": "Luxor",
+    "climate": "temperate",
+    "currency": "EGP",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 35,
+      "mid": 90
+    },
+    "tags": [
+      "history",
+      "culture"
+    ],
+    "tagline": "The Valley of the Kings, Karnak and Nile cruises.",
+    "intro": "Luxor is the world's greatest open-air museum: Karnak and Luxor temples on the East Bank, the Valley of the Kings on the West. It's the start or end point for most Nile cruises to Aswan.",
+    "highlights": [
+      "Valley of the Kings",
+      "Karnak Temple complex",
+      "Sunrise hot-air balloon ride",
+      "Temple of Hatshepsut",
+      "Nile cruise to Aswan"
+    ],
+    "best": "October–April: warm, sunny days ideal for exploring tombs and temples.",
+    "avoid": "May–September is extremely hot, often above 40°C.",
+    "adjust": {},
+    "events": {
+      "2": "Sun Festival at Abu Simbel (22 February), reachable from Aswan."
+    },
+    "stay": [
+      [
+        "East Bank Corniche",
+        "Hotels near Luxor Temple and the Nile"
+      ],
+      [
+        "West Bank",
+        "Quiet guesthouses near the tombs"
+      ],
+      [
+        "Nile cruise",
+        "Floating hotel between Luxor and Aswan"
+      ]
+    ]
+  },
+  {
+    "slug": "hurghada",
+    "name": "Hurghada & Red Sea",
+    "country": "Egypt",
+    "hub": "Egypt",
+    "region": "Middle East & Africa",
+    "lat": 27.26,
+    "lon": 33.81,
+    "iata": "HRG",
+    "wiki": "Hurghada",
+    "climate": "temperate",
+    "currency": "EGP",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 40,
+      "mid": 100
+    },
+    "tags": [
+      "beach",
+      "family"
+    ],
+    "tagline": "Year-round sun, coral reefs and great-value Red Sea resorts.",
+    "intro": "Hurghada is Egypt's main Red Sea resort, with year-round sunshine, colourful coral reefs and all-inclusive hotels. Snorkelling and diving trips leave daily, and Luxor is a day trip away.",
+    "highlights": [
+      "Snorkelling at Giftun Island",
+      "Diving the reefs and wrecks",
+      "Desert quad-bike safari",
+      "El Gouna lagoon town",
+      "Day trip to Luxor"
+    ],
+    "best": "March–May and October–November: hot sun and warm sea without summer's extreme heat.",
+    "avoid": "July–August is very hot; winter evenings can feel cool and windy.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "El Gouna",
+        "Upscale lagoon town with marinas"
+      ],
+      [
+        "Sahl Hasheesh",
+        "Resorts on a quiet bay"
+      ],
+      [
+        "Hurghada Marina",
+        "Restaurants, bars and boat trips"
+      ]
+    ]
+  },
+  {
+    "slug": "auckland",
+    "name": "Auckland",
+    "country": "New Zealand",
+    "hub": "New Zealand",
+    "region": "Oceania",
+    "lat": -36.85,
+    "lon": 174.76,
+    "iata": "AKL",
+    "wiki": "Auckland",
+    "climate": "temperate",
+    "currency": "NZD",
+    "tz": "UTC+12 (+13 in summer)",
+    "budget": {
+      "low": 85,
+      "mid": 190
+    },
+    "tags": [
+      "city",
+      "nature",
+      "beach",
+      "wine"
+    ],
+    "tagline": "Harbour city of volcanoes, islands and black-sand beaches.",
+    "intro": "Auckland sprawls across volcanic cones between two harbours. It's the main gateway to New Zealand, with wine on Waiheke Island and wild west-coast beaches close by.",
+    "highlights": [
+      "Sky Tower and the Viaduct Harbour",
+      "Ferry to Waiheke Island wineries",
+      "Piha black-sand beach",
+      "Climb Mount Eden",
+      "Day trip to Hobbiton and Rotorua"
+    ],
+    "best": "December–March: the warm, settled summer.",
+    "avoid": "June–August is cool and wet.",
+    "adjust": {},
+    "events": {
+      "12": "Summer holidays and New Year's Eve at the Sky Tower."
+    },
+    "stay": [
+      [
+        "CBD & Viaduct",
+        "Waterfront hotels and dining"
+      ],
+      [
+        "Ponsonby",
+        "Trendy cafés and boutiques"
+      ],
+      [
+        "Waiheke Island",
+        "Vineyard retreats"
+      ]
+    ]
+  },
+  {
+    "slug": "queenstown",
+    "name": "Queenstown",
+    "country": "New Zealand",
+    "hub": "New Zealand",
+    "region": "Oceania",
+    "lat": -45.03,
+    "lon": 168.66,
+    "iata": "ZQN",
+    "wiki": "Queenstown, New Zealand",
+    "climate": "temperate",
+    "currency": "NZD",
+    "tz": "UTC+12 (+13 in summer)",
+    "budget": {
+      "low": 95,
+      "mid": 220
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "wine"
+    ],
+    "tagline": "Adventure capital of the world, with fjords and ski fields nearby.",
+    "intro": "Queenstown sits on Lake Wakatipu beneath the Remarkables. Bungy jumping, jet boating and hiking fill the summer, skiing the winter, and Milford Sound is a classic day trip.",
+    "highlights": [
+      "Day trip to Milford Sound",
+      "Skyline gondola and luge",
+      "Bungy jumping at Kawarau Bridge",
+      "Shotover Jet boat ride",
+      "Wine tasting in Gibbston Valley"
+    ],
+    "best": "December–March for summer hiking; June–September for skiing.",
+    "avoid": "October–November and April–May are changeable shoulder seasons.",
+    "adjust": {},
+    "events": {
+      "7": "Ski season runs from June to October; Winter Festival in June."
+    },
+    "stay": [
+      [
+        "Queenstown centre",
+        "Restaurants, bars and tour pick-ups"
+      ],
+      [
+        "Frankton",
+        "Lakeside and near the airport"
+      ],
+      [
+        "Arrowtown",
+        "Historic gold-rush village"
+      ]
+    ]
+  },
+  {
+    "slug": "sydney",
+    "name": "Sydney",
+    "country": "Australia",
+    "hub": "Australia",
+    "region": "Oceania",
+    "lat": -33.87,
+    "lon": 151.21,
+    "iata": "SYD",
+    "wiki": "Sydney",
+    "climate": "temperate",
+    "currency": "AUD",
+    "tz": "UTC+10 (+11 in summer)",
+    "budget": {
+      "low": 100,
+      "mid": 220
+    },
+    "tags": [
+      "city",
+      "beach",
+      "nature",
+      "food"
+    ],
+    "tagline": "Harbour Bridge, Opera House and golden surf beaches.",
+    "intro": "Sydney wraps around one of the world's most beautiful harbours, with surf beaches like Bondi and Manly minutes from the city. The Blue Mountains are an easy day trip.",
+    "highlights": [
+      "Sydney Opera House and Harbour Bridge",
+      "Bondi to Coogee coastal walk",
+      "Ferry to Manly",
+      "Blue Mountains day trip",
+      "Taronga Zoo"
+    ],
+    "best": "September–November and March–May: warm, sunny and less humid.",
+    "avoid": "January–February can be hot and humid with storms; winter is cool but sunny.",
+    "adjust": {},
+    "events": {
+      "12": "New Year's Eve fireworks over the Harbour Bridge.",
+      "6": "Vivid Sydney light festival (late May–June)."
+    },
+    "stay": [
+      [
+        "Circular Quay & The Rocks",
+        "Harbour views and historic lanes"
+      ],
+      [
+        "Bondi",
+        "Beach life and cafés"
+      ],
+      [
+        "Surry Hills",
+        "Food scene close to the centre"
+      ]
+    ]
+  },
+  {
+    "slug": "melbourne",
+    "name": "Melbourne",
+    "country": "Australia",
+    "hub": "Australia",
+    "region": "Oceania",
+    "lat": -37.81,
+    "lon": 144.96,
+    "iata": "MEL",
+    "wiki": "Melbourne",
+    "climate": "temperate",
+    "currency": "AUD",
+    "tz": "UTC+10 (+11 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 200
+    },
+    "tags": [
+      "city",
+      "food",
+      "culture",
+      "nature"
+    ],
+    "tagline": "Laneway cafés, sport, art and the Great Ocean Road.",
+    "intro": "Melbourne is Australia's cultural capital, famous for coffee, laneway bars, street art and major sporting events. The Great Ocean Road and Phillip Island penguins are classic trips.",
+    "highlights": [
+      "Laneways and street art in the CBD",
+      "Queen Victoria Market",
+      "Great Ocean Road and the Twelve Apostles",
+      "Penguin parade on Phillip Island",
+      "Yarra Valley wineries"
+    ],
+    "best": "March–May and October–November: mild and settled.",
+    "avoid": "Winter (June–August) is cool and grey; summer can bring sudden heatwaves.",
+    "adjust": {},
+    "events": {
+      "1": "Australian Open tennis (January).",
+      "11": "Melbourne Cup horse race (first Tuesday of November)."
+    },
+    "stay": [
+      [
+        "CBD",
+        "Laneways, dining and transport"
+      ],
+      [
+        "Fitzroy",
+        "Bohemian bars and vintage shops"
+      ],
+      [
+        "St Kilda",
+        "Beachside with a lively vibe"
+      ]
+    ]
+  },
+  {
+    "slug": "cairns",
+    "name": "Cairns & Great Barrier Reef",
+    "country": "Australia",
+    "hub": "Australia",
+    "region": "Oceania",
+    "lat": -16.92,
+    "lon": 145.77,
+    "iata": "CNS",
+    "wiki": "Cairns",
+    "imagePage": "Great Barrier Reef",
+    "climate": "tropical",
+    "currency": "AUD",
+    "tz": "UTC+10",
+    "budget": {
+      "low": 85,
+      "mid": 190
+    },
+    "tags": [
+      "nature",
+      "wildlife",
+      "beach",
+      "islands"
+    ],
+    "tagline": "Gateway to the Great Barrier Reef and the Daintree Rainforest.",
+    "intro": "Cairns in tropical north Queensland is the base for reef trips, rainforest tours and island escapes. Port Douglas, an hour north, is a quieter alternative.",
+    "highlights": [
+      "Snorkelling or diving the Great Barrier Reef",
+      "Daintree Rainforest and Cape Tribulation",
+      "Kuranda Scenic Railway and Skyrail",
+      "Green Island day trip",
+      "Port Douglas and Four Mile Beach"
+    ],
+    "best": "June–October: the dry season, with warm days and calm seas.",
+    "avoid": "December–March is the hot, wet season with cyclone risk; stinger season runs November–May.",
+    "adjust": {
+      "1": [
+        -5,
+        "Cyclone and stinger season"
+      ],
+      "2": [
+        -5,
+        "Cyclone and stinger season"
+      ],
+      "3": [
+        -5,
+        "Cyclone and stinger season"
+      ]
+    },
+    "events": {
+      "11": "Coral spawning on the Great Barrier Reef (usually November)."
+    },
+    "stay": [
+      [
+        "Cairns Esplanade",
+        "Central with reef-boat departures"
+      ],
+      [
+        "Palm Cove",
+        "Resort village on the beach"
+      ],
+      [
+        "Port Douglas",
+        "Upmarket town close to the Daintree"
+      ]
+    ]
+  },
+  {
+    "slug": "maldives",
+    "name": "Maldives",
+    "country": "Maldives",
+    "region": "Asia",
+    "lat": 4.18,
+    "lon": 73.51,
+    "iata": "MLE",
+    "wiki": "Malé",
+    "imagePage": "Malé",
+    "climate": "tropical",
+    "currency": "MVR",
+    "tz": "UTC+5",
+    "budget": {
+      "low": 100,
+      "mid": 300
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "luxury",
+      "wildlife"
+    ],
+    "tagline": "Overwater villas, house reefs and manta rays in the Indian Ocean.",
+    "intro": "The Maldives are 1,000-plus coral islands, many with a single resort. Days revolve around snorkelling, diving and lagoon views — and guesthouses on local islands make it more affordable than you'd think.",
+    "highlights": [
+      "Overwater villa stay",
+      "Snorkelling a resort house reef",
+      "Manta rays and whale sharks",
+      "Sandbank picnic",
+      "Sunset dolphin cruise"
+    ],
+    "best": "December–April: the dry north-east monsoon, with sunshine and calm seas.",
+    "avoid": "May–October brings the wetter south-west monsoon (but lower prices).",
+    "adjust": {},
+    "events": {
+      "8": "Manta season at Hanifaru Bay, Baa Atoll (June–November)."
+    },
+    "stay": [
+      [
+        "Resort islands",
+        "All-inclusive luxury with private beaches"
+      ],
+      [
+        "Maafushi",
+        "Budget guesthouses on a local island"
+      ],
+      [
+        "Hulhumalé",
+        "Transit stay near the airport"
+      ]
+    ]
+  },
+  {
+    "slug": "mauritius",
+    "name": "Mauritius",
+    "country": "Mauritius",
+    "region": "Middle East & Africa",
+    "lat": -20.16,
+    "lon": 57.5,
+    "iata": "MRU",
+    "wiki": "Mauritius",
+    "imagePage": "Le Morne Brabant",
+    "climate": "tropical",
+    "currency": "MUR",
+    "tz": "UTC+4",
+    "budget": {
+      "low": 70,
+      "mid": 170
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature"
+    ],
+    "tagline": "Lagoons, mountains and a melting pot of cultures.",
+    "intro": "Mauritius combines turquoise lagoons with volcanic peaks, waterfalls and a mix of Indian, African, French and Chinese influences. Resorts line the coast, and the south-west has dramatic hikes.",
+    "highlights": [
+      "Le Morne Brabant and its 'underwater waterfall'",
+      "Île aux Cerfs",
+      "Seven Coloured Earths of Chamarel",
+      "Black River Gorges National Park",
+      "Swimming with dolphins off Tamarin"
+    ],
+    "best": "May–December: cooler, drier and sunny.",
+    "avoid": "January–March is hot, humid and the peak of cyclone season.",
+    "adjust": {
+      "1": [
+        -5,
+        "Cyclone season"
+      ],
+      "2": [
+        -5,
+        "Cyclone season"
+      ],
+      "3": [
+        -5,
+        "Cyclone season"
+      ]
+    },
+    "events": {},
+    "stay": [
+      [
+        "Grand Baie",
+        "Lively north with nightlife and calm beaches"
+      ],
+      [
+        "Flic en Flac",
+        "West-coast sunsets and good value"
+      ],
+      [
+        "Belle Mare",
+        "Luxury resorts on the east coast"
+      ]
+    ]
+  },
+  {
+    "slug": "seychelles",
+    "name": "Seychelles",
+    "country": "Seychelles",
+    "region": "Middle East & Africa",
+    "lat": -4.62,
+    "lon": 55.45,
+    "iata": "SEZ",
+    "wiki": "Victoria, Seychelles",
+    "imagePage": "La Digue",
+    "climate": "tropical",
+    "currency": "SCR",
+    "tz": "UTC+4",
+    "budget": {
+      "low": 110,
+      "mid": 280
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "luxury",
+      "nature"
+    ],
+    "tagline": "Granite boulders, giant tortoises and some of the world's best beaches.",
+    "intro": "The Seychelles' granite islands are famous for beaches framed by giant boulders, like Anse Source d'Argent on La Digue. Island-hopping between Mahé, Praslin and La Digue is easy by ferry.",
+    "highlights": [
+      "Anse Source d'Argent on La Digue",
+      "Vallée de Mai coco-de-mer forest",
+      "Anse Lazio on Praslin",
+      "Giant tortoises on Curieuse",
+      "Snorkelling at Sainte Anne Marine Park"
+    ],
+    "best": "April–May and October–November: calm seas between the trade-wind seasons.",
+    "avoid": "December–January is the wettest; June–September can be windy with choppy seas.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "Beau Vallon (Mahé)",
+        "Popular beach with restaurants"
+      ],
+      [
+        "Praslin",
+        "Classic beaches and resorts"
+      ],
+      [
+        "La Digue",
+        "Quiet island explored by bike"
+      ]
+    ]
+  },
+  {
+    "slug": "palawan",
+    "name": "Palawan (El Nido & Coron)",
+    "country": "Philippines",
+    "region": "Asia",
+    "lat": 9.74,
+    "lon": 118.74,
+    "iata": "PPS",
+    "wiki": "Puerto Princesa",
+    "imagePage": "El Nido, Palawan",
+    "climate": "tropical",
+    "currency": "PHP",
+    "tz": "UTC+8",
+    "budget": {
+      "low": 45,
+      "mid": 110
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature"
+    ],
+    "tagline": "Limestone lagoons, island hopping and some of Asia's best beaches.",
+    "intro": "Palawan regularly tops 'world's best island' lists, thanks to El Nido's lagoons, Coron's shipwrecks and Puerto Princesa's underground river. Island-hopping boat tours are the highlight.",
+    "highlights": [
+      "El Nido island-hopping tours",
+      "Coron's Kayangan Lake and wreck dives",
+      "Puerto Princesa Underground River",
+      "Nacpan Beach",
+      "Port Barton's quiet beaches"
+    ],
+    "best": "December–May: the dry season, with calm seas for boat tours.",
+    "avoid": "July–October brings the wet season and typhoon risk; boat tours may be cancelled.",
+    "adjust": {
+      "7": [
+        -5,
+        "Typhoon risk and rough seas"
+      ],
+      "8": [
+        -5,
+        "Typhoon risk and rough seas"
+      ],
+      "9": [
+        -5,
+        "Typhoon risk and rough seas"
+      ],
+      "10": [
+        -5,
+        "Typhoon risk and rough seas"
+      ]
+    },
+    "events": {},
+    "stay": [
+      [
+        "El Nido town",
+        "Boat tours and nightlife"
+      ],
+      [
+        "Coron",
+        "Diving and lakes"
+      ],
+      [
+        "Port Barton",
+        "Laid-back village escape"
+      ]
+    ]
+  },
+  {
+    "slug": "new-york",
+    "name": "New York City",
+    "country": "United States",
+    "region": "North America",
+    "lat": 40.71,
+    "lon": -74.01,
+    "iata": "NYC",
+    "wiki": "New York City",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 140,
+      "mid": 300
+    },
+    "tags": [
+      "city",
+      "food",
+      "culture",
+      "nightlife"
+    ],
+    "tagline": "Skyscrapers, Broadway, Central Park and food from every corner of the world.",
+    "intro": "New York City is endlessly energetic: world-class museums, Broadway shows, distinct neighbourhoods and an unrivalled food scene. Each season brings its own reason to visit, from autumn leaves to holiday lights.",
+    "highlights": [
+      "Central Park and the Met",
+      "Statue of Liberty and Ellis Island",
+      "Broadway show",
+      "Walk the Brooklyn Bridge to DUMBO",
+      "Top of the Rock or Edge observation deck"
+    ],
+    "best": "Late April–June and September–early November: comfortable temperatures and big events.",
+    "avoid": "January–February is cold; July–August is hot and humid.",
+    "adjust": {},
+    "events": {
+      "11": "NYC Marathon (early November) and the Macy's Thanksgiving Day Parade.",
+      "12": "Rockefeller Center tree, holiday windows and ice skating."
+    },
+    "stay": [
+      [
+        "Midtown",
+        "Central for Broadway and sightseeing"
+      ],
+      [
+        "SoHo & Lower Manhattan",
+        "Shopping, dining and downtown sights"
+      ],
+      [
+        "Williamsburg (Brooklyn)",
+        "Hip bars and skyline views"
+      ]
+    ]
+  },
+  {
+    "slug": "washington-dc",
+    "name": "Washington, D.C.",
+    "country": "United States",
+    "region": "North America",
+    "lat": 38.9,
+    "lon": -77.04,
+    "iata": "WAS",
+    "wiki": "Washington, D.C.",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 240
+    },
+    "tags": [
+      "city",
+      "history",
+      "culture"
+    ],
+    "tagline": "Free world-class museums, monuments and cherry blossoms.",
+    "intro": "America's capital packs the National Mall's monuments and the free Smithsonian museums into a walkable core. Spring cherry blossoms and autumn colours are the prettiest times.",
+    "highlights": [
+      "National Mall monuments at night",
+      "Smithsonian museums (free)",
+      "US Capitol and Library of Congress",
+      "Georgetown waterfront",
+      "Arlington National Cemetery"
+    ],
+    "best": "Late March–May and September–October: mild weather and blossoms or autumn colours.",
+    "avoid": "July–August is hot and very humid.",
+    "adjust": {},
+    "events": {
+      "4": "Cherry blossoms around the Tidal Basin usually peak in late March or early April.",
+      "7": "Fourth of July fireworks on the National Mall."
+    },
+    "stay": [
+      [
+        "Downtown & Penn Quarter",
+        "Walk to the Mall and museums"
+      ],
+      [
+        "Georgetown",
+        "Historic streets and waterfront"
+      ],
+      [
+        "Dupont Circle",
+        "Restaurants, bars and embassies"
+      ]
+    ]
+  },
+  {
+    "slug": "las-vegas",
+    "name": "Las Vegas",
+    "country": "United States",
+    "region": "North America",
+    "lat": 36.17,
+    "lon": -115.14,
+    "iata": "LAS",
+    "wiki": "Las Vegas",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−8 (−7 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 220
+    },
+    "tags": [
+      "city",
+      "nightlife",
+      "nature"
+    ],
+    "tagline": "Casinos, shows and desert road trips to canyons.",
+    "intro": "Las Vegas is the world's entertainment capital, with mega-resorts, shows and nightlife on the Strip. It's also a base for the Grand Canyon, Red Rock Canyon and Valley of Fire.",
+    "highlights": [
+      "The Strip at night and the Bellagio fountains",
+      "A Cirque du Soleil show",
+      "Fremont Street Experience",
+      "Red Rock Canyon",
+      "Grand Canyon or Hoover Dam day trip"
+    ],
+    "best": "March–May and October–November: warm, sunny and comfortable for desert trips.",
+    "avoid": "June–August regularly tops 40°C.",
+    "adjust": {},
+    "events": {
+      "1": "CES tech show (early January) pushes hotel prices up."
+    },
+    "stay": [
+      [
+        "Center Strip",
+        "Iconic resorts and shows"
+      ],
+      [
+        "Downtown & Fremont Street",
+        "Cheaper, old-Vegas vibe"
+      ],
+      [
+        "Off-Strip resorts",
+        "Quieter pools and better value"
+      ]
+    ]
+  },
+  {
+    "slug": "san-diego",
+    "name": "San Diego",
+    "country": "United States",
+    "region": "North America",
+    "lat": 32.72,
+    "lon": -117.16,
+    "iata": "SAN",
+    "wiki": "San Diego",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−8 (−7 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 240
+    },
+    "tags": [
+      "beach",
+      "city",
+      "family",
+      "food"
+    ],
+    "tagline": "America's finest weather: beaches, tacos and sea lions.",
+    "intro": "San Diego has one of the mildest climates in the US, with laid-back beaches, Balboa Park's museums and a famous zoo. La Jolla's coves are home to seals and sea lions.",
+    "highlights": [
+      "La Jolla Cove sea lions",
+      "Balboa Park and San Diego Zoo",
+      "USS Midway Museum",
+      "Coronado Beach",
+      "Old Town and Mexican food"
+    ],
+    "best": "Late August–October: the warmest, sunniest stretch with warm water.",
+    "avoid": "May–June often brings grey marine-layer mornings ('May Gray, June Gloom').",
+    "adjust": {
+      "5": [
+        -5,
+        "Grey marine-layer mornings"
+      ],
+      "6": [
+        -5,
+        "Grey marine-layer mornings"
+      ]
+    },
+    "events": {
+      "7": "Comic-Con International (July)."
+    },
+    "stay": [
+      [
+        "Gaslamp Quarter",
+        "Downtown dining and nightlife"
+      ],
+      [
+        "La Jolla",
+        "Upscale coastal village"
+      ],
+      [
+        "Pacific Beach",
+        "Lively beach scene"
+      ]
+    ]
+  },
+  {
+    "slug": "chicago",
+    "name": "Chicago",
+    "country": "United States",
+    "region": "North America",
+    "lat": 41.88,
+    "lon": -87.63,
+    "iata": "CHI",
+    "wiki": "Chicago",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−6 (−5 in summer)",
+    "budget": {
+      "low": 100,
+      "mid": 230
+    },
+    "tags": [
+      "city",
+      "food",
+      "culture",
+      "nightlife"
+    ],
+    "tagline": "Architecture, deep-dish pizza and summer on Lake Michigan.",
+    "intro": "Chicago is famous for its skyline, architecture river cruises, blues clubs and deep-dish pizza. Summers come alive with lakefront beaches and festivals; winters are bitterly cold.",
+    "highlights": [
+      "Chicago Architecture Center river cruise",
+      "Millennium Park and Cloud Gate",
+      "Art Institute of Chicago",
+      "Willis Tower Skydeck",
+      "Deep-dish pizza and blues clubs"
+    ],
+    "best": "May–September: warm days, lakefront beaches and festivals.",
+    "avoid": "December–February is freezing and windy.",
+    "adjust": {},
+    "events": {
+      "8": "Lollapalooza in Grant Park (early August).",
+      "12": "Christkindlmarket in Daley Plaza."
+    },
+    "stay": [
+      [
+        "The Loop",
+        "Central for sights and transport"
+      ],
+      [
+        "River North",
+        "Restaurants and nightlife"
+      ],
+      [
+        "Lincoln Park",
+        "Leafy, near the lake and zoo"
+      ]
+    ]
+  },
+  {
+    "slug": "alaska",
+    "name": "Alaska (Anchorage)",
+    "country": "United States",
+    "region": "North America",
+    "lat": 61.22,
+    "lon": -149.9,
+    "iata": "ANC",
+    "wiki": "Anchorage, Alaska",
+    "climateWiki": [
+      "Anchorage, Alaska"
+    ],
+    "imagePage": "Denali",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−9 (−8 in summer)",
+    "budget": {
+      "low": 130,
+      "mid": 280
+    },
+    "tags": [
+      "nature",
+      "wildlife"
+    ],
+    "tagline": "Glaciers, bears, fjords and the midnight sun.",
+    "intro": "Alaska is America's last frontier: glaciers calving into fjords, grizzly bears, Denali and endless summer daylight. Most visitors come by cruise through the Inside Passage or fly into Anchorage for a road trip.",
+    "highlights": [
+      "Kenai Fjords glacier and wildlife cruise",
+      "Denali National Park",
+      "Bear viewing in Katmai or Lake Clark",
+      "Inside Passage cruise",
+      "Northern lights from Fairbanks (winter)"
+    ],
+    "best": "June–August: long days, mildest weather and full access to parks and cruises.",
+    "avoid": "October–April is cold and dark, and many tours shut down.",
+    "adjust": {},
+    "events": {
+      "6": "Midnight sun and peak cruise season (late May–September).",
+      "2": "Northern lights season in Fairbanks (September–April)."
+    },
+    "stay": [
+      [
+        "Anchorage",
+        "Gateway city with car hire and tours"
+      ],
+      [
+        "Seward",
+        "Base for Kenai Fjords"
+      ],
+      [
+        "Denali area",
+        "Lodges at the national park entrance"
+      ]
+    ]
+  },
+  {
+    "slug": "yellowstone",
+    "name": "Yellowstone National Park",
+    "country": "United States",
+    "hub": "US National Parks",
+    "region": "North America",
+    "lat": 44.66,
+    "lon": -111.1,
+    "iata": "WYS",
+    "wiki": "Yellowstone National Park",
+    "climateWiki": "West Yellowstone, Montana",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−7 (−6 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 250
+    },
+    "tags": [
+      "nature",
+      "wildlife"
+    ],
+    "tagline": "Geysers, bison herds and the Grand Canyon of the Yellowstone.",
+    "intro": "Yellowstone, the world's first national park, has more geysers than anywhere on earth, plus bison, wolves and bears in the Lamar Valley. Most roads open from late spring to autumn.",
+    "highlights": [
+      "Old Faithful and the Upper Geyser Basin",
+      "Grand Prismatic Spring",
+      "Grand Canyon of the Yellowstone",
+      "Wildlife watching in Lamar Valley",
+      "Yellowstone Lake"
+    ],
+    "best": "Late May–June and September: open roads, wildlife and fewer crowds than July–August.",
+    "avoid": "November–April: most roads close to cars and it's bitterly cold.",
+    "adjust": {
+      "11": [
+        -10,
+        "Most park roads closed"
+      ],
+      "12": [
+        -10,
+        "Most park roads closed"
+      ],
+      "1": [
+        -10,
+        "Most park roads closed"
+      ],
+      "2": [
+        -10,
+        "Most park roads closed"
+      ],
+      "3": [
+        -10,
+        "Most park roads closed"
+      ],
+      "4": [
+        -10,
+        "Most park roads closed"
+      ]
+    },
+    "events": {
+      "6": "Bison calves and spring wildlife; most roads are open by late May.",
+      "9": "Elk rut and thinner crowds in September."
+    },
+    "stay": [
+      [
+        "Old Faithful area",
+        "In-park lodges by the geysers"
+      ],
+      [
+        "West Yellowstone",
+        "Gateway town with many motels"
+      ],
+      [
+        "Gardiner",
+        "North entrance, open year-round"
+      ]
+    ]
+  },
+  {
+    "slug": "zion",
+    "name": "Zion National Park",
+    "country": "United States",
+    "hub": "US National Parks",
+    "region": "North America",
+    "lat": 37.3,
+    "lon": -113.03,
+    "iata": "LAS",
+    "wiki": "Zion National Park",
+    "climateWiki": [
+      "Zion National Park",
+      "Springdale, Utah"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−7 (−6 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 230
+    },
+    "tags": [
+      "nature"
+    ],
+    "tagline": "Red-rock canyons, The Narrows and Angels Landing.",
+    "intro": "Zion's towering sandstone cliffs and slot canyons make it Utah's most visited park. Hike through the Virgin River in The Narrows or up to Angels Landing (permit required).",
+    "highlights": [
+      "Hiking The Narrows",
+      "Angels Landing (permit lottery)",
+      "Canyon Overlook Trail",
+      "Emerald Pools",
+      "Scenic drive on the Zion–Mount Carmel Highway"
+    ],
+    "best": "April–May and late September–October: warm days, cool nights and lower river levels for The Narrows.",
+    "avoid": "June–August is very hot with flash-flood risk; winter is cold but quiet.",
+    "adjust": {
+      "7": [
+        -5,
+        "Monsoon flash-flood risk in slot canyons"
+      ],
+      "8": [
+        -5,
+        "Monsoon flash-flood risk in slot canyons"
+      ]
+    },
+    "events": {
+      "10": "Autumn colours along the Virgin River (late October–November)."
+    },
+    "stay": [
+      [
+        "Springdale",
+        "Walkable gateway town with the park shuttle"
+      ],
+      [
+        "Zion Lodge",
+        "The only lodging inside the canyon"
+      ],
+      [
+        "St. George",
+        "Cheaper city base 45 minutes away"
+      ]
+    ]
+  },
+  {
+    "slug": "yosemite",
+    "name": "Yosemite National Park",
+    "country": "United States",
+    "hub": "US National Parks",
+    "region": "North America",
+    "lat": 37.75,
+    "lon": -119.59,
+    "iata": "FAT",
+    "wiki": "Yosemite National Park",
+    "climateWiki": [
+      "Yosemite National Park",
+      "Wawona, California",
+      "Mariposa, California"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−8 (−7 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 250
+    },
+    "tags": [
+      "nature"
+    ],
+    "tagline": "Granite giants, giant sequoias and thundering waterfalls.",
+    "intro": "Yosemite Valley is framed by El Capitan, Half Dome and some of North America's tallest waterfalls. Spring snowmelt brings peak waterfall flow; summer opens the high country.",
+    "highlights": [
+      "Tunnel View and Yosemite Valley",
+      "Yosemite Falls and Vernal Fall (Mist Trail)",
+      "Glacier Point",
+      "Mariposa Grove of giant sequoias",
+      "Tuolumne Meadows (summer)"
+    ],
+    "best": "May–June for waterfalls; September–October for fewer crowds and warm days.",
+    "avoid": "Winter closes Tioga and Glacier Point roads; July–August is busiest.",
+    "adjust": {},
+    "events": {
+      "5": "Waterfalls at peak flow from snowmelt (May–June).",
+      "2": "Horsetail Fall 'firefall' glows at sunset (mid to late February)."
+    },
+    "stay": [
+      [
+        "Yosemite Valley",
+        "Lodges and camps in the heart of the park"
+      ],
+      [
+        "El Portal",
+        "Just outside the western entrance"
+      ],
+      [
+        "Oakhurst",
+        "Gateway town near the sequoias"
+      ]
+    ]
+  },
+  {
+    "slug": "grand-canyon",
+    "name": "Grand Canyon",
+    "country": "United States",
+    "hub": "US National Parks",
+    "region": "North America",
+    "lat": 36.05,
+    "lon": -112.14,
+    "iata": "FLG",
+    "wiki": "Grand Canyon National Park",
+    "climateWiki": [
+      "Grand Canyon National Park",
+      "Grand Canyon Village, Arizona",
+      "Tusayan, Arizona",
+      "Flagstaff, Arizona"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−7",
+    "budget": {
+      "low": 110,
+      "mid": 230
+    },
+    "tags": [
+      "nature"
+    ],
+    "tagline": "One of the world's great natural wonders, a mile deep.",
+    "intro": "The Grand Canyon's South Rim is open year-round, with viewpoints, rim trails and mule rides into the canyon. The higher North Rim opens only from mid-May to mid-October.",
+    "highlights": [
+      "Sunrise at Mather Point",
+      "Rim Trail viewpoints",
+      "Hike Bright Angel or South Kaibab trail",
+      "Desert View Watchtower",
+      "Helicopter flight over the canyon"
+    ],
+    "best": "April–May and September–October: mild on the rim and safer for hiking into the canyon.",
+    "avoid": "Summer is scorching at the bottom of the canyon; winter can bring snow on the rim.",
+    "adjust": {},
+    "events": {
+      "5": "The North Rim opens in mid-May (until mid-October)."
+    },
+    "stay": [
+      [
+        "Grand Canyon Village",
+        "Historic lodges right on the South Rim"
+      ],
+      [
+        "Tusayan",
+        "Hotels just outside the park entrance"
+      ],
+      [
+        "Flagstaff",
+        "Mountain town 90 minutes away"
+      ]
+    ]
+  },
+  {
+    "slug": "banff",
+    "name": "Banff",
+    "country": "Canada",
+    "hub": "Canada",
+    "region": "North America",
+    "lat": 51.18,
+    "lon": -115.57,
+    "iata": "YYC",
+    "wiki": "Banff, Alberta",
+    "imagePage": "Banff National Park",
+    "climate": "temperate",
+    "currency": "CAD",
+    "tz": "UTC−7 (−6 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 240
+    },
+    "tags": [
+      "nature",
+      "wildlife"
+    ],
+    "tagline": "Turquoise lakes, Rocky Mountain peaks and world-class skiing.",
+    "intro": "Banff National Park is the jewel of the Canadian Rockies, with glacier-fed lakes like Moraine and Louise, wildlife and the scenic Icefields Parkway. Winter brings skiing at three resorts.",
+    "highlights": [
+      "Lake Louise and Moraine Lake",
+      "Icefields Parkway drive",
+      "Banff Gondola up Sulphur Mountain",
+      "Johnston Canyon hike",
+      "Skiing at Sunshine Village or Lake Louise"
+    ],
+    "best": "Late June–September for hiking and ice-free lakes; December–March for skiing.",
+    "avoid": "April–May and November are muddy shoulder seasons; lakes may still be frozen into June.",
+    "adjust": {},
+    "events": {
+      "7": "Peak season: Moraine Lake and Lake Louise are ice-free (late June–September).",
+      "1": "Ski season at Lake Louise, Sunshine and Norquay (December–April)."
+    },
+    "stay": [
+      [
+        "Banff town",
+        "Restaurants, shops and hot springs"
+      ],
+      [
+        "Lake Louise",
+        "Mountain lodges near the lakes"
+      ],
+      [
+        "Canmore",
+        "Quieter, better-value base"
+      ]
+    ]
+  },
+  {
+    "slug": "vancouver",
+    "name": "Vancouver",
+    "country": "Canada",
+    "hub": "Canada",
+    "region": "North America",
+    "lat": 49.28,
+    "lon": -123.12,
+    "iata": "YVR",
+    "wiki": "Vancouver",
+    "climate": "temperate",
+    "currency": "CAD",
+    "tz": "UTC−8 (−7 in summer)",
+    "budget": {
+      "low": 100,
+      "mid": 220
+    },
+    "tags": [
+      "city",
+      "nature",
+      "food"
+    ],
+    "tagline": "Mountains meet the sea in one of the world's most liveable cities.",
+    "intro": "Vancouver combines a sleek waterfront city with rainforest parks, beaches and ski slopes. Whistler and Vancouver Island are easy add-ons.",
+    "highlights": [
+      "Stanley Park seawall by bike",
+      "Granville Island Public Market",
+      "Capilano Suspension Bridge",
+      "Grouse Mountain",
+      "Day trip to Whistler"
+    ],
+    "best": "June–September: dry, sunny and mild.",
+    "avoid": "November–March is grey and rainy.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "Downtown",
+        "Waterfront hotels and shopping"
+      ],
+      [
+        "Gastown",
+        "Historic district with bars and restaurants"
+      ],
+      [
+        "Kitsilano",
+        "Beachside neighbourhood with cafés"
+      ]
+    ]
+  },
+  {
+    "slug": "quebec-city",
+    "name": "Quebec City",
+    "country": "Canada",
+    "hub": "Canada",
+    "region": "North America",
+    "lat": 46.81,
+    "lon": -71.21,
+    "iata": "YQB",
+    "wiki": "Quebec City",
+    "climate": "temperate",
+    "currency": "CAD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 190
+    },
+    "tags": [
+      "city",
+      "history",
+      "food",
+      "culture"
+    ],
+    "tagline": "A walled French-speaking city that feels like old Europe.",
+    "intro": "Quebec City's fortified old town, cobbled lanes and Château Frontenac make it North America's most European city. Autumn colours and a famous winter carnival are highlights.",
+    "highlights": [
+      "Old Quebec and Château Frontenac",
+      "Petit-Champlain district",
+      "Montmorency Falls",
+      "Plains of Abraham",
+      "Île d'Orléans farms and cideries"
+    ],
+    "best": "June–September for warm weather; late September–October for fall colours.",
+    "avoid": "January–February is very cold — unless you're coming for the Winter Carnival.",
+    "adjust": {},
+    "events": {
+      "2": "Quebec Winter Carnival (late January to mid-February).",
+      "10": "Fall colours usually peak around early October."
+    },
+    "stay": [
+      [
+        "Old Quebec",
+        "Historic heart inside the walls"
+      ],
+      [
+        "Saint-Roch",
+        "Trendy restaurants and bars"
+      ],
+      [
+        "Montcalm",
+        "Arts district near the Plains of Abraham"
+      ]
+    ]
+  },
+  {
+    "slug": "cabo-san-lucas",
+    "name": "Cabo San Lucas",
+    "country": "Mexico",
+    "hub": "Mexico",
+    "region": "North America",
+    "lat": 22.89,
+    "lon": -109.92,
+    "iata": "SJD",
+    "wiki": "Cabo San Lucas",
+    "climate": "tropical",
+    "currency": "MXN",
+    "tz": "UTC−7",
+    "budget": {
+      "low": 100,
+      "mid": 230
+    },
+    "tags": [
+      "beach",
+      "nightlife",
+      "wildlife"
+    ],
+    "tagline": "Desert meets sea at the tip of Baja: El Arco, whales and sunsets.",
+    "intro": "Cabo San Lucas and San José del Cabo (Los Cabos) sit at the tip of the Baja California peninsula, where desert meets the Pacific. Expect resorts, sportfishing, nightlife and winter whale watching.",
+    "highlights": [
+      "Boat trip to El Arco and Lover's Beach",
+      "Whale watching (December–April)",
+      "Snorkelling at Chileno and Santa María bays",
+      "San José del Cabo art walk",
+      "Sunset sail"
+    ],
+    "best": "November–May: warm, dry and sunny.",
+    "avoid": "August–October is hot and humid with hurricane risk.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "1": "Whale-watching season (December–April)."
+    },
+    "stay": [
+      [
+        "Médano Beach",
+        "Swimmable beach near Cabo's nightlife"
+      ],
+      [
+        "Tourist Corridor",
+        "Luxury resorts between the two towns"
+      ],
+      [
+        "San José del Cabo",
+        "Quieter colonial town and art district"
+      ]
+    ]
+  },
+  {
+    "slug": "puerto-vallarta",
+    "name": "Puerto Vallarta",
+    "country": "Mexico",
+    "hub": "Mexico",
+    "region": "North America",
+    "lat": 20.65,
+    "lon": -105.23,
+    "iata": "PVR",
+    "wiki": "Puerto Vallarta",
+    "climate": "tropical",
+    "currency": "MXN",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 60,
+      "mid": 140
+    },
+    "tags": [
+      "beach",
+      "nightlife",
+      "food",
+      "nature"
+    ],
+    "tagline": "A charming Pacific town between jungle mountains and Banderas Bay.",
+    "intro": "Puerto Vallarta combines a cobblestone old town with beaches, jungle-backed coves and a buzzing food scene. Boat trips explore Banderas Bay, and whales visit in winter.",
+    "highlights": [
+      "Malecón boardwalk at sunset",
+      "Boat trip to Yelapa or Las Ánimas",
+      "Zona Romántica restaurants and bars",
+      "Whale watching (December–March)",
+      "Day trip to Sayulita"
+    ],
+    "best": "November–April: dry, sunny and comfortably warm.",
+    "avoid": "July–October is hot, humid and rainy, with hurricane risk in September–October.",
+    "adjust": {
+      "9": [
+        -5,
+        "Hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "12": "Our Lady of Guadalupe processions fill the streets (1–12 December)."
+    },
+    "stay": [
+      [
+        "Zona Romántica",
+        "Walkable old town with beaches and nightlife"
+      ],
+      [
+        "Marina Vallarta",
+        "Resorts, golf and the marina"
+      ],
+      [
+        "Nuevo Vallarta",
+        "All-inclusive resorts on long beaches"
+      ]
+    ]
+  },
+  {
+    "slug": "oaxaca",
+    "name": "Oaxaca",
+    "country": "Mexico",
+    "hub": "Mexico",
+    "region": "North America",
+    "lat": 17.07,
+    "lon": -96.73,
+    "iata": "OAX",
+    "wiki": "Oaxaca City",
+    "climate": "highland",
+    "currency": "MXN",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 40,
+      "mid": 95
+    },
+    "tags": [
+      "city",
+      "food",
+      "culture",
+      "history"
+    ],
+    "tagline": "Mole, mezcal, markets and Mexico's most colourful traditions.",
+    "intro": "Oaxaca City is Mexico's culinary and craft capital, with colonial streets, vibrant markets and mezcal distilleries in the surrounding valleys. Its Día de Muertos celebrations are legendary.",
+    "highlights": [
+      "Monte Albán ruins",
+      "Mercado 20 de Noviembre and its smoky grill hall",
+      "Mezcal distillery tour",
+      "Hierve el Agua petrified waterfalls",
+      "Santo Domingo church and gardens"
+    ],
+    "best": "October–April: dry, sunny days; late October–early November for Día de Muertos.",
+    "avoid": "June–September brings afternoon rains (mornings are usually fine).",
+    "adjust": {},
+    "events": {
+      "7": "Guelaguetza festival of regional dance (July).",
+      "11": "Día de Muertos (31 October–2 November) — book months ahead."
+    },
+    "stay": [
+      [
+        "Centro",
+        "Walkable colonial core"
+      ],
+      [
+        "Jalatlaco",
+        "Charming, colourful barrio"
+      ],
+      [
+        "Reforma",
+        "Quieter residential area"
+      ]
+    ]
+  },
+  {
+    "slug": "cappadocia",
+    "name": "Cappadocia",
+    "country": "Türkiye",
+    "hub": "Türkiye",
+    "region": "Europe",
+    "lat": 38.64,
+    "lon": 34.83,
+    "iata": "NAV",
+    "wiki": "Cappadocia",
+    "climateWiki": "Nevşehir",
+    "climate": "temperate",
+    "currency": "TRY",
+    "tz": "UTC+3",
+    "budget": {
+      "low": 50,
+      "mid": 120
+    },
+    "tags": [
+      "nature",
+      "history",
+      "culture"
+    ],
+    "tagline": "Hot-air balloons over fairy chimneys and cave hotels.",
+    "intro": "Cappadocia's surreal valleys of rock pinnacles, underground cities and cave churches are best seen from a sunrise hot-air balloon. Stay in a cave hotel in Göreme or Uçhisar.",
+    "highlights": [
+      "Sunrise hot-air balloon flight",
+      "Göreme Open-Air Museum",
+      "Derinkuyu underground city",
+      "Hiking the Rose and Love valleys",
+      "Uçhisar Castle"
+    ],
+    "best": "April–June and September–October: mild days and good balloon-flying conditions.",
+    "avoid": "December–February is cold and snowy; balloon flights are often cancelled.",
+    "adjust": {},
+    "events": {},
+    "stay": [
+      [
+        "Göreme",
+        "Cave hotels in the heart of the valleys"
+      ],
+      [
+        "Uçhisar",
+        "Quieter, with castle and valley views"
+      ],
+      [
+        "Ürgüp",
+        "Upscale town with wineries"
+      ]
+    ]
+  },
+  {
+    "slug": "dubrovnik",
+    "name": "Dubrovnik",
+    "country": "Croatia",
+    "hub": "Croatia",
+    "region": "Europe",
+    "lat": 42.65,
+    "lon": 18.09,
+    "iata": "DBV",
+    "wiki": "Dubrovnik",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 85,
+      "mid": 190
+    },
+    "tags": [
+      "city",
+      "history",
+      "beach"
+    ],
+    "tagline": "The Pearl of the Adriatic: city walls, sea and Game of Thrones sets.",
+    "intro": "Dubrovnik's marble streets and massive city walls are one of Europe's great sights. Beaches, kayaking and island trips to Lokrum and the Elaphiti Islands round out a stay.",
+    "highlights": [
+      "Walking the city walls",
+      "Cable car up Mount Srđ",
+      "Sea kayaking around the walls",
+      "Lokrum island",
+      "Day trip to Kotor (Montenegro)"
+    ],
+    "best": "May–June and September–October: warm sea and fewer cruise crowds.",
+    "avoid": "July–August is hot and packed; many places close in winter.",
+    "adjust": {},
+    "events": {
+      "7": "Dubrovnik Summer Festival (10 July–25 August)."
+    },
+    "stay": [
+      [
+        "Old Town",
+        "Inside the walls, atmospheric but pricey"
+      ],
+      [
+        "Ploče",
+        "Views of the walls and close to the beach"
+      ],
+      [
+        "Lapad",
+        "Beaches and better value"
+      ]
+    ]
+  },
+  {
+    "slug": "lima",
+    "name": "Lima",
+    "country": "Peru",
+    "hub": "Peru",
+    "region": "Central & South America",
+    "lat": -12.05,
+    "lon": -77.04,
+    "iata": "LIM",
+    "wiki": "Lima",
+    "climate": "temperate",
+    "currency": "PEN",
+    "tz": "UTC−5",
+    "budget": {
+      "low": 40,
+      "mid": 100
+    },
+    "tags": [
+      "city",
+      "food",
+      "history"
+    ],
+    "tagline": "South America's food capital on the Pacific cliffs.",
+    "intro": "Lima is Peru's capital and one of the world's great food cities, from ceviche stalls to globally ranked restaurants. Clifftop Miraflores and bohemian Barranco are the main areas to stay.",
+    "highlights": [
+      "Ceviche and a tasting menu",
+      "Miraflores clifftop Malecón",
+      "Barranco's street art and bars",
+      "Historic centre and San Francisco catacombs",
+      "Paragliding over the Costa Verde"
+    ],
+    "best": "December–April: Lima's sunny summer.",
+    "avoid": "June–October is cool and grey under the coastal mist (garúa).",
+    "adjust": {
+      "6": [
+        -10,
+        "Persistent grey skies (garúa)"
+      ],
+      "7": [
+        -10,
+        "Persistent grey skies (garúa)"
+      ],
+      "8": [
+        -10,
+        "Persistent grey skies (garúa)"
+      ],
+      "9": [
+        -10,
+        "Persistent grey skies (garúa)"
+      ]
+    },
+    "events": {
+      "7": "Fiestas Patrias independence celebrations (28–29 July)."
+    },
+    "stay": [
+      [
+        "Miraflores",
+        "Safe, central and by the ocean"
+      ],
+      [
+        "Barranco",
+        "Bohemian bars and galleries"
+      ],
+      [
+        "San Isidro",
+        "Business district with parks"
+      ]
+    ]
+  },
+  {
+    "slug": "london",
+    "name": "London",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "lat": 51.51,
+    "lon": -0.13,
+    "iata": "LON",
+    "wiki": "London",
+    "climate": "temperate",
+    "currency": "GBP",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 250
+    },
+    "tags": [
+      "city",
+      "culture",
+      "history",
+      "nightlife",
+      "food"
+    ],
+    "tagline": "Royal palaces, free museums, theatre and pubs.",
+    "intro": "London blends 2,000 years of history with world-class museums (many free), West End theatre and diverse neighbourhoods. The weather is mild but changeable — pack layers in any season.",
+    "highlights": [
+      "Tower of London and Tower Bridge",
+      "British Museum and National Gallery (free)",
+      "A West End show",
+      "Borough Market and the South Bank",
+      "Day trip to Windsor, Oxford or Bath"
+    ],
+    "best": "May–September: the longest, warmest and driest days.",
+    "avoid": "November–February is dark, damp and chilly.",
+    "adjust": {},
+    "events": {
+      "8": "Notting Hill Carnival (August bank holiday weekend).",
+      "12": "Winter Wonderland in Hyde Park and festive lights."
+    },
+    "stay": [
+      [
+        "Covent Garden & West End",
+        "Theatres, shops and restaurants"
+      ],
+      [
+        "South Bank",
+        "Riverside walks and culture"
+      ],
+      [
+        "Kensington",
+        "Museums, Hyde Park and elegant streets"
+      ]
+    ]
+  },
+  {
+    "slug": "edinburgh",
+    "name": "Edinburgh",
+    "country": "United Kingdom",
+    "hub": "Scotland",
+    "region": "Europe",
+    "lat": 55.95,
+    "lon": -3.19,
+    "iata": "EDI",
+    "wiki": "Edinburgh",
+    "climate": "temperate",
+    "currency": "GBP",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 200
+    },
+    "tags": [
+      "city",
+      "history",
+      "culture",
+      "nightlife"
+    ],
+    "tagline": "A castle on a volcano, cobbled closes and the world's biggest arts festival.",
+    "intro": "Scotland's capital is built around a castle on an extinct volcano, with the medieval Old Town and elegant Georgian New Town. August's festivals transform the city.",
+    "highlights": [
+      "Edinburgh Castle",
+      "The Royal Mile and its closes",
+      "Hike Arthur's Seat",
+      "Calton Hill at sunset",
+      "Day trip to the Highlands and Loch Ness"
+    ],
+    "best": "May–September: long days and the mildest weather.",
+    "avoid": "November–February is cold, dark and windy (Hogmanay aside).",
+    "adjust": {},
+    "events": {
+      "8": "Edinburgh Festival Fringe — the world's largest arts festival (August).",
+      "12": "Hogmanay New Year celebrations."
+    },
+    "stay": [
+      [
+        "Old Town",
+        "Historic heart near the castle"
+      ],
+      [
+        "New Town",
+        "Georgian streets with shops and bars"
+      ],
+      [
+        "Leith",
+        "Waterfront food scene"
+      ]
+    ]
+  },
+  {
+    "slug": "scottish-highlands",
+    "name": "Scottish Highlands & Skye",
+    "country": "United Kingdom",
+    "hub": "Scotland",
+    "region": "Europe",
+    "lat": 57.48,
+    "lon": -4.22,
+    "iata": "INV",
+    "wiki": "Scottish Highlands",
+    "climateWiki": "Inverness",
+    "imagePage": "Isle of Skye",
+    "climate": "temperate",
+    "currency": "GBP",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 190
+    },
+    "tags": [
+      "nature",
+      "history"
+    ],
+    "tagline": "Glens, lochs, castles and the Isle of Skye.",
+    "intro": "The Highlands are Scotland's wild heart: Glencoe, Loch Ness, the North Coast 500 road trip and the dramatic Isle of Skye. Long summer days give the most time to explore.",
+    "highlights": [
+      "Isle of Skye: Old Man of Storr and Quiraing",
+      "Glencoe valley",
+      "Loch Ness and Urquhart Castle",
+      "Glenfinnan Viaduct (Hogwarts Express)",
+      "Driving the North Coast 500"
+    ],
+    "best": "May–September: long days and the driest weather (midges peak in July–August).",
+    "avoid": "November–February is short, dark and stormy; some roads and sites close.",
+    "adjust": {},
+    "events": {
+      "6": "Up to 18 hours of daylight for hiking and road trips."
+    },
+    "stay": [
+      [
+        "Inverness",
+        "Highland capital and transport hub"
+      ],
+      [
+        "Fort William",
+        "Base for Glencoe and Ben Nevis"
+      ],
+      [
+        "Portree (Skye)",
+        "Harbour town on the Isle of Skye"
+      ]
+    ]
+  },
+  {
+    "slug": "switzerland",
+    "name": "Switzerland",
+    "country": "Switzerland",
+    "region": "Europe",
+    "lat": 47.38,
+    "lon": 8.54,
+    "iata": "ZRH",
+    "wiki": "Switzerland",
+    "climateWiki": [
+      "Zürich",
+      "Lucerne"
+    ],
+    "imagePage": "Lauterbrunnen",
+    "climate": "temperate",
+    "currency": "CHF",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 140,
+      "mid": 300
+    },
+    "tags": [
+      "nature",
+      "city"
+    ],
+    "tagline": "Alpine peaks, scenic trains and lakeside cities.",
+    "intro": "Switzerland packs the Alps, glacier lakes and storybook villages into a small, efficient country. Scenic trains link Zurich, Lucerne, Interlaken and Zermatt. Figures shown are for Zurich; the mountains are colder.",
+    "highlights": [
+      "Jungfraujoch or Schilthorn summit",
+      "Glacier Express or Bernina Express train",
+      "Lake Lucerne and Mount Pilatus",
+      "Matterhorn views from Zermatt",
+      "Old Town of Bern"
+    ],
+    "best": "June–September for hiking and lakes; December–March for skiing.",
+    "avoid": "November and April are grey shoulder months when some lifts close.",
+    "adjust": {},
+    "events": {
+      "8": "Swiss National Day fireworks and bonfires (1 August).",
+      "1": "Ski season in the Alps (December–April)."
+    },
+    "stay": [
+      [
+        "Lucerne",
+        "Lakeside old town and mountain trips"
+      ],
+      [
+        "Interlaken",
+        "Adventure base for the Jungfrau region"
+      ],
+      [
+        "Zermatt",
+        "Car-free village below the Matterhorn"
+      ]
+    ]
+  },
+  {
+    "slug": "tromso",
+    "name": "Tromsø",
+    "country": "Norway",
+    "hub": "Norway",
+    "region": "Europe",
+    "lat": 69.65,
+    "lon": 18.96,
+    "iata": "TOS",
+    "wiki": "Tromsø",
+    "climateWiki": [
+      "Tromsø",
+      "Tromsø Airport",
+      "Climate of Norway"
+    ],
+    "climate": "temperate",
+    "currency": "NOK",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 250
+    },
+    "tags": [
+      "nature",
+      "wildlife"
+    ],
+    "tagline": "Northern lights, whales and the midnight sun above the Arctic Circle.",
+    "intro": "Tromsø is the gateway to Arctic Norway. In winter, visitors chase the northern lights, go dog-sledding and spot orcas; in summer, the sun never sets.",
+    "highlights": [
+      "Northern lights tour",
+      "Dog-sledding or reindeer sledding",
+      "Whale watching (November–January)",
+      "Fjellheisen cable car",
+      "Arctic Cathedral"
+    ],
+    "best": "September–March for the northern lights; June–July for the midnight sun.",
+    "avoid": "December–January brings polar night, with no sunrise at all.",
+    "adjust": {},
+    "events": {
+      "10": "Northern lights season is under way (September–March).",
+      "6": "Midnight sun from late May to late July.",
+      "12": "Orca and humpback whale season in the fjords (November–January)."
+    },
+    "stay": [
+      [
+        "City centre",
+        "Restaurants and tour pick-ups"
+      ],
+      [
+        "Tromsøya hillside",
+        "Quiet stays with aurora views"
+      ],
+      [
+        "Wilderness lodges",
+        "Remote cabins away from light pollution"
+      ]
+    ]
+  },
+  {
+    "slug": "oslo",
+    "name": "Oslo",
+    "country": "Norway",
+    "hub": "Norway",
+    "region": "Europe",
+    "lat": 59.91,
+    "lon": 10.75,
+    "iata": "OSL",
+    "wiki": "Oslo",
+    "climate": "temperate",
+    "currency": "NOK",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 250
+    },
+    "tags": [
+      "city",
+      "culture",
+      "nature"
+    ],
+    "tagline": "Fjord-side capital of museums, saunas and design.",
+    "intro": "Oslo is a compact, green capital on a fjord, with striking architecture, museums and floating saunas. It's also the start of the scenic 'Norway in a Nutshell' route to the fjords.",
+    "highlights": [
+      "Oslo Opera House rooftop",
+      "Munch Museum and the National Museum",
+      "Vigeland Sculpture Park",
+      "Viking Ship and Fram museums",
+      "Floating sauna on the fjord"
+    ],
+    "best": "June–August: long, mild days and outdoor life.",
+    "avoid": "November–February is cold and dark.",
+    "adjust": {},
+    "events": {
+      "5": "Constitution Day parades and celebrations (17 May).",
+      "12": "Christmas markets and winter lights."
+    },
+    "stay": [
+      [
+        "Sentrum",
+        "Central for sights and transport"
+      ],
+      [
+        "Grünerløkka",
+        "Hip cafés and bars"
+      ],
+      [
+        "Aker Brygge",
+        "Waterfront dining"
+      ]
+    ]
+  },
+  {
+    "slug": "paris",
+    "name": "Paris",
+    "country": "France",
+    "region": "Europe",
+    "lat": 48.86,
+    "lon": 2.35,
+    "iata": "PAR",
+    "wiki": "Paris",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 100,
+      "mid": 230
+    },
+    "tags": [
+      "city",
+      "culture",
+      "food",
+      "history"
+    ],
+    "tagline": "The Eiffel Tower, the Louvre, cafés and the art of living well.",
+    "intro": "Paris needs little introduction: iconic monuments, world-class art, café terraces and neighbourhood bistros. Spring and early autumn bring the best weather for strolling.",
+    "highlights": [
+      "Eiffel Tower at night",
+      "Louvre and Musée d'Orsay",
+      "Montmartre and Sacré-Cœur",
+      "Seine river cruise",
+      "Day trip to Versailles"
+    ],
+    "best": "April–June and September–October: mild, pleasant and great for walking.",
+    "avoid": "July–August can be hot and busy; winter is grey and chilly.",
+    "adjust": {},
+    "events": {
+      "6": "Fête de la Musique: free concerts across the city (21 June).",
+      "7": "Bastille Day parade and Eiffel Tower fireworks (14 July).",
+      "12": "Christmas lights and markets."
+    },
+    "stay": [
+      [
+        "Le Marais",
+        "Historic lanes, boutiques and bars"
+      ],
+      [
+        "Saint-Germain-des-Prés",
+        "Classic cafés and Left Bank charm"
+      ],
+      [
+        "Montmartre",
+        "Village feel with city views"
+      ]
+    ]
+  },
+  {
+    "slug": "amsterdam",
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "region": "Europe",
+    "lat": 52.37,
+    "lon": 4.9,
+    "iata": "AMS",
+    "wiki": "Amsterdam",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 100,
+      "mid": 220
+    },
+    "tags": [
+      "city",
+      "culture",
+      "nightlife"
+    ],
+    "tagline": "Canals, bikes, Golden Age art and tulip fields nearby.",
+    "intro": "Amsterdam's 17th-century canal ring is best explored by bike or boat. World-class museums, cosy brown cafés and spring tulip fields at Keukenhof are highlights.",
+    "highlights": [
+      "Canal cruise",
+      "Rijksmuseum and Van Gogh Museum",
+      "Anne Frank House",
+      "Jordaan neighbourhood",
+      "Keukenhof tulip gardens (spring)"
+    ],
+    "best": "April–May for tulips and King's Day; June–September for long, mild days.",
+    "avoid": "November–February is grey, wet and windy.",
+    "adjust": {},
+    "events": {
+      "4": "King's Day street party (27 April) and tulip season at Keukenhof (mid-March to mid-May).",
+      "12": "Amsterdam Light Festival (December–January)."
+    },
+    "stay": [
+      [
+        "Canal Ring",
+        "Classic canal houses near the sights"
+      ],
+      [
+        "Jordaan",
+        "Charming lanes and cafés"
+      ],
+      [
+        "De Pijp",
+        "Lively market district"
+      ]
+    ],
+    "imagePage": "Canals of Amsterdam"
+  },
+  {
+    "slug": "singapore",
+    "name": "Singapore",
+    "country": "Singapore",
+    "region": "Asia",
+    "lat": 1.35,
+    "lon": 103.82,
+    "iata": "SIN",
+    "wiki": "Singapore",
+    "imagePage": "Gardens by the Bay",
+    "climate": "tropical",
+    "currency": "SGD",
+    "tz": "UTC+8",
+    "budget": {
+      "low": 70,
+      "mid": 180
+    },
+    "tags": [
+      "city",
+      "food",
+      "family"
+    ],
+    "tagline": "Futuristic gardens, hawker food and spotless streets.",
+    "intro": "Singapore is a garden city-state with spectacular architecture, multicultural neighbourhoods and some of the world's best street food. It's hot and humid all year, with frequent short showers.",
+    "highlights": [
+      "Gardens by the Bay and the Supertrees",
+      "Hawker centres like Maxwell and Lau Pa Sat",
+      "Marina Bay Sands SkyPark",
+      "Chinatown and Little India",
+      "Sentosa Island"
+    ],
+    "best": "February–April: slightly drier and sunnier, though Singapore works year-round.",
+    "avoid": "November–January is the wettest period.",
+    "adjust": {},
+    "events": {
+      "2": "Chinese New Year celebrations in Chinatown (January or February).",
+      "9": "Formula 1 Singapore Grand Prix night race (usually September or October)."
+    },
+    "stay": [
+      [
+        "Marina Bay",
+        "Skyline views and luxury hotels"
+      ],
+      [
+        "Chinatown",
+        "Central, with food and heritage"
+      ],
+      [
+        "Orchard Road",
+        "Shopping and transport"
+      ]
+    ]
+  },
+  {
+    "slug": "hong-kong",
+    "name": "Hong Kong",
+    "country": "Hong Kong",
+    "region": "Asia",
+    "lat": 22.32,
+    "lon": 114.17,
+    "iata": "HKG",
+    "wiki": "Hong Kong",
+    "imagePage": "Victoria Harbour",
+    "climate": "temperate",
+    "currency": "HKD",
+    "tz": "UTC+8",
+    "budget": {
+      "low": 75,
+      "mid": 180
+    },
+    "tags": [
+      "city",
+      "food",
+      "nature",
+      "nightlife"
+    ],
+    "tagline": "Skyline, dim sum and green mountain hikes.",
+    "intro": "Hong Kong's dramatic skyline sits beside mountains, islands and hiking trails. Dim sum, night markets and harbour ferries make it one of Asia's most exciting cities.",
+    "highlights": [
+      "Victoria Peak",
+      "Star Ferry across the harbour",
+      "Dim sum and Temple Street Night Market",
+      "Dragon's Back hike",
+      "Big Buddha on Lantau Island"
+    ],
+    "best": "October–December: sunny, dry and comfortable.",
+    "avoid": "June–September is hot, humid and stormy, with typhoon risk.",
+    "adjust": {
+      "8": [
+        -5,
+        "Typhoon season"
+      ],
+      "9": [
+        -5,
+        "Typhoon season"
+      ]
+    },
+    "events": {
+      "2": "Chinese New Year parades and harbour fireworks."
+    },
+    "stay": [
+      [
+        "Tsim Sha Tsui",
+        "Harbour views on the Kowloon side"
+      ],
+      [
+        "Central",
+        "Business heart with bars and restaurants"
+      ],
+      [
+        "Causeway Bay",
+        "Shopping and nightlife"
+      ]
+    ]
+  },
+  {
+    "slug": "taiwan",
+    "name": "Taiwan (Taipei)",
+    "country": "Taiwan",
+    "region": "Asia",
+    "lat": 25.03,
+    "lon": 121.57,
+    "iata": "TPE",
+    "wiki": "Taiwan",
+    "climateWiki": [
+      "Taipei"
+    ],
+    "imagePage": "Taipei",
+    "climate": "temperate",
+    "currency": "TWD",
+    "tz": "UTC+8",
+    "budget": {
+      "low": 50,
+      "mid": 120
+    },
+    "tags": [
+      "city",
+      "food",
+      "nature",
+      "culture"
+    ],
+    "tagline": "Night markets, hot springs and mountain gorges.",
+    "intro": "Taiwan combines buzzing Taipei and its night markets with mountain scenery like Taroko Gorge and Sun Moon Lake. Excellent trains make it easy to explore.",
+    "highlights": [
+      "Taipei night markets",
+      "Taipei 101",
+      "Jiufen old street",
+      "Taroko Gorge",
+      "Beitou hot springs"
+    ],
+    "best": "October–December and March–May: mild and less rainy.",
+    "avoid": "June–September is hot, with typhoon risk.",
+    "adjust": {
+      "8": [
+        -5,
+        "Typhoon season"
+      ],
+      "9": [
+        -5,
+        "Typhoon season"
+      ]
+    },
+    "events": {
+      "2": "Lantern Festival and sky lanterns at Pingxi (February or March).",
+      "12": "New Year's Eve fireworks at Taipei 101."
+    },
+    "stay": [
+      [
+        "Xinyi",
+        "Modern district near Taipei 101"
+      ],
+      [
+        "Da'an",
+        "Leafy, foodie neighbourhood"
+      ],
+      [
+        "Ximending",
+        "Lively, youthful shopping area"
+      ]
+    ]
   }
 ]

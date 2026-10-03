@@ -3,13 +3,17 @@ import Base from '../../../layouts/Base.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import BookingBox from '../../../components/BookingBox.astro';
 import Photo from '../../../components/Photo.astro';
+import MobileBookBar from '../../../components/MobileBookBar.astro';
 import { ogImage } from '../../../lib/images';
 import ClimateCharts from '../../../components/ClimateCharts.astro';
 import ClimateTable from '../../../components/ClimateTable.astro';
 import DestinationCard from '../../../components/DestinationCard.astro';
 import MonthStrip from '../../../components/MonthStrip.astro';
 import TripCost from '../../../components/TripCost.astro';
-import { destinations, monthRanges, MONTHS, destMonthUrl, deg, usd, type Destination } from '../../../lib/data';
+import PracticalInfo from '../../../components/PracticalInfo.astro';
+import WhereToStay from '../../../components/WhereToStay.astro';
+import { comparisonsFor } from '../../../lib/compare';
+import { destinations, monthRanges, MONTHS, destMonthUrl, hubOf, deg, usd, type Destination } from '../../../lib/data';
 import { breadcrumbLd } from '../../../lib/seo';
 
 export function getStaticPaths() {
@@ -31,9 +35,11 @@ const similar = destinations
   .slice(0, 3)
   .map((x) => x.d);
 
+const hub = hubOf(dest);
+const versus = comparisonsFor(dest.slug);
 const crumbs = [
   { name: 'Home', href: '/' },
-  { name: 'Destinations', href: '/destinations/' },
+  hub ? { name: hub.name, href: hub.url } : { name: 'Destinations', href: '/destinations/' },
   { name: dest.name, href: dest.url },
 ];
 
@@ -87,7 +93,7 @@ const jsonLd = [
         <section class="section-tight" aria-labelledby="weather-h">
           <h2 id="weather-h">{dest.name} weather by month</h2>
           <p class="muted">
-            Warmest in {warmest.name} (average high {deg(warmest.high)}), wettest in {wettest.name} ({wettest.rain} mm).
+            Warmest in {warmest.name} (average high {deg(warmest.high)}), wettest in {wettest.name} ({wettest.rain} mm).{' '}
             {worst.length > 0 && `Least appealing: ${monthRanges(worst)}.`}
           </p>
           <ClimateCharts dest={dest} />
@@ -119,6 +125,11 @@ const jsonLd = [
           }
         </section>
 
+        <section class="section-tight" aria-labelledby="stay-h">
+          <h2 id="stay-h">Where to stay in {dest.name}</h2>
+          <WhereToStay dest={dest} />
+        </section>
+
         <section class="section-tight" aria-labelledby="budget-h">
           <h2 id="budget-h">How much does a trip to {dest.name} cost?</h2>
           <TripCost dest={dest} />
@@ -131,9 +142,9 @@ const jsonLd = [
           <dl class="card facts">
             <div><dt>Best months</dt><dd>{best}</dd></div>
             <div><dt>Daily budget</dt><dd>{usd(dest.budget.low)}–{usd(dest.budget.mid)}</dd></div>
-            <div><dt>Currency</dt><dd>{dest.currency}</dd></div>
-            <div><dt>Airport code</dt><dd>{dest.iata}</dd></div>
           </dl>
+          <PracticalInfo dest={dest} />
+          {hub && <a class="card hub-link" href={hub.url}>Best time to visit {hub.name} → <span class="muted small">Compare {hub.members.length} places</span></a>}
         </div>
       </aside>
     </div>
@@ -143,6 +154,15 @@ const jsonLd = [
       <div class="grid-cards">{similar.map((d) => <DestinationCard dest={d} />)}</div>
     </section>
 
+    {
+      versus.length > 0 && (
+        <section class="section-tight">
+          <h2 class="h3">{dest.name} vs…</h2>
+          <div class="chips">{versus.map((c) => <a class="chip" href={c.url}>{c.a.name} vs {c.b.name}</a>)}</div>
+        </section>
+      )
+    }
+
     <nav aria-label={`${dest.name} by month`} class="months">
       <h2 class="h3">{dest.name} month by month</h2>
       <div class="pill-row">
@@ -150,6 +170,7 @@ const jsonLd = [
       </div>
     </nav>
   </div>
+  <MobileBookBar dest={dest} />
 </Base>
 
 <style>
@@ -217,6 +238,16 @@ const jsonLd = [
     margin: 0;
     font-weight: 600;
     text-align: right;
+  }
+  .hub-link {
+    display: grid;
+    gap: 2px;
+    color: var(--text);
+    font-weight: 650;
+    text-decoration: none;
+  }
+  .hub-link:hover {
+    border-color: var(--cta);
   }
   .months .pill {
     font-size: 0.875rem;

@@ -1,0 +1,222 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import BookingBox from './BookingBox.astro';
+import DestinationCard from './DestinationCard.astro';
+import MiniCalendar from './MiniCalendar.astro';
+import MonthPills from './MonthPills.astro';
+import Photo from './Photo.astro';
+import PracticalInfo from './PracticalInfo.astro';
+import RatingBadge from './RatingBadge.astro';
+import Faq from './Faq.astro';
+import hubText from '../data/hubs.json';
+import { hubs, monthRanges, bestIn, hubMonthUrl, destMonthUrl, MONTHS, deg, type Hub } from '../lib/data';
+import { breadcrumbLd } from '../lib/seo';
+import { faqLd } from '../lib/faq';
+import { ogImage } from '../lib/images';
+
+interface Props {
+  hub: Hub;
+}
+
+const { hub } = Astro.props;
+const text = (hubText as unknown as Record<string, { intro: string; seasons: [string, string][] }>)[hub.name];
+const best = monthRanges(hub.bestMonths);
+const wettest = [...hub.months].sort((a, b) => b.rain - a.rain).slice(0, 3).map((m) => m.index);
+const hottest = hub.months.reduce((a, b) => (b.high > a.high ? b : a));
+const lead = hub.members[0];
+const region = lead.region;
+const related = hubs.filter((h) => h.name !== hub.name && h.members[0].region === region).slice(0, 6);
+const nowM = new Date().getMonth();
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Destinations', href: '/destinations/' },
+  { name: `Best time to visit ${hub.name}`, href: hub.url },
+];
+const faq = [
+  {
+    q: `When is the best time to visit ${hub.name}?`,
+    a: `Overall, the best time to visit ${hub.name} is ${best}. It depends on where you go: ${hub.members
+      .map((d) => bestIn(d.name, d.bestMonths))
+      .join('; ')}.`,
+  },
+  {
+    q: `What is the rainy season in ${hub.name}?`,
+    a: `Across the places we cover, the wettest months are ${monthRanges(wettest)}, averaging ${Math.round(
+      Math.max(...hub.months.map((m) => m.rain)),
+    )} mm of rain in the wettest month.`,
+  },
+  {
+    q: `What is the hottest month in ${hub.name}?`,
+    a: `${hottest.name} is usually the hottest month, with average highs around ${deg(hottest.high)} across our ${hub.name} destinations.`,
+  },
+  {
+    q: `Where should I go in ${hub.name} in ${MONTHS[nowM]}?`,
+    a: `In ${MONTHS[nowM]}, ${hub.months[nowM].best.name} has the best weather of our ${hub.name} picks (score ${hub.months[nowM].best.months[nowM].score}/100).`,
+  },
+];
+const title = `Best Time to Visit ${hub.name}: Weather by Month & Region`;
+const description = `The best time to visit ${hub.name} is ${best}. Compare month-by-month weather for ${hub.members
+  .map((d) => d.name)
+  .join(', ')} using official climate data.`;
+---
+
+<Base title={title} description={description} jsonLd={[breadcrumbLd(crumbs, Astro.site), faqLd(faq)]} ogType="article" image={await ogImage(lead.slug)}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <p class="eyebrow">{region} · {hub.members.length} destinations compared</p>
+      <h1>Best time to visit {hub.name}</h1>
+      <p class="lead">{text?.intro}</p>
+    </header>
+    <Photo slug={lead.slug} alt={`${lead.name}, ${hub.name}`} variant="hero" />
+
+    <div class="layout">
+      <div class="main">
+        <section class="card answer">
+          <p class="eyebrow">Quick answer</p>
+          <p class="big">The best time to visit {hub.name} is <strong>{best}</strong>.</p>
+          <p class="muted">Wettest months: {monthRanges(wettest)} · Hottest: {hottest.name} (~{deg(hottest.high)})</p>
+        </section>
+
+        {
+          text && (
+            <section>
+              <h2>{hub.name} seasons at a glance</h2>
+              <ul class="seasons">
+                {text.seasons.map(([when, what]) => (
+                  <li class="card">
+                    <b>{when}</b>
+                    <span>{what}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+
+        <section>
+          <h2>{hub.name} month by month</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption class="visually-hidden">{hub.name}: average weather rating and best place each month</caption>
+              <thead>
+                <tr><th scope="col">Month</th><th scope="col">Overall</th><th scope="col">Best place</th><th scope="col">Avg high</th></tr>
+              </thead>
+              <tbody>
+                {hub.months.map((m) => (
+                  <tr>
+                    <th scope="row"><a href={hubMonthUrl(hub, m.index)}>{m.name}</a></th>
+                    <td><RatingBadge score={m.score} rating={m.rating} /></td>
+                    <td class="left"><a href={destMonthUrl(m.best, m.index)}>{m.best.name}</a></td>
+                    <td>{deg(m.high)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>Compare {hub.name} destinations</h2>
+          <MiniCalendar groups={[{ items: hub.members }]} caption={`${hub.name}: weather score by destination and month`} active={nowM} />
+        </section>
+      </div>
+      <aside class="side">
+        <div class="sticky">
+          <BookingBox title={`Plan your trip to ${hub.name}`} />
+          {hub.country && <PracticalInfo dest={lead} />}
+        </div>
+      </aside>
+    </div>
+
+    <section class="section">
+      <h2>Where to go in {hub.name}</h2>
+      <div class="grid-cards">{hub.members.map((d) => <DestinationCard dest={d} />)}</div>
+    </section>
+
+    <Faq items={faq} />
+
+    <section class="section">
+      <h2 class="h3">{hub.name} by month</h2>
+      <MonthPills hrefs={MONTHS.map((_, i) => hubMonthUrl(hub, i))} label={`${hub.name} by month`} long />
+      {
+        related.length > 0 && (
+          <>
+            <h2 class="h3">More in {region}</h2>
+            <div class="chips">{related.map((h) => <a class="chip" href={h.url}>Best time to visit {h.name}</a>)}</div>
+          </>
+        )
+      }
+    </section>
+  </div>
+</Base>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+    align-items: start;
+    margin-top: 24px;
+  }
+  .main {
+    display: grid;
+    gap: 28px;
+    min-width: 0;
+  }
+  .main > * {
+    min-width: 0;
+  }
+  .side {
+    min-width: 0;
+  }
+  .sticky {
+    position: sticky;
+    top: 76px;
+    display: grid;
+    gap: 16px;
+  }
+  .answer p {
+    margin: 0 0 6px;
+  }
+  .big {
+    font-size: 1.2rem;
+  }
+  .seasons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .seasons li {
+    display: grid;
+    gap: 4px;
+    padding: 14px 16px;
+  }
+  .seasons span {
+    color: var(--text-2);
+  }
+  td.left {
+    text-align: left;
+  }
+  th[scope='row'] a,
+  td.left a {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .h3 {
+    font-size: 1.15rem;
+    margin-top: 12px;
+  }
+  @media (max-width: 960px) {
+    .layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .sticky {
+      position: static;
+    }
+  }
+</style>

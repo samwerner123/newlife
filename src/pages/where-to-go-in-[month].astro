@@ -13,8 +13,11 @@ import {
   destMonthUrl,
   deg,
   usd,
+  travelYear,
 } from '../lib/data';
 import { breadcrumbLd } from '../lib/seo';
+import { COLLECTIONS } from '../lib/collections';
+import { hubs, hubMonthUrl } from '../lib/data';
 import { SITE } from '../config';
 
 export function getStaticPaths() {
@@ -43,7 +46,7 @@ const crumbs = [
   { name: `Where to go in ${name}`, href: monthUrl(m) },
 ];
 
-const title = `Where to Go in ${name}: ${good.length} Best Places to Travel`;
+const title = `Best Places to Travel in ${name} ${travelYear(m)}: Where to Go`;
 const description = `The best places to travel in ${name}, rated by real climate data: ${top3
   .map((d) => d.name)
   .join(', ')} and more. Compare temperatures, rainfall and daily budgets for ${destinations.length} destinations.`;
@@ -91,7 +94,7 @@ const jsonLd = [
     <Breadcrumbs items={crumbs} />
 
     <header class="section-tight">
-      <p class="eyebrow">Travel ideas by month</p>
+      <p class="eyebrow">Best places to travel in {name} {travelYear(m)}</p>
       <h1>Where to go in {name}</h1>
       <p class="lead">
         {top3[0].name}, {top3[1].name} and {top3[2].name} top our list for {name}. We rated {destinations.length} destinations
@@ -108,6 +111,10 @@ const jsonLd = [
       <div class="pill-row">
         {MONTHS.map((mn, i) => <a class="pill" href={monthUrl(i)} aria-current={i === m ? 'page' : undefined}>{mn.slice(0, 3)}</a>)}
       </div>
+    </nav>
+
+    <nav class="chips topics" aria-label={`More ${name} ideas`}>
+      {COLLECTIONS.map((c) => <a class="chip" href={c.path(m)}>{c.h1(name)}</a>)}
     </nav>
 
     <section aria-labelledby="list-h">
@@ -165,6 +172,15 @@ const jsonLd = [
       </div>
     </section>
 
+    <section class="section-tight">
+      <h2>Countries and regions in {name}</h2>
+      <div class="chips">
+        {[...hubs].sort((a, b) => b.months[m].score - a.months[m].score).map((h) => (
+          <a class="chip" href={hubMonthUrl(h, m)}>{h.name} in {name} · {h.months[m].score}</a>
+        ))}
+      </div>
+    </section>
+
     <section class="section prose">
       <h2>Frequently asked questions</h2>
       {
@@ -197,6 +213,9 @@ const jsonLd = [
   }
   .month-nav {
     margin: 4px 0 8px;
+  }
+  .topics {
+    margin: 4px 0 16px;
   }
   .month-nav .pill-row {
     flex-wrap: nowrap;

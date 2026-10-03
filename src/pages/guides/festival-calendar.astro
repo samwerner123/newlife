@@ -1,0 +1,57 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { destinations, MONTHS, destMonthUrl, monthUrl } from '../../lib/data';
+
+const byMonth = MONTHS.map((name, m) => ({
+  name,
+  m,
+  items: destinations
+    .filter((d) => d.months[m].event)
+    .map((d) => ({ d, text: d.months[m].event! }))
+    .sort((a, b) => a.d.name.localeCompare(b.d.name)),
+}));
+const total = byMonth.reduce((s, x) => s + x.items.length, 0);
+---
+
+<Guide slug="festival-calendar" photo="rio-de-janeiro">
+  <p>
+    Timing a trip around a festival can turn a good holiday into an unforgettable one — or, if you're not expecting it,
+    into a scramble for overpriced rooms. This calendar lists {total} festivals and seasonal highlights across the
+    destinations we cover, from Carnival in Rio to cherry blossoms in Kyoto.
+  </p>
+  <p>
+    Many festivals follow lunar or religious calendars, so their dates move from year to year. Always check this year's exact
+    dates before booking, and reserve accommodation early for the big ones.
+  </p>
+  <nav class="chips jump" aria-label="Jump to month">
+    {byMonth.map((x) => <a class="chip" href={`#${x.name.toLowerCase()}`}>{x.name.slice(0, 3)}</a>)}
+  </nav>
+  {
+    byMonth.map((x) => (
+      <section id={x.name.toLowerCase()}>
+        <h2>{x.name}</h2>
+        {x.items.length ? (
+          <ul>
+            {x.items.map(({ d, text }) => (
+              <li>
+                <a href={destMonthUrl(d, x.m)}><b>{d.name}</b></a>: {text}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="muted">No major events listed — a good month for quieter travel.</p>
+        )}
+        <p class="small"><a href={monthUrl(x.m)}>Where to go in {x.name} →</a></p>
+      </section>
+    ))
+  }
+</Guide>
+
+<style>
+  .jump {
+    margin: 8px 0 8px;
+  }
+  section {
+    scroll-margin-top: 80px;
+  }
+</style>

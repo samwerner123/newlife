@@ -1,0 +1,153 @@
+---
+// Destinations × months heatmap. Cells carry the score as text, so colour is never the only cue.
+import { MONTH_SHORT, MONTHS, monthUrl, destMonthUrl, usd, deg, type Destination } from '../lib/data';
+import { RATING_LABEL } from '../lib/score';
+
+interface Props {
+  groups: { label?: string; items: Destination[] }[];
+  caption: string;
+  showBudget?: boolean;
+  active?: number;
+}
+
+const { groups, caption, showBudget = true, active } = Astro.props;
+const cols = 13 + (showBudget ? 1 : 0);
+---
+
+<div class="table-wrap cal-wrap">
+  <table class="cal">
+    <caption class="visually-hidden">{caption}</caption>
+    <thead>
+      <tr>
+        <th scope="col" class="dest-col">Destination</th>
+        {
+          MONTH_SHORT.map((s, i) => (
+            <th scope="col" class:list={{ 'is-active': i === active }}>
+              <a href={monthUrl(i)} title={`Where to go in ${MONTHS[i]}`}>{s}</a>
+            </th>
+          ))
+        }
+        {showBudget && <th scope="col">From</th>}
+      </tr>
+    </thead>
+    {
+      groups.map((g) => (
+        <tbody>
+          {g.label && (
+            <tr class="region">
+              <th scope="rowgroup" colspan={cols}>{g.label}</th>
+            </tr>
+          )}
+          {g.items.map((d) => (
+            <tr>
+              <th scope="row" class="dest-col"><a href={d.url}>{d.name}</a></th>
+              {d.months.map((m) => (
+                <td class:list={{ 'is-active': m.index === active }}>
+                  <a
+                    href={destMonthUrl(d, m.index)}
+                    data-rating={m.rating}
+                    aria-label={`${d.name} in ${m.name}: ${RATING_LABEL[m.rating]}, ${m.score}`}
+                    data-tip={`${d.name} · ${m.name}\n${RATING_LABEL[m.rating]} (${m.score}) · ${deg(m.high)} / ${deg(m.low)} · ${m.rain} mm`}
+                  >
+                    {m.score}
+                  </a>
+                </td>
+              ))}
+              {showBudget && <td class="price">{usd(d.budget.low)}</td>}
+            </tr>
+          ))}
+        </tbody>
+      ))
+    }
+  </table>
+</div>
+
+<style>
+  .cal-wrap {
+    margin-top: 8px;
+  }
+  .cal {
+    border-collapse: separate;
+    border-spacing: 2px;
+    width: 100%;
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .cal th {
+    font-weight: 600;
+    color: var(--muted);
+    padding: 6px 4px;
+  }
+  .cal thead a {
+    color: var(--text-2);
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    min-width: 32px;
+    padding: 6px 2px;
+  }
+  .cal thead th.is-active a {
+    color: var(--text);
+    font-weight: 800;
+  }
+  .dest-col {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: var(--surface);
+    text-align: left;
+    min-width: 140px;
+    max-width: 180px;
+    padding-left: 10px !important;
+    white-space: normal;
+    line-height: 1.25;
+  }
+  th.dest-col a {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  th.dest-col a:hover {
+    text-decoration: underline;
+  }
+  .region th {
+    text-align: left;
+    padding: 14px 10px 4px;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    position: sticky;
+    left: 0;
+  }
+  td {
+    padding: 0;
+    min-width: 36px;
+  }
+  td a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    border-radius: 4px;
+    font-weight: 650;
+    text-decoration: none;
+  }
+  td.is-active a {
+    outline: 2px solid var(--text);
+    outline-offset: -2px;
+  }
+  td a:hover {
+    filter: brightness(1.12);
+  }
+  .price {
+    text-align: center;
+    color: var(--text-2);
+    padding: 0 8px;
+  }
+  @media (max-width: 640px) {
+    .dest-col {
+      min-width: 112px;
+      font-size: 0.75rem;
+    }
+  }
+</style>

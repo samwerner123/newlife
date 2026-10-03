@@ -34,6 +34,10 @@ const LICENSES = [
 ];
 
 function findLicense(wikitext) {
+  // GFDL files relicensed in the 2009 licence migration are also available under CC BY-SA 3.0.
+  if (/migration\s*=\s*relicense/i.test(wikitext) || /\{\{\s*cc-by-sa-all/i.test(wikitext)) {
+    return ['CC BY-SA 3.0', 'https://creativecommons.org/licenses/by-sa/3.0/'];
+  }
   // Candidate template names, including the arguments of {{self|...}} and {{Licen[cs]eReview...}}.
   const names = [];
   for (const m of wikitext.matchAll(/\{\{\s*([^{}]+?)\s*\}\}/g)) {
@@ -53,7 +57,7 @@ function findLicense(wikitext) {
 function cleanWikitext(v) {
   return v
     .replace(/\{\{\s*creator\s*:\s*([^}|]+)[^}]*\}\}/gi, '$1')
-    .replace(/\{\{\s*(?:u|user)\s*\|\s*([^}|]+)[^}]*\}\}/gi, '$1')
+    .replace(/\{\{\s*(?:u|user|user at project)\s*\|\s*([^}|]+)[^}]*\}\}/gi, '$1')
     .replace(/\{\{[^}]*\}\}/g, '')
     .replace(/\[\[(?:[^|\]]*\|)?([^\]]*)\]\]/g, '$1')
     .replace(/\[https?:\/\/\S+\s+([^\]]+)\]/g, '$1')
@@ -131,6 +135,7 @@ for (const d of destinations) {
       licenseUrl: license[1],
       source: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.name)}`,
     };
+    await fs.writeFile(OUT_JSON, JSON.stringify(credits, null, 2) + '\n'); // save progress
     console.log(`${file.name} — ${credits[d.slug].author} (${license[0]})`);
   } catch (e) {
     console.log(`SKIPPED — ${e.message}`);

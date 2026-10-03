@@ -68,7 +68,7 @@ const note = m ? (m.event ?? m.note) : null;
 
   {note && <p class="note small">{note}</p>}
 
-  <MonthStrip dest={dest} active={month} />
+  <MonthStrip dest={dest} active={month} interactive={false} />
 
   <div class="actions">
     <a class="more" href={href}>{m ? `${dest.name} in ${m.name}` : 'Best time to visit'} →</a>
@@ -166,6 +166,9 @@ const note = m ? (m.event ?? m.note) : null;
     font-weight: 600;
   }
   .more {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
     text-decoration: none;
   }
   .more:hover {

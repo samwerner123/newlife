@@ -1,0 +1,73 @@
+---
+import Icon from './Icon.astro';
+import { partnerLinks, type Destination } from '../lib/data';
+
+interface Props {
+  dest: Destination;
+}
+const { dest } = Astro.props;
+const hotels = partnerLinks(dest.slug, ['hotels'])[0];
+---
+
+<ol class="stay">
+  {
+    dest.stay.map(([area, why], i) => (
+      <li class="card">
+        <span class="num">{i + 1}</span>
+        <div class="txt">
+          <h3>{area}</h3>
+          <p class="muted">{why}</p>
+        </div>
+        {hotels && (
+          <a class="btn hotel" href={hotels.url} rel="sponsored nofollow noopener" target="_blank">
+            <Icon name="hotels" size={16} /> Hotels
+          </a>
+        )}
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .stay {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .stay li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+  }
+  .num {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--surface-2);
+    font-weight: 700;
+  }
+  .txt {
+    flex: 1;
+    min-width: 0;
+  }
+  h3 {
+    margin: 0 0 2px;
+    font-size: 1rem;
+  }
+  p {
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+  .hotel {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    flex: none;
+  }
+</style>

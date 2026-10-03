@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../config';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Editorial policy', href: '/editorial-policy/' },
+];
+---
+
+<Base title="Editorial Policy" description={`How ${SITE.name} researches, writes, rates and updates its travel content.`}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="prose section-tight">
+      <h1>Editorial policy</h1>
+      <h2>Accuracy first</h2>
+      <p>
+        Weather figures come from official climate normals published by national meteorological services, with the source and
+        weather station named on every destination page. Where data is missing we use NASA's POWER climatology and say so.
+      </p>
+      <h2>Independent ratings</h2>
+      <p>
+        Weather scores are calculated by a fixed, published formula (<a href="/about/">how we rate</a>). No partner, tourism
+        board or advertiser can pay to change a score, a ranking or a recommendation.
+      </p>
+      <h2>Clear about money</h2>
+      <p>
+        We label affiliate links and explain how we earn money in our <a href="/affiliate-disclosure/">affiliate disclosure</a>.
+        Booking boxes are always visually separate from editorial content.
+      </p>
+      <h2>Budgets and practical details</h2>
+      <p>
+        Daily budgets are estimates for a typical traveller and are reviewed at least once a year. Seasonal notes, festival
+        dates and practical details (plugs, tipping, time zones) are checked against official and reputable sources, but
+        events can move — always confirm dates before booking.
+      </p>
+      <h2>Corrections</h2>
+      <p>
+        If you spot something wrong, please <a href="/contact/">let us know</a>. We correct errors promptly and update the
+        page's modified date.
+      </p>
+    </article>
+  </div>
+</Base>

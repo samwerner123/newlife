@@ -1,0 +1,63 @@
+---
+// Fixed bottom booking bar for phones and small tablets — keeps the main call to action in reach.
+import Icon from './Icon.astro';
+import { partnerLinks, type Destination } from '../lib/data';
+
+interface Props {
+  dest: Destination;
+}
+const { dest } = Astro.props;
+const [primary, secondary] = partnerLinks(dest.slug, ['flights', 'hotels', 'transfers', 'tours']);
+---
+
+{
+  primary && (
+    <div class="bookbar" role="region" aria-label="Book">
+      <a class="btn main" href={primary.url} rel="sponsored nofollow noopener" target="_blank">
+        <Icon name={primary.kind} size={18} />
+        {primary.kind === 'flights' ? `Flights to ${dest.name}` : primary.kind === 'hotels' ? `Hotels in ${dest.name}` : primary.cta}
+      </a>
+      {secondary && (
+        <a class="btn btn-ghost alt" href={secondary.url} rel="sponsored nofollow noopener" target="_blank">
+          <Icon name={secondary.kind} size={18} /><span class="visually-hidden">{secondary.cta}</span>
+        </a>
+      )}
+    </div>
+  )
+}
+
+<style>
+  .bookbar {
+    display: none;
+  }
+  @media (max-width: 960px) {
+    .bookbar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 25;
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border);
+    }
+    .main {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .alt {
+      flex: none;
+      width: 48px;
+      padding: 0;
+    }
+    :global(body:has(.bookbar)) {
+      padding-bottom: 72px;
+    }
+  }
+</style>

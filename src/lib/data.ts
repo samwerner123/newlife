@@ -1,6 +1,7 @@
 import destinationsJson from '../data/destinations.json';
 import climateJson from '../data/climate.json';
 import affiliatesJson from '../data/affiliates.json';
+import countriesJson from '../data/countries.json';
 import {
   weatherScore,
   rating,
@@ -18,9 +19,27 @@ export const MONTHS = [
 export const MONTH_SHORT = MONTHS.map((m) => m.slice(0, 3));
 export const MONTH_SLUGS = MONTHS.map((m) => m.toLowerCase());
 
-export const REGIONS = ['Europe', 'Asia', 'Middle East & Africa', 'Americas'] as const;
+export const REGIONS = [
+  'Europe',
+  'Asia',
+  'Middle East & Africa',
+  'North America',
+  'Caribbean',
+  'Central & South America',
+  'Oceania',
+] as const;
 export type Region = (typeof REGIONS)[number];
-export const regionSlug = (r: string) => r.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
+
+/** URL-safe slug: "Türkiye" → "turkiye", "US National Parks" → "us-national-parks". */
+export const slugify = (s: string) =>
+  s
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/&/g, ' ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+export const regionSlug = slugify;
 
 interface RawDestination {
   slug: string;
@@ -31,8 +50,12 @@ interface RawDestination {
   lon: number;
   iata: string;
   wiki: string;
+  climateWiki?: string | string[];
+  hub?: string;
   climate: ClimateType;
   currency: string;
+  tz: string;
+  stay: [string, string][];
   budget: { low: number; mid: number };
   tags: string[];
   tagline: string;
@@ -71,9 +94,12 @@ export interface Destination extends RawDestination {
 
 const climate = climateJson as Record<string, RawClimate>;
 
-export const destinations: Destination[] = (destinationsJson as unknown as RawDestination[]).map((d) => {
+const raw = destinationsJson as unknown as RawDestination[];
+const missingClimate = raw.filter((d) => !climate[d.slug]).map((d) => d.slug);
+if (missingClimate.length) console.warn(`[data] skipping destinations without climate data (run npm run climate): ${missingClimate.join(', ')}`);
+
+export const destinations: Destination[] = raw.filter((d) => climate[d.slug]).map((d) => {
   const c = climate[d.slug];
-  if (!c) throw new Error(`No climate data for ${d.slug} — run npm run climate`);
   const months = c.months.map((m, i): DestinationMonth => {
     const adj = d.adjust[String(i + 1)];
     const score = weatherScore(d.climate, m, adj ? adj[0] : 0);
@@ -123,7 +149,92 @@ export function monthRanges(indexes: number[], names: readonly string[] = MONTHS
     .join(', ');
 }
 
+/** "Lisbon is best in April–June" / "Maui is great all year round". */
+export const bestIn = (name: string, months: number[]) =>
+  months.length === 12 ? `${name} is great all year round` : months.length ? `${name} is best in ${monthRanges(months)}` : `${name} has no standout month`;
+
 export const monthUrl = (m: number) => `/where-to-go-in-${MONTH_SLUGS[m]}/`;
+
+/** The next time a month comes round, as seen from the build date — used in titles like "October 2026". */
+export function travelYear(m: number, now = new Date()): number {
+  return m >= now.getMonth() ? now.getFullYear() : now.getFullYear() + 1;
+}
+
+export const isUS = (d: Destination) => d.country === 'United States' || d.country === 'Puerto Rico';
+
+// ---- Country facts ---------------------------------------------------------
+
+export interface CountryInfo {
+  language: string;
+  plugs: string;
+  tipping: string;
+}
+const countries = countriesJson as Record<string, CountryInfo>;
+export const countryInfo = (d: Destination): CountryInfo | undefined => countries[d.country];
+
+// ---- Hubs: countries / states / groups with several destinations ------------
+
+export interface HubMonth {
+  index: number;
+  name: string;
+  score: number;
+  rating: Rating;
+  high: number;
+  low: number;
+  rain: number;
+  best: Destination;
+  worst: Destination;
+}
+
+export interface Hub {
+  name: string;
+  slug: string;
+  url: string;
+  members: Destination[];
+  months: HubMonth[];
+  bestMonths: number[];
+  country?: string;
+}
+
+const avg = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
+
+export const hubs: Hub[] = [...new Set(destinations.map((d) => d.hub).filter(Boolean) as string[])]
+  .map((name) => {
+    const members = destinations.filter((d) => d.hub === name);
+    const months = MONTHS.map((mn, i): HubMonth => {
+      const ranked = rankForMonth(i, members);
+      const score = Math.round(avg(members.map((d) => d.months[i].score)));
+      return {
+        index: i,
+        name: mn,
+        score,
+        rating: rating(score),
+        high: avg(members.map((d) => d.months[i].high)),
+        low: avg(members.map((d) => d.months[i].low)),
+        rain: Math.round(avg(members.map((d) => d.months[i].rain))),
+        best: ranked[0],
+        worst: ranked[ranked.length - 1],
+      };
+    });
+    const great = months.filter((m) => m.rating === 'great').map((m) => m.index);
+    const bestMonths = great.length ? great : months.filter((m) => m.rating === 'good').map((m) => m.index);
+    const countriesInHub = new Set(members.map((d) => d.country.replace(/\s*\(.*\)$/, '')));
+    return {
+      name,
+      slug: slugify(name),
+      url: `/best-time-to-visit-${slugify(name)}/`,
+      members,
+      months,
+      bestMonths,
+      country: countriesInHub.size === 1 && [...countriesInHub][0] === name ? name : undefined,
+    };
+  })
+  .filter((h) => h.members.length >= 2)
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+export const hubByName = new Map(hubs.map((h) => [h.name, h]));
+export const hubOf = (d: Destination) => (d.hub ? hubByName.get(d.hub) : undefined);
+export const hubMonthUrl = (h: Hub, m: number) => `/${h.slug}-in-${MONTH_SLUGS[m]}/`;
 export const destMonthUrl = (d: Destination, m: number) => `/destinations/${d.slug}/${MONTH_SLUGS[m]}/`;
 
 // ---- Affiliate links -------------------------------------------------------

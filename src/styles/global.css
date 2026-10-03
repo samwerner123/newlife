@@ -454,3 +454,92 @@ p {
     transition: none !important;
   }
 }
+
+/* ---------- Chips (link lists) ---------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.chip:hover {
+  background: var(--surface-2);
+}
+
+.chip[aria-current='page'] {
+  background: var(--text);
+  color: var(--surface);
+  border-color: var(--text);
+}
+
+/* ---------- Touch & small screens ---------- */
+
+@media (pointer: coarse) {
+  .chip {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Keep the first column visible while a wide table scrolls sideways. */
+  .table-wrap .data-table th:first-child,
+  .table-wrap .data-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: var(--surface);
+  }
+  .table-wrap .data-table thead th:first-child {
+    background: var(--surface-2);
+  }
+  .data-table th,
+  .data-table td {
+    padding: 10px 10px;
+  }
+  .lead {
+    font-size: 1.0625rem;
+  }
+  .btn {
+    width: 100%;
+  }
+  .prev-next .btn,
+  .btn.hotel {
+    width: auto;
+  }
+}
+
+.legend a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+}
+
+.data-table a {
+  text-decoration: none;
+}
+
+.data-table a:hover {
+  text-decoration: underline;
+}
+
+/* Chips inside horizontally scrolling rows keep to one line. */
+.related .chip,
+.quick .chip {
+  flex: none;
+  white-space: nowrap;
+}

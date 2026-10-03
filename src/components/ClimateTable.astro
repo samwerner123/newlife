@@ -9,6 +9,10 @@ interface Props {
 
 const { dest, active } = Astro.props;
 const hasDays = dest.months.every((m) => m.rainDays !== null);
+// Weather boxes are sometimes kept in a template; credit the article that shows it instead.
+const sourcePage = dest.climateSource.page.startsWith('Template:')
+  ? ([] as string[]).concat(dest.climateWiki ?? dest.wiki)[0]
+  : dest.climateSource.page;
 const hasSun = dest.months.every((m) => m.sunHours !== null);
 ---
 
@@ -45,7 +49,7 @@ const hasSun = dest.months.every((m) => m.sunHours !== null);
 </div>
 <p class="disclosure source">
   Source: {dest.climateSource.location} — via the{' '}
-  <a href={`https://en.wikipedia.org/wiki/${encodeURIComponent(dest.climateSource.page.replace(/ /g, '_'))}`} rel="noopener">{dest.climateSource.page}</a>{' '}
+  <a href={`https://en.wikipedia.org/wiki/${encodeURIComponent(sourcePage.replace(/ /g, '_'))}`} rel="noopener">{sourcePage}</a>{' '}
   article on Wikipedia (CC BY-SA){dest.climateSource.rain === 'nasa-power' ? '; rainfall from NASA POWER' : ''}.
   {hasDays && dest.climateSource.rainDaysUnit && ` Rainy days count days with at least ${dest.climateSource.rainDaysUnit.replace(/&nbsp;/g, ' ')} of rain.`}
 </p>

@@ -1,0 +1,76 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { destinations, monthRanges, MONTH_SHORT, MONTHS, destMonthUrl, rankForMonth } from '../../lib/data';
+
+const asia = destinations.filter((d) => (d.region === 'Asia' && d.climate === 'tropical') || ['hanoi', 'goa', 'sri-lanka'].includes(d.slug));
+const rows = asia
+  .map((d) => {
+    const byRain = [...d.months].sort((a, b) => b.rain - a.rain);
+    return { d, wet: byRain.slice(0, 3).map((m) => m.index), dry: byRain.slice(-3).map((m) => m.index), max: byRain[0] };
+  })
+  .sort((a, b) => a.d.name.localeCompare(b.d.name));
+const julyAug = rankForMonth(6, asia).filter((d) => d.months[6].score >= 65 && d.months[7].score >= 65);
+---
+
+<Guide slug="monsoon-season-asia" photo="bali">
+  <p>
+    "Monsoon" simply means a seasonal shift in the prevailing winds — and with it, a wet season and a dry season. Across
+    South and Southeast Asia, the timing varies a lot from place to place, which is good news: <strong>somewhere is almost
+    always in its dry season.</strong>
+  </p>
+  <p>
+    In rough terms, the <b>south-west monsoon</b> brings rain to India's west coast, Sri Lanka's south-west, the Andaman
+    coast of Thailand and the Maldives from about May to October. The <b>north-east monsoon</b> brings rain to Sri Lanka's
+    east, Malaysia's east coast, Thailand's Gulf islands and central Vietnam from about October to January. Bali and the
+    rest of Indonesia follow the southern-hemisphere pattern, with a dry season from April to October.
+  </p>
+
+  <h2>Wet and dry months by destination</h2>
+  <p>Based on average monthly rainfall from national weather services:</p>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Destination</th><th scope="col">Wettest months</th><th scope="col">Driest months</th><th scope="col">Peak rain</th></tr></thead>
+      <tbody>
+        {
+          rows.map(({ d, wet, dry, max }) => (
+            <tr>
+              <th scope="row"><a href={d.url}>{d.name}</a></th>
+              <td class="left">{monthRanges(wet, MONTH_SHORT)}</td>
+              <td class="left">{monthRanges(dry, MONTH_SHORT)}</td>
+              <td><a href={destMonthUrl(d, max.index)}>{max.rain} mm ({max.short})</a></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Where is dry in July and August?</h2>
+  <p>
+    Summer holidays fall right in the middle of the south-west monsoon, but these destinations rate good or great in both
+    July and August:
+  </p>
+  <ul>{julyAug.map((d) => <li><a href={destMonthUrl(d, 6)}>{d.name}</a> — {d.months[6].rain} mm of rain in July</li>)}</ul>
+
+  <h2>Is the rainy season really that bad?</h2>
+  <p>
+    Often not. In much of Southeast Asia, wet-season rain comes as short, heavy afternoon downpours, with sunny mornings —
+    and you'll find lower prices, greener landscapes and fewer tourists. The exceptions are coasts where the monsoon brings
+    <b>rough seas</b> (boat trips and island hopping get cancelled — think Phuket, Krabi or Palawan in the wet season) and
+    regions prone to <b>typhoons and floods</b>, such as central Vietnam in October and November.
+  </p>
+  <h2>Tips</h2>
+  <ul>
+    <li>Plan island hopping and diving trips for the dry season on that specific coast.</li>
+    <li>Keep a buffer day for cancelled boats or flights in typhoon season.</li>
+    <li>Pack a light rain jacket and quick-dry clothes rather than an umbrella.</li>
+    <li>Check our month pages, e.g. <a href={`/where-to-go-in-${MONTHS[6].toLowerCase()}/`}>where to go in July</a>.</li>
+  </ul>
+</Guide>
+
+<style>
+  td.left {
+    text-align: left;
+    white-space: normal;
+  }
+</style>

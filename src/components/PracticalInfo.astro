@@ -1,0 +1,56 @@
+---
+import { countryInfo, type Destination } from '../lib/data';
+
+interface Props {
+  dest: Destination;
+}
+const { dest } = Astro.props;
+const c = countryInfo(dest);
+const rows: [string, string][] = [
+  ['Language', c?.language ?? '—'],
+  ['Currency', dest.currency],
+  ['Plugs', c?.plugs ?? '—'],
+  ['Time zone', dest.tz],
+  ['Tipping', c?.tipping ?? '—'],
+  ['Airport code', dest.iata],
+];
+---
+
+<dl class="card facts">
+  {
+    rows.map(([k, v]) => (
+      <div>
+        <dt>{k}</dt>
+        <dd>{v}</dd>
+      </div>
+    ))
+  }
+</dl>
+
+<style>
+  .facts {
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .facts div {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    border-bottom: 1px solid var(--grid);
+    padding-bottom: 8px;
+  }
+  .facts div:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  dt {
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+  dd {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+</style>

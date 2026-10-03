@@ -264,5 +264,565 @@
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Djemaa_el_Fna.jpg"
+  },
+  "oahu": {
+    "file": "City_of_Waikiki_view.jpg",
+    "author": "Pickle the cool",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:City_of_Waikiki_view.jpg"
+  },
+  "maui": {
+    "file": "Haleakala_crater_(1).jpg",
+    "author": "Navin75",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Haleakala_crater_(1).jpg"
+  },
+  "big-island": {
+    "file": "Pāhoehoe_and_Aa_flows_at_Hawaii.jpg",
+    "author": "Brocken Inaglory",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:P%C4%81hoehoe_and_Aa_flows_at_Hawaii.jpg"
+  },
+  "guanacaste": {
+    "file": "Beach_Tamarindo,_Costa_Rica.jpg",
+    "author": "Hqfrancis",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Beach_Tamarindo%2C_Costa_Rica.jpg"
+  },
+  "san-jose-costa-rica": {
+    "file": "Arenal_volcano_(70785p)_(cropped).jpg",
+    "author": "Rhododendrites",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Arenal_volcano_(70785p)_(cropped).jpg"
+  },
+  "manuel-antonio": {
+    "file": "Manuel_antonio_06_april_2005.jpeg",
+    "author": "Unknown author",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Manuel_antonio_06_april_2005.jpeg"
+  },
+  "puerto-viejo": {
+    "file": "Cahuita_national_park,_Costa_Rica.jpg",
+    "author": "Haakon S. Krohn",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cahuita_national_park%2C_Costa_Rica.jpg"
+  },
+  "iceland": {
+    "file": "2008-05-24_35_Skógafoss.jpg",
+    "author": "Hansueli Krapf",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:2008-05-24_35_Sk%C3%B3gafoss.jpg"
+  },
+  "miami": {
+    "file": "Villa_Vizcaya_20110228.jpg",
+    "author": "Averette",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Villa_Vizcaya_20110228.jpg"
+  },
+  "orlando": {
+    "file": "Orlando,_Florida_(cropped).jpg",
+    "author": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Orlando%2C_Florida_(cropped).jpg"
+  },
+  "puerto-rico": {
+    "file": "Castillo_San_Felipe_del_Morro_aerial,_May_2024_-_01.jpg",
+    "author": "Unknown author",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Castillo_San_Felipe_del_Morro_aerial%2C_May_2024_-_01.jpg"
+  },
+  "aruba": {
+    "file": "Mangrove_tree_(Conocarpus_erectus)_at_Eagle_Beach,_Aruba_2019.jpg",
+    "author": "SIryn",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mangrove_tree_(Conocarpus_erectus)_at_Eagle_Beach%2C_Aruba_2019.jpg"
+  },
+  "punta-cana": {
+    "file": "Cap_Cana_Marina_Dominican_Republic.jpg",
+    "author": "https://www.flickr.com/photos/uira/",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cap_Cana_Marina_Dominican_Republic.jpg"
+  },
+  "galapagos": {
+    "file": "Galapagos_giant_tortoise_Geochelone_elephantopus.jpg",
+    "author": "Mfield, Matthew Field, http://www.photography.mattfield.com",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Galapagos_giant_tortoise_Geochelone_elephantopus.jpg"
+  },
+  "bora-bora": {
+    "file": "Bora_Bora_ISS006.jpg",
+    "author": "NASA Johnson Space Center",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Bora_Bora_ISS006.jpg"
+  },
+  "mallorca": {
+    "file": "Kathedrale_von_Palma.jpg",
+    "author": "Unknown author",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Kathedrale_von_Palma.jpg"
+  },
+  "madeira": {
+    "file": "Funchal,_Jardins_da_Quinta_Vigia_(lookout).jpg",
+    "author": "Dr. Thomas Liptak",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Funchal%2C_Jardins_da_Quinta_Vigia_(lookout).jpg"
+  },
+  "krabi": {
+    "file": "Railay_Beach_5.jpg",
+    "author": "kallerna",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Railay_Beach_5.jpg"
+  },
+  "amalfi-coast": {
+    "file": "Positano_Sunset.JPG",
+    "author": "JeCCo",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Positano_Sunset.JPG"
+  },
+  "antalya": {
+    "file": "Falezlerden_Antalya_Konyaaltı_Plajına_doğru_bir_görünüm.jpg",
+    "author": "Esginmurat",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Falezlerden_Antalya_Konyaalt%C4%B1_Plaj%C4%B1na_do%C4%9Fru_bir_g%C3%B6r%C3%BCn%C3%BCm.jpg"
+  },
+  "new-orleans": {
+    "file": "New_Orleans_from_the_Air_September_2019_-_Central_Business_District_Skyline_(cropped).jpg",
+    "author": "George Bannister",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Orleans_from_the_Air_September_2019_-_Central_Business_District_Skyline_(cropped).jpg"
+  },
+  "madrid": {
+    "file": "Madrid_-_Sky_Bar_360º_(Hotel_Riu_Plaza_España),_vistas_19.jpg",
+    "author": "Zarateman",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Madrid_-_Sky_Bar_360%C2%BA_(Hotel_Riu_Plaza_Espa%C3%B1a)%2C_vistas_19.jpg"
+  },
+  "kyoto": {
+    "file": "Kiyomizu.jpg",
+    "author": "Jordy Meow",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Kiyomizu.jpg"
+  },
+  "okinawa": {
+    "file": "Okinawa_kerama_islands.jpg",
+    "author": "Paipateroma",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Okinawa_kerama_islands.jpg"
+  },
+  "crete": {
+    "file": "Imeri_Gramvousa.jpg",
+    "author": "Michael Brys",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Imeri_Gramvousa.jpg"
+  },
+  "venice": {
+    "file": "Venezia_aerial_view.jpg",
+    "author": "kallerna",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Venezia_aerial_view.jpg"
+  },
+  "florence": {
+    "file": "Firenze_-_Piazzale_Michelangelo,_Firenze,_Italy_-_April_6,_2015_02.jpg",
+    "author": "Giorgio Galeotti",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Firenze_-_Piazzale_Michelangelo%2C_Firenze%2C_Italy_-_April_6%2C_2015_02.jpg"
+  },
+  "sicily": {
+    "file": "Aerial_image_of_the_coast_of_Taormina_(view_from_the_southeast).jpg",
+    "author": "Carsten Steger",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_coast_of_Taormina_(view_from_the_southeast).jpg"
+  },
+  "ireland": {
+    "file": "Cliffs-Of-Moher-OBriens-From-South.JPG",
+    "author": "Bjørn Christian Tørrissen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cliffs-Of-Moher-OBriens-From-South.JPG"
+  },
+  "luxor": {
+    "file": "LuxorHotelsIbnWalidSt.jpg",
+    "author": "Roland Unger",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:LuxorHotelsIbnWalidSt.jpg"
+  },
+  "hurghada": {
+    "file": "Hurghada_Hotels_R03.jpg",
+    "author": "Marc Ryckaert",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Hurghada_Hotels_R03.jpg"
+  },
+  "auckland": {
+    "file": "Auckland_skyline_-_May_2024_(2).jpg",
+    "author": "elpinto007",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Auckland_skyline_-_May_2024_(2).jpg"
+  },
+  "queenstown": {
+    "file": "Queenstown_1_(8168013172).jpg",
+    "author": "Bernard Spragg. NZ from Christchurch, New Zealand",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Queenstown_1_(8168013172).jpg"
+  },
+  "sydney": {
+    "file": "Sydney_Opera_House_and_Harbour_Bridge_Dusk_(2)_2019-06-21.jpg",
+    "author": "Benh LIEU SONG (Flickr)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_and_Harbour_Bridge_Dusk_(2)_2019-06-21.jpg"
+  },
+  "melbourne": {
+    "file": "Melbourne_skyline_sor.jpg",
+    "author": "Melbpal",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Melbourne_skyline_sor.jpg"
+  },
+  "cairns": {
+    "file": "ISS-45_StoryOfWater,_Great_Barrier_Reef,_Australia.jpg",
+    "author": "NASA/Kjell Lindgren",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:ISS-45_StoryOfWater%2C_Great_Barrier_Reef%2C_Australia.jpg"
+  },
+  "mauritius": {
+    "file": "Le_Morne_Peninsula_in_Mauritius_(53697779236).jpg",
+    "author": "\"dronepicr\"",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Le_Morne_Peninsula_in_Mauritius_(53697779236).jpg"
+  },
+  "palawan": {
+    "file": "El_Nido_Bay_December_2018.jpg",
+    "author": "Kalithecat00",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:El_Nido_Bay_December_2018.jpg"
+  },
+  "new-york": {
+    "file": "Lights_of_Rockefeller_Center_during_sunset.jpg",
+    "author": "Pedro Lastra",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Lights_of_Rockefeller_Center_during_sunset.jpg"
+  },
+  "washington-dc": {
+    "file": "12-07-13-washington-by-RalfR-08.jpg",
+    "author": "Ralf Roletschek (talk) - Infos über Fahrräder auf fahrradmonteur.de Wikis in der Ausbildung",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:12-07-13-washington-by-RalfR-08.jpg"
+  },
+  "las-vegas": {
+    "file": "Las_Vegas_from_above_(40064746644).jpg",
+    "author": "Mike McBey",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Las_Vegas_from_above_(40064746644).jpg"
+  },
+  "san-diego": {
+    "file": "La_Jolla_Shores_view_(cropped).jpg",
+    "author": "Dirk Hansen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:La_Jolla_Shores_view_(cropped).jpg"
+  },
+  "chicago": {
+    "file": "Chicago_River_ferry_b.jpg",
+    "author": "* File:Chicago River ferry.jpg: John Picken",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Chicago_River_ferry_b.jpg"
+  },
+  "alaska": {
+    "file": "Wonder_Lake_and_Denali.jpg",
+    "author": "Denali National Park and Preserve",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Wonder_Lake_and_Denali.jpg"
+  },
+  "yellowstone": {
+    "file": "Grand_Canyon_of_the_Yellowstone_Lower_Falls_(95819p).jpg",
+    "author": "Rhododendrites",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_of_the_Yellowstone_Lower_Falls_(95819p).jpg"
+  },
+  "zion": {
+    "file": "Zion_angels_landing_view.jpg",
+    "author": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Zion_angels_landing_view.jpg"
+  },
+  "yosemite": {
+    "file": "Half_Dome_with_Eastern_Yosemite_Valley_(50MP).jpg",
+    "author": "Unknown author",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Half_Dome_with_Eastern_Yosemite_Valley_(50MP).jpg"
+  },
+  "grand-canyon": {
+    "file": "Dawn_on_the_S_rim_of_the_Grand_Canyon_(8645178272).jpg",
+    "author": "Murray Foubister",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Dawn_on_the_S_rim_of_the_Grand_Canyon_(8645178272).jpg"
+  },
+  "vancouver": {
+    "file": "Skyline_of_Vancouver,_Canada.jpg",
+    "author": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Vancouver%2C_Canada.jpg"
+  },
+  "quebec-city": {
+    "file": "Quebec_City_skyline_from_Lévis.jpg",
+    "author": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Quebec_City_skyline_from_L%C3%A9vis.jpg"
+  },
+  "cabo-san-lucas": {
+    "file": "Collage_Cabo_San_Lucas.jpg",
+    "author": "Microstar",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Collage_Cabo_San_Lucas.jpg"
+  },
+  "puerto-vallarta": {
+    "file": "Collage_Puerto_Vallarta.jpg",
+    "author": "Microstar",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Collage_Puerto_Vallarta.jpg"
+  },
+  "oaxaca": {
+    "file": "MonteAlbanWest.jpg",
+    "author": "Unknown author",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:MonteAlbanWest.jpg"
+  },
+  "cappadocia": {
+    "file": "Cappadocia_balloon_trip,_Ortahisar_Castle_(11893715185).jpg",
+    "author": "Arian Zwegers from Brussels, Belgium",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cappadocia_balloon_trip%2C_Ortahisar_Castle_(11893715185).jpg"
+  },
+  "dubrovnik": {
+    "file": "The_walls_of_the_fortress_and_View_of_the_old_city._panorama.jpg",
+    "author": "Zysko serhii",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:The_walls_of_the_fortress_and_View_of_the_old_city._panorama.jpg"
+  },
+  "lima": {
+    "file": "Basílica_Catedral_Metropolitana_de_Lima_(cropped).jpg",
+    "author": "David Felipe Ruiz Hoyos",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Bas%C3%ADlica_Catedral_Metropolitana_de_Lima_(cropped).jpg"
+  },
+  "london": {
+    "file": "London_Skyline_(125508655).jpeg",
+    "author": "Unknown author",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:London_Skyline_(125508655).jpeg"
+  },
+  "edinburgh": {
+    "file": "Skyline_of_Edinburgh.jpg",
+    "author": "Andrew Colin",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Edinburgh.jpg"
+  },
+  "switzerland": {
+    "file": "1_lauterbrunnen_valley_wengen_2022.jpg",
+    "author": "Chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:1_lauterbrunnen_valley_wengen_2022.jpg"
+  },
+  "tromso": {
+    "file": "Tromsø_sentrum_(5835702754).jpg",
+    "author": "The Municipality of Tromsø from Tromsø, Norway",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Troms%C3%B8_sentrum_(5835702754).jpg"
+  },
+  "oslo": {
+    "file": "Nationaltheatret_evening.jpg",
+    "author": "Orjanarvola",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Nationaltheatret_evening.jpg"
+  },
+  "paris": {
+    "file": "La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_août_2014_(2).jpg",
+    "author": "Yann Caradec from Paris, France",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_(2).jpg"
+  },
+  "singapore": {
+    "file": "Supertree_Grove,_Gardens_by_the_Bay,_Singapore_-_20120712-02.jpg",
+    "author": "Shiny Things.",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Supertree_Grove%2C_Gardens_by_the_Bay%2C_Singapore_-_20120712-02.jpg"
+  },
+  "hong-kong": {
+    "file": "1957_map_of_Victoria_Harbour_by_the_British_War_Office.jpg",
+    "author": "War Office",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:1957_map_of_Victoria_Harbour_by_the_British_War_Office.jpg"
+  },
+  "key-west": {
+    "file": "Southernmost_point_buoy,_NE_view.jpg",
+    "author": "Radomianin",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Southernmost_point_buoy%2C_NE_view.jpg"
+  },
+  "turks-and-caicos": {
+    "file": "Turtle_Cove_Providenciales_Beach.jpg",
+    "author": "Tim Sackton",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Turtle_Cove_Providenciales_Beach.jpg"
+  },
+  "jamaica": {
+    "file": "Negril_Jamaica_2007-09.jpg",
+    "author": "Unknown author",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Negril_Jamaica_2007-09.jpg"
+  },
+  "fiji": {
+    "file": "Mamanuca.jpg",
+    "author": "American",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mamanuca.jpg"
+  },
+  "koh-samui": {
+    "file": "Koh_Samui_Lipa_Noi2.jpg",
+    "author": "Manfred Werner",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Koh_Samui_Lipa_Noi2.jpg"
+  },
+  "hokkaido": {
+    "file": "Otaru_Montage.jpg",
+    "author": "Komatta",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Otaru_Montage.jpg"
+  },
+  "santorini": {
+    "file": "Oia_sunset_-_panoramio_(2).jpg",
+    "author": "TomasEE",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Oia_sunset_-_panoramio_(2).jpg"
+  },
+  "corfu": {
+    "file": "Pontikonisi.jpg",
+    "author": "StefanosKozanis",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Pontikonisi.jpg"
+  },
+  "ho-chi-minh-city": {
+    "file": "Ben_Thanh,_Ciudad_Ho_Chi_Minh,_Vietnam,_2013-08-14,_DD_01.JPG",
+    "author": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Ben_Thanh%2C_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_01.JPG"
+  },
+  "maldives": {
+    "file": "Malé.jpg",
+    "author": "Shahee Ilyas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mal%C3%A9.jpg"
+  },
+  "taiwan": {
+    "file": "Taipei_Skyline_2022.06.29.jpg",
+    "author": "毛貓大少爺",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Taipei_Skyline_2022.06.29.jpg"
+  },
+  "kauai": {
+    "file": "Kauai_from_space_2.jpg",
+    "author": "Unknown author",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Kauai_from_space_2.jpg"
+  },
+  "bahamas": {
+    "file": "Nassau,_Bahamas_aerial_view_(cropped).jpg",
+    "author": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Nassau%2C_Bahamas_aerial_view_(cropped).jpg"
+  },
+  "algarve": {
+    "file": "Vista_Centro_Histórico_de_Lagos_(cropped).jpg",
+    "author": "Bextrel",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Vista_Centro_Hist%C3%B3rico_de_Lagos_(cropped).jpg"
+  },
+  "mykonos": {
+    "file": "Church_of_Panagia_Paraportiani.jpg",
+    "author": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Church_of_Panagia_Paraportiani.jpg"
+  },
+  "seychelles": {
+    "file": "Luftbild_Insel_La_Digue_Seychellen.DNG_(39617026111).jpg",
+    "author": "dronepicr",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Luftbild_Insel_La_Digue_Seychellen.DNG_(39617026111).jpg"
   }
 }

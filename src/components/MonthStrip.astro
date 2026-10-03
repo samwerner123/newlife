@@ -8,25 +8,29 @@ interface Props {
   dest: Destination;
   active?: number;
   size?: 'sm' | 'lg';
+  /** Cells link to month pages; off inside cards, where the whole card is the link. */
+  interactive?: boolean;
 }
 
-const { dest, active, size = 'sm' } = Astro.props;
+const { dest, active, size = 'sm', interactive = true } = Astro.props;
+const Cell = interactive ? 'a' : 'span';
 ---
 
 <ol class:list={['strip', size]} aria-label={`${dest.name}: weather rating by month`}>
   {
     dest.months.map((m) => (
       <li>
-        <a
-          href={destMonthUrl(dest, m.index)}
+        <Cell
+          href={interactive ? destMonthUrl(dest, m.index) : undefined}
           data-rating={m.rating}
-          class:list={{ 'is-active': m.index === active }}
+          class:list={['cell', { 'is-active': m.index === active }]}
           aria-current={m.index === active ? 'true' : undefined}
-          aria-label={`${m.name}: ${RATING_LABEL[m.rating]}, score ${m.score}`}
+          aria-label={interactive ? `${m.name}: ${RATING_LABEL[m.rating]}, score ${m.score}` : undefined}
+          title={interactive ? undefined : `${m.name}: ${RATING_LABEL[m.rating]} (${m.score})`}
           data-tip={`${m.name}: ${RATING_LABEL[m.rating]} (${m.score})\n${deg(m.high)} / ${deg(m.low)} · ${m.rain} mm rain${m.note ? `\n${m.note}` : ''}`}
         >
           {size === 'lg' ? (<><span class="full">{m.short}</span><span class="letter" aria-hidden="true">{m.short[0]}</span></>) : m.short[0]}
-        </a>
+        </Cell>
       </li>
     ))
   }
@@ -41,7 +45,7 @@ const { dest, active, size = 'sm' } = Astro.props;
     margin: 0;
     padding: 0;
   }
-  a {
+  .cell {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,22 +56,37 @@ const { dest, active, size = 'sm' } = Astro.props;
     text-decoration: none;
     position: relative;
   }
-  .lg a {
+  .lg .cell {
     height: 44px;
     font-size: 0.8125rem;
   }
-  a:hover {
+  a.cell:hover {
     filter: brightness(1.12);
+  }
+  @media (pointer: coarse) {
+    a.cell {
+      height: 34px;
+    }
+    .lg a.cell {
+      height: 44px;
+    }
   }
   .letter {
     display: none;
   }
-  @media (max-width: 560px) {
+  @media (max-width: 560px) and (min-width: 421px) {
     .lg .full {
       display: none;
     }
     .lg .letter {
       display: inline;
+    }
+  }
+  /* Phones: two rows of six so every month is a comfortable tap target. */
+  @media (max-width: 420px) {
+    .lg {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 4px;
     }
   }
   .is-active {

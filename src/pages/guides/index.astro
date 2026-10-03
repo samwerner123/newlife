@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { GUIDES } from '../../lib/guides';
+import { breadcrumbLd } from '../../lib/seo';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Guides', href: '/guides/' },
+];
+---
+
+<Base title="Travel Guides: Seasons, Weather & Budgets" description="In-depth travel guides on hurricane and monsoon seasons, cherry blossoms, northern lights, winter sun, festivals and travel costs." jsonLd={[breadcrumbLd(crumbs, Astro.site)]}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <h1>Travel guides</h1>
+      <p class="lead">Seasonal know-how backed by climate data — so you can time your trip right.</p>
+    </header>
+    <div class="grid-2">
+      {
+        GUIDES.map((g) => (
+          <a class="card g" href={`/guides/${g.slug}/`}>
+            <p class="eyebrow">{g.kicker}</p>
+            <h2>{g.title}</h2>
+            <p class="muted">{g.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Base>
+
+<style>
+  .g {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .g:hover {
+    box-shadow: var(--shadow);
+  }
+  .g h2 {
+    font-size: 1.2rem;
+  }
+  .g p:last-child {
+    margin: 0;
+  }
+</style>

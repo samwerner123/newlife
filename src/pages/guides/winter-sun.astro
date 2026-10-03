@@ -1,0 +1,77 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { destinations, deg, usd, destMonthUrl } from '../../lib/data';
+
+const W = [11, 0, 1]; // Dec, Jan, Feb
+const avg = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
+const ranked = destinations
+  .filter((d) => W.every((m) => d.months[m].score >= 65 && d.months[m].high >= 24))
+  .map((d) => ({ d, score: Math.round(avg(W.map((m) => d.months[m].score))), high: avg(W.map((m) => d.months[m].high)) }))
+  .sort((a, b) => b.score - a.score || b.high - a.high);
+const groups = [
+  { label: 'Caribbean, Mexico & Central America', regions: ['Caribbean', 'North America', 'Central & South America'] },
+  { label: 'Asia & the Indian Ocean', regions: ['Asia'] },
+  { label: 'Africa & the Middle East', regions: ['Middle East & Africa'] },
+  { label: 'Oceania', regions: ['Oceania'] },
+  { label: 'Europe', regions: ['Europe'] },
+];
+---
+
+<Guide slug="winter-sun" photo="tenerife">
+  <p>
+    Escaping winter doesn't have to mean a long-haul flight — but it does mean picking the right place. We looked at every
+    destination we cover and kept only those that rate <strong>good or great in all three winter months (December, January
+    and February)</strong>, with average highs of at least 24°C.
+  </p>
+  <p>
+    {ranked.length} destinations make the cut. The top of the list is dominated by the Caribbean, Southeast Asia and the
+    tropics, while in Europe only the Canary Islands come close to reliable beach weather in winter.
+  </p>
+
+  <h2>The best winter sun destinations</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Destination</th><th scope="col">Dec</th><th scope="col">Jan</th><th scope="col">Feb</th><th scope="col">Avg high</th><th scope="col">From</th></tr></thead>
+      <tbody>
+        {
+          ranked.map(({ d, high }) => (
+            <tr>
+              <th scope="row"><a href={d.url}>{d.name}</a></th>
+              {W.map((m) => <td><a href={destMonthUrl(d, m)}><RatingBadge score={d.months[m].score} rating={d.months[m].rating} /></a></td>)}
+              <td>{deg(high)}</td>
+              <td>{usd(d.budget.low)}/day</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  {
+    groups.map((g) => {
+      const items = ranked.filter((r) => g.regions.includes(r.d.region)).slice(0, 6);
+      return items.length ? (
+        <>
+          <h2>{g.label}</h2>
+          <ul>
+            {items.map(({ d, high }) => (
+              <li><a href={d.url}><b>{d.name}</b></a> — around {deg(high)}. {d.tagline}</li>
+            ))}
+          </ul>
+        </>
+      ) : null;
+    })
+  }
+
+  <h2>Planning tips</h2>
+  <ul>
+    <li><b>Christmas and New Year are peak season</b> almost everywhere warm — book early or travel in mid-January for better prices.</li>
+    <li><b>Check the wet season:</b> Bali and much of Indonesia are rainy from December to March, while Thailand and the Caribbean are at their driest.</li>
+    <li><b>Mind the hurricane calendar</b> later in the year — see our <a href="/guides/hurricane-season/">hurricane season guide</a>.</li>
+  </ul>
+  <p>
+    Month by month: <a href="/warm-places-to-visit-in-december/">December</a>,
+    <a href="/warm-places-to-visit-in-january/">January</a> and <a href="/warm-places-to-visit-in-february/">February</a>.
+  </p>
+</Guide>

@@ -1,0 +1,70 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+// Typical (average) bloom windows. Exact dates move by a week or two each year with the weather.
+const spots: { slug: string; place: string; when: string; m: number; tip: string }[] = [
+  { slug: 'okinawa', place: 'Okinawa, Japan', when: 'Late January – mid February', m: 1, tip: "Japan's earliest blossoms — deep-pink kanhizakura on Motobu and at Nago Castle." },
+  { slug: 'taiwan', place: 'Taiwan', when: 'February – March', m: 1, tip: 'Yangmingshan National Park outside Taipei is the classic spot.' },
+  { slug: 'washington-dc', place: 'Washington, D.C.', when: 'Late March – early April', m: 3, tip: 'Peak bloom around the Tidal Basin usually falls in late March or the first days of April.' },
+  { slug: 'tokyo', place: 'Tokyo, Japan', when: 'Late March – early April', m: 3, tip: 'Ueno Park, Shinjuku Gyoen and the Meguro River are the busiest viewing spots.' },
+  { slug: 'kyoto', place: 'Kyoto, Japan', when: 'Late March – early April', m: 3, tip: "Go early for the Philosopher's Path and Maruyama Park, or visit temples at night illuminations." },
+  { slug: 'seoul', place: 'Seoul, South Korea', when: 'Early – mid April', m: 3, tip: 'Yeouido and Seokchon Lake host blossom festivals.' },
+  { slug: 'vancouver', place: 'Vancouver, Canada', when: 'March – April', m: 3, tip: 'Tens of thousands of cherry trees line the streets; Queen Elizabeth Park is a highlight.' },
+  { slug: 'hokkaido', place: 'Hokkaido, Japan', when: 'Late April – mid May', m: 4, tip: 'The last blossoms of the season — Matsumae and Goryokaku in Hakodate are famous.' },
+];
+const rows = spots.map((s) => ({ ...s, d: bySlug.get(s.slug) })).filter((r) => r.d);
+---
+
+<Guide slug="cherry-blossom-season" photo="kyoto">
+  <p>
+    Cherry blossom (sakura) season is one of the most beautiful — and busiest — times to travel. In Japan the blossom
+    "front" moves north over about four months, from Okinawa in late January to Hokkaido in May, and each tree blooms for
+    only <strong>about a week from first flowers to full bloom</strong>.
+  </p>
+  <p>
+    The dates change from year to year with the weather: a warm March brings blossoms early, a cold one delays them. Japan's
+    weather services publish detailed bloom forecasts from late winter, so book flexible accommodation and check the
+    forecast before fixing your dates.
+  </p>
+
+  <h2>When cherry blossoms bloom</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Where</th><th scope="col">Typical bloom</th><th scope="col">Weather then</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d!.url}>{r.place}</a></th>
+              <td class="left">{r.when}</td>
+              <td><a href={destMonthUrl(r.d!, r.m)}>{deg(r.d!.months[r.m].high)} / {deg(r.d!.months[r.m].low)}</a></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Where to see the blossoms</h2>
+  <ul>{rows.map((r) => <li><b>{r.place}:</b> {r.tip}</li>)}</ul>
+
+  <h2>Tips for blossom season</h2>
+  <ul>
+    <li><b>Book early.</b> Hotels in Tokyo and Kyoto fill up months ahead for late March and early April.</li>
+    <li><b>Avoid Golden Week</b> (late April–early May) if you can — it's Japan's busiest domestic travel week.</li>
+    <li><b>Go early in the morning</b> for quieter parks and softer light.</li>
+    <li><b>Have a plan B:</b> if you miss the peak in Tokyo, head north to catch later blooms.</li>
+  </ul>
+  <p>
+    More on Japan: <a href="/best-time-to-visit-japan/">best time to visit Japan</a>,
+    <a href="/japan-in-april/">Japan in April</a> and <a href="/compare/kyoto-vs-tokyo/">Kyoto vs Tokyo</a>.
+  </p>
+</Guide>
+
+<style>
+  td.left {
+    text-align: left;
+    white-space: normal;
+  }
+</style>

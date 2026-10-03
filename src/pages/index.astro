@@ -2,11 +2,24 @@
 import Base from '../layouts/Base.astro';
 import DestinationCard from '../components/DestinationCard.astro';
 import Icon from '../components/Icon.astro';
+import Photo from '../components/Photo.astro';
 import { SITE } from '../config';
-import { destinations, rankForMonth, MONTHS, monthUrl, REGIONS, regionSlug, deg } from '../lib/data';
+import { destinations, rankForMonth, MONTHS, monthUrl, REGIONS, regionSlug, deg, hubs, hubByName, bySlug, hubMonthUrl, monthRanges, MONTH_SHORT } from '../lib/data';
+import { COLLECTIONS } from '../lib/collections';
+import { comparisons } from '../lib/compare';
+import { GUIDES } from '../lib/guides';
 
 const buildMonth = new Date().getMonth();
 const perMonth = MONTHS.map((_, m) => rankForMonth(m));
+
+// Ordered by search demand (Google autocomplete, US + UK).
+const POPULAR = ['Hawaii', 'Japan', 'iceland', 'Costa Rica', 'Greece', 'Italy', 'Thailand', 'Mexico', 'Portugal', 'bali', 'Florida', 'puerto-rico'];
+const popular = POPULAR.map((k) => {
+  const h = hubByName.get(k);
+  if (h) return { name: h.name, url: h.url, photo: h.members[0].slug, best: h.bestMonths };
+  const d = bySlug.get(k);
+  return d ? { name: d.name, url: d.url, photo: d.slug, best: d.bestMonths } : null;
+}).filter((x) => x !== null);
 
 const jsonLd = [
   {
@@ -25,8 +38,8 @@ const jsonLd = [
       <p class="eyebrow">Weather-rated travel ideas</p>
       <h1>Find where the weather is <span class="hl">great</span> — any month, any budget</h1>
       <p class="lead">
-        We rate {destinations.length} popular destinations for every month of the year using official climate normals, so you
-        can pick the right place at the right time.
+        {destinations.length} destinations rated for every month of the year using official climate data, so you can pick the
+        right place at the right time.
       </p>
       <nav aria-label="Where to go by month" id="months">
         <p class="pick">Where do you want to go in…</p>
@@ -51,6 +64,13 @@ const jsonLd = [
             <h2>Top picks for {MONTHS[m]}</h2>
             <a href={monthUrl(m)}>See all {MONTHS[m]} ideas →</a>
           </div>
+          <div class="chips quick">
+            {COLLECTIONS.map((c) => <a class="chip" href={c.path(m)}>{c.h1(MONTHS[m])}</a>)}
+            {[...hubs]
+              .sort((a, b) => b.months[m].score - a.months[m].score)
+              .slice(0, 4)
+              .map((h) => <a class="chip" href={hubMonthUrl(h, m)}>{h.name} in {MONTHS[m]}</a>)}
+          </div>
           <div class="grid-cards">
             {ranked.slice(0, 6).map((d, i) => (
               <DestinationCard dest={d} month={m} rank={i + 1} />
@@ -59,6 +79,26 @@ const jsonLd = [
         </section>
       ))
     }
+
+    <section class="section">
+      <div class="sec-head">
+        <h2>Most searched: when to visit</h2>
+        <a href="/countries/">All countries &amp; regions →</a>
+      </div>
+      <div class="pop">
+        {
+          popular.map((x) => (
+            <a class="card tile" href={x!.url}>
+              <Photo slug={x!.photo} alt="" variant="card" />
+              <span class="t-body">
+                <b>{x!.name}</b>
+                <span class="small muted">Best: {monthRanges(x!.best, MONTH_SHORT) || '—'}</span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
 
     <section class="section">
       <div class="sec-head">
@@ -84,11 +124,37 @@ const jsonLd = [
     </section>
 
     <section class="section">
+      <div class="sec-head">
+        <h2>Popular comparisons</h2>
+        <a href="/compare/">All comparisons →</a>
+      </div>
+      <div class="chips">{comparisons.slice(0, 16).map((c) => <a class="chip" href={c.url}>{c.a.name} vs {c.b.name}</a>)}</div>
+    </section>
+
+    <section class="section">
+      <div class="sec-head">
+        <h2>Seasonal guides</h2>
+        <a href="/guides/">All guides →</a>
+      </div>
+      <div class="grid-2">
+        {
+          GUIDES.slice(0, 4).map((g) => (
+            <a class="card guide" href={`/guides/${g.slug}/`}>
+              <span class="eyebrow">{g.kicker}</span>
+              <b>{g.title}</b>
+              <span class="small muted">{g.description}</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section">
       <h2>Browse by region</h2>
-      <div class="pill-row">
+      <div class="chips">
         {
           REGIONS.map((r) => (
-            <a class="pill" href={`/destinations/?region=${regionSlug(r)}`}>
+            <a class="chip" href={`/destinations/?region=${regionSlug(r)}`}>
               <Icon name="pin" size={16} /> &nbsp;{r} ({destinations.filter((d) => d.region === r).length})
             </a>
           ))
@@ -134,7 +200,7 @@ const jsonLd = [
 
 <style>
   .hero {
-    padding: 48px 0 24px;
+    padding: 44px 0 20px;
     background:
       radial-gradient(1200px 400px at 85% -10%, color-mix(in srgb, var(--temp) 16%, transparent), transparent 70%),
       radial-gradient(900px 380px at 0% 0%, color-mix(in srgb, var(--rain) 14%, transparent), transparent 70%);
@@ -143,11 +209,21 @@ const jsonLd = [
     color: var(--cta);
   }
   .pick {
-    margin: 24px 0 10px;
+    margin: 20px 0 10px;
     font-weight: 650;
   }
   .top[hidden] {
     display: none;
+  }
+  .quick {
+    margin: -4px 0 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .quick .chip {
+    flex: none;
   }
   .sec-head {
     display: flex;
@@ -163,6 +239,25 @@ const jsonLd = [
   .sec-head a {
     font-weight: 600;
     text-decoration: none;
+  }
+  .pop {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+    gap: 14px;
+  }
+  .tile {
+    padding: 0;
+    overflow: hidden;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .tile:hover {
+    box-shadow: var(--shadow);
+  }
+  .t-body {
+    display: grid;
+    gap: 2px;
+    padding: 10px 12px 12px;
   }
   .month-grid {
     list-style: none;
@@ -192,6 +287,15 @@ const jsonLd = [
     display: grid;
     gap: 2px;
   }
+  .guide {
+    display: grid;
+    gap: 6px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .guide:hover {
+    box-shadow: var(--shadow);
+  }
   .three {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   }
@@ -200,5 +304,24 @@ const jsonLd = [
   }
   .how h3 {
     margin-top: 10px;
+  }
+  @media (max-width: 640px) {
+    .hero {
+      padding: 28px 0 12px;
+    }
+    .months {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .months .pill {
+      flex: none;
+    }
+    .pop,
+    .month-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
   }
 </style>

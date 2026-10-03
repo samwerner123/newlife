@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import BookingBox from '../../../components/BookingBox.astro';
 import Photo from '../../../components/Photo.astro';
+import MobileBookBar from '../../../components/MobileBookBar.astro';
 import { ogImage } from '../../../lib/images';
 import ClimateCharts from '../../../components/ClimateCharts.astro';
 import DestinationCard from '../../../components/DestinationCard.astro';
@@ -184,6 +185,7 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
       <a class="btn btn-ghost" href={destMonthUrl(dest, next.index)}>{dest.name} in {next.name} →</a>
     </nav>
   </div>
+  <MobileBookBar dest={dest} />
 </Base>
 
 <style>

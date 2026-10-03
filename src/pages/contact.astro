@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../config';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Contact', href: '/contact/' },
+];
+---
+
+<Base title="Contact" description={`Get in touch with the ${SITE.name} team.`}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="prose section-tight">
+      <h1>Contact us</h1>
+      <p>We'd love to hear from you — whether it's a correction, a destination you'd like us to cover or a partnership idea.</p>
+      {
+        SITE.email ? (
+          <p class="big">
+            Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          </p>
+        ) : (
+          <p class="muted">Our contact inbox is being set up. Please check back soon.</p>
+        )
+      }
+      <p>We read every message and usually reply within a few working days.</p>
+    </article>
+  </div>
+</Base>
+
+<style>
+  .big {
+    font-size: 1.15rem;
+  }
+</style>

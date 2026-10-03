@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { comparisons } from '../../lib/compare';
+import { REGIONS } from '../../lib/data';
+import { breadcrumbLd } from '../../lib/seo';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Compare', href: '/compare/' },
+];
+const groups = REGIONS.map((r) => ({ r, items: comparisons.filter((c) => c.a.region === r) })).filter((g) => g.items.length);
+---
+
+<Base
+  title="Compare Destinations: Which Is Better and When?"
+  description={`${comparisons.length} head-to-head destination comparisons — weather month by month, costs and a clear verdict.`}
+  jsonLd={[breadcrumbLd(crumbs, Astro.site)]}
+>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <h1>Compare destinations</h1>
+      <p class="lead">
+        Can't decide? These are the comparisons travellers search for most, with month-by-month weather and costs side by side.
+      </p>
+    </header>
+    {
+      groups.map((g) => (
+        <section class="section-tight">
+          <h2>{g.r}</h2>
+          <div class="chips">{g.items.map((c) => <a class="chip" href={c.url}>{c.a.name} vs {c.b.name}</a>)}</div>
+        </section>
+      ))
+    }
+  </div>
+</Base>

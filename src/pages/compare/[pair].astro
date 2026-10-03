@@ -1,0 +1,201 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BookingBox from '../../components/BookingBox.astro';
+import CompareChart from '../../components/CompareChart.astro';
+import Photo from '../../components/Photo.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import Faq from '../../components/Faq.astro';
+import { comparisons, comparisonsFor, verdict, type Comparison } from '../../lib/compare';
+import { MONTHS, monthRanges, bestIn, usd, deg } from '../../lib/data';
+import { breadcrumbLd } from '../../lib/seo';
+import { faqLd } from '../../lib/faq';
+import { ogImage } from '../../lib/images';
+
+export function getStaticPaths() {
+  return comparisons.map((c) => ({ params: { pair: c.slug }, props: { c } }));
+}
+
+const { c } = Astro.props as { c: Comparison };
+const { a, b } = c;
+const v = verdict(a, b);
+const nowM = new Date().getMonth();
+const better = (i: number) =>
+  a.months[i].score === b.months[i].score ? 'Tie' : a.months[i].score > b.months[i].score ? a.name : b.name;
+const related = [...comparisonsFor(a.id), ...comparisonsFor(b.id)].filter((x) => x.slug !== c.slug).slice(0, 8);
+const warmer = v.hiA > v.hiB ? a : b;
+const cheaper = a.budget.low <= b.budget.low ? a : b;
+const other = (e: typeof a) => (e === a ? b : a);
+const lead = `${warmer.name} is the warmer of the two (${deg(Math.max(v.hiA, v.hiB))} vs ${deg(
+  Math.min(v.hiA, v.hiB),
+)} average high across the year), and ${cheaper.name} is ${
+  a.budget.low === b.budget.low ? 'about as' : 'the more'
+} affordable (from ${usd(cheaper.budget.low)}/day). ${bestIn(a.name, a.bestMonths)}; ${bestIn(b.name, b.bestMonths)}.`;
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Compare', href: '/compare/' },
+  { name: `${a.name} vs ${b.name}`, href: c.url },
+];
+const faq = [
+  {
+    q: `Is ${a.name} or ${b.name} better in ${MONTHS[nowM]}?`,
+    a: `In ${MONTHS[nowM]}, ${better(nowM) === 'Tie' ? 'both score the same' : `${better(nowM)} has the better weather`} (${a.name} ${a.months[nowM].score}/100 vs ${b.name} ${b.months[nowM].score}/100).`,
+  },
+  {
+    q: `Which is warmer, ${a.name} or ${b.name}?`,
+    a: `${warmer.name} is warmer on average: ${deg(Math.max(v.hiA, v.hiB))} vs ${deg(Math.min(v.hiA, v.hiB))} average daytime highs across the year.`,
+  },
+  {
+    q: `Which is cheaper, ${a.name} or ${b.name}?`,
+    a: `${cheaper.name} is cheaper, from about ${usd(cheaper.budget.low)} per person per day vs ${usd(other(cheaper).budget.low)}, excluding flights.`,
+  },
+  {
+    q: `When is the best time to visit ${a.name} and ${b.name}?`,
+    a: `${bestIn(a.name, a.bestMonths)}. ${bestIn(b.name, b.bestMonths)}.`,
+  },
+];
+const title = `${a.name} vs ${b.name}: Weather, Costs & Best Time to Go`;
+const description = `${a.name} or ${b.name}? Compare weather month by month, daily budgets and the best time to visit each — with a clear verdict for every month.`;
+---
+
+<Base title={title} description={description} jsonLd={[breadcrumbLd(crumbs, Astro.site), faqLd(faq)]} ogType="article" image={await ogImage(a.photo)}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <p class="eyebrow">Destination comparison</p>
+      <h1>{a.name} vs {b.name}</h1>
+      <p class="lead">{lead}</p>
+    </header>
+
+    <div class="duo">
+      {
+        [a, b].map((e) => (
+          <a class="card side" href={e.url}>
+            <Photo slug={e.photo} alt="" variant="card" />
+            <div class="side-body">
+              <h2>{e.name}</h2>
+              <p class="small"><b>Best:</b> {monthRanges(e.bestMonths) || '—'}</p>
+              <p class="small"><b>Budget:</b> {usd(e.budget.low)}–{usd(e.budget.mid)}/day</p>
+              <p class="small"><b>Great months:</b> {e.months.filter((m) => m.rating === 'great').length} of 12</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <section class="section-tight">
+      <h2>Month by month</h2>
+      <CompareChart a={a} b={b} />
+      <div class="table-wrap tbl">
+        <table class="data-table">
+          <caption class="visually-hidden">{a.name} vs {b.name} weather by month</caption>
+          <thead>
+            <tr><th scope="col">Month</th><th scope="col">{a.name}</th><th scope="col">{b.name}</th><th scope="col">Better weather</th></tr>
+          </thead>
+          <tbody>
+            {
+              MONTHS.map((mn, i) => (
+                <tr>
+                  <th scope="row">{mn}</th>
+                  <td><RatingBadge score={a.months[i].score} rating={a.months[i].rating} /> <span class="muted small">{deg(a.months[i].high)}</span></td>
+                  <td><RatingBadge score={b.months[i].score} rating={b.months[i].rating} /> <span class="muted small">{deg(b.months[i].high)}</span></td>
+                  <td class="win">{better(i)}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section-tight choose">
+      <div class="card">
+        <h2 class="h3">Choose {a.name} if…</h2>
+        <ul>{(v.chooseA.length ? v.chooseA : ['you like what it offers — the weather is similar']).map((r) => <li>{r}</li>)}</ul>
+        <a href={a.url}>Best time to visit {a.name} →</a>
+      </div>
+      <div class="card">
+        <h2 class="h3">Choose {b.name} if…</h2>
+        <ul>{(v.chooseB.length ? v.chooseB : ['you like what it offers — the weather is similar']).map((r) => <li>{r}</li>)}</ul>
+        <a href={b.url}>Best time to visit {b.name} →</a>
+      </div>
+    </section>
+
+    <div class="booking-wrap"><BookingBox title="Ready to book?" /></div>
+
+    <Faq items={faq} />
+
+    {
+      related.length > 0 && (
+        <section class="section">
+          <h2 class="h3">Related comparisons</h2>
+          <div class="chips">{related.map((r) => <a class="chip" href={r.url}>{r.a.name} vs {r.b.name}</a>)}</div>
+        </section>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .side {
+    padding: 0;
+    overflow: hidden;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .side:hover {
+    box-shadow: var(--shadow);
+  }
+  .side-body {
+    padding: 14px 16px;
+  }
+  .side h2 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+  .side p {
+    margin: 0 0 4px;
+    color: var(--text-2);
+  }
+  .tbl {
+    margin-top: 16px;
+  }
+  td.win {
+    font-weight: 600;
+  }
+  .choose {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .choose ul {
+    padding-left: 1.2em;
+    color: var(--text-2);
+  }
+  .h3 {
+    font-size: 1.15rem;
+  }
+  .booking-wrap {
+    max-width: 520px;
+    margin: 8px 0 24px;
+  }
+  @media (max-width: 640px) {
+    .duo {
+      gap: 10px;
+    }
+    .side-body {
+      padding: 10px 12px;
+    }
+    .side h2 {
+      font-size: 1rem;
+    }
+    .choose {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../config';
+import { destinations, hubs } from '../lib/data';
+import { comparisons } from '../lib/compare';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'About us', href: '/about-us/' },
+];
+---
+
+<Base title="About Us" description={`${SITE.name} helps travellers pick the right place at the right time, using official climate data.`}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="prose section-tight">
+      <h1>About {SITE.name}</h1>
+      <p class="lead">We help you answer the first question of every trip: <em>where should I go, and when?</em></p>
+      <p>
+        Most "best time to visit" advice is vague or recycled. {SITE.name} is built on data: every one of our
+        {destinations.length} destinations is rated for every month using official 30-year climate averages from national
+        weather services, adjusted for things averages miss — monsoons, hurricane season, smoke seasons and seasonal
+        closures.
+      </p>
+      <h2>What you'll find here</h2>
+      <ul>
+        <li>Month-by-month weather ratings, charts and tables for {destinations.length} destinations.</li>
+        <li>Guides to {hubs.length} countries, states and regions, from Hawaii to Thailand.</li>
+        <li>{comparisons.length} head-to-head comparisons of the places travellers most often weigh up.</li>
+        <li>Seasonal guides on hurricanes, monsoons, cherry blossoms, the northern lights and more.</li>
+      </ul>
+      <h2>How we work</h2>
+      <p>
+        Our ratings are calculated automatically from the data, using a published formula — see
+        <a href="/about/">how we rate destinations</a>. Our editorial team writes the destination descriptions, seasonal
+        notes and budgets, and reviews them regularly. Read our <a href="/editorial-policy/">editorial policy</a>.
+      </p>
+      <h2>How we're funded</h2>
+      <p>
+        {SITE.name} is free to use. We earn commissions when readers book through some of our partner links, at no extra
+        cost to them. Partners never influence our ratings — see our <a href="/affiliate-disclosure/">affiliate disclosure</a>.
+      </p>
+      <p><a href="/contact/">Contact us</a> with corrections, ideas or partnership enquiries.</p>
+    </article>
+  </div>
+</Base>

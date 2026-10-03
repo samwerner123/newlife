@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "climate": "node scripts/fetch-climate.mjs",
-    "images": "node scripts/fetch-images.mjs"
+    "images": "node scripts/fetch-images.mjs",
+    "plan": "node scripts/build-plan.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

@@ -18,6 +18,10 @@ const has = (f: Field) => fields.includes(f);
 ---
 
 <form class="filters" data-filters data-target={target} aria-label="Filter destinations" onsubmit="return false">
+  <button type="button" class="f-toggle" aria-expanded="false" data-f-toggle>
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+    Filter &amp; sort <span class="f-count" data-f-count></span>
+  </button>
   {
     has('region') && (
       <label class="field">
@@ -138,7 +142,16 @@ const has = (f: Field) => fields.includes(f);
         if (v !== def) q.set(k, v);
       }
       history.replaceState(null, '', q.size ? `?${q}` : location.pathname);
+      const badge = form.querySelector<HTMLElement>('[data-f-count]');
+      if (badge) badge.textContent = q.size ? String(q.size) : '';
     }
+
+    const toggle = form.querySelector<HTMLButtonElement>('[data-f-toggle]');
+    toggle?.addEventListener('click', () => {
+      const open = !form.classList.contains('is-open');
+      form.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    });
 
     form.addEventListener('change', apply);
     apply();
@@ -146,16 +159,57 @@ const has = (f: Field) => fields.includes(f);
 </script>
 
 <style>
+  .f-toggle {
+    display: none;
+  }
   @media (max-width: 640px) {
     .filters {
       display: grid;
       grid-template-columns: 1fr 1fr;
+    }
+    .f-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      grid-column: 1 / -1;
+      justify-self: start;
+      min-height: 44px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+    }
+    .f-count:not(:empty) {
+      display: inline-grid;
+      place-items: center;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      border-radius: 999px;
+      background: var(--cta);
+      color: #fff;
+      font-size: 0.75rem;
+    }
+    .filters :global(.field) {
+      display: none;
+    }
+    .filters.is-open :global(.field) {
+      display: flex;
     }
     .filters :global(select) {
       width: 100%;
     }
     .count {
       grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 400px) {
+    .filters {
+      grid-template-columns: 1fr;
     }
   }
   .count {

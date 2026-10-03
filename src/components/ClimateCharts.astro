@@ -37,7 +37,7 @@ const wettest = ms.reduce((a, b) => (b.rain > a.rain ? b : a)).index;
     <figcaption>Average daily high and low, °C</figcaption>
     <div class="plot">
       <div class="grid" aria-hidden="true">
-        {t.ticks.map((v) => <span class:list={{ zero: v === 0 }} style={`bottom:${tPct(v)}%`}><em>{v}°</em></span>)}
+        {t.ticks.map((v) => <span class:list={{ zero: v === 0 }} style={`bottom:${tPct(v)}%`}><em data-u="c" data-v={v}>{v}°</em></span>)}
       </div>
       <ol class="cols">
         {
@@ -63,7 +63,7 @@ const wettest = ms.reduce((a, b) => (b.rain > a.rain ? b : a)).index;
     <figcaption>Average monthly rainfall, mm</figcaption>
     <div class="plot">
       <div class="grid" aria-hidden="true">
-        {r.ticks.map((v) => <span class:list={{ zero: v === 0 }} style={`bottom:${rPct(v)}%`}><em>{v}</em></span>)}
+        {r.ticks.map((v) => <span class:list={{ zero: v === 0 }} style={`bottom:${rPct(v)}%`}><em data-u="mm" data-v={v}>{v}</em></span>)}
       </div>
       <ol class="cols">
         {
@@ -75,7 +75,7 @@ const wettest = ms.reduce((a, b) => (b.rain > a.rain ? b : a)).index;
               aria-label={`${m.name}: ${m.rain} millimetres of rain`}
             >
               <span class="bar rain" style={`bottom:0;height:${Math.max(rPct(m.rain), m.rain > 0 ? 1 : 0)}%`} />
-              {m.index === wettest && <span class="val" style={`bottom:calc(${rPct(m.rain)}% + 4px)`}>{m.rain}</span>}
+              {m.index === wettest && <span class="val" style={`bottom:calc(${rPct(m.rain)}% + 4px)`} data-u="mm" data-v={m.rain}>{m.rain}</span>}
             </li>
           ))
         }

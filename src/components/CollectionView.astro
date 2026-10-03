@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import DestinationCard from './DestinationCard.astro';
+import MonthPills from './MonthPills.astro';
+import RatingBadge from './RatingBadge.astro';
+import Faq from './Faq.astro';
+import { COLLECTIONS, type Collection } from '../lib/collections';
+import { MONTHS, monthUrl, destMonthUrl, travelYear, deg, usd } from '../lib/data';
+import { breadcrumbLd } from '../lib/seo';
+import { faqLd } from '../lib/faq';
+import { SITE } from '../config';
+
+interface Props {
+  collection: Collection;
+  m: number;
+}
+
+const { collection: c, m } = Astro.props;
+const mn = MONTHS[m];
+const year = travelYear(m);
+const items = c.pick(m);
+const top = items[0];
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: `Where to go in ${mn}`, href: monthUrl(m) },
+  { name: c.h1(mn), href: c.path(m) },
+];
+const cheapest = [...items].sort((a, b) => a.budget.low - b.budget.low)[0];
+const driest = [...items].sort((a, b) => a.months[m].rain - b.months[m].rain)[0];
+const warmest = [...items].sort((a, b) => b.months[m].high - a.months[m].high)[0];
+const faq = [
+  { q: `Where is the best place to go in ${mn}?`, a: `${top.name} tops this list for ${mn}, with average highs of ${deg(top.months[m].high)} and about ${top.months[m].rain} mm of rain. ${items[1] ? `${items[1].name} and ${items[2]?.name ?? ''} are close behind.` : ''}`.trim() },
+  { q: `Where is warmest in ${mn}?`, a: `Of these picks, ${warmest.name} is the warmest in ${mn}, averaging ${deg(warmest.months[m].high)} by day and ${deg(warmest.months[m].low)} at night.` },
+  { q: `Which is the cheapest option in ${mn}?`, a: `${cheapest.name} is the best value here, from about ${usd(cheapest.budget.low)} per person per day excluding flights.` },
+  { q: `Where is driest in ${mn}?`, a: `${driest.name} gets the least rain of these destinations in ${mn} — about ${driest.months[m].rain} mm on average.` },
+];
+const description = `${c.h1(mn)}: ${items.slice(0, 4).map((d) => d.name).join(', ')} and more. Compare temperatures, rainfall and daily budgets from official climate data.`;
+const jsonLd = [
+  breadcrumbLd(crumbs, Astro.site),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: c.h1(mn),
+    itemListElement: items.slice(0, 10).map((d, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: d.name,
+      url: new URL(destMonthUrl(d, m), Astro.site ?? SITE.url).toString(),
+    })),
+  },
+  faqLd(faq),
+];
+---
+
+<Base title={c.title(mn, year)} description={description} jsonLd={jsonLd}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <p class="eyebrow">{mn} {year} travel ideas</p>
+      <h1>{c.h1(mn)}</h1>
+      <p class="lead">{c.lead(mn, items, m)}</p>
+    </header>
+
+    <nav class="related" aria-label={`More ${mn} ideas`}>
+      <a class="chip" href={monthUrl(m)}>All {mn} ideas</a>
+      {COLLECTIONS.map((o) => <a class="chip" href={o.path(m)} aria-current={o.key === c.key ? 'page' : undefined}>{o.label}</a>)}
+    </nav>
+
+    <div class="grid-cards">
+      {items.map((d, i) => <DestinationCard dest={d} month={m} rank={i + 1} />)}
+    </div>
+
+    <section class="section">
+      <h2>At a glance</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption class="visually-hidden">{c.h1(mn)} — summary</caption>
+          <thead>
+            <tr><th scope="col">Destination</th><th scope="col">Rating</th><th scope="col">High</th><th scope="col">Rain</th><th scope="col">From</th></tr>
+          </thead>
+          <tbody>
+            {
+              items.map((d, i) => (
+                <tr>
+                  <th scope="row"><span class="muted">{i + 1}.</span> <a href={destMonthUrl(d, m)}>{d.name}</a></th>
+                  <td><RatingBadge score={d.months[m].score} rating={d.months[m].rating} /></td>
+                  <td>{deg(d.months[m].high)}</td>
+                  <td>{d.months[m].rain} mm</td>
+                  <td>{usd(d.budget.low)}/day</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <Faq items={faq} />
+
+    <section class="section">
+      <h2 class="h3">{c.label} in other months</h2>
+      <MonthPills hrefs={MONTHS.map((_, i) => c.path(i))} active={m} label={`${c.label} by month`} />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .related {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 2px 10px;
+    margin-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .h3 {
+    font-size: 1.15rem;
+  }
+  th[scope='row'] a {
+    color: var(--text);
+    font-weight: 600;
+  }
+</style>

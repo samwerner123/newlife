@@ -1,0 +1,87 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { bySlug, monthRanges, destMonthUrl, type Destination } from '../../lib/data';
+
+const slugs = ['aruba', 'puerto-rico', 'bahamas', 'turks-and-caicos', 'jamaica', 'punta-cana', 'cancun', 'miami', 'key-west', 'new-orleans', 'cabo-san-lucas', 'puerto-vallarta', 'cartagena'];
+const rows = slugs.map((s) => bySlug.get(s)).filter((d): d is Destination => Boolean(d));
+const peak = [7, 8, 9]; // Aug, Sep, Oct
+---
+
+<Guide slug="hurricane-season" photo="aruba">
+  <p>
+    The <strong>Atlantic hurricane season runs from 1 June to 30 November</strong>, and it covers the Caribbean, the Gulf of
+    Mexico, Florida and Mexico's Yucatán coast (Cancún and the Riviera Maya). The Eastern Pacific season — which affects
+    Mexico's Pacific resorts such as Los Cabos and Puerto Vallarta — starts a little earlier, on 15 May, and also ends on
+    30 November.
+  </p>
+  <p>
+    Most storms form between <strong>mid-August and mid-October</strong>, with the statistical peak around 10 September.
+    June, July and November are far quieter. That doesn't mean you have to avoid the region for half the year — it means
+    choosing your timing, your island and your booking terms carefully.
+  </p>
+
+  <h2>Hurricane risk by month</h2>
+  <ul>
+    <li><b>June–July:</b> early season; storms are possible but relatively uncommon. Expect heat, humidity and showers.</li>
+    <li><b>August–October:</b> peak season. This is when the biggest and most frequent storms occur.</li>
+    <li><b>November:</b> activity drops off quickly; by late November conditions are usually settled.</li>
+    <li><b>December–May:</b> outside the season — the classic dry, sunny high season in the Caribbean.</li>
+  </ul>
+
+  <h2>How our destinations rate during peak season</h2>
+  <p>
+    Our weather scores already subtract points for August–October in hurricane-prone destinations. Here is how each one
+    rates in the peak months, and when it's at its best:
+  </p>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Destination</th><th scope="col">Aug</th><th scope="col">Sep</th><th scope="col">Oct</th><th scope="col">Best time</th></tr></thead>
+      <tbody>
+        {
+          rows.map((d) => (
+            <tr>
+              <th scope="row"><a href={d.url}>{d.name}</a></th>
+              {peak.map((m) => (
+                <td><a href={destMonthUrl(d, m)}><RatingBadge score={d.months[m].score} rating={d.months[m].rating} /></a></td>
+              ))}
+              <td class="left">{monthRanges(d.bestMonths)}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The safest places to go</h2>
+  <p>
+    <a href="/destinations/aruba/">Aruba</a> and its neighbours Bonaire and Curaçao sit off the coast of Venezuela, south of
+    the main hurricane belt, and are rarely hit. They're the best Caribbean bet if you must travel in September or October.
+    Further afield, <a href="/destinations/cartagena/">Cartagena</a> on Colombia's Caribbean coast is also outside the usual
+    storm track, though autumn is its rainy season.
+  </p>
+  <p>
+    If you have flexibility, the Pacific is a good alternative: <a href="/best-time-to-visit-hawaii/">Hawaii</a> is rarely
+    affected by hurricanes and has some of its best weather in September and October.
+  </p>
+
+  <h2>Tips for travelling in hurricane season</h2>
+  <ul>
+    <li><b>Buy travel insurance when you book</b> — policies bought after a storm is named usually won't cover it.</li>
+    <li><b>Look for hurricane guarantees.</b> Many large resorts offer free rebooking or credit if a hurricane disrupts your stay.</li>
+    <li><b>Book flexible fares and refundable rooms</b> so you can move dates if a storm threatens.</li>
+    <li><b>Follow official forecasts</b> from the US National Hurricane Center, which tracks storms days in advance.</li>
+    <li><b>Enjoy the upside:</b> fewer crowds and much lower prices, especially in June, July and November.</li>
+  </ul>
+  <p>
+    See also: <a href="/guides/winter-sun/">winter sun destinations</a> and
+    <a href="/warm-places-to-visit-in-december/">warm places to visit in December</a>.
+  </p>
+</Guide>
+
+<style>
+  td.left {
+    text-align: left;
+    white-space: normal;
+  }
+</style>

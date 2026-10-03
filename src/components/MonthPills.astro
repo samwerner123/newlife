@@ -1,0 +1,45 @@
+---
+// Horizontally scrollable month switcher (scrolls on phones instead of wrapping into many rows).
+import { MONTHS } from '../lib/data';
+
+interface Props {
+  hrefs: string[];
+  active?: number;
+  label: string;
+  long?: boolean;
+}
+
+const { hrefs, active, label, long = false } = Astro.props;
+---
+
+<nav class="month-pills" aria-label={label}>
+  <div class="row">
+    {
+      MONTHS.map((mn, i) => (
+        <a class="pill" href={hrefs[i]} aria-current={i === active ? 'page' : undefined}>
+          {long ? mn : mn.slice(0, 3)}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<style>
+  .month-pills {
+    margin: 4px 0 12px;
+  }
+  .row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding: 2px 2px 8px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .row .pill {
+    flex: none;
+    scroll-snap-align: start;
+    min-height: 44px;
+  }
+</style>

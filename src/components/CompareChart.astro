@@ -1,0 +1,149 @@
+---
+// Weather score by month for two places: grouped columns, one hue per place
+// (categorical slots 1 and 2), legend + tooltips; the table below carries every value.
+import { MONTHS, MONTH_SHORT } from '../lib/data';
+import { RATING_LABEL } from '../lib/score';
+import type { Entity } from '../lib/compare';
+
+interface Props {
+  a: Entity;
+  b: Entity;
+}
+const { a, b } = Astro.props;
+---
+
+<figure class="cmp">
+  <figcaption>
+    <span>Weather score by month (0–100)</span>
+    <span class="legend">
+      <span><i class="sa"></i>{a.name}</span>
+      <span><i class="sb"></i>{b.name}</span>
+    </span>
+  </figcaption>
+  <div class="plot">
+    <div class="grid" aria-hidden="true">
+      {[0, 25, 50, 75, 100].map((v) => <span style={`bottom:${v}%`}><em>{v}</em></span>)}
+    </div>
+    <ol class="cols">
+      {
+        MONTHS.map((mn, i) => (
+          <li
+            tabindex="0"
+            data-tip={`${mn}\n${a.name}: ${a.months[i].score} (${RATING_LABEL[a.months[i].rating]})\n${b.name}: ${b.months[i].score} (${RATING_LABEL[b.months[i].rating]})`}
+            aria-label={`${mn}: ${a.name} ${a.months[i].score}, ${b.name} ${b.months[i].score}`}
+          >
+            <span class="bar sa" style={`height:${Math.max(1, a.months[i].score)}%`} />
+            <span class="bar sb" style={`height:${Math.max(1, b.months[i].score)}%`} />
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+  <ol class="x" aria-hidden="true">{MONTH_SHORT.map((s) => <li>{s}</li>)}</ol>
+</figure>
+
+<style>
+  .cmp {
+    --sa: #2a78d6;
+    --sb: #eb6834;
+    margin: 0;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  @media (prefers-color-scheme: dark) {
+    .cmp {
+      --sa: #3987e5;
+      --sb: #d95926;
+    }
+  }
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 16px;
+    font-weight: 650;
+    margin-bottom: 18px;
+  }
+  .legend {
+    display: flex;
+    gap: 14px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-2);
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend i {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+  i.sa,
+  .bar.sa {
+    background: var(--sa);
+  }
+  i.sb,
+  .bar.sb {
+    background: var(--sb);
+  }
+  .plot {
+    position: relative;
+    height: 180px;
+    margin-left: 30px;
+  }
+  .grid span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--grid);
+  }
+  .grid em {
+    position: absolute;
+    right: calc(100% + 6px);
+    top: -0.6em;
+    font-style: normal;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .cols,
+  .x {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .cols {
+    position: absolute;
+    inset: 0;
+  }
+  .cols li {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2px;
+    border-radius: 6px;
+  }
+  .cols li:hover,
+  .cols li:focus-visible {
+    background: var(--surface-2);
+  }
+  .bar {
+    width: min(10px, 38%);
+    border-radius: 4px 4px 0 0;
+  }
+  .x {
+    margin-left: 30px;
+    margin-top: 6px;
+  }
+  .x li {
+    text-align: center;
+    font-size: 0.6875rem;
+    color: var(--muted);
+  }
+</style>

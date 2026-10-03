@@ -1,0 +1,81 @@
+---
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Photo from '../components/Photo.astro';
+import { ogImage } from '../lib/images';
+import { GUIDES } from '../lib/guides';
+import { breadcrumbLd } from '../lib/seo';
+import { SITE } from '../config';
+
+interface Props {
+  slug: string;
+  /** Destination slug whose photo illustrates the guide. */
+  photo?: string;
+}
+
+const { slug, photo } = Astro.props;
+const image = photo ? await ogImage(photo) : undefined;
+const g = GUIDES.find((x) => x.slug === slug)!;
+const url = `/guides/${slug}/`;
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Guides', href: '/guides/' },
+  { name: g.title, href: url },
+];
+const updated = new Date().toISOString().slice(0, 10);
+const more = GUIDES.filter((x) => x.slug !== slug).slice(0, 4);
+const jsonLd = [
+  breadcrumbLd(crumbs, Astro.site),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: g.title,
+    description: g.description,
+    dateModified: updated,
+    author: { '@type': 'Organization', name: `${SITE.name} editorial team`, url: new URL('/about-us/', Astro.site ?? SITE.url).toString() },
+    publisher: { '@type': 'Organization', name: SITE.name },
+    mainEntityOfPage: new URL(url, Astro.site ?? SITE.url).toString(),
+  },
+];
+---
+
+<Base title={g.title} description={g.description} jsonLd={jsonLd} ogType="article" image={image}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="guide">
+      <header class="section-tight">
+        <p class="eyebrow">{g.kicker}</p>
+        <h1>{g.title}</h1>
+        <p class="lead">{g.description}</p>
+        <p class="byline small muted">By the {SITE.name} editorial team · Updated {updated} · <a href="/about/">How we rate</a></p>
+      </header>
+      {photo && <Photo slug={photo} alt="" variant="hero" />}
+      <div class="prose body">
+        <slot />
+      </div>
+    </article>
+    <section class="section">
+      <h2 class="h3">More guides</h2>
+      <div class="chips">{more.map((x) => <a class="chip" href={`/guides/${x.slug}/`}>{x.title}</a>)}</div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .guide .body {
+    max-width: 75ch;
+    margin-top: 24px;
+  }
+  .body :global(table) {
+    margin: 12px 0 20px;
+  }
+  .body :global(.table-wrap) {
+    margin: 12px 0 24px;
+  }
+  .byline {
+    margin-top: 12px;
+  }
+  .h3 {
+    font-size: 1.15rem;
+  }
+</style>
