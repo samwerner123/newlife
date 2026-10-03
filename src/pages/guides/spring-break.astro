@@ -37,8 +37,8 @@ const tiers = [
                 {t.items.map((d) => (
                   <tr>
                     <th scope="row"><a href={d.url}>{d.name}</a></th>
-                    <td><a href={destMonthUrl(d, MAR)}><RatingBadge score={d.months[MAR].score} rating={d.months[MAR].rating} /></a></td>
-                    <td><a href={destMonthUrl(d, APR)}><RatingBadge score={d.months[APR].score} rating={d.months[APR].rating} /></a></td>
+                    <td><a href={destMonthUrl(d, MAR)}><RatingBadge score={d.months[MAR].score} rating={d.months[MAR].rating} note={d.months[MAR].note} /></a></td>
+                    <td><a href={destMonthUrl(d, APR)}><RatingBadge score={d.months[APR].score} rating={d.months[APR].rating} note={d.months[APR].note} /></a></td>
                     <td>{deg(d.months[MAR].high)}</td>
                     <td>{usd(d.budget.low)}/day</td>
                   </tr>

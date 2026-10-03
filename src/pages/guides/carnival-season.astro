@@ -36,7 +36,7 @@ const rows = parties.map((p) => ({ ...p, d: bySlug.get(p.slug)! }));
               <th scope="row"><a href={r.d.url}>{r.name}</a></th>
               <td class="left">{r.dates}</td>
               <td>
-                <a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} />
+                <a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} note={r.d.months[r.m].note} />
               </td>
             </tr>
           ))

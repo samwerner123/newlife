@@ -5,12 +5,21 @@ interface Props {
   score: number;
   rating: Rating;
   showScore?: boolean;
+  /** Seasonal note for the month (e.g. "Peak hurricane season"), added to the tooltip. */
+  note?: string | null;
 }
 
-const { score, rating, showScore = true } = Astro.props;
+const { score, rating, showScore = true, note } = Astro.props;
+// Hover/focus tooltip explaining the score (see the shared tooltip script in Base.astro).
+const tip = [
+  `${RATING_LABEL[rating]} weather · ${score}/100`,
+  'Based on average temperature (55%) and rainfall (45%) from climate normals.',
+  ...(note ? [`Score lowered: ${note.charAt(0).toLowerCase()}${note.slice(1)}.`] : []),
+  '80+ great · 65+ good · 50+ fair · under 50 not ideal',
+].join('\n');
 ---
 
-<span class="badge" data-rating={rating} title={`Weather score ${score}/100`}>
+<span class="badge" data-rating={rating} data-tip={tip}>
   {RATING_LABEL[rating]}
   {showScore && <b>{score}</b>}
 </span>

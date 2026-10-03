@@ -40,7 +40,7 @@ const rows = (list: Spot[]) => list.map((s) => ({ ...s, d: bySlug.get(s.slug)! }
             <tr>
               <th scope="row"><a href={r.d.url}>{r.name}</a></th>
               <td class="left">{r.what}</td>
-              <td><a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} /></td>
+              <td><a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} note={r.d.months[r.m].note} /></td>
             </tr>
           ))
         }
@@ -58,7 +58,7 @@ const rows = (list: Spot[]) => list.map((s) => ({ ...s, d: bySlug.get(s.slug)! }
             <tr>
               <th scope="row"><a href={r.d.url}>{r.name}</a></th>
               <td class="left">{r.what}</td>
-              <td><a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} /></td>
+              <td><a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} note={r.d.months[r.m].note} /></td>
             </tr>
           ))
         }

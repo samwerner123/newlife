@@ -17,6 +17,7 @@ import WhereToStay from '../../../components/WhereToStay.astro';
 import { comparisonsFor } from '../../../lib/compare';
 import { destinations, monthRanges, MONTHS, MONTH_SLUGS, destMonthUrl, hubOf, hubsOf, deg, usd, type Destination } from '../../../lib/data';
 import { breadcrumbLd } from '../../../lib/seo';
+import { seasonSummary } from '../../../lib/seasonality';
 
 export function getStaticPaths() {
   return destinations.map((dest) => ({ params: { slug: dest.slug }, props: { dest } }));
@@ -65,6 +66,7 @@ const jsonLd = [
     containedInPlace: { '@type': 'Country', name: dest.country },
   },
 ];
+const seasons = seasonSummary(dest);
 ---
 
 <Base title={title} description={description} jsonLd={jsonLd} ogType="article" image={og} recent={dest.slug}>
@@ -89,6 +91,11 @@ const jsonLd = [
           </p>
           <p>{dest.best}</p>
           <p class="muted"><b>Watch out:</b> {dest.avoid}</p>
+          <p class="small">
+            {seasons.high && <><b>High season</b> (busiest, priciest): {seasons.high}. </>}
+            {seasons.low && <><b>Low season</b> (quietest, cheapest): {seasons.low}. </>}
+            <a href="/about/#seasons">How we estimate seasons</a>
+          </p>
           {
             dest.ski && (
               <p>

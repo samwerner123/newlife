@@ -80,7 +80,7 @@ const description = `${hub.Label} in ${mn}: ${opener} Weather for ${hub.members.
                 {ranked.map((d) => (
                   <tr>
                     <th scope="row"><a href={destMonthUrl(d, m)}>{d.name}</a></th>
-                    <td><RatingBadge score={d.months[m].score} rating={d.months[m].rating} /></td>
+                    <td><RatingBadge score={d.months[m].score} rating={d.months[m].rating} note={d.months[m].note} /></td>
                     <td>{deg(d.months[m].high)} / {deg(d.months[m].low)}</td>
                     <td>{d.months[m].rain} mm</td>
                   </tr>

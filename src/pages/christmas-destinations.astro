@@ -200,7 +200,7 @@ const jsonLd = [
               warmUS.map((d) => (
                 <tr>
                   <th scope="row"><a href={destMonthUrl(d, DEC)}>{d.name}</a></th>
-                  <td><RatingBadge score={d.months[DEC].score} rating={d.months[DEC].rating} /></td>
+                  <td><RatingBadge score={d.months[DEC].score} rating={d.months[DEC].rating} note={d.months[DEC].note} /></td>
                   <td>{deg(d.months[DEC].high)}</td>
                   <td>{usd(d.budget.low)}/day</td>
                 </tr>

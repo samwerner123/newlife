@@ -45,7 +45,7 @@ const note = Astro.props.note ?? (m ? (m.event ?? m.note) : null);
       </h3>
       <p class="where muted small">{dest.country} · {dest.region}</p>
     </div>
-    {badge ? <span class="badge" data-rating={badge.rating}>{badge.label}</span> : m && <RatingBadge score={m.score} rating={m.rating} />}
+    {badge ? <span class="badge" data-rating={badge.rating}>{badge.label}</span> : m && <RatingBadge score={m.score} rating={m.rating} note={m.note} />}
   </div>
 
   {

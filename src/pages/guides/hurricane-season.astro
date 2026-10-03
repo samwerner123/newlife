@@ -43,7 +43,7 @@ const peak = [7, 8, 9]; // Aug, Sep, Oct
             <tr>
               <th scope="row"><a href={d.url}>{d.name}</a></th>
               {peak.map((m) => (
-                <td><a href={destMonthUrl(d, m)}><RatingBadge score={d.months[m].score} rating={d.months[m].rating} /></a></td>
+                <td><a href={destMonthUrl(d, m)}><RatingBadge score={d.months[m].score} rating={d.months[m].rating} note={d.months[m].note} /></a></td>
               ))}
               <td class="left">{monthRanges(d.bestMonths)}</td>
             </tr>

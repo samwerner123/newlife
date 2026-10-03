@@ -109,8 +109,9 @@ add(done(exists('src/pages/compare/custom.astro')), 'Compare any two destination
 // ---------------------------------------------------------------------------
 add = section('F. Seasonal & evergreen guides', 'Long-form content that earns links and ranks for seasonal queries.');
 for (const g of guides) add(done(exists(`src/pages/guides/${g.slug}.astro`)), `Guide: ${g.title}`);
-for (const g of ['Best time to visit Europe: a month-by-month guide', 'Thailand islands: Andaman coast vs Gulf of Thailand by season', 'Costa Rica green season: is it worth it?', 'Cheapest months to fly to Europe from the US', 'Wildflower seasons: deserts, Alps and Namaqualand', 'Carnival season: Rio, Venice, Trinidad, New Orleans', 'Where to go for Easter', 'Best places for stargazing and dark skies', 'Rainy season in Mexico and Central America', 'Best road trips by season', 'Solo travel: safe, sunny places by month', 'Where to celebrate Halloween and Día de los Muertos']) {
-  add(PLAN, `Guide: ${g}`);
+// Next guide ideas (each becomes ✅ once it is in src/lib/guides.ts and has a page).
+for (const g of ['Best time to visit Southeast Asia, country by country', 'Best time to visit Japan: seasons, crowds and festivals', 'Mediterranean sea temperatures by month', 'Lunar New Year 2027: where to celebrate and what closes', 'Oktoberfest and Europe’s autumn beer and wine festivals', 'The cheapest Caribbean islands, season by season', 'Rainy seasons in Africa: East vs Southern Africa', 'High-altitude destinations: when to go and how to avoid altitude sickness', 'Best beaches in Europe by month', 'Best time to visit the US national parks, park by park']) {
+  add(guides.some((x) => x.title.toLowerCase() === g.toLowerCase()) ? DONE : PLAN, `Guide: ${g}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -131,7 +132,10 @@ add(done(exists('src/pages/embed/[slug].astro')), 'Embeddable climate widget for
 add(done(exists('src/pages/api/destinations.json.ts')), 'Compact JSON data endpoint for the client-side tools');
 add(OWNER, 'Flight price calendar per destination (needs a Travelpayouts Data API token as a build secret)');
 add(OWNER, '"Notify me when it\'s the best time" e-mail alerts (needs an e-mail provider account)');
-for (const t of ['Crowd & price seasonality indicators', 'Per-month photo galleries', 'Weather-score explainer tooltips on every badge', 'Packing-list generator from the month’s weather']) add(PLAN, t);
+add(done(text('src/lib/seasonality.ts').includes('export function crowdLevel')), 'Crowd & price seasonality indicators');
+add(PLAN, 'Per-month photo galleries');
+add(done(text('src/components/RatingBadge.astro').includes('data-tip')), 'Weather-score explainer tooltips on every badge');
+add(done(exists('src/pages/packing-list-generator.astro')), 'Packing-list generator from the month’s weather');
 
 // ---------------------------------------------------------------------------
 add = section('H. Mobile, performance & accessibility', 'Most travel searches happen on phones.');

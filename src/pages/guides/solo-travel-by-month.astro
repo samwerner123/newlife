@@ -28,7 +28,7 @@ const byMonth = MONTHS.map((_, m) => rankForMonth(m, pool).filter((d) => d.month
         <ul class="picks">
           {items.map((d) => (
             <li>
-              <a href={destMonthUrl(d, m)}>{d.name}</a> <RatingBadge score={d.months[m].score} rating={d.months[m].rating} />
+              <a href={destMonthUrl(d, m)}>{d.name}</a> <RatingBadge score={d.months[m].score} rating={d.months[m].rating} note={d.months[m].note} />
               <span class="muted small">{deg(d.months[m].high)} · {d.tagline}</span>
             </li>
           ))}

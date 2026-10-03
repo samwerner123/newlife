@@ -41,7 +41,7 @@ const rows = holidays.map((h) => ({ ...h, items: rankForMonth(h.m, destinations.
               {h.items.map((d) => (
                 <tr>
                   <th scope="row"><a href={destMonthUrl(d, h.m)}>{d.name}</a></th>
-                  <td><RatingBadge score={d.months[h.m].score} rating={d.months[h.m].rating} /></td>
+                  <td><RatingBadge score={d.months[h.m].score} rating={d.months[h.m].rating} note={d.months[h.m].note} /></td>
                   <td>{deg(d.months[h.m].high)}</td>
                   <td>{usd(d.budget.low)}/day</td>
                 </tr>

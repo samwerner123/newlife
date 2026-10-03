@@ -1,6 +1,7 @@
 ---
 import RatingBadge from './RatingBadge.astro';
 import { destMonthUrl, deg, type Destination } from '../lib/data';
+import { crowdLevel, SEASON_SHORT } from '../lib/seasonality';
 
 interface Props {
   dest: Destination;
@@ -25,6 +26,7 @@ const hm = (h: number) => (h >= 24 ? '24 h' : h <= 0 ? '0 h' : `${h.toFixed(1)} 
       <tr>
         <th scope="col">Month</th>
         <th scope="col">Rating</th>
+        <th scope="col">Season</th>
         <th scope="col">High</th>
         <th scope="col">Low</th>
         <th scope="col">Rain</th>
@@ -39,7 +41,8 @@ const hm = (h: number) => (h >= 24 ? '24 h' : h <= 0 ? '0 h' : `${h.toFixed(1)} 
         dest.months.map((m) => (
           <tr class:list={{ 'is-active': m.index === active }}>
             <th scope="row"><a href={destMonthUrl(dest, m.index)}>{m.name}</a></th>
-            <td><RatingBadge score={m.score} rating={m.rating} /></td>
+            <td><RatingBadge score={m.score} rating={m.rating} note={m.note} /></td>
+            <td class="season" data-season={crowdLevel(dest, m.index)}>{SEASON_SHORT[crowdLevel(dest, m.index)]}</td>
             <td>{deg(m.high)}</td>
             <td>{deg(m.low)}</td>
             <td>{m.rain} mm</td>
@@ -54,6 +57,7 @@ const hm = (h: number) => (h >= 24 ? '24 h' : h <= 0 ? '0 h' : `${h.toFixed(1)} 
   </table>
 </div>
 <p class="disclosure source">
+  Season is our estimate of crowds and prices, from the weather, holidays and events (<a href="/about/#seasons">how we estimate it</a>).
   Source: {dest.climateSource.location} — via the{' '}
   <a href={`https://en.wikipedia.org/wiki/${encodeURIComponent(sourcePage.replace(/ /g, '_'))}`} rel="noopener">{sourcePage}</a>{' '}
   article on Wikipedia (CC BY-SA){dest.climateSource.rain === 'nasa-power' ? '; rainfall from NASA POWER' : ''}.

@@ -1,0 +1,460 @@
+---
+// Packing-list generator: builds a checklist from the destination's weather in the chosen month (in the browser).
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { MONTHS, REGIONS, destinations } from '../lib/data';
+import { breadcrumbLd } from '../lib/seo';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Packing list generator', href: '/packing-list-generator/' },
+];
+const byRegion = REGIONS.map((r) => ({ r, list: destinations.filter((d) => d.region === r).sort((a, b) => a.name.localeCompare(b.name)) }));
+const ACTIVITIES: [string, string][] = [
+  ['beach', 'Beach & swimming'],
+  ['city', 'City sightseeing'],
+  ['hiking', 'Hiking'],
+  ['diving', 'Snorkelling & diving'],
+  ['safari', 'Safari & wildlife'],
+  ['skiing', 'Skiing'],
+  ['formal', 'Smart dinners & events'],
+];
+const now = new Date().getMonth();
+---
+
+<Base
+  title="Packing List Generator: What to Pack for Your Trip"
+  description={`Pick a destination and month and get a packing checklist built from real climate data — temperatures, rain, sea temperature and plug type — for ${destinations.length} destinations.`}
+  jsonLd={[breadcrumbLd(crumbs, Astro.site)]}
+>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <h1>Packing list generator</h1>
+      <p class="lead">Choose where and when you're going. We'll build a checklist from that month's average weather — and remember what you've ticked off.</p>
+    </header>
+
+    <form class="card packer" data-packer>
+      <div class="row">
+        <label class="field">
+          <span>Destination</span>
+          <select name="d" required>
+            {byRegion.map(({ r, list }) => (
+              <optgroup label={r}>
+                {list.map((d) => <option value={d.slug}>{d.name}</option>)}
+              </optgroup>
+            ))}
+          </select>
+        </label>
+        <label class="field">
+          <span>Month</span>
+          <select name="m">
+            {MONTHS.map((m, i) => <option value={i} selected={i === now}>{m}</option>)}
+          </select>
+        </label>
+      </div>
+      <fieldset>
+        <legend>Trip length</legend>
+        <div class="opts">
+          {[['3', 'Weekend'], ['5', '4–5 nights'], ['7', '1 week'], ['10', '10 nights'], ['14', '2 weeks+']].map(([v, l]) => (
+            <label class="opt"><input type="radio" name="n" value={v} checked={v === '7'} /><span>{l}</span></label>
+          ))}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>What will you do? <span class="muted small">(pick any)</span></legend>
+        <div class="opts">
+          {ACTIVITIES.map(([v, l]) => <label class="opt"><input type="checkbox" name="a" value={v} /><span>{l}</span></label>)}
+        </div>
+      </fieldset>
+      <label class="check"><input type="checkbox" name="l" value="1" /> I can do laundry during the trip</label>
+    </form>
+
+    <section class="section-tight" aria-live="polite">
+      <h2 data-title>Your packing list</h2>
+      <p class="card weather" data-weather></p>
+      <div class="actions">
+        <button type="button" class="btn" data-print>Print list</button>
+        <button type="button" class="btn btn-ghost" data-copy>Copy link</button>
+        <button type="button" class="btn btn-ghost" data-reset>Untick all</button>
+        <span class="small muted" data-progress></span>
+      </div>
+      <div class="lists" data-lists></div>
+      <noscript><p class="card">The generator needs JavaScript. See our <a href="/guides/packing-list/">packing list by climate</a> instead.</p></noscript>
+    </section>
+
+    <section class="section-tight prose">
+      <h2>How the list is built</h2>
+      <p>
+        We use the average daily high and low, rainfall, rainy days, sea temperature and daylight for your destination in that
+        month, from official climate normals (<a href="/about/">our sources</a>). Clothes scale with the length of your trip
+        (and drop if you can do laundry); rain gear, sun protection, warm layers and insect repellent are added when the weather
+        calls for them; and the plug adapter matches the country's sockets. Averages hide day-to-day swings, so check the
+        forecast a few days before you leave. For more advice, see our <a href="/guides/packing-list/">packing list by climate</a>.
+      </p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  type Month = [number, number, number, number | null, number | null, number];
+  type D = { id: string; name: string; country: string; climate: string; currency: string; tags: string[]; plugs: string; ski: number[]; months: Month[] };
+  type Item = { id: string; text: string };
+  const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const form = document.querySelector<HTMLFormElement>('[data-packer]')!;
+  const lists = document.querySelector<HTMLElement>('[data-lists]')!;
+  const title = document.querySelector<HTMLElement>('[data-title]')!;
+  const weather = document.querySelector<HTMLElement>('[data-weather]')!;
+  const progress = document.querySelector<HTMLElement>('[data-progress]')!;
+  let data: D[] = [];
+
+  // Restore choices from the URL (shared links, and links from destination pages).
+  const params = new URLSearchParams(location.search);
+  for (const [k, v] of params) {
+    const el = form.elements.namedItem(k);
+    if (el instanceof HTMLSelectElement) el.value = v;
+    else for (const val of v.split(',')) {
+      const input = form.querySelector<HTMLInputElement>(`input[name="${k}"][value="${CSS.escape(val)}"]`);
+      if (input) input.checked = true;
+    }
+  }
+
+  const store = {
+    get(key: string): string[] {
+      try {
+        return JSON.parse(localStorage.getItem(key) ?? '[]');
+      } catch {
+        return [];
+      }
+    },
+    set(key: string, v: string[]) {
+      try {
+        localStorage.setItem(key, JSON.stringify(v));
+      } catch {}
+    },
+  };
+
+  function state() {
+    const fd = new FormData(form);
+    return { d: String(fd.get('d')), m: Number(fd.get('m')), n: Number(fd.get('n')), a: fd.getAll('a').map(String), l: fd.get('l') === '1' };
+  }
+
+  const deg = (c: number) => `${c}°C`;
+
+  // The checklist, group by group. Each item has a stable id so ticks survive re-renders.
+  function build(d: D, m: number, nights: number, acts: string[], laundry: boolean): [string, Item[]][] {
+    const [hi, lo, rain, rainDays, sea, daylight] = d.months[m];
+    const days = nights + 1;
+    const k = laundry ? Math.min(days, 5) : Math.min(days, 10);
+    const half = Math.max(1, Math.ceil(k / 2));
+    const has = (a: string) => acts.includes(a);
+    const skiing = has('skiing');
+    const wet = rain >= 150 || (rainDays ?? 0) >= 12;
+    const showery = !wet && (rain >= 60 || (rainDays ?? 0) >= 7);
+    const swim = has('beach') || has('diving') || (sea !== null && sea >= 22 && d.tags.includes('beach'));
+    const bugs = d.climate === 'tropical' || has('safari') || (hi >= 25 && rain >= 100);
+    const it = (id: string, text: string): Item => ({ id, text });
+    const groups: [string, Item[]][] = [];
+
+    groups.push(['Documents & money', [
+      it('passport', 'Passport (valid for at least six months) and any visa or entry authorisation'),
+      it('insurance', 'Travel insurance policy and emergency number'),
+      it('cards', `Bank cards plus a little cash in ${d.currency}`),
+      it('bookings', 'Flight, hotel and tour bookings saved offline'),
+      ...(has('diving') ? [it('cert', 'Dive certification card and logbook')] : []),
+    ]]);
+
+    const clothes: Item[] = [it('underwear', `${k} sets of underwear and socks`), it('sleep', 'Sleepwear')];
+    if (hi >= 27) {
+      clothes.push(it('tops', `${k} T-shirts or light, breathable tops`), it('shorts', `${half} pairs of shorts or skirts`), it('evening', '1–2 pairs of light trousers or a dress for evenings'), it('hat', 'Sun hat'), it('sandals', 'Sandals'));
+    } else if (hi >= 20) {
+      clothes.push(it('tops', `${k} T-shirts or tops`), it('trousers', `${Math.min(3, half)} pairs of trousers, shorts or skirts`), it('layer', 'A light sweater or cardigan for the evenings'));
+    } else if (hi >= 13) {
+      clothes.push(it('tops', `${k} tops, some long-sleeved`), it('trousers', '2 pairs of trousers or jeans'), it('sweater', '1–2 sweaters or a fleece'), it('jacket', 'A light jacket'));
+    } else if (hi >= 5) {
+      clothes.push(it('tops', `${k} long-sleeved tops`), it('thermal', 'A thermal base layer'), it('sweater', '2 warm sweaters or fleeces'), it('coat', 'A warm, waterproof jacket'), it('scarf', 'Scarf and a warm hat'));
+    } else {
+      clothes.push(it('thermal', '2 sets of thermal base layers'), it('tops', `${k} long-sleeved tops`), it('sweater', '2 warm sweaters or fleeces'), it('coat', 'An insulated winter coat'), it('hatgloves', 'Warm hat, gloves and scarf'), it('boots', 'Warm, waterproof boots'), it('wool', 'Wool socks'));
+    }
+    if (lo <= 8 && hi >= 18) clothes.push(it('nights', `A warm layer for nights that drop to around ${deg(lo)}`));
+    clothes.push(it('shoes', 'Comfortable walking shoes'));
+    groups.push(['Clothes', clothes]);
+
+    const gear: Item[] = [];
+    if (wet) gear.push(it('rainjacket', 'A waterproof rain jacket'), it('umbrella', 'A compact umbrella'), it('quickdry', 'Quick-dry clothes rather than cotton'), it('drybag', 'Zip-lock or dry bags for your phone and documents'));
+    else if (showery) gear.push(it('rainjacket', 'A packable rain jacket or compact umbrella'));
+    if (hi >= 22 || skiing || d.climate === 'highland') gear.push(it('sunscreen', 'High-SPF sunscreen'), it('sunglasses', 'Sunglasses'), it('lipbalm', 'Lip balm with SPF'));
+    if (daylight >= 16) gear.push(it('eyemask', `An eye mask — about ${Math.round(daylight)} hours of daylight`));
+    if (daylight <= 9) gear.push(it('headlamp', `A small torch or headlamp — only about ${Math.round(daylight)} hours of daylight`));
+    if (gear.length) groups.push(['Weather gear', gear]);
+
+    const act: Item[] = [];
+    if (swim) act.push(it('swimwear', '2 swimsuits'), it('towel', 'Beach towel or sarong'), it('flipflops', 'Flip-flops'), it('pouch', 'Waterproof phone pouch'));
+    if (swim && hi >= 25) act.push(it('reefsafe', 'Reef-safe sunscreen and a rash guard'));
+    if (has('diving')) act.push(it('mask', 'Your own mask and snorkel (optional, but they fit better)'));
+    if (has('city')) act.push(it('daybag', 'A day bag that zips shut'), it('smartcasual', 'One smart-casual outfit for restaurants'));
+    if (has('hiking')) {
+      act.push(it('hikeshoes', 'Hiking boots or trail shoes'), it('daypack', 'Daypack with a rain cover'), it('hikesocks', 'Hiking socks'), it('blister', 'Blister plasters'), it('headlamp', 'Headlamp'));
+      if (lo <= 8) act.push(it('fleece', 'Fleece, hat and gloves for cold mornings and summits'));
+    }
+    if (has('safari')) act.push(it('neutral', 'Neutral-coloured clothes (khaki, olive, beige)'), it('binoculars', 'Binoculars'), it('widehat', 'Wide-brimmed hat'), it('drivefleece', 'A warm fleece for early-morning game drives'));
+    if (skiing) {
+      act.push(it('skiwear', 'Ski jacket and trousers'), it('skisocks', 'Ski socks and thermal layers'), it('goggles', 'Goggles and ski gloves'), it('neck', 'Neck warmer'), it('helmet', 'Helmet (or rent one)'));
+      if (!d.ski.includes(m + 1)) act.push(it('skicheck', `Check the snow: ${MONTHS[m]} is outside ${d.name}'s usual ski season`));
+    }
+    if (has('formal')) act.push(it('formalwear', 'Smart outfit and dress shoes'));
+    if (act.length) groups.push(['For your activities', act]);
+
+    groups.push(['Health & toiletries', [
+      it('meds', 'Prescription medicines (in hand luggage) and a copy of the prescription'),
+      it('firstaid', 'Small first-aid kit with painkillers, plasters and rehydration salts'),
+      it('toiletries', 'Toothbrush, toothpaste and travel-size toiletries'),
+      it('sanitiser', 'Hand sanitiser and tissues'),
+      ...(bugs ? [it('repellent', 'Insect repellent (DEET or picaridin)')] : []),
+      ...(hi < 10 ? [it('moisturiser', 'Moisturiser for cold, dry air')] : []),
+    ]]);
+
+    groups.push(['Tech', [
+      it('phone', 'Phone and charger'),
+      it('adapter', d.plugs ? `Plug adapter for sockets type ${d.plugs}` : 'Universal plug adapter'),
+      it('powerbank', 'Power bank'),
+      it('esim', 'eSIM or local SIM for data'),
+      it('headphones', 'Headphones'),
+    ]]);
+
+    groups.push(['Travel comfort', [it('bottle', 'Refillable water bottle'), it('earplugs', 'Earplugs and an eye mask for the flight'), it('snacks', 'Snacks for the journey')]]);
+    // Some items are triggered twice (a headlamp for short days and for hiking): keep the first.
+    const seen = new Set<string>();
+    return groups
+      .map(([name, items]): [string, Item[]] => [name, items.filter((i) => !seen.has(i.id) && seen.add(i.id))])
+      .filter(([, items]) => items.length);
+  }
+
+  function render() {
+    const s = state();
+    const d = data.find((x) => x.id === s.d);
+    if (!d) return;
+    const q = new URLSearchParams({ d: s.d, m: String(s.m), n: String(s.n), a: s.a.join(','), ...(s.l ? { l: '1' } : {}) });
+    history.replaceState(null, '', `?${q}`);
+    const [hi, lo, rain, rainDays, sea, daylight] = d.months[s.m];
+    title.textContent = `Packing list for ${d.name} in ${MONTHS[s.m]}`;
+    weather.textContent = `${d.name} in ${MONTHS[s.m]}: average high ${deg(hi)}, low ${deg(lo)}, ${rain} mm of rain${rainDays !== null ? ` over about ${rainDays} days` : ''}${sea !== null ? `, sea ${deg(sea)}` : ''}, ${Math.round(daylight)} hours of daylight.`;
+    const key = `pack:${s.d}:${s.m}`;
+    const ticked = new Set(store.get(key));
+    const groups = build(d, s.m, s.n, s.a, s.l);
+    const total = groups.reduce((n, [, items]) => n + items.length, 0);
+    const update = () => {
+      const done = groups.reduce((n, [, items]) => n + items.filter((i) => ticked.has(i.id)).length, 0);
+      progress.textContent = `${done} of ${total} packed`;
+    };
+    lists.replaceChildren(
+      ...groups.map(([name, items]) => {
+        const box = document.createElement('section');
+        box.className = 'card pack-group';
+        const h = document.createElement('h3');
+        h.textContent = name;
+        const ul = document.createElement('ul');
+        for (const item of items) {
+          const li = document.createElement('li');
+          const label = document.createElement('label');
+          const cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.checked = ticked.has(item.id);
+          cb.addEventListener('change', () => {
+            if (cb.checked) ticked.add(item.id);
+            else ticked.delete(item.id);
+            store.set(key, [...ticked]);
+            update();
+          });
+          label.append(cb, ` ${item.text}`);
+          li.append(label);
+          ul.append(li);
+        }
+        box.append(h, ul);
+        return box;
+      }),
+    );
+    update();
+    (window as unknown as { __convertUnits?: (el: Element) => void }).__convertUnits?.(weather);
+    (window as unknown as { __convertUnits?: (el: Element) => void }).__convertUnits?.(lists);
+  }
+
+  form.addEventListener('change', render);
+  document.querySelector('[data-print]')!.addEventListener('click', () => window.print());
+  document.querySelector('[data-copy]')!.addEventListener('click', async (e) => {
+    const btn = e.currentTarget as HTMLButtonElement;
+    try {
+      await navigator.clipboard.writeText(location.href);
+      btn.textContent = 'Link copied';
+    } catch {
+      btn.textContent = 'Copy failed';
+    }
+    setTimeout(() => (btn.textContent = 'Copy link'), 2000);
+  });
+  document.querySelector('[data-reset]')!.addEventListener('click', () => {
+    const s = state();
+    store.set(`pack:${s.d}:${s.m}`, []);
+    render();
+  });
+  fetch('/api/packing.json')
+    .then((r) => r.json())
+    .then((j: D[]) => {
+      data = j;
+      render();
+    });
+</script>
+
+<style>
+  .packer {
+    display: grid;
+    gap: 14px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 12px;
+  }
+  .field {
+    display: grid;
+    gap: 6px;
+    font-weight: 700;
+  }
+  .field select {
+    min-height: 44px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-weight: 400;
+  }
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  legend {
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .opts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .opt input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .opt span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .opt input:checked + span {
+    background: var(--text);
+    color: var(--surface);
+    border-color: var(--text);
+  }
+  .opt input:focus-visible + span {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+  }
+  .check input {
+    width: 20px;
+    height: 20px;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .actions .btn {
+    width: auto;
+    flex: 0 0 auto;
+    padding: 8px 14px;
+  }
+  .weather:empty {
+    display: none;
+  }
+  @media (pointer: coarse) {
+    .opt span {
+      min-height: 44px;
+    }
+  }
+  @media print {
+    .packer,
+    .actions,
+    .prose,
+    header .lead {
+      display: none;
+    }
+  }
+</style>
+
+<style is:global>
+  /* The checklist is created in the browser, so these styles are global. */
+  .lists {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 12px;
+  }
+  .pack-group h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+  }
+  .pack-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+  }
+  .pack-group label {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    min-height: 32px;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+  .pack-group input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    flex: none;
+  }
+  .pack-group label:has(input:checked) {
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  @media print {
+    .lists {
+      display: block;
+    }
+    .pack-group {
+      break-inside: avoid;
+      border: 0;
+      padding: 0;
+      margin-bottom: 12px;
+    }
+  }
+</style>

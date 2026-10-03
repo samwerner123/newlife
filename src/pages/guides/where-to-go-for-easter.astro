@@ -40,7 +40,7 @@ const april = rankForMonth(3).slice(0, 8);
               <th scope="row"><a href={r.d.url}>{r.name}</a></th>
               <td class="left">{r.what}</td>
               <td>
-                <a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} />
+                <a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} note={r.d.months[r.m].note} />
               </td>
             </tr>
           ))
@@ -58,7 +58,7 @@ const april = rankForMonth(3).slice(0, 8);
   <ul class="picks">
     {warm.map((d) => (
       <li>
-        <a href={destMonthUrl(d, 2)}>{d.name}</a> <RatingBadge score={d.months[2].score} rating={d.months[2].rating} />
+        <a href={destMonthUrl(d, 2)}>{d.name}</a> <RatingBadge score={d.months[2].score} rating={d.months[2].rating} note={d.months[2].note} />
         <span class="muted small">{deg(d.months[2].high)} · {d.country}</span>
       </li>
     ))}

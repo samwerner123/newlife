@@ -30,6 +30,7 @@ import {
   type Destination,
 } from '../../../lib/data';
 import { collectionByKey, hasPage } from '../../../lib/collections';
+import { crowdLevel, SEASON_LABEL, SEASON_SHORT, SEASON_NOTE } from '../../../lib/seasonality';
 import { RATING_LABEL } from '../../../lib/score';
 import { breadcrumbLd } from '../../../lib/seo';
 
@@ -43,6 +44,7 @@ const { dest, m } = Astro.props as { dest: Destination; m: number };
 const mo = dest.months[m];
 const ski = skiStatus(dest, m);
 const foliage = foliageStatus(dest, m);
+const season = crowdLevel(dest, m);
 const foliagePage = collectionByKey.get('foliage')!;
 const prev = dest.months[(m + 11) % 12];
 const next = dest.months[(m + 1) % 12];
@@ -113,7 +115,7 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
         <ul class="tiles" aria-label={`${dest.name} in ${mo.name} at a glance`}>
           <li class="card tile">
             <span class="label">Rating</span>
-            <span class="value"><RatingBadge score={mo.score} rating={mo.rating} /></span>
+            <span class="value"><RatingBadge score={mo.score} rating={mo.rating} note={mo.note} /></span>
             <span class="small muted">#{rank} of {destinations.length} for {mo.name}</span>
           </li>
           <li class="card tile">
@@ -143,6 +145,11 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
             )
           }
           <li class="card tile">
+            <span class="label">Season</span>
+            <span class="value season" data-season={season}>{SEASON_SHORT[season]}</span>
+            <span class="small muted">{season === 'high' ? 'Busiest & priciest' : season === 'low' ? 'Quietest & cheapest' : 'Fewer crowds'}</span>
+          </li>
+          <li class="card tile">
             <span class="label"><Icon name="calendar" size={16} /> Daylight</span>
             <span class="value">{mo.daylight >= 24 ? '24' : mo.daylight.toFixed(1)}<small> h/day</small></span>
             {mo.daylight >= 24 && <span class="small muted">Midnight sun</span>}
@@ -162,6 +169,7 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
           <h2>What's the weather like in {mo.name}?</h2>
           <p>{trend}</p>
           {mo.note && <p><b>Heads-up:</b> {mo.note}.</p>}
+          <p><b>Crowds and prices:</b> {mo.name} is {SEASON_LABEL[season].toLowerCase()} in {dest.name} — {SEASON_NOTE[season]}. <a href="/about/#seasons">How we estimate seasons</a>.</p>
           {mo.event && <p><b>Don't miss:</b> {mo.event}</p>}
           {
             ski && (
@@ -189,6 +197,7 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
 
           <h2>What to pack for {dest.name} in {mo.name}</h2>
           <ul>{packingTips(dest, mo).map((t) => <li>{t}</li>)}</ul>
+          <p><a href={`/packing-list-generator/?d=${dest.slug}&m=${m}`}>Make a full packing checklist for {dest.name} in {mo.name}</a> — built from this month's weather.</p>
 
           <h2>Budget</h2>
           <p>

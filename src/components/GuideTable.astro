@@ -48,7 +48,7 @@ const items = rows.map((r) => {
                 <td>
                   <a href={destMonthUrl(d, m)}>
                     {show === 'rating' ? (
-                      <RatingBadge score={mo.score} rating={mo.rating} />
+                      <RatingBadge score={mo.score} rating={mo.rating} note={mo.note} />
                     ) : show === 'temp' ? (
                       `${deg(mo.high)} / ${deg(mo.low)}`
                     ) : show === 'high' ? (

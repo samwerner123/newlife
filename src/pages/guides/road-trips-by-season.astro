@@ -70,7 +70,7 @@ const seasons = SEASONS.map((s) => ({ ...s, trips: s.trips.map((t) => ({ ...t, d
               </p>
               <p class="small">
                 <a href={destMonthUrl(t.d, t.m)}>{t.d.name} in {MONTHS[t.m]}</a>: {deg(t.d.months[t.m].high)} by day{' '}
-                <RatingBadge score={t.d.months[t.m].score} rating={t.d.months[t.m].rating} />
+                <RatingBadge score={t.d.months[t.m].score} rating={t.d.months[t.m].rating} note={t.d.months[t.m].note} />
               </p>
             </li>
           ))}

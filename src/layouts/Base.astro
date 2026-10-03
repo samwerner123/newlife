@@ -74,10 +74,12 @@ const ogImage = new URL(image ?? '/og-default.png', Astro.site).toString();
       const root = document.documentElement;
       const toF = (c: number) => Math.round((c * 9) / 5 + 32);
       const toIn = (mm: number) => (mm / 25.4).toFixed(mm >= 254 ? 0 : 1);
-      // Handles single values (21°C), ranges (24–30°C, -5 to -20°C) and the typographic minus (−5°C).
+      // Handles single values (21°C), ranges (24–30°C, -5 to -20°C), the typographic minus (−5°C) and
+      // differences ("3°C warmer"), which scale by 9/5 without the +32 offset.
       const num = (x: string) => +x.replace('−', '-');
       const conv = (s: string) =>
         s
+          .replace(/(\d+(?:\.\d+)?)°C (warmer|cooler|colder|hotter)/g, (_, c, w) => `${Math.round((num(c) * 9) / 5)}°F ${w}`)
           .replace(/([−-]?\d+(?:\.\d+)?)(\s?[–-]\s?|\sto\s)([−-]?\d+(?:\.\d+)?)°C/g, (_, a, sep, b) => `${toF(num(a))}${sep}${toF(num(b))}°F`)
           .replace(/([−-]?\d+(?:\.\d+)?)°C/g, (_, c) => `${toF(num(c))}°F`)
           .replace(/(\d+(?:\.\d+)?)(\s?)mm\b/g, (_, mm, sp) => `${toIn(+mm)}${sp}in`)

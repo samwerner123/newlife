@@ -163,7 +163,7 @@ const jsonLd = [
                 {avoid.map((d) => (
                   <li>
                     <a href={destMonthUrl(d, m)}>{d.name}</a>
-                    <RatingBadge score={d.months[m].score} rating={d.months[m].rating} />
+                    <RatingBadge score={d.months[m].score} rating={d.months[m].rating} note={d.months[m].note} />
                   </li>
                 ))}
               </ul>

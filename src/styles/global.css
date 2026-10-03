@@ -624,3 +624,12 @@ p {
     padding: 12px 0;
   }
 }
+
+/* ---------- Travel season (estimated crowds & prices) ---------- */
+
+.season[data-season='high'] {
+  font-weight: 700;
+}
+.season[data-season='low'] {
+  color: var(--text-2);
+}

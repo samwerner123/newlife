@@ -7887,6 +7887,10 @@
       "4": [
         -10,
         "Mud season: trails closed, slushy roads"
+      ],
+      "5": [
+        -5,
+        "End of mud season: some trails still closed"
       ]
     },
     "events": {

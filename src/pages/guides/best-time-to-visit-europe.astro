@@ -52,7 +52,7 @@ const NOTES = [
         <ul class="picks">
           {items.map((d) => (
             <li>
-              <a href={destMonthUrl(d, m)}>{d.name}</a> <RatingBadge score={d.months[m].score} rating={d.months[m].rating} />
+              <a href={destMonthUrl(d, m)}>{d.name}</a> <RatingBadge score={d.months[m].score} rating={d.months[m].rating} note={d.months[m].note} />
               <span class="muted small">{deg(d.months[m].high)} · {d.months[m].rain} mm</span>
             </li>
           ))}

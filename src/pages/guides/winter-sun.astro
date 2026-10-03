@@ -38,7 +38,7 @@ const groups = [
           ranked.map(({ d, high }) => (
             <tr>
               <th scope="row"><a href={d.url}>{d.name}</a></th>
-              {W.map((m) => <td><a href={destMonthUrl(d, m)}><RatingBadge score={d.months[m].score} rating={d.months[m].rating} /></a></td>)}
+              {W.map((m) => <td><a href={destMonthUrl(d, m)}><RatingBadge score={d.months[m].score} rating={d.months[m].rating} note={d.months[m].note} /></a></td>)}
               <td>{deg(high)}</td>
               <td>{usd(d.budget.low)}/day</td>
             </tr>
