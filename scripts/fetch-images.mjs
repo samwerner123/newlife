@@ -36,7 +36,7 @@ const LICENSES = [
 
 function findLicense(wikitext) {
   // GFDL files relicensed in the 2009 licence migration are also available under CC BY-SA 3.0.
-  if (/migration\s*=\s*relicense/i.test(wikitext) || /\{\{\s*cc-by-sa-all/i.test(wikitext)) {
+  if (/migration\s*=\s*relicense/i.test(wikitext) || /[{|]\s*cc-by-sa-all\s*[|}]/i.test(wikitext)) {
     return ['CC BY-SA 3.0', 'https://creativecommons.org/licenses/by-sa/3.0/'];
   }
   // Candidate template names, including the arguments of {{self|...}} and {{Licen[cs]eReview...}}.
@@ -94,6 +94,17 @@ async function commonsArtist(name) {
   return textValue || null;
 }
 
+// Fallback for licences set by wrapper templates ({{Korea.net}}, {{Flickr-Brooklyn-Museum}}…):
+// Commons' own parsed licence name, accepted only when it is one of the free licences above.
+async function commonsLicense(name) {
+  const j = await get(`https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata&format=json&titles=${encodeURIComponent(`File:${name}`)}`, 'json');
+  const short = Object.values(j?.query?.pages ?? {})[0]?.imageinfo?.[0]?.extmetadata?.LicenseShortName?.value;
+  const m = short?.trim().match(/^CC (BY(?:-SA)?) (\d\.\d)$/i);
+  if (m) return findLicense(`{{cc-${m[1].toLowerCase()}-${m[2]}}}`);
+  if (/^(CC0|Public domain)$/i.test(short?.trim() ?? '')) return findLicense(/^CC0$/i.test(short.trim()) ? '{{cc0}}' : '{{pd}}');
+  return null;
+}
+
 function thumbUrl(file, width) {
   // Commons path: /thumb/<md5[0]>/<md5[0..1]>/<File>/<width>px-<File>; we get the hash dirs from the original URL.
   return `${file.dirs}/${encodeURIComponent(file.name)}/${width}px-${encodeURIComponent(file.name)}`;
@@ -148,7 +159,7 @@ for (const d of destinations) {
       if (/\.(svg|png|gif|tiff?)$/i.test(f.name)) { reasons.push(`not a photo (${f.name})`); continue; }
       const r = await get(`https://commons.wikimedia.org/w/index.php?title=${encodeURIComponent(`File:${f.name}`)}&action=raw`);
       if (!r) { reasons.push(`no file page for ${f.name}`); continue; }
-      const l = findLicense(r);
+      const l = findLicense(r) ?? (await commonsLicense(f.name));
       if (!l) { reasons.push(`no accepted licence for ${f.name}`); continue; }
       file = f;
       raw = r;

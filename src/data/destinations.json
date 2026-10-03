@@ -3140,7 +3140,7 @@
     "lon": -77.92,
     "iata": "MBJ",
     "wiki": "Montego Bay",
-    "imagePage": "Negril",
+    "imageFile": "Jamaica_Ocho_Rios_Dunn's_River_Falls_(beach).jpg",
     "climate": "tropical",
     "currency": "JMD",
     "tz": "UTC−5",
@@ -8603,6 +8603,7 @@
     "lon": -75.6,
     "iata": "ORF",
     "wiki": "Outer Banks",
+    "imageFile": "Wild_Horses_Outer_Banks_North_Carolina_01.jpg",
     "climateWiki": [
       "Cape Hatteras",
       "Manteo, North Carolina"
@@ -8968,6 +8969,7 @@
     "lon": -86.95,
     "iata": "CZM",
     "wiki": "Cozumel",
+    "imageFile": "Palancar_Beach_aerial_Cozumel_Mexico_(21398553341).jpg",
     "climateWiki": [
       "Cozumel",
       "Cancún"
@@ -9244,6 +9246,7 @@
     "lon": -59.62,
     "iata": "BGI",
     "wiki": "Barbados",
+    "imageFile": "Bathsheba,_Barbados_08.jpg",
     "climateWiki": [
       "Bridgetown",
       "Barbados"
@@ -9303,11 +9306,6 @@
         "Bathsheba",
         "Rugged east coast for surfers"
       ]
-    ],
-    "imagePage": [
-      "Bridgetown",
-      "Bathsheba, Barbados",
-      "Carlisle Bay, Barbados"
     ]
   },
   {
@@ -10216,6 +10214,7 @@
     "lon": -72.98,
     "iata": "PNT",
     "wiki": "Torres del Paine National Park",
+    "imageFile": "Patagonia-62_(26027075260).jpg",
     "climateWiki": [
       "Puerto Natales",
       "Punta Arenas"
@@ -10289,13 +10288,9 @@
     "lon": -56.16,
     "iata": "MVD",
     "wiki": "Uruguay",
+    "imageFile": "Colonia-Calle_San_Pedro-TM.jpg",
     "climateWiki": [
       "Montevideo"
-    ],
-    "imagePage": [
-      "Colonia del Sacramento",
-      "Montevideo",
-      "Punta del Este"
     ],
     "climate": "temperate",
     "currency": "UYU",
@@ -10350,6 +10345,7 @@
     "lon": -66.83,
     "iata": "UYU",
     "wiki": "Salar de Uyuni",
+    "imageFile": "Salar_de_Uyuni-5_(53641294827).jpg",
     "climateWiki": [
       "Uyuni",
       "Potosí"
@@ -10393,12 +10389,6 @@
         "Colchani",
         "Village by the salt flat's entrance"
       ]
-    ],
-    "imagePage": [
-      "Incahuasi Island",
-      "Uyuni",
-      "Laguna Colorada",
-      "Salar de Uyuni"
     ]
   },
   {
@@ -10849,13 +10839,9 @@
     "lon": 17.08,
     "iata": "WDH",
     "wiki": "Namibia",
+    "imageFile": "054c_Dead_camel_thorn_trees_in_Deadvlei_Photo_by_Giles_Laurent.jpg",
     "climateWiki": [
       "Windhoek"
-    ],
-    "imagePage": [
-      "Deadvlei",
-      "Sossusvlei",
-      "Namib"
     ],
     "climate": "highland",
     "currency": "NAD",
@@ -11747,6 +11733,7 @@
     "lon": 11.39,
     "iata": "INN",
     "wiki": "Innsbruck",
+    "imageFile": "Innsbruck_Flusspromenade.jpg",
     "climate": "temperate",
     "currency": "EUR",
     "tz": "UTC+1 (+2 in summer)",
@@ -11940,11 +11927,11 @@
     "lon": 25.73,
     "iata": "RVN",
     "wiki": "Lapland (Finland)",
+    "imageFile": "Floresta_na_Lapônia_Finlandesa.jpg",
     "climateWiki": [
       "Rovaniemi",
       "Sodankylä"
     ],
-    "imagePage": "Rovaniemi",
     "climate": "temperate",
     "currency": "EUR",
     "tz": "UTC+2 (+3 in summer)",
@@ -13189,10 +13176,10 @@
     "lon": 77.58,
     "iata": "IXL",
     "wiki": "Ladakh",
+    "imageFile": "Pangong_Tso_in_eastern_Ladakh(Changthang).jpg",
     "climateWiki": [
       "Leh"
     ],
-    "imagePage": "Pangong Tso",
     "climate": "highland",
     "currency": "INR",
     "tz": "UTC+5:30",
@@ -13270,15 +13257,11 @@
     "lon": 121.92,
     "iata": "MPH",
     "wiki": "Boracay",
+    "imageFile": "Boracay_paraw_sailboats_015.jpg",
     "climateWiki": [
       "Boracay",
       "Kalibo",
       "Roxas, Capiz"
-    ],
-    "imagePage": [
-      "Boracay",
-      "White Beach (Boracay)",
-      "Puka Shell Beach"
     ],
     "climate": "tropical",
     "currency": "PHP",
@@ -13352,11 +13335,11 @@
     "lon": 123.89,
     "iata": "CEB",
     "wiki": "Cebu",
+    "imageFile": "Bohol_-_Bohol1917.jpg",
     "climateWiki": [
       "Cebu City",
       "Mactan"
     ],
-    "imagePage": "Chocolate Hills",
     "climate": "tropical",
     "currency": "PHP",
     "tz": "UTC+8",
@@ -13431,6 +13414,7 @@
     "lon": 126.05,
     "iata": "IAO",
     "wiki": "Siargao",
+    "imageFile": "Picturesque_Guyam_Island,_Siargao.jpg",
     "climateWiki": [
       "Surigao City",
       "Siargao"
@@ -14030,12 +14014,8 @@
     "lon": 126.53,
     "iata": "CJU",
     "wiki": "Jeju Island",
+    "imageFile": "Seongsan_Ilchulbong_from_the_air.jpg",
     "climateWiki": [
-      "Jeju City"
-    ],
-    "imagePage": [
-      "Jeju Island",
-      "Hallasan",
       "Jeju City"
     ],
     "climate": "temperate",
@@ -14107,11 +14087,7 @@
     "lon": 103.86,
     "iata": "SAI",
     "wiki": "Siem Reap",
-    "imagePage": [
-      "Angkor Wat",
-      "Siem Reap",
-      "Bayon"
-    ],
+    "imageFile": "Angkor_Wat.jpg",
     "climate": "tropical",
     "currency": "KHR",
     "tz": "UTC+7",
@@ -14865,6 +14841,7 @@
     "lon": 176.25,
     "iata": "ROT",
     "wiki": "Rotorua",
+    "imageFile": "WhakarewarewaGeyserFlat2.jpg",
     "climate": "temperate",
     "currency": "NZD",
     "tz": "UTC+12 (+13 in summer)",
@@ -14917,11 +14894,11 @@
     "lon": -159.78,
     "iata": "RAR",
     "wiki": "Cook Islands",
+    "imageFile": "Cook_Islands_(4661757646).jpg",
     "climateWiki": [
       "Rarotonga",
       "Avarua"
     ],
-    "imagePage": "Aitutaki",
     "climate": "tropical",
     "currency": "NZD",
     "tz": "UTC−10",

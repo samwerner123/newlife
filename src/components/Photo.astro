@@ -30,13 +30,6 @@ const hero = variant === 'hero';
         format="webp"
         quality={hero ? 72 : 65}
       />
-      {hero && (
-        <figcaption>
-          Photo: <a href={p.credit.source} rel="noopener">{p.credit.author}</a>,{' '}
-          {p.credit.licenseUrl ? <a href={p.credit.licenseUrl} rel="license noopener">{p.credit.license}</a> : p.credit.license},
-          via Wikimedia Commons
-        </figcaption>
-      )}
     </figure>
   )
 }
@@ -60,21 +53,6 @@ const hero = variant === 'hero';
   .photo-hero {
     aspect-ratio: 21 / 8;
     border-radius: var(--radius);
-  }
-  figcaption {
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
-    max-width: calc(100% - 16px);
-    padding: 3px 8px;
-    border-radius: 6px;
-    background: rgba(0, 0, 0, 0.55);
-    color: #fff;
-    font-size: 0.6875rem;
-    line-height: 1.4;
-  }
-  figcaption a {
-    color: #fff;
   }
   @media (max-width: 640px) {
     .photo-hero {
