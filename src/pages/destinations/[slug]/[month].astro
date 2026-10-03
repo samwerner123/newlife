@@ -25,8 +25,11 @@ import {
   usd,
   skiStatus,
   SKI_LABEL,
+  foliageStatus,
+  FOLIAGE_LABEL,
   type Destination,
 } from '../../../lib/data';
+import { collectionByKey, hasPage } from '../../../lib/collections';
 import { RATING_LABEL } from '../../../lib/score';
 import { breadcrumbLd } from '../../../lib/seo';
 
@@ -39,6 +42,8 @@ export function getStaticPaths() {
 const { dest, m } = Astro.props as { dest: Destination; m: number };
 const mo = dest.months[m];
 const ski = skiStatus(dest, m);
+const foliage = foliageStatus(dest, m);
+const foliagePage = collectionByKey.get('foliage')!;
 const prev = dest.months[(m + 11) % 12];
 const next = dest.months[(m + 1) % 12];
 const ranked = rankForMonth(m);
@@ -163,6 +168,18 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
               <p>
                 <b>Skiing:</b> {SKI_LABEL[ski].toLowerCase()} at {dest.ski!.resorts}. See more ideas for{' '}
                 <a href={`/where-to-ski-in-${MONTH_SLUGS[m]}/`}>where to ski in {mo.name}</a>.
+              </p>
+            )
+          }
+          {
+            foliage && (
+              <p>
+                <b>Autumn colours:</b> {FOLIAGE_LABEL[foliage].toLowerCase()} — {dest.foliage!.where}.
+                {hasPage(foliagePage, m) && (
+                  <>
+                    {' '}See <a href={foliagePage.path(m)}>where to see fall foliage in {mo.name}</a>.
+                  </>
+                )}
               </p>
             )
           }

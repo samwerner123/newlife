@@ -68,10 +68,20 @@ interface RawDestination {
   avoid: string;
   adjust: Record<string, [number, string]>;
   events: Record<string, string>;
-  imagePage?: string;
+  imagePage?: string | string[];
+  imageFile?: string;
   /** Ski season by month ("1"–"12"), for destinations with major ski areas. */
   ski?: { resorts: string; months: Record<string, SkiStatus> };
+  /** Autumn-colour season by month ("1"–"12"), for destinations known for fall foliage. */
+  foliage?: { where: string; months: Record<string, FoliageStatus> };
 }
+
+export type FoliageStatus = 'early' | 'peak' | 'late';
+export const FOLIAGE_LABEL: Record<FoliageStatus, string> = {
+  early: 'Colours turning',
+  peak: 'Peak colours',
+  late: 'Late colours',
+};
 
 export type SkiStatus = 'peak' | 'season' | 'early' | 'late' | 'glacier';
 export const SKI_LABEL: Record<SkiStatus, string> = {
@@ -82,6 +92,7 @@ export const SKI_LABEL: Record<SkiStatus, string> = {
   glacier: 'Glacier skiing',
 };
 export const SKI_RATING: Record<SkiStatus, Rating> = { peak: 'great', season: 'good', early: 'fair', late: 'fair', glacier: 'fair' };
+export const FOLIAGE_RATING: Record<FoliageStatus, Rating> = { peak: 'great', early: 'good', late: 'fair' };
 
 interface RawClimate {
   months: MonthClimate[];
@@ -204,6 +215,7 @@ export function travelYear(m: number, now = new Date()): number {
 }
 
 export const skiStatus = (d: Destination, m: number): SkiStatus | undefined => d.ski?.months[String(m + 1)];
+export const foliageStatus = (d: Destination, m: number): FoliageStatus | undefined => d.foliage?.months[String(m + 1)];
 
 export const isUS = (d: Destination) => d.country === 'United States' || d.country === 'Puerto Rico';
 

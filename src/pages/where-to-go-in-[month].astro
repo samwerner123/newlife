@@ -16,7 +16,7 @@ import {
   travelYear,
 } from '../lib/data';
 import { breadcrumbLd } from '../lib/seo';
-import { COLLECTIONS } from '../lib/collections';
+import { COLLECTIONS, hasPage } from '../lib/collections';
 import { hubs, hubMonthUrl } from '../lib/data';
 import { SITE } from '../config';
 
@@ -114,7 +114,7 @@ const jsonLd = [
     </nav>
 
     <nav class="chips topics" aria-label={`More ${name} ideas`}>
-      {COLLECTIONS.map((c) => <a class="chip" href={c.path(m)}>{c.h1(name)}</a>)}
+      {COLLECTIONS.filter((c) => hasPage(c, m)).map((c) => <a class="chip" href={c.path(m)}>{c.h1(name)}</a>)}
       {(m === 10 || m === 11) && <a class="chip" href="/christmas-destinations/">Christmas &amp; New Year destinations</a>}
     </nav>
 

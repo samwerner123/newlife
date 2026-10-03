@@ -1,6 +1,7 @@
 ---
 import Guide from '../../layouts/Guide.astro';
-import { bySlug, destMonthUrl, deg } from '../../lib/data';
+import { bySlug, destMonthUrl, deg, MONTHS } from '../../lib/data';
+import { collectionByKey, hasPage } from '../../lib/collections';
 
 // Typical peak windows; colours arrive earlier at altitude and in the north, and shift with each year's weather.
 const spots: { slug: string; place: string; when: string; m: number; tip: string }[] = [
@@ -21,6 +22,8 @@ const spots: { slug: string; place: string; when: string; m: number; tip: string
   { slug: 'patagonia', place: 'Patagonia', when: 'April', m: 3, tip: 'Lenga beech forests turn red around El Chaltén and Torres del Paine.' },
 ];
 const rows = spots.map((s) => ({ ...s, d: bySlug.get(s.slug) })).filter((r) => r.d);
+const foliage = collectionByKey.get('foliage')!;
+const monthPages = MONTHS.map((name, m) => ({ name, m })).filter(({ m }) => hasPage(foliage, m));
 ---
 
 <Guide slug="fall-foliage" photo="vermont">
@@ -29,6 +32,17 @@ const rows = spots.map((s) => ({ ...s, d: bySlug.get(s.slug) })).filter((r) => r
     each year. As a rule, leaves turn <strong>first in the north and at altitude</strong>, then sweep south and downhill. In
     the northern hemisphere the show runs from <strong>mid-September to late November</strong>; in the southern hemisphere
     it comes in <strong>April</strong>.
+  </p>
+
+  <p>
+    Month by month:
+    {monthPages.map(({ name, m }, i) => (
+      <>
+        {i > 0 && ' · '}
+        <a href={foliage.path(m)}>where to see fall foliage in {name}</a>
+      </>
+    ))}
+    .
   </p>
 
   <h2>When autumn colours peak</h2>

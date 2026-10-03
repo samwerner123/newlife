@@ -69,6 +69,11 @@ const collections = [
   ['Best places to visit in South America in', "'south-america'"],
   ['Best places to visit in Africa in', "'africa', 'Africa'"],
   ['Where to ski in', "key: 'ski'"],
+  ['Best places to visit in the Middle East in', "'middle-east'"],
+  ['Best places to visit in Central America in', "'central-america'"],
+  ['Best places to visit in Oceania in', "'oceania', 'Oceania'"],
+  ['Romantic getaways in', "key: 'romantic'"],
+  ['Best national parks to visit in', "key: 'national-parks'"],
 ];
 add = section('B. Month collections (highest search demand)', '"Best places to travel in October", "warm places to visit in December", "where to ski in July"…');
 for (const [label, marker] of collections) {
@@ -76,7 +81,7 @@ for (const [label, marker] of collections) {
   for (const m of MONTHS) add(done(ok), `${label} ${m}`);
 }
 add(done(exists('src/pages/christmas-destinations.astro')), 'Christmas & New Year destinations (warm, snowy and festive picks)');
-for (const t of ['Best places to visit in the Middle East in {month}', 'Best places to visit in Central America in {month}', 'Best places to visit in Oceania in {month}', 'Where to see autumn colours in {month}', 'Romantic getaways by month', 'Best national parks to visit in {month}']) add(PLAN, t);
+add(done(collectionsSrc.includes("key: 'foliage'")), 'Where to see fall foliage in {month} — the months with autumn colours somewhere (April–May, September–December)');
 
 // ---------------------------------------------------------------------------
 add = section('C. Country, state & region hubs', '"Best time to visit Thailand", "Thailand in December", "best time to visit the Caribbean"…');

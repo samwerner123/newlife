@@ -4,16 +4,16 @@
 //  - country/state by month, e.g. /thailand-in-december/
 import CollectionView from '../components/CollectionView.astro';
 import HubMonthView from '../components/HubMonthView.astro';
-import { COLLECTIONS, type Collection } from '../lib/collections';
+import { COLLECTIONS, hasPage, type Collection } from '../lib/collections';
 import { hubs, hubMonthUrl, MONTHS, type Hub } from '../lib/data';
 
 type P = { kind: 'collection'; collection: Collection; m: number } | { kind: 'hubmonth'; hub: Hub; m: number };
 
 export function getStaticPaths() {
-  // A collection page is only built when it has destinations to show.
+  // A collection page is only built when it has enough destinations to show.
   const fromCollections = COLLECTIONS.flatMap((collection) =>
     MONTHS.map((_, m) => m)
-      .filter((m) => collection.pick(m).length > 0)
+      .filter((m) => hasPage(collection, m))
       .map((m) => ({ params: { page: collection.path(m).slice(1, -1) }, props: { kind: 'collection', collection, m } })),
   );
   const fromHubs = hubs.flatMap((hub) =>

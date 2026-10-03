@@ -5,7 +5,7 @@ import Icon from '../components/Icon.astro';
 import Photo from '../components/Photo.astro';
 import { SITE } from '../config';
 import { destinations, rankForMonth, MONTHS, monthUrl, REGIONS, regionSlug, deg, hubs, hubByName, bySlug, hubMonthUrl, monthRanges, MONTH_SHORT } from '../lib/data';
-import { COLLECTIONS } from '../lib/collections';
+import { COLLECTIONS, hasPage } from '../lib/collections';
 import { comparisons } from '../lib/compare';
 import { seasonalGuides } from '../lib/guides';
 
@@ -65,7 +65,7 @@ const jsonLd = [
             <a href={monthUrl(m)}>See all {MONTHS[m]} ideas →</a>
           </div>
           <div class="chips quick">
-            {COLLECTIONS.map((c) => <a class="chip" href={c.path(m)}>{c.h1(MONTHS[m])}</a>)}
+            {COLLECTIONS.filter((c) => hasPage(c, m)).map((c) => <a class="chip" href={c.path(m)}>{c.h1(MONTHS[m])}</a>)}
             {[...hubs]
               .sort((a, b) => b.months[m].score - a.months[m].score)
               .slice(0, 4)

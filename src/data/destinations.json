@@ -1252,6 +1252,13 @@
       "4": "Cherry blossoms early in the month; Golden Week (late April–early May) is very busy.",
       "11": "Autumn leaves peak from mid-November into early December."
     },
+    "foliage": {
+      "where": "the ginkgo avenue at Meiji Jingu Gaien, Rikugien Garden and Mount Takao",
+      "months": {
+        "11": "peak",
+        "12": "late"
+      }
+    },
     "stay": [
       [
         "Shinjuku",
@@ -1304,6 +1311,13 @@
     "events": {
       "4": "Cherry blossoms along Yeouido and Seokchon Lake in early April.",
       "10": "Autumn foliage season starts in late October."
+    },
+    "foliage": {
+      "where": "Seoraksan National Park in mid-October, then Namsan and the royal palaces",
+      "months": {
+        "10": "early",
+        "11": "peak"
+      }
     },
     "stay": [
       [
@@ -4025,6 +4039,13 @@
       "7": "Gion Matsuri, one of Japan's biggest festivals, fills July.",
       "11": "Autumn leaves peak from mid to late November."
     },
+    "foliage": {
+      "where": "red maples at Tofuku-ji, Eikan-do and Arashiyama, with evening temple illuminations",
+      "months": {
+        "11": "peak",
+        "12": "late"
+      }
+    },
     "stay": [
       [
         "Higashiyama",
@@ -4101,6 +4122,13 @@
         "3": "season",
         "4": "late",
         "12": "season"
+      }
+    },
+    "foliage": {
+      "where": "Daisetsuzan National Park, Jozankei and Lake Shikotsu",
+      "months": {
+        "9": "early",
+        "10": "peak"
       }
     }
   },
@@ -4924,6 +4952,13 @@
         "9": "season",
         "10": "late"
       }
+    },
+    "foliage": {
+      "where": "Arrowtown’s poplars and willows and the Wakatipu Basin",
+      "months": {
+        "4": "peak",
+        "5": "late"
+      }
     }
   },
   {
@@ -5376,6 +5411,13 @@
     "events": {
       "11": "NYC Marathon (early November) and the Macy's Thanksgiving Day Parade.",
       "12": "Rockefeller Center tree, holiday windows and ice skating."
+    },
+    "foliage": {
+      "where": "the Hudson Valley and the Catskills in October, Central Park in November",
+      "months": {
+        "10": "early",
+        "11": "peak"
+      }
     },
     "stay": [
       [
@@ -5994,6 +6036,12 @@
         "11": "early",
         "12": "season"
       }
+    },
+    "foliage": {
+      "where": "golden larches at Larch Valley and Sentinel Pass above Moraine Lake",
+      "months": {
+        "9": "peak"
+      }
     }
   },
   {
@@ -6034,6 +6082,12 @@
     "avoid": "November–March is grey and rainy.",
     "adjust": {},
     "events": {},
+    "foliage": {
+      "where": "Stanley Park, Queen Elizabeth Park and the city’s maple-lined streets",
+      "months": {
+        "10": "peak"
+      }
+    },
     "stay": [
       [
         "Downtown",
@@ -6087,6 +6141,13 @@
     "events": {
       "2": "Quebec Winter Carnival (late January to mid-February).",
       "10": "Fall colours usually peak around early October."
+    },
+    "foliage": {
+      "where": "Mont-Tremblant, the Laurentians and the Charlevoix coast",
+      "months": {
+        "9": "early",
+        "10": "peak"
+      }
     },
     "stay": [
       [
@@ -6612,6 +6673,13 @@
     "events": {
       "6": "Up to 18 hours of daylight for hiking and road trips."
     },
+    "foliage": {
+      "where": "Perthshire’s “Big Tree Country”, Glen Affric and the Trossachs",
+      "months": {
+        "10": "peak",
+        "11": "late"
+      }
+    },
     "stay": [
       [
         "Inverness",
@@ -6699,6 +6767,13 @@
         "12": "season"
       }
     },
+    "foliage": {
+      "where": "golden larches in the Engadine and around Zermatt",
+      "months": {
+        "10": "peak",
+        "11": "late"
+      }
+    },
     "hub": "Alps"
   },
   {
@@ -6746,6 +6821,12 @@
       "6": "Midnight sun from late May to late July.",
       "10": "Northern lights season is under way (September–March).",
       "12": "Orca and humpback whale season in the fjords (November–January)."
+    },
+    "foliage": {
+      "where": "birch forests and mountain slopes turning red and gold around the fjords",
+      "months": {
+        "9": "peak"
+      }
     },
     "stay": [
       [
@@ -7300,6 +7381,13 @@
       "2": "Mustard season paints the vineyards yellow (January–March).",
       "9": "Harvest (crush) season from late August to October."
     },
+    "foliage": {
+      "where": "vineyards turning gold and red after the harvest",
+      "months": {
+        "10": "early",
+        "11": "peak"
+      }
+    },
     "stay": [
       [
         "Downtown Napa",
@@ -7690,6 +7778,13 @@
       "7": "Fourth of July concert and fireworks on the Charles River Esplanade.",
       "10": "Peak fall foliage nearby (early to late October)."
     },
+    "foliage": {
+      "where": "the Berkshires, the Mohawk Trail and Boston’s parks",
+      "months": {
+        "10": "peak",
+        "11": "late"
+      }
+    },
     "stay": [
       [
         "Back Bay",
@@ -7779,6 +7874,13 @@
         "11": "early",
         "12": "season"
       }
+    },
+    "foliage": {
+      "where": "Route 100, Stowe, Smugglers’ Notch and the Northeast Kingdom",
+      "months": {
+        "9": "early",
+        "10": "peak"
+      }
     }
   },
   {
@@ -7850,6 +7952,12 @@
     "events": {
       "9": "Quieter after Labor Day, with warm days and cool nights.",
       "10": "Fall foliage peaks in early to mid-October."
+    },
+    "foliage": {
+      "where": "Cadillac Mountain, the Park Loop Road and the coast of Maine",
+      "months": {
+        "10": "peak"
+      }
     },
     "stay": [
       [
@@ -8215,6 +8323,13 @@
       "7": "Going-to-the-Sun Road usually opens fully in early July.",
       "9": "Larches turn gold and crowds thin (mid-September)."
     },
+    "foliage": {
+      "where": "aspens in late September, then golden western larches in the North Fork and around Lake McDonald",
+      "months": {
+        "9": "early",
+        "10": "peak"
+      }
+    },
     "stay": [
       [
         "West Glacier & Apgar",
@@ -8322,6 +8437,13 @@
         "3": "peak",
         "4": "late",
         "12": "season"
+      }
+    },
+    "foliage": {
+      "where": "aspens and cottonwoods at Oxbow Bend and along Mormon Row",
+      "months": {
+        "9": "peak",
+        "10": "late"
       }
     }
   },
@@ -8439,6 +8561,13 @@
       "6": "Synchronous firefly display near Elkmont (early June).",
       "10": "Fall colours peak in mid-October to early November."
     },
+    "foliage": {
+      "where": "Clingmans Dome, Newfound Gap and the Blue Ridge Parkway",
+      "months": {
+        "10": "peak",
+        "11": "late"
+      }
+    },
     "stay": [
       [
         "Gatlinburg",
@@ -8523,6 +8652,13 @@
         "10": "early",
         "11": "early",
         "12": "season"
+      }
+    },
+    "foliage": {
+      "where": "golden aspens at the Maroon Bells, Kebler Pass and Rocky Mountain National Park",
+      "months": {
+        "9": "peak",
+        "10": "late"
       }
     },
     "hub": "Rocky Mountains"
@@ -8856,6 +8992,12 @@
     "events": {
       "9": "Niagara Grape & Wine Festival (September).",
       "11": "Winter Festival of Lights (November–February)."
+    },
+    "foliage": {
+      "where": "the Niagara Parkway and Niagara Glen",
+      "months": {
+        "10": "peak"
+      }
     },
     "stay": [
       [
@@ -9933,6 +10075,13 @@
     "events": {
       "1": "Peak trekking season with the longest days (December–February)."
     },
+    "foliage": {
+      "where": "lenga beech forests around El Chaltén and Ushuaia",
+      "months": {
+        "3": "early",
+        "4": "peak"
+      }
+    },
     "stay": [
       [
         "El Calafate",
@@ -9985,6 +10134,13 @@
     "adjust": {},
     "events": {
       "3": "Fiesta Nacional de la Vendimia, the grape-harvest festival (early March)."
+    },
+    "foliage": {
+      "where": "vineyards turning gold after the harvest",
+      "months": {
+        "4": "peak",
+        "5": "late"
+      }
     },
     "stay": [
       [
@@ -10066,6 +10222,13 @@
         "7": "peak",
         "8": "peak",
         "9": "season"
+      }
+    },
+    "foliage": {
+      "where": "the Seven Lakes Route and Nahuel Huapi National Park",
+      "months": {
+        "4": "peak",
+        "5": "late"
       }
     }
   },
@@ -10263,6 +10426,13 @@
     },
     "events": {
       "1": "Peak trekking season (December–February) — book refugios early."
+    },
+    "foliage": {
+      "where": "lenga beech forests in the park’s valleys",
+      "months": {
+        "3": "early",
+        "4": "peak"
+      }
     },
     "stay": [
       [
@@ -11588,6 +11758,12 @@
       "9": "Oktoberfest (late September to the first Sunday of October).",
       "12": "Christkindlmarkt on Marienplatz (late November–24 December)."
     },
+    "foliage": {
+      "where": "the Bavarian forests and lakes, and the hills around Neuschwanstein",
+      "months": {
+        "10": "peak"
+      }
+    },
     "stay": [
       [
         "Altstadt",
@@ -11801,6 +11977,12 @@
         "11": "early",
         "12": "season"
       }
+    },
+    "foliage": {
+      "where": "larch forests in the Tyrolean valleys and on the Nordkette",
+      "months": {
+        "10": "peak"
+      }
     }
   },
   {
@@ -11985,6 +12167,12 @@
         "5": "late",
         "11": "early",
         "12": "season"
+      }
+    },
+    "foliage": {
+      "where": "“ruska”, the Arctic autumn, in Pallas-Yllästunturi and Urho Kekkonen national parks",
+      "months": {
+        "9": "peak"
       }
     }
   },
@@ -12278,6 +12466,12 @@
         "4": "late",
         "12": "season"
       }
+    },
+    "foliage": {
+      "where": "golden larches in Val di Funes, Alta Badia and around Lago di Braies",
+      "months": {
+        "10": "peak"
+      }
     }
   },
   {
@@ -12454,6 +12648,12 @@
     "events": {
       "9": "Cows return from the mountain pastures at Bohinj (Kravji bal, September).",
       "12": "Christmas fair and lights around the lake (December)."
+    },
+    "foliage": {
+      "where": "beech forests around Lake Bled and in the Julian Alps",
+      "months": {
+        "10": "peak"
+      }
     },
     "stay": [
       [
@@ -13690,6 +13890,13 @@
       "2": "Chinese New Year temple fairs (January or February).",
       "10": "National Day 'Golden Week' (1–7 October) — sights are packed."
     },
+    "foliage": {
+      "where": "the Fragrant Hills and the Great Wall at Mutianyu",
+      "months": {
+        "10": "peak",
+        "11": "late"
+      }
+    },
     "stay": [
       [
         "Dongcheng (Wangfujing)",
@@ -13857,6 +14064,13 @@
     "adjust": {},
     "events": {
       "10": "Autumn colours (October–November), but Golden Week crowds in early October."
+    },
+    "foliage": {
+      "where": "Tianzi Mountain and the Golden Whip Stream",
+      "months": {
+        "10": "early",
+        "11": "peak"
+      }
     },
     "stay": [
       [
@@ -14454,6 +14668,13 @@
       "4": "Cherry blossoms around Osaka Castle (late March–early April).",
       "7": "Tenjin Matsuri with boats and fireworks (24–25 July)."
     },
+    "foliage": {
+      "where": "Minoo Park and Osaka Castle Park",
+      "months": {
+        "11": "peak",
+        "12": "late"
+      }
+    },
     "stay": [
       [
         "Namba & Dotonbori",
@@ -14628,6 +14849,13 @@
     "events": {
       "1": "Taste of Tasmania food festival (late December–early January).",
       "6": "Dark Mofo winter festival in Hobart (June)."
+    },
+    "foliage": {
+      "where": "the “turning of the fagus” at Cradle Mountain and Mount Field",
+      "months": {
+        "4": "peak",
+        "5": "late"
+      }
     },
     "stay": [
       [

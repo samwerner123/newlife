@@ -3,7 +3,8 @@
 import { MONTHS } from '../lib/data';
 
 interface Props {
-  hrefs: string[];
+  /** One link per month; null renders the month as plain text (no page for it). */
+  hrefs: (string | null)[];
   active?: number;
   label: string;
   long?: boolean;
@@ -15,11 +16,15 @@ const { hrefs, active, label, long = false } = Astro.props;
 <nav class="month-pills" aria-label={label}>
   <div class="row">
     {
-      MONTHS.map((mn, i) => (
-        <a class="pill" href={hrefs[i]} aria-current={i === active ? 'page' : undefined}>
-          {long ? mn : mn.slice(0, 3)}
-        </a>
-      ))
+      MONTHS.map((mn, i) =>
+        hrefs[i] ? (
+          <a class="pill" href={hrefs[i]} aria-current={i === active ? 'page' : undefined}>
+            {long ? mn : mn.slice(0, 3)}
+          </a>
+        ) : (
+          <span class="pill off">{long ? mn : mn.slice(0, 3)}</span>
+        ),
+      )
     }
   </div>
 </nav>
@@ -41,5 +46,11 @@ const { hrefs, active, label, long = false } = Astro.props;
     flex: none;
     scroll-snap-align: start;
     min-height: 44px;
+  }
+  .row .off {
+    color: var(--muted);
+    font-weight: 400;
+    border-style: dashed;
+    background: none;
   }
 </style>

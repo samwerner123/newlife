@@ -1,6 +1,33 @@
 // Month-based collections that match high-demand searches, e.g.
 // "warm places to visit in December", "cheap places to travel in March".
-import { destinations, rankForMonth, isUS, skiStatus, deg, usd, SKI_LABEL, MONTH_SLUGS, type Destination, type SkiStatus } from './data';
+import {
+  destinations,
+  rankForMonth,
+  isUS,
+  skiStatus,
+  foliageStatus,
+  deg,
+  usd,
+  SKI_LABEL,
+  SKI_RATING,
+  FOLIAGE_LABEL,
+  FOLIAGE_RATING,
+  MONTH_SLUGS,
+  type Destination,
+  type SkiStatus,
+  type FoliageStatus,
+} from './data';
+import type { Rating } from './score';
+
+/** A seasonal activity (skiing, autumn colours) that is rated in place of the weather. */
+export interface Season {
+  /** Column headings in the "at a glance" table, e.g. "Ski season" and "High / low (town)". */
+  heading: string;
+  tempHeading: string;
+  /** Meta-description tail: "ski areas open in July, with season status…". */
+  about: (month: string) => string;
+  status: (d: Destination, m: number) => { label: string; rating: Rating; note: string } | undefined;
+}
 
 export interface Collection {
   key: string;
@@ -13,8 +40,10 @@ export interface Collection {
   pick: (m: number) => Destination[];
   /** Which number to show in the "at a glance" table. */
   metric: 'score' | 'high' | 'budget';
-  /** Ski collections rate the snow season rather than the weather. */
-  kind?: 'weather' | 'ski';
+  /** Seasonal collections rate the season (snow, autumn colours) rather than the weather. */
+  season?: Season;
+  /** Months with fewer picks than this get no page (default 1). */
+  minItems?: number;
   /** Collection-specific FAQ (replaces the generic weather questions). */
   faq?: (month: string, items: Destination[], m: number) => { q: string; a: string }[];
 }
@@ -142,8 +171,12 @@ function regionCollection(key: string, label: string, place: string, slugPart: s
     path: (m) => `/best-places-to-visit-in-${slugPart}-in-${MONTH_SLUGS[m]}/`,
     title: (mn, y) => `Best Places to Visit in ${place} in ${mn} ${y}`,
     h1: (mn) => `Best places to visit in ${place} in ${mn}`,
-    lead: (mn, items, m) =>
-      `In ${mn}, the best weather in ${place} is in ${names(items)}. We rated every ${place} destination we cover on temperature and rainfall — ${items.filter((d) => d.months[m].score >= 80).length} rate great this month.`,
+    lead: (mn, items, m) => {
+      const great = items.filter((d) => d.months[m].score >= 80).length;
+      return `In ${mn}, the best weather in ${place} is in ${names(items)}. We rated all ${destinations.filter(members).length} destinations we cover in ${place} on temperature and rainfall — ${
+        great ? `${great} rate${great === 1 ? 's' : ''} great this month` : 'none rates great this month, so check the ratings and notes below before you book'
+      }.`;
+    },
     pick: (m) => {
       const ranked = rankForMonth(m, destinations.filter(members));
       return atLeast(ranked.filter((d) => good(d, m)), ranked, 6);
@@ -154,6 +187,9 @@ function regionCollection(key: string, label: string, place: string, slugPart: s
 
 const SOUTH_AMERICA = ['Argentina', 'Bolivia', 'Brazil', 'Chile', 'Colombia', 'Ecuador', 'Peru', 'Uruguay'];
 const AFRICA = ['Botswana', 'Egypt', 'Kenya', 'Mauritius', 'Morocco', 'Namibia', 'Seychelles', 'South Africa', 'Tanzania', 'Zimbabwe'];
+// Egypt and Türkiye are usually included in "Middle East" trip lists, so they appear here as well as in Africa/Europe.
+const MIDDLE_EAST = ['Egypt', 'Jordan', 'Oman', 'Qatar', 'Türkiye', 'United Arab Emirates'];
+const CENTRAL_AMERICA = ['Belize', 'Costa Rica', 'El Salvador', 'Guatemala', 'Honduras', 'Nicaragua', 'Panama'];
 
 COLLECTIONS.push(
   regionCollection('europe', 'Europe', 'Europe', 'europe', (d) => d.region === 'Europe'),
@@ -161,7 +197,79 @@ COLLECTIONS.push(
   regionCollection('caribbean', 'Caribbean', 'the Caribbean', 'the-caribbean', (d) => d.region === 'Caribbean' || ['cancun', 'cartagena', 'key-west'].includes(d.slug)),
   regionCollection('south-america', 'South America', 'South America', 'south-america', (d) => SOUTH_AMERICA.includes(d.country)),
   regionCollection('africa', 'Africa', 'Africa', 'africa', (d) => AFRICA.includes(d.country)),
+  regionCollection('middle-east', 'Middle East', 'the Middle East', 'the-middle-east', (d) => MIDDLE_EAST.includes(d.country)),
+  regionCollection('central-america', 'Central America', 'Central America', 'central-america', (d) => CENTRAL_AMERICA.includes(d.country)),
+  regionCollection('oceania', 'Oceania', 'Oceania', 'oceania', (d) => d.region === 'Oceania'),
 );
+
+// Classic romantic trips: overwater-villa islands, beach resorts, and famously romantic cities and wine regions.
+export const ROMANTIC = [
+  'paris', 'venice', 'florence', 'rome', 'amalfi-coast', 'lake-como', 'cinque-terre', 'santorini', 'mykonos', 'provence',
+  'french-riviera', 'kyoto', 'napa-valley', 'prague', 'vienna', 'cape-town', 'queenstown', 'iceland', 'bora-bora', 'tahiti',
+  'maldives', 'seychelles', 'mauritius', 'st-lucia', 'turks-and-caicos', 'barbados', 'maui', 'kauai', 'bali', 'fiji',
+  'cook-islands', 'zanzibar', 'tulum', 'dubrovnik', 'lake-bled', 'sedona', 'charleston', 'savannah', 'quebec-city', 'bruges',
+  'marrakech', 'madeira', 'sicily', 'luang-prabang', 'rajasthan', 'serengeti', 'okavango',
+];
+
+COLLECTIONS.push({
+  key: 'romantic',
+  label: 'Romantic getaways',
+  path: (m) => `/romantic-getaways-in-${MONTH_SLUGS[m]}/`,
+  title: (mn, y) => `Romantic Getaways in ${mn} ${y}: Best Places for Couples`,
+  h1: (mn) => `Romantic getaways in ${mn}`,
+  lead: (mn, items, m) =>
+    `The most romantic places with good weather in ${mn} are ${names(items)}. We ranked ${ROMANTIC.length} classic couples' destinations — island hideaways, beach resorts, wine country and storybook cities — on ${mn}'s temperature and rainfall; ${items.filter((d) => d.months[m].score >= 80).length} rate great.`,
+  pick: (m) => {
+    const ranked = rankForMonth(m, destinations.filter((d) => ROMANTIC.includes(d.slug)));
+    return atLeast(ranked.filter((d) => good(d, m)), ranked, 6).slice(0, 20);
+  },
+  metric: 'score',
+  faq: (mn, items, m) => {
+    const beach = items.filter((d) => d.tags.includes('beach') && d.months[m].high >= 25);
+    const city = items.filter((d) => d.tags.includes('city'));
+    const cheapest = [...items].sort((a, b) => a.budget.low - b.budget.low)[0];
+    return [
+      { q: `Where is the most romantic place to go in ${mn}?`, a: `${items[0].name} tops our list for ${mn}, averaging ${deg(items[0].months[m].high)} with about ${items[0].months[m].rain} mm of rain. ${items[1] ? `${items[1].name} and ${items[2]?.name ?? ''} are close behind.` : ''}`.trim() },
+      beach.length
+        ? { q: `Where can couples find warm beaches in ${mn}?`, a: `For beach weather in ${mn}, look at ${names(beach, 4)} — all with highs of 25°C or more and good or great weather scores.` }
+        : { q: `Is ${mn} good for a beach honeymoon?`, a: `Few of the classic romantic beach destinations have reliable weather in ${mn}. Our list leans towards cities and wine regions this month; see the honeymoon guide for alternatives.` },
+      ...(city.length ? [{ q: `What is the best city for a romantic break in ${mn}?`, a: `${names(city, 3)} are the best-rated romantic cities for ${mn} on our list.` }] : []),
+      { q: `What is an affordable romantic getaway in ${mn}?`, a: `${cheapest.name} is the best value here, from about ${usd(cheapest.budget.low)} per person per day excluding flights.` },
+    ];
+  },
+});
+
+// US & Canadian national parks, ranked on the month's weather (with road and facility closures factored into the score).
+export const NATIONAL_PARKS = [
+  'yellowstone', 'yosemite', 'grand-canyon', 'zion', 'arches-bryce', 'grand-teton', 'glacier-national-park', 'great-smoky-mountains',
+  'acadia', 'olympic-national-park', 'joshua-tree', 'banff',
+];
+
+COLLECTIONS.push({
+  key: 'national-parks',
+  label: 'National parks',
+  path: (m) => `/best-national-parks-to-visit-in-${MONTH_SLUGS[m]}/`,
+  title: (mn, y) => `Best National Parks to Visit in ${mn} ${y}`,
+  h1: (mn) => `Best national parks to visit in ${mn}`,
+  lead: (mn, items) =>
+    `Our top national parks for ${mn} are ${names(items)}. We rated ${NATIONAL_PARKS.length} of the most visited parks in the US and Canada on ${mn}'s temperature and rainfall, and marked down months when roads, lodges or visitor centres close for the season.`,
+  pick: (m) => {
+    const ranked = rankForMonth(m, destinations.filter((d) => NATIONAL_PARKS.includes(d.slug)));
+    return atLeast(ranked.filter((d) => good(d, m)), ranked, 6);
+  },
+  metric: 'score',
+  faq: (mn, items, m) => {
+    const notes = items.filter((d) => d.months[m].note && d.months[m].score < 65);
+    const warmest = [...items].sort((a, b) => b.months[m].high - a.months[m].high)[0];
+    return [
+      { q: `Which national park is best to visit in ${mn}?`, a: `${items[0].name} rates best in ${mn}, with average highs of ${deg(items[0].months[m].high)} and about ${items[0].months[m].rain} mm of rain. ${items[1].name} and ${items[2].name} follow.` },
+      { q: `Which national park is warmest in ${mn}?`, a: `${warmest.name}, where daytime highs average ${deg(warmest.months[m].high)} in ${mn}.` },
+      notes.length
+        ? { q: `Which parks should you avoid in ${mn}?`, a: notes.slice(0, 3).map((d) => `${d.name}: ${d.months[m].note}`).join('. ') + '.' }
+        : { q: `Are the national parks open in ${mn}?`, a: `All of the parks on this list are open in ${mn}, and none has a major seasonal closure flagged for the month. Check the park's website for trail and road conditions before you go.` },
+    ];
+  },
+});
 
 // "Where to ski in July": ranked by the state of the ski season, not by sightseeing weather.
 const SKI_ORDER: SkiStatus[] = ['peak', 'season', 'early', 'late', 'glacier'];
@@ -179,7 +287,15 @@ const list = (ds: Destination[]) => ds.map((d) => d.name).join(', ');
 COLLECTIONS.push({
   key: 'ski',
   label: 'Skiing',
-  kind: 'ski',
+  season: {
+    heading: 'Ski season',
+    tempHeading: 'High / low (town)',
+    about: (mn) => `ski areas open in ${mn}, with season status, resort temperatures and daily budgets.`,
+    status: (d, m) => {
+      const s = skiStatus(d, m);
+      return s && { label: SKI_LABEL[s], rating: SKI_RATING[s], note: `Ski areas: ${d.ski!.resorts}.` };
+    },
+  },
   path: (m) => `/where-to-ski-in-${MONTH_SLUGS[m]}/`,
   title: (mn, y) => `Where to Ski in ${mn} ${y}: Ski Resorts Open in ${mn}`,
   h1: (mn) => `Where to ski in ${mn}`,
@@ -215,5 +331,61 @@ COLLECTIONS.push({
     ];
   },
 });
+
+// "Where to see fall foliage in October": ranked by the state of the autumn colours, then by the weather.
+const FOLIAGE_ORDER: FoliageStatus[] = ['peak', 'early', 'late'];
+const leafPeepers = (m: number) =>
+  destinations
+    .filter((d) => foliageStatus(d, m))
+    .sort(
+      (a, b) =>
+        FOLIAGE_ORDER.indexOf(foliageStatus(a, m)!) - FOLIAGE_ORDER.indexOf(foliageStatus(b, m)!) ||
+        b.months[m].score - a.months[m].score ||
+        a.name.localeCompare(b.name),
+    );
+
+COLLECTIONS.push({
+  key: 'foliage',
+  label: 'Fall foliage',
+  minItems: 3,
+  season: {
+    heading: 'Autumn colours',
+    tempHeading: 'High / low',
+    about: (mn) => `where autumn colours peak in ${mn}, with typical temperatures and daily budgets.`,
+    status: (d, m) => {
+      const s = foliageStatus(d, m);
+      return s && { label: FOLIAGE_LABEL[s], rating: FOLIAGE_RATING[s], note: `Where to look: ${d.foliage!.where}.` };
+    },
+  },
+  path: (m) => `/where-to-see-fall-foliage-in-${MONTH_SLUGS[m]}/`,
+  title: (mn, y) => `Where to See Fall Foliage in ${mn} ${y}: Peak Autumn Colours`,
+  h1: (mn) => `Where to see fall foliage in ${mn}`,
+  lead: (mn, items, m) => {
+    const peak = items.filter((d) => foliageStatus(d, m) === 'peak');
+    const south = m >= 2 && m <= 5;
+    return `${peak.length ? `Autumn colours usually peak in ${list(peak.slice(0, 5))}${peak.length > 5 ? ' and more' : ''} in ${mn}.` : `${mn} brings the last of the autumn colours.`} ${
+      south
+        ? `This is autumn in the southern hemisphere, when beech forests, poplars and vineyards turn gold and red.`
+        : `Leaves turn first in the north and at altitude, then move south and downhill over a few weeks.`
+    } Timing shifts by a week or two each year, so check local foliage reports before you go.`;
+  },
+  pick: leafPeepers,
+  metric: 'score',
+  faq: (mn, items, m) => {
+    const by = (s: FoliageStatus) => items.filter((d) => foliageStatus(d, m) === s);
+    const peak = by('peak');
+    const warmest = [...items].sort((a, b) => b.months[m].high - a.months[m].high)[0];
+    const coldest = [...items].sort((a, b) => a.months[m].high - b.months[m].high)[0];
+    return [
+      { q: `Where are autumn colours at their peak in ${mn}?`, a: peak.length ? `${mn} is the usual peak in ${list(peak)}.` : `No major region is usually at its peak in ${mn}; the colours are just starting or fading in ${list(items)}.` },
+      ...(by('early').length ? [{ q: `Where are the leaves just starting to turn in ${mn}?`, a: `Colours usually start turning in ${list(by('early'))} in ${mn}, with the peak a few weeks later.` }] : []),
+      ...(by('late').length ? [{ q: `Where can you catch late colours in ${mn}?`, a: `${list(by('late'))} often still have colour in ${mn}, especially in valleys and lower areas.` }] : []),
+      { q: `What is the weather like for leaf-peeping in ${mn}?`, a: `Average highs range from ${deg(coldest.months[m].high)} in ${coldest.name} to ${deg(warmest.months[m].high)} in ${warmest.name}. Mornings can be close to freezing in the mountains, so pack layers.` },
+    ];
+  },
+});
+
+/** Whether a collection has a page for a month (enough picks to be worth one). */
+export const hasPage = (c: Collection, m: number) => c.pick(m).length >= (c.minItems ?? 1);
 
 export const collectionByKey = new Map(COLLECTIONS.map((c) => [c.key, c]));
