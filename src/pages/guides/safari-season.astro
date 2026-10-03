@@ -1,0 +1,62 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { MONTHS } from '../../lib/data';
+
+const migration: [string, string][] = [
+  ['December–March', 'The herds graze the short-grass plains of the southern Serengeti and Ngorongoro area. Around half a million calves are born in a few weeks, usually in late January and February — and predators follow.'],
+  ['April–May', 'The long rains. The herds start moving north and west; some camps close and roads get muddy, but it’s green, quiet and cheap.'],
+  ['June–July', 'The herds cross the western corridor (Grumeti River) and head for the northern Serengeti. Crossings of the Mara River can begin in July.'],
+  ['August–October', 'Peak migration in the northern Serengeti and Kenya’s Maasai Mara, with dramatic river crossings. This is the busiest and most expensive time.'],
+  ['November', 'The short rains bring the herds back south through the eastern Serengeti.'],
+];
+---
+
+<Guide slug="safari-season" photo="serengeti">
+  <p>
+    For most of Africa’s big safari parks, the <strong>dry season is the best time for game viewing</strong>: vegetation is
+    thin, animals gather around rivers and waterholes, and dirt roads are passable. In East Africa that means
+    <strong>June to October</strong> (plus January–February); in southern Africa it means <strong>May to October</strong>.
+    The wet seasons have their own rewards — newborn animals, migratory birds, green landscapes and much lower prices.
+  </p>
+
+  <h2>Safari weather by month</h2>
+  <GuideTable
+    caption="Weather rating by month at major safari destinations"
+    months={MONTHS.map((_, i) => i)}
+    rows={[{ slug: 'serengeti' }, { slug: 'maasai-mara' }, { slug: 'kruger' }, { slug: 'okavango' }, { slug: 'namibia' }, { slug: 'victoria-falls' }]}
+  />
+  <p class="small muted">Weather scores combine temperature and rainfall; they don’t measure wildlife, but the dry months match the classic safari seasons.</p>
+
+  <h2>The Great Migration, month by month</h2>
+  <p>
+    Around 1.5 million wildebeest, with hundreds of thousands of zebra and gazelle, follow the rains in a loop between Tanzania’s
+    <a href="/destinations/serengeti/">Serengeti</a> and Kenya’s <a href="/destinations/maasai-mara/">Maasai Mara</a>. The timing
+    shifts with the rain each year, so good camps move with the herds.
+  </p>
+  <ul>{migration.map(([when, what]) => <li><b>{when}:</b> {what}</li>)}</ul>
+
+  <h2>Southern Africa</h2>
+  <ul>
+    <li><b><a href="/destinations/kruger/">Kruger, South Africa</a>:</b> May–September is the dry winter, with cool mornings and the easiest Big Five sightings. Summer (November–March) is hot and green, with baby animals and great birding.</li>
+    <li><b><a href="/destinations/okavango/">Okavango Delta, Botswana</a>:</b> the floodwaters arrive in the dry season, peaking around June–August, which concentrates wildlife on the islands. July–October is prime (and pricey).</li>
+    <li><b><a href="/destinations/namibia/">Namibia (Etosha)</a>:</b> August–October, when animals crowd the waterholes on the salt pan. Combine with the dunes of Sossusvlei.</li>
+    <li><b><a href="/destinations/victoria-falls/">Victoria Falls</a>:</b> easy to add on; the falls are fullest in March–May and you can swim at Devil’s Pool from about August to December.</li>
+  </ul>
+
+  <h2>Is the rainy season worth it?</h2>
+  <p>
+    Often, yes. In the ‘green season’ many lodges cut their rates by a third or more, the landscapes are lush and the light
+    is beautiful. Rain usually falls in afternoon storms rather than all day. The trade-offs: thicker bush makes animals harder
+    to spot, some remote camps close, and malaria risk is higher.
+  </p>
+
+  <h2>Planning tips</h2>
+  <ul>
+    <li><b>Book 9–12 months ahead</b> for July–October in the Mara and northern Serengeti — the best-located camps fill first.</li>
+    <li><b>Add a beach.</b> <a href="/destinations/zanzibar/">Zanzibar</a> and <a href="/destinations/diani/">Diani Beach</a> are short flights from the parks and share the same dry seasons.</li>
+    <li><b>Climb first, relax later.</b> <a href="/destinations/kilimanjaro/">Kilimanjaro</a> treks work in the same dry months as a Tanzania safari.</li>
+    <li><b>Check health advice</b> for malaria prevention and vaccinations well before you travel, and get insurance that covers medical evacuation.</li>
+  </ul>
+  <p>See also: <a href="/best-time-to-visit-tanzania/">best time to visit Tanzania</a> and <a href="/best-time-to-visit-kenya/">best time to visit Kenya</a>.</p>
+</Guide>

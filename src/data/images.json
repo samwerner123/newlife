@@ -302,7 +302,7 @@
   },
   "manuel-antonio": {
     "file": "Manuel_antonio_06_april_2005.jpeg",
-    "author": "Unknown author",
+    "author": "Jakes19",
     "license": "Public domain",
     "licenseUrl": "",
     "source": "https://commons.wikimedia.org/wiki/File:Manuel_antonio_06_april_2005.jpeg"
@@ -337,7 +337,7 @@
   },
   "puerto-rico": {
     "file": "Castillo_San_Felipe_del_Morro_aerial,_May_2024_-_01.jpg",
-    "author": "Unknown author",
+    "author": "Nils Huenerfuerst",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Castillo_San_Felipe_del_Morro_aerial%2C_May_2024_-_01.jpg"
@@ -372,7 +372,7 @@
   },
   "mallorca": {
     "file": "Kathedrale_von_Palma.jpg",
-    "author": "Unknown author",
+    "author": "Thomas Wolf, www.foto-tw.de",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Kathedrale_von_Palma.jpg"
@@ -589,7 +589,7 @@
   },
   "yosemite": {
     "file": "Half_Dome_with_Eastern_Yosemite_Valley_(50MP).jpg",
-    "author": "Unknown author",
+    "author": "Thomas Wolf, www.foto-tw.de",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Half_Dome_with_Eastern_Yosemite_Valley_(50MP).jpg"
@@ -631,7 +631,7 @@
   },
   "oaxaca": {
     "file": "MonteAlbanWest.jpg",
-    "author": "Unknown author",
+    "author": "João Sousa",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:MonteAlbanWest.jpg"
@@ -659,7 +659,7 @@
   },
   "london": {
     "file": "London_Skyline_(125508655).jpeg",
-    "author": "Unknown author",
+    "author": "Ilya Grigorik",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:London_Skyline_(125508655).jpeg"
@@ -792,7 +792,7 @@
   },
   "kauai": {
     "file": "Hanalei,_Kauai_HI.JPG",
-    "author": "Unknown author",
+    "author": "Caracas1830",
     "license": "CC BY-SA 2.5",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
     "source": "https://commons.wikimedia.org/wiki/File:Hanalei%2C_Kauai_HI.JPG"
@@ -845,5 +845,845 @@
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Prinsengracht.jpg"
+  },
+  "san-francisco": {
+    "file": "Golden_Gate_Bridge_as_seen_from_Battery_East.jpg",
+    "author": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_as_seen_from_Battery_East.jpg"
+  },
+  "los-angeles": {
+    "file": "Hollywood_sign_(8485145044).jpg",
+    "author": "Gnaphron",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Hollywood_sign_(8485145044).jpg"
+  },
+  "lake-tahoe": {
+    "file": "Tahoe_North_Shore_from_the_East_Shore.jpg",
+    "author": "Lara Farhadi",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Tahoe_North_Shore_from_the_East_Shore.jpg"
+  },
+  "joshua-tree": {
+    "file": "Joshua_Tree_-_Cyclops_+_Potato_Head_-_Sunrise.jpg",
+    "author": "Jarek Tuszyński",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Joshua_Tree_-_Cyclops_%2B_Potato_Head_-_Sunrise.jpg"
+  },
+  "seattle": {
+    "file": "Space_Needle_2011-07-04.jpg",
+    "author": "Jordon Kalilich",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Space_Needle_2011-07-04.jpg"
+  },
+  "olympic-national-park": {
+    "file": "BIG_LEAF_MAPLES_HOH.jpg",
+    "author": "User:Doug Dolde",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:BIG_LEAF_MAPLES_HOH.jpg"
+  },
+  "oregon-coast": {
+    "file": "Haystacks_Rocks_and_the_Needles,Cannon_Beach.jpg",
+    "author": "John Manard",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Haystacks_Rocks_and_the_Needles%2CCannon_Beach.jpg"
+  },
+  "vermont": {
+    "file": "Stowe_VT_1-30-2026a.jpg",
+    "author": "Ascended Dreamer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Stowe_VT_1-30-2026a.jpg"
+  },
+  "acadia": {
+    "file": "Acadia_National_Park_02.JPG",
+    "author": "Plh1234us",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Acadia_National_Park_02.JPG"
+  },
+  "nashville": {
+    "file": "Broadway_(Nashville)_lights.jpg",
+    "author": "dconvertini",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Broadway_(Nashville)_lights.jpg"
+  },
+  "savannah": {
+    "file": "Forsyth_fountain_2019.jpeg",
+    "author": "Seasider53",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Forsyth_fountain_2019.jpeg"
+  },
+  "glacier-national-park": {
+    "file": "Mountain_Goat_at_Hidden_Lake.jpg",
+    "author": "Robert M. Russell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mountain_Goat_at_Hidden_Lake.jpg"
+  },
+  "grand-teton": {
+    "file": "Barns_grand_tetons.jpg",
+    "author": "Jon Sullivan, PD Photo.",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Barns_grand_tetons.jpg"
+  },
+  "arches-bryce": {
+    "file": "Delicate_arch_sunset.jpg",
+    "author": "Palacemusic",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Delicate_arch_sunset.jpg"
+  },
+  "great-smoky-mountains": {
+    "file": "View_atop_Cliff_Tops_on_Mount_LeConte,_GSMNP,_TN.jpg",
+    "author": "AppalachianCentrist",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:View_atop_Cliff_Tops_on_Mount_LeConte%2C_GSMNP%2C_TN.jpg"
+  },
+  "colorado": {
+    "file": "Maroon_Bells_(11553)a.jpg",
+    "author": "Rhododendrites",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Maroon_Bells_(11553)a.jpg"
+  },
+  "park-city": {
+    "file": "Park_City_overview.jpg",
+    "author": "PeteysHead",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Park_City_overview.jpg"
+  },
+  "outer-banks": {
+    "file": "NCOuterBanks-EO.jpg",
+    "author": "Pierre cb",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:NCOuterBanks-EO.jpg"
+  },
+  "myrtle-beach": {
+    "file": "BroadwayAtTheBeach1.jpg",
+    "author": ":w:User:Isipeoria",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:BroadwayAtTheBeach1.jpg"
+  },
+  "destin": {
+    "file": "View_of_Destin,_Florida_from_the_Destin_Harbor.jpg",
+    "author": "Destin Vacation Boat Rentals",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:View_of_Destin%2C_Florida_from_the_Destin_Harbor.jpg"
+  },
+  "niagara-falls": {
+    "file": "Aerial_view_of_the_Canadian_Falls_(Horseshoe_Falls)_and_the_Hornblower_Niagara_Cruises_boat;_Niagara_Falls.JPG",
+    "author": "Thomaswm",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Canadian_Falls_(Horseshoe_Falls)_and_the_Hornblower_Niagara_Cruises_boat%3B_Niagara_Falls.JPG"
+  },
+  "cozumel": {
+    "file": "Isla_cozumel_April17-2001-crop.jpg",
+    "author": "NASA",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Isla_cozumel_April17-2001-crop.jpg"
+  },
+  "belize": {
+    "file": "Great_Blue_Hole.jpg",
+    "author": "U.S. Geological Survey (USGS)",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Great_Blue_Hole.jpg"
+  },
+  "antigua-guatemala": {
+    "file": "Antigua_-_Arco.jpg",
+    "author": "Juan Francisco",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Antigua_-_Arco.jpg"
+  },
+  "st-lucia": {
+    "file": "Pitons-aerial.jpg",
+    "author": "Caribbeandy",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Pitons-aerial.jpg"
+  },
+  "us-virgin-islands": {
+    "file": "StJohnTrunkBay.jpg",
+    "author": "Ben Whitney",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:StJohnTrunkBay.jpg"
+  },
+  "curacao": {
+    "file": "Handelskade_in_Willemstad.jpg",
+    "author": "Coolcaesar",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Handelskade_in_Willemstad.jpg"
+  },
+  "cayman-islands": {
+    "file": "Seven_Mile_Beach_cayman_sun.jpg",
+    "author": "User2369",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Seven_Mile_Beach_cayman_sun.jpg"
+  },
+  "bermuda": {
+    "file": "Horseshoebay.Bermuda.JPG",
+    "author": "Ekem",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Horseshoebay.Bermuda.JPG"
+  },
+  "quito": {
+    "file": "FACHADA_ASAMBLEA_NACIONAL._QUITO,_20_DE_FEBRERO_2020._01.jpg",
+    "author": "Asamblea Nacional del Ecuador",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:FACHADA_ASAMBLEA_NACIONAL._QUITO%2C_20_DE_FEBRERO_2020._01.jpg"
+  },
+  "salvador-brazil": {
+    "file": "Centro_Histórico_Salvador_Vista_Aérea_2021-0933.jpg",
+    "author": "Paul R. Burley",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Centro_Hist%C3%B3rico_Salvador_Vista_A%C3%A9rea_2021-0933.jpg"
+  },
+  "amazon": {
+    "file": "Encontro_das_Águas_-_Manaus.jpg",
+    "author": "Portal da Copa",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Encontro_das_%C3%81guas_-_Manaus.jpg"
+  },
+  "iguazu-falls": {
+    "file": "Aerial_Foz_de_Iguaçu_26_Nov_2005.jpg",
+    "author": "Mariordo (Mario Roberto Durán Ortiz)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_Foz_de_Igua%C3%A7u_26_Nov_2005.jpg"
+  },
+  "patagonia": {
+    "file": "Perito_Moreno_Glacier_2023.jpg",
+    "author": "Fernando",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Perito_Moreno_Glacier_2023.jpg"
+  },
+  "bariloche": {
+    "file": "Catedral_desde_el_Lago_Nahuel_Huapi_-_panoramio.jpg",
+    "author": "enzofloyd",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Catedral_desde_el_Lago_Nahuel_Huapi_-_panoramio.jpg"
+  },
+  "santiago-chile": {
+    "file": "Palacio_de_La_Moneda_-_miguelreflex.jpg",
+    "author": "Miguel hernandez",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Palacio_de_La_Moneda_-_miguelreflex.jpg"
+  },
+  "atacama": {
+    "file": "Valle_della_Luna_01.jpg",
+    "author": "Davide guallini",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Valle_della_Luna_01.jpg"
+  },
+  "torres-del-paine": {
+    "file": "Torres_del_Paine_y_cuernos_del_Paine,_montaje.jpg",
+    "author": "Karen Chan 16 y (originales), y Jorge Morales Piderit (montaje).",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Torres_del_Paine_y_cuernos_del_Paine%2C_montaje.jpg"
+  },
+  "fes": {
+    "file": "Chouara_Tannery_-_154_-_Marokko_Handybilder_2018_-_Fes_(27347707917).jpg",
+    "author": "Uwe Brodrecht",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Chouara_Tannery_-_154_-_Marokko_Handybilder_2018_-_Fes_(27347707917).jpg"
+  },
+  "essaouira": {
+    "file": "\"Ein_bemerkenswertes_historisches_Denkmal\"._16.jpg",
+    "author": "Holger Uwe Schmitt",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:%22Ein_bemerkenswertes_historisches_Denkmal%22._16.jpg"
+  },
+  "kruger": {
+    "file": "Kruger_Zebra.JPG",
+    "author": "Nithin bolar k",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Kruger_Zebra.JPG"
+  },
+  "serengeti": {
+    "file": "Serengeti-Landscape-2012.JPG",
+    "author": "Bjørn Christian Tørrissen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Serengeti-Landscape-2012.JPG"
+  },
+  "kilimanjaro": {
+    "file": "Kilimanjaro_from_Amboseli.jpg",
+    "author": "Sergey Pesterev",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Kilimanjaro_from_Amboseli.jpg"
+  },
+  "maasai-mara": {
+    "file": "Masai_Mara_at_Sunset.jpg",
+    "author": "Danijel Mihajlovic",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Masai_Mara_at_Sunset.jpg"
+  },
+  "diani": {
+    "file": "Diani_Beach_Ukunda.jpg",
+    "author": "Lebu Ayiga",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Diani_Beach_Ukunda.jpg"
+  },
+  "okavango": {
+    "file": "Okavango_Delta,_Botswana1.jpg",
+    "author": "Joachim Huber",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Okavango_Delta%2C_Botswana1.jpg"
+  },
+  "victoria-falls": {
+    "file": "Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_04.jpg",
+    "author": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_04.jpg"
+  },
+  "jordan": {
+    "file": "Al_Deir_Petra.JPG",
+    "author": "Azurfrog",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Al_Deir_Petra.JPG"
+  },
+  "provence": {
+    "file": "1_gordes_pano_2016.jpg",
+    "author": "Chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:1_gordes_pano_2016.jpg"
+  },
+  "french-riviera": {
+    "file": "Promenade_des_Anglais_Nice_IMG_1255.jpg",
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Promenade_des_Anglais_Nice_IMG_1255.jpg"
+  },
+  "chamonix": {
+    "file": "Chamonix_valley_from_la_Flégère,2010_07.JPG",
+    "author": "Ximonic, Simo Räsänen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Chamonix_valley_from_la_Fl%C3%A9g%C3%A8re%2C2010_07.JPG"
+  },
+  "bruges": {
+    "file": "Brügge_Blick_vom_Belfried_4.jpg",
+    "author": "Zairon",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Br%C3%BCgge_Blick_vom_Belfried_4.jpg"
+  },
+  "berlin": {
+    "file": "Brandenburger_Tor_abends.jpg",
+    "author": "Thomas Wolf, www.foto-tw.de",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Brandenburger_Tor_abends.jpg"
+  },
+  "munich": {
+    "file": "Rathaus_and_Marienplatz_from_Peterskirche_-_August_2006.jpg",
+    "author": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Rathaus_and_Marienplatz_from_Peterskirche_-_August_2006.jpg"
+  },
+  "vienna": {
+    "file": "Wien_-_Schloss_Schönbrunn.JPG",
+    "author": "C.Stadler/Bwag",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Wien_-_Schloss_Sch%C3%B6nbrunn.JPG"
+  },
+  "salzburg": {
+    "file": "Hallstatt_-_Zentrum_.JPG",
+    "author": "C.Stadler/Bwag",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Hallstatt_-_Zentrum_.JPG"
+  },
+  "innsbruck": {
+    "file": "Bürgerstraße_26+24_(BT0A2830).jpg",
+    "author": "simon04",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:B%C3%BCrgerstra%C3%9Fe_26%2B24_(BT0A2830).jpg"
+  },
+  "stockholm": {
+    "file": "Gamla_stan_September_2014_01.jpg",
+    "author": "Arild Vågen",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Gamla_stan_September_2014_01.jpg"
+  },
+  "lapland": {
+    "file": "Rovaniemi_Montage.jpg",
+    "author": "Jari Kolehmainen, Flickr user lindstormORG, Idobi, Andriychenko, Biergerry, Arktikum, and Vincent Guth vingtcent",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Rovaniemi_Montage.jpg"
+  },
+  "lake-como": {
+    "file": "Sentiero_del_Viandante_DSC_6340_(14020554463).jpg",
+    "author": "Luca Casartelli",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Sentiero_del_Viandante_DSC_6340_(14020554463).jpg"
+  },
+  "cinque-terre": {
+    "file": "Manarola_NW_Cinque_Terre_Sep23_A7C_07233.jpg",
+    "author": "Tagooty",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Manarola_NW_Cinque_Terre_Sep23_A7C_07233.jpg"
+  },
+  "kotor": {
+    "file": "20090719_Crkva_Gospa_od_Zdravlja_Kotor_Bay_Montenegro.jpg",
+    "author": "User:Ggia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:20090719_Crkva_Gospa_od_Zdravlja_Kotor_Bay_Montenegro.jpg"
+  },
+  "lake-bled": {
+    "file": "Lake_Bled_from_the_Mountain.jpg",
+    "author": "Canadianhockey91",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Lake_Bled_from_the_Mountain.jpg"
+  },
+  "albania": {
+    "file": "Ksamill-1.jpg",
+    "author": "Cannm01",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Ksamill-1.jpg"
+  },
+  "rhodes": {
+    "file": "20210826-Lindos-DJI_0205.jpg",
+    "author": "Thomas Berwing",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:20210826-Lindos-DJI_0205.jpg"
+  },
+  "naxos": {
+    "file": "20221029_Naxos_762.jpg",
+    "author": "Jean Housen",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:20221029_Naxos_762.jpg"
+  },
+  "yogyakarta": {
+    "file": "Pradaksina.jpg",
+    "author": "Heri nugroho",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Pradaksina.jpg"
+  },
+  "rajasthan": {
+    "file": "East_facade_Hawa_Mahal_Jaipur_from_ground_level_(July_2022)_-_img_01.jpg",
+    "author": "Chainwit.",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:East_facade_Hawa_Mahal_Jaipur_from_ground_level_(July_2022)_-_img_01.jpg"
+  },
+  "kerala": {
+    "file": "House_Boat_DSW.jpg",
+    "author": "Augustus Binu : flickr",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:House_Boat_DSW.jpg"
+  },
+  "ladakh": {
+    "file": "ISS054-E-7809_-_View_of_Earth_(cropped).jpg",
+    "author": "Earth Science and Remote Sensing Unit, NASA Johnson Space Center",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:ISS054-E-7809_-_View_of_Earth_(cropped).jpg"
+  },
+  "cebu": {
+    "file": "Chocolate_Hills_Bohol.JPG",
+    "author": "P199",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Chocolate_Hills_Bohol.JPG"
+  },
+  "siargao": {
+    "file": "Siargao_Island,_PH,_Sentinel-2.jpg",
+    "author": "Sentinel-2 cloudless 2016 by EOX IT Services GmbH is licensed under a Creative Commons Attribution 4.0 International License.",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Siargao_Island%2C_PH%2C_Sentinel-2.jpg"
+  },
+  "langkawi": {
+    "file": "Eagle_square_at_Kuah_Langkawi.jpg",
+    "author": "Ttt.Osakanman",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Eagle_square_at_Kuah_Langkawi.jpg"
+  },
+  "penang": {
+    "file": "Skyline_of_George_Town,_Penang_at_night_Nov2024-29-17.jpg",
+    "author": "HundenvonPenang",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_George_Town%2C_Penang_at_night_Nov2024-29-17.jpg"
+  },
+  "borneo": {
+    "file": "Kinabalu_Sabah_Borneo_Kampong_Kundasang_panorama_2.jpg",
+    "author": "kallerna",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Kinabalu_Sabah_Borneo_Kampong_Kundasang_panorama_2.jpg"
+  },
+  "beijing": {
+    "file": "The_Forbidden_City_-_View_from_Coal_Hill.jpg",
+    "author": "Pixelflake",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Forbidden_City_-_View_from_Coal_Hill.jpg"
+  },
+  "shanghai": {
+    "file": "The_Bund_2.jpg",
+    "author": "钉钉",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Bund_2.jpg"
+  },
+  "xian": {
+    "file": "51714-Terracota-Army.jpg",
+    "author": "xiquinhosilva",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:51714-Terracota-Army.jpg"
+  },
+  "yunnan": {
+    "file": "Lijiang_-_panoramio_(6).jpg",
+    "author": "Pavel Špindler",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Lijiang_-_panoramio_(6).jpg"
+  },
+  "phnom-penh": {
+    "file": "Le_Palais_Royal_(Phnom_Penh)_(6997773481).jpg",
+    "author": "Jean-Pierre Dalbéra from Paris, France",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Le_Palais_Royal_(Phnom_Penh)_(6997773481).jpg"
+  },
+  "luang-prabang": {
+    "file": "Phou_si_Luang_Prabang_Laos_プーシーの丘_ラオス・ルアンプラバーン_DSCF6777.jpg",
+    "author": "松岡明芳",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Phou_si_Luang_Prabang_Laos_%E3%83%97%E3%83%BC%E3%82%B7%E3%83%BC%E3%81%AE%E4%B8%98_%E3%83%A9%E3%82%AA%E3%82%B9%E3%83%BB%E3%83%AB%E3%82%A2%E3%83%B3%E3%83%97%E3%83%A9%E3%83%90%E3%83%BC%E3%83%B3_DSCF6777.jpg"
+  },
+  "ha-long-bay": {
+    "file": "Ha_Long_Bay_in_2019.jpg",
+    "author": "Taewangkorea",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Ha_Long_Bay_in_2019.jpg"
+  },
+  "phu-quoc": {
+    "file": "Bai-sao-phu-quoc-tuonglamphotos.jpg",
+    "author": "Trantuonglam",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Bai-sao-phu-quoc-tuonglamphotos.jpg"
+  },
+  "osaka": {
+    "file": "Osaka_Dotonbori_Ebisu_Bridge.jpg",
+    "author": "Type specimen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Osaka_Dotonbori_Ebisu_Bridge.jpg"
+  },
+  "bhutan": {
+    "file": "Paro_Taktsang,_Bhutan_(edited).jpg",
+    "author": "Nina R from Africa",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Paro_Taktsang%2C_Bhutan_(edited).jpg"
+  },
+  "uzbekistan": {
+    "file": "RegistanSquare_Samarkand.jpg",
+    "author": "*Registan_-_Gusjer.jpg: Gustavo Jeronimo from Aranjuez, Spain",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:RegistanSquare_Samarkand.jpg"
+  },
+  "tasmania": {
+    "file": "Wineglass_Bay_view_from_the_Beach.jpg",
+    "author": "Jane6592",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Wineglass_Bay_view_from_the_Beach.jpg"
+  },
+  "uluru": {
+    "file": "ULURU.jpg",
+    "author": "Ek2030372672",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:ULURU.jpg"
+  },
+  "perth": {
+    "file": "Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg",
+    "author": "* File:Perth CBD skyline from State War Memorial Lookout, 2023, 04.jpg: Kgbo",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Perth_CBD_skyline_from_State_War_Memorial_Lookout%2C_2023%2C_04_b.jpg"
+  },
+  "whitsundays": {
+    "file": "Whitehaven_Beach,_Whitsunday_Island,_Queensland.jpg",
+    "author": "Slug69",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Whitehaven_Beach%2C_Whitsunday_Island%2C_Queensland.jpg"
+  },
+  "rotorua": {
+    "file": "Government_Gardens_in_Rotorua_01.jpg",
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Government_Gardens_in_Rotorua_01.jpg"
+  },
+  "cook-islands": {
+    "file": "AST-01-039_Aituctaki_Atoll.jpg",
+    "author": "NASA",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:AST-01-039_Aituctaki_Atoll.jpg"
+  },
+  "tahiti": {
+    "file": "DSC00042_Polynésia_Mooréa_Island_Motu_Moéa_Lagoon_and_transportation_Boat_(8076082190).jpg",
+    "author": "DANIEL JULIE from Paris, France",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:DSC00042_Polyn%C3%A9sia_Moor%C3%A9a_Island_Motu_Mo%C3%A9a_Lagoon_and_transportation_Boat_(8076082190).jpg"
+  },
+  "napa-valley": {
+    "file": "Autumn_in_Napa_Valley_vineyards.jpg",
+    "author": "John Morgan",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Autumn_in_Napa_Valley_vineyards.jpg"
+  },
+  "boston": {
+    "file": "ISH_WC_Boston4.jpg",
+    "author": "Ian Howard",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:ISH_WC_Boston4.jpg"
+  },
+  "charleston": {
+    "file": "East_Battery_Street_Charleston_Aug2010.jpg",
+    "author": "Chris Pruitt",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:East_Battery_Street_Charleston_Aug2010.jpg"
+  },
+  "sedona": {
+    "file": "Cathedral_Rock_-_Sedona_AZ-1.jpg",
+    "author": "Terrydarc",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cathedral_Rock_-_Sedona_AZ-1.jpg"
+  },
+  "tulum": {
+    "file": "Tulum_2.jpg",
+    "author": "Popo le Chien",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Tulum_2.jpg"
+  },
+  "panama": {
+    "file": "Panama_Papers_(148830809).jpeg",
+    "author": "Dronepicr",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Panama_Papers_(148830809).jpeg"
+  },
+  "barbados": {
+    "file": "Bridgetown_aerial.JPG",
+    "author": "P.Lechien",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Bridgetown_aerial.JPG"
+  },
+  "mendoza": {
+    "file": "Aconcagua2016.jpg",
+    "author": "Bjørn Christian Tørrissen",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Aconcagua2016.jpg"
+  },
+  "uruguay": {
+    "file": "PALACIO_LEGISLATIVO_01.JPG",
+    "author": "Eduardo Ruggieri",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:PALACIO_LEGISLATIVO_01.JPG"
+  },
+  "uyuni": {
+    "file": "Uyuni_Potosi_Ave_Aerial.jpg",
+    "author": "Jaimalalatete",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Uyuni_Potosi_Ave_Aerial.jpg"
+  },
+  "namibia": {
+    "file": "Namib_desert_MODIS.jpg",
+    "author": "Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Namib_desert_MODIS.jpg"
+  },
+  "oman": {
+    "file": "Al_Alam_Palace.jpg",
+    "author": "Tristan",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Al_Alam_Palace.jpg"
+  },
+  "doha": {
+    "file": "The_Pearl_Marina_in_Nov_2013.jpg",
+    "author": "Alex Sergeev (www.asergeev.com)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Pearl_Marina_in_Nov_2013.jpg"
+  },
+  "strasbourg": {
+    "file": "Strasbourg_Cathedral.jpg",
+    "author": "Jonathan Martz",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Strasbourg_Cathedral.jpg"
+  },
+  "copenhagen": {
+    "file": "2018_-_Christiansborg_from_the_Marble_Bridge.jpg",
+    "author": "Moahim",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:2018_-_Christiansborg_from_the_Marble_Bridge.jpg"
+  },
+  "lofoten": {
+    "file": "Moskenes_Reinebringen_lub_2025-07-21_img09_Aussicht.jpg",
+    "author": "Lukas Beck",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Moskenes_Reinebringen_lub_2025-07-21_img09_Aussicht.jpg"
+  },
+  "faroe-islands": {
+    "file": "Gásadalur_(51256491640).jpg",
+    "author": "Mike Maguire",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:G%C3%A1sadalur_(51256491640).jpg"
+  },
+  "dolomites": {
+    "file": "Faloria_Cortina_d'Ampezzo_10.jpg",
+    "author": "kallerna",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Faloria_Cortina_d'Ampezzo_10.jpg"
+  },
+  "azores": {
+    "file": "Lagoa_das_Sete_Cidades3.jpg",
+    "author": "Lacobrigo",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Lagoa_das_Sete_Cidades3.jpg"
+  },
+  "ibiza": {
+    "file": "ForbysIbizaTown_03.jpg",
+    "author": "Forbfruit",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:ForbysIbizaTown_03.jpg"
+  },
+  "lombok": {
+    "file": "Camping_above_the_clouds_at_Rinjani.jpg",
+    "author": "Paxson Woelber",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Camping_above_the_clouds_at_Rinjani.jpg"
+  },
+  "komodo": {
+    "file": "Pulau_Padar_1.jpg",
+    "author": "YUS JULIADI",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Pulau_Padar_1.jpg"
+  },
+  "zhangjiajie": {
+    "file": "China_Tianzi_Gebirge.JPG",
+    "author": "Jörg Radestock",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:China_Tianzi_Gebirge.JPG"
+  },
+  "busan": {
+    "file": "Gamcheon_Houses,_2024.jpg",
+    "author": "Bl00dnFl4mes",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Gamcheon_Houses%2C_2024.jpg"
+  },
+  "jeju": {
+    "file": "Jeju_Island.jpg",
+    "author": "Robert Simmon, using Landsat data provided by the United States Geological Survey.",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Jeju_Island.jpg"
+  },
+  "siem-reap": {
+    "file": "Front_porch_of_Wat_Damnak.jpg",
+    "author": "Willuconquer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Front_porch_of_Wat_Damnak.jpg"
+  },
+  "whistler": {
+    "file": "Telepherique-Canada-Vancouver-Whistler-Blackcomb-200907.jpg",
+    "author": "Clarisse Baudot",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Telepherique-Canada-Vancouver-Whistler-Blackcomb-200907.jpg"
   }
 }

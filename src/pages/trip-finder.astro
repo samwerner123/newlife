@@ -1,0 +1,286 @@
+---
+// Trip finder: filters every destination by month, warmth, budget, region and interests in the browser.
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { MONTHS, REGIONS, destinations, regionSlug } from '../lib/data';
+import { breadcrumbLd } from '../lib/seo';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Trip finder', href: '/trip-finder/' },
+];
+const INTERESTS: [string, string][] = [
+  ['beach', 'Beaches'],
+  ['islands', 'Islands'],
+  ['city', 'City breaks'],
+  ['food', 'Food'],
+  ['culture', 'Culture'],
+  ['history', 'History'],
+  ['nature', 'Nature'],
+  ['wildlife', 'Wildlife'],
+  ['adventure', 'Adventure'],
+  ['nightlife', 'Nightlife'],
+  ['wine', 'Wine'],
+  ['luxury', 'Luxury'],
+  ['family', 'Family'],
+];
+const now = new Date().getMonth();
+---
+
+<Base
+  title="Trip Finder: Where Should I Travel?"
+  description={`Answer four quick questions — month, temperature, budget and interests — and we’ll match you with the best of ${destinations.length} destinations, rated with real climate data.`}
+  jsonLd={[breadcrumbLd(crumbs, Astro.site)]}
+>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <h1>Where should I travel?</h1>
+      <p class="lead">Tell us when you can go and what you like — we’ll rank {destinations.length} destinations by weather, budget and interests.</p>
+    </header>
+
+    <form class="card finder" data-finder>
+      <fieldset>
+        <legend>When are you going?</legend>
+        <div class="opts months">
+          {MONTHS.map((m, i) => <label class="opt"><input type="radio" name="m" value={i} checked={i === now} /><span>{m.slice(0, 3)}</span></label>)}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>How warm?</legend>
+        <div class="opts">
+          {[['any', 'Any'], ['hot', 'Hot beach (30°C+)'], ['warm', 'Warm (24–30°C)'], ['mild', 'Mild (16–24°C)'], ['cool', 'Cool (under 16°C)'], ['ski', 'Snow & skiing']].map(([v, l], i) => (
+            <label class="opt"><input type="radio" name="t" value={v} checked={i === 0} /><span>{l}</span></label>
+          ))}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Daily budget per person (excluding flights)</legend>
+        <div class="opts">
+          {[['0', 'Any'], ['50', 'Under $50'], ['80', 'Under $80'], ['120', 'Under $120'], ['200', 'Under $200']].map(([v, l], i) => (
+            <label class="opt"><input type="radio" name="b" value={v} checked={i === 0} /><span>{l}</span></label>
+          ))}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Where in the world?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="r" value="" checked /><span>Anywhere</span></label>
+          {REGIONS.map((r) => <label class="opt"><input type="radio" name="r" value={regionSlug(r)} /><span>{r}</span></label>)}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>What do you enjoy? <span class="muted small">(pick any)</span></legend>
+        <div class="opts">
+          {INTERESTS.map(([v, l]) => <label class="opt"><input type="checkbox" name="i" value={v} /><span>{l}</span></label>)}
+        </div>
+      </fieldset>
+    </form>
+
+    <section class="section-tight" aria-live="polite">
+      <h2 data-count>Your matches</h2>
+      <ol class="results" data-results></ol>
+      <p class="card muted" data-none hidden>No matches — try a wider budget, another region or fewer interests.</p>
+      <noscript><p class="card">The trip finder needs JavaScript. Browse <a href="/where-to-go-in-january/">where to go by month</a> instead.</p></noscript>
+    </section>
+
+    <section class="section-tight prose">
+      <h2>How the trip finder works</h2>
+      <p>
+        Every destination has a weather score from 0 to 100 for each month, based on official climate normals for temperature
+        and rainfall and adjusted for hurricanes, monsoons and seasonal closures (<a href="/about/">our method</a>). We keep
+        destinations rated good or great for your month, match your temperature and budget, then rank them by weather — with a
+        boost for each interest they match. For skiing, we use the ski-season calendar instead of the weather score.
+      </p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  type D = { id: string; name: string; country: string; region: string; url: string; tags: string[]; budget: [number, number]; ski: number[]; months: [number, number, number, number][]; thumb: string };
+  const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+  const slug = (s: string) => s.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/&/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const rating = (s: number) => (s >= 80 ? 'great' : s >= 65 ? 'good' : s >= 50 ? 'fair' : 'poor');
+  const label = { great: 'Great', good: 'Good', fair: 'Fair', poor: 'Not ideal' } as const;
+  const form = document.querySelector<HTMLFormElement>('[data-finder]')!;
+  const list = document.querySelector<HTMLOListElement>('[data-results]')!;
+  const count = document.querySelector<HTMLElement>('[data-count]')!;
+  const none = document.querySelector<HTMLElement>('[data-none]')!;
+  let data: D[] = [];
+
+  // Restore choices from the URL so results can be shared.
+  const params = new URLSearchParams(location.search);
+  for (const [k, v] of params) {
+    for (const val of v.split(',')) {
+      const input = form.querySelector<HTMLInputElement>(`input[name="${k}"][value="${CSS.escape(val)}"]`);
+      if (input) input.checked = true;
+    }
+  }
+
+  function state() {
+    const fd = new FormData(form);
+    return { m: Number(fd.get('m')), t: String(fd.get('t')), b: Number(fd.get('b')), r: String(fd.get('r') ?? ''), i: fd.getAll('i').map(String) };
+  }
+
+  function render() {
+    const s = state();
+    const q = new URLSearchParams({ m: String(s.m), t: s.t, b: String(s.b), r: s.r, i: s.i.join(',') });
+    history.replaceState(null, '', `?${q}`);
+    const hits = data
+      .map((d) => {
+        const [score, high] = d.months[s.m];
+        if (s.r && slug(d.region) !== s.r) return null;
+        if (s.b && d.budget[0] > s.b) return null;
+        if (s.t === 'ski') {
+          if (!d.ski.includes(s.m + 1)) return null;
+        } else {
+          if (score < 65) return null;
+          if (s.t === 'hot' && high < 30) return null;
+          if (s.t === 'warm' && (high < 24 || high >= 30)) return null;
+          if (s.t === 'mild' && (high < 16 || high >= 24)) return null;
+          if (s.t === 'cool' && high >= 16) return null;
+        }
+        const match = s.i.filter((t) => d.tags.includes(t)).length;
+        if (s.i.length && !match) return null;
+        return { d, rank: (s.t === 'ski' ? 100 - high : score) + match * 6 };
+      })
+      .filter((x): x is { d: D; rank: number } => x !== null)
+      .sort((a, b) => b.rank - a.rank)
+      .slice(0, 30);
+    count.textContent = hits.length ? `Your top ${hits.length} matches for ${MONTHS[s.m][0].toUpperCase()}${MONTHS[s.m].slice(1)}` : 'Your matches';
+    none.hidden = hits.length > 0;
+    list.replaceChildren(
+      ...hits.map(({ d }) => {
+        const [score, high, low, rain] = d.months[s.m];
+        const li = document.createElement('li');
+        li.className = 'card finder-hit';
+        if (d.thumb) {
+          const img = document.createElement('img');
+          img.src = d.thumb;
+          img.alt = '';
+          img.loading = 'lazy';
+          img.width = 160;
+          img.height = 90;
+          li.append(img);
+        }
+        const body = document.createElement('div');
+        const a = document.createElement('a');
+        a.href = `${d.url}${MONTHS[s.m]}/`;
+        a.className = 'finder-name';
+        a.textContent = `${d.name} in ${MONTHS[s.m][0].toUpperCase()}${MONTHS[s.m].slice(1)}`;
+        const badge = document.createElement('span');
+        badge.className = 'badge';
+        const r = rating(score);
+        badge.dataset.rating = r;
+        badge.textContent = s.t === 'ski' ? 'Ski season' : `${label[r]} ${score}`;
+        const meta = document.createElement('p');
+        meta.className = 'small muted';
+        meta.textContent = `${d.country} · ${high}°C / ${low}°C · ${rain} mm rain · from $${d.budget[0]}/day`;
+        body.append(a, ' ', badge, meta);
+        li.append(body);
+        return li;
+      }),
+    );
+    (window as unknown as { __convertUnits?: (el: Element) => void }).__convertUnits?.(list);
+  }
+
+  form.addEventListener('change', render);
+  fetch('/api/destinations.json')
+    .then((r) => r.json())
+    .then((j) => {
+      data = j.dests;
+      render();
+    });
+</script>
+
+<style>
+  .finder {
+    display: grid;
+    gap: 14px;
+  }
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  legend {
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .opts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .opt input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .opt span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .opt input:checked + span {
+    background: var(--text);
+    color: var(--surface);
+    border-color: var(--text);
+  }
+  .opt input:focus-visible + span {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  @media (pointer: coarse) {
+    .opt span {
+      min-height: 44px;
+    }
+  }
+</style>
+
+<style is:global>
+  /* Result rows are created in the browser, so these styles are global. */
+  .results {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: 12px;
+  }
+  .finder-hit {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px;
+  }
+  .finder-hit img {
+    width: 120px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex: none;
+  }
+  .finder-hit p {
+    margin: 4px 0 0;
+  }
+  .finder-name {
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .finder-name:hover {
+    text-decoration: underline;
+  }
+  [data-none][hidden] {
+    display: none;
+  }
+</style>

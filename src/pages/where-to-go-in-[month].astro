@@ -115,6 +115,7 @@ const jsonLd = [
 
     <nav class="chips topics" aria-label={`More ${name} ideas`}>
       {COLLECTIONS.map((c) => <a class="chip" href={c.path(m)}>{c.h1(name)}</a>)}
+      {(m === 10 || m === 11) && <a class="chip" href="/christmas-destinations/">Christmas &amp; New Year destinations</a>}
     </nav>
 
     <section aria-labelledby="list-h">
@@ -176,7 +177,7 @@ const jsonLd = [
       <h2>Countries and regions in {name}</h2>
       <div class="chips">
         {[...hubs].sort((a, b) => b.months[m].score - a.months[m].score).map((h) => (
-          <a class="chip" href={hubMonthUrl(h, m)}>{h.name} in {name} · {h.months[m].score}</a>
+          <a class="chip" href={hubMonthUrl(h, m)}>{h.Label} in {name} · {h.months[m].score}</a>
         ))}
       </div>
     </section>

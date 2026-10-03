@@ -1,0 +1,45 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, monthRanges, MONTHS } from '../../lib/data';
+
+const islands = ['oahu', 'maui', 'kauai', 'big-island'].map((s) => bySlug.get(s)!);
+const rows = islands.map((d) => ({ slug: d.slug }));
+const wettest = [...islands].sort((a, b) => b.months.reduce((s, m) => s + m.rain, 0) - a.months.reduce((s, m) => s + m.rain, 0))[0];
+---
+
+<Guide slug="hawaii-islands-compared" photo="kauai">
+  <p>
+    Hawaii is warm all year, so choosing an island matters more than choosing a month. The main differences are rain (more in
+    winter, and much more on north- and east-facing ‘windward’ coasts), surf (big waves on north shores in winter) and what you
+    want to do. Here’s how {islands.map((d) => d.name).join(', ')} compare.
+  </p>
+
+  <h2>Weather by island and month</h2>
+  <GuideTable caption="Weather rating by Hawaiian island and month" months={MONTHS.map((_, i) => i)} rows={rows} />
+  <GuideTable caption="Rainfall by Hawaiian island and month" months={MONTHS.map((_, i) => i)} show="rain" rows={rows} />
+  <p class="small muted">
+    Figures come from each island’s main weather station. Rain varies hugely over short distances: resort areas on the dry
+    leeward coasts get far less than the rainforests and mountains. Of these stations, {wettest.name} is the wettest.
+  </p>
+
+  <h2>Which island is best for you?</h2>
+  <ul>
+    {islands.map((d) => <li><b><a href={d.url}>{d.name}</a></b> — best in {monthRanges(d.bestMonths)}. {d.intro}</li>)}
+  </ul>
+
+  <h2>Which island when?</h2>
+  <ul>
+    <li><b>December–April (winter):</b> whale season — Maui’s channel is the best place to see humpbacks. Stay on the dry leeward sides: Kāʻanapali and Wailea on Maui, Kona and Kohala on the Big Island, Poʻipū on Kauai. North shores get big surf (great to watch, dangerous to swim).</li>
+    <li><b>May–October (summer):</b> drier everywhere and calm north shores — the best time for Kauai’s Nā Pali Coast and snorkelling on Oahu’s North Shore.</li>
+    <li><b>April–May and September–October:</b> the shoulder seasons, with good weather and lower prices on every island.</li>
+  </ul>
+
+  <h2>Island-hopping tips</h2>
+  <ul>
+    <li><b>Pick two islands</b> for a week to ten days; inter-island flights are short and frequent.</li>
+    <li><b>Book permits early:</b> sunrise at Haleakalā (Maui), the Kalalau Trail and Hāʻena State Park (Kauai) and Diamond Head (Oahu) need reservations.</li>
+    <li><b>Respect closures and local communities,</b> including West Maui, which is still rebuilding after the 2023 wildfire in Lahaina.</li>
+  </ul>
+  <p>See also: <a href="/best-time-to-visit-hawaii/">best time to visit Hawaii</a>, <a href="/compare/maui-vs-oahu/">Maui vs Oahu</a> and <a href="/guides/whale-watching/">whale watching</a>.</p>
+</Guide>

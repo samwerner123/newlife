@@ -1,0 +1,55 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+
+// Long-term average start/end dates published by the Japan Meteorological Agency (rounded).
+const regions: [string, string, string][] = [
+  ['Okinawa', 'Around 10 May', 'Around 21 June'],
+  ['Southern Kyushu', 'Late May', 'Mid-July'],
+  ['Kansai (Kyoto, Osaka)', 'Around 6 June', 'Around 19 July'],
+  ['Kanto (Tokyo)', 'Around 7 June', 'Around 19 July'],
+  ['Tohoku (north Honshu)', 'Mid-June', 'Late July'],
+  ['Hokkaido', 'No official rainy season', '—'],
+];
+---
+
+<Guide slug="japan-rainy-season" photo="kyoto">
+  <p>
+    Japan’s rainy season, <strong>tsuyu</strong> (or baiu), is a spell of cloudy, humid and frequently wet weather in early
+    summer. It moves north from Okinawa in May to most of Honshu in June and July. It isn’t a monsoon of constant downpours —
+    expect many grey, drizzly days with heavier bursts — and it ends with the start of the hot, humid summer.
+  </p>
+
+  <h2>When the rainy season starts and ends</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Region</th><th scope="col" class="left">Typical start</th><th scope="col" class="left">Typical end</th></tr></thead>
+      <tbody>{regions.map(([r, s, e]) => <tr><th scope="row">{r}</th><td class="left">{s}</td><td class="left">{e}</td></tr>)}</tbody>
+    </table>
+  </div>
+  <p class="small muted">Long-term averages from the Japan Meteorological Agency; each year the season can start or end a couple of weeks early or late.</p>
+
+  <h2>How wet does it get?</h2>
+  <GuideTable caption="Monthly rainfall May to August" months={[4, 5, 6, 7]} show="rain" rows={[{ slug: 'okinawa' }, { slug: 'tokyo' }, { slug: 'kyoto' }, { slug: 'osaka' }, { slug: 'hokkaido' }]} />
+  <GuideTable caption="Weather rating May to August" months={[4, 5, 6, 7]} rows={[{ slug: 'okinawa' }, { slug: 'tokyo' }, { slug: 'kyoto' }, { slug: 'osaka' }, { slug: 'hokkaido' }]} />
+
+  <h2>Is it worth visiting Japan in the rainy season?</h2>
+  <p>
+    Yes, if you plan for it. June is one of the least crowded months (no school holidays and no big festivals), hotel prices
+    dip, and the rain brings Japan’s gardens to life. Pack a compact umbrella — or buy one at any convenience store — and
+    plan museums, food tours and onsen for the wettest days.
+  </p>
+  <ul>
+    <li><b>Hydrangeas:</b> the season’s flower blooms in June at Kamakura (Meigetsu-in, Hase-dera), Hakone and Kyoto’s Mimuroto-ji.</li>
+    <li><b>Fireflies:</b> early summer evenings bring fireflies to rivers around Kyoto and in the countryside.</li>
+    <li><b>Escape north:</b> <a href="/destinations/hokkaido/">Hokkaido</a> has no official rainy season and its best weather in June and July.</li>
+    <li><b>Okinawa finishes early:</b> after about 21 June, the islands enjoy sunny beach weather (watch for typhoons later in summer).</li>
+  </ul>
+  <p>See also: <a href="/best-time-to-visit-japan/">best time to visit Japan</a>, <a href="/guides/golden-week-japan/">Golden Week</a> and <a href="/guides/typhoon-season/">typhoon season</a>.</p>
+</Guide>
+
+<style>
+  .left {
+    text-align: left;
+  }
+</style>

@@ -1,0 +1,72 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+const bali = bySlug.get('bali')!;
+const wet = [10, 11, 0, 1, 2]; // Nov–Mar
+const dry = [4, 5, 6, 7, 8]; // May–Sep
+const sum = (ms: number[]) => ms.reduce((s, m) => s + bali.months[m].rain, 0);
+---
+
+<Guide slug="bali-wet-season" photo="bali">
+  <p>
+    Bali’s wet season runs from about <strong>November to March</strong>, with the heaviest rain in <strong>December, January and
+    February</strong>. It’s still hot — around {deg(bali.months[0].high)} by day — and rain usually comes in heavy afternoon or
+    evening downpours rather than all day. Many mornings are sunny. So is it worth going? For many travellers, yes: it’s
+    greener, quieter and cheaper (except over Christmas and New Year).
+  </p>
+
+  <h2>Bali’s weather month by month</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption class="visually-hidden">Bali climate by month</caption>
+      <thead><tr><th scope="col">Month</th><th scope="col">Rating</th><th scope="col">High / low</th><th scope="col">Rain</th><th scope="col">Sea</th></tr></thead>
+      <tbody>
+        {
+          bali.months.map((m) => (
+            <tr>
+              <th scope="row"><a href={destMonthUrl(bali, m.index)}>{m.name}</a></th>
+              <td><span class="badge" data-rating={m.rating}>{m.score}</span></td>
+              <td>{deg(m.high)} / {deg(m.low)}</td>
+              <td>{m.rain} mm</td>
+              <td>{m.sea !== null ? deg(m.sea) : '—'}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">
+    In total, about {sum(wet)} mm of rain falls from November to March, against {sum(dry)} mm from May to September (Denpasar
+    climate normals). The mountains around Ubud and Munduk are wetter than the coast.
+  </p>
+
+  <h2>The upsides of the wet season</h2>
+  <ul>
+    <li><b>Lower prices</b> on villas and hotels outside the Christmas–New Year peak.</li>
+    <li><b>Fewer crowds</b> at temples, rice terraces and beach clubs.</li>
+    <li><b>Lush landscapes:</b> the rice terraces of Tegallalang and Jatiluwih are at their greenest, and waterfalls are in full flow.</li>
+    <li><b>Surf on the east coast:</b> breaks around Keramas and Sanur work best in the wet season.</li>
+  </ul>
+
+  <h2>The downsides</h2>
+  <ul>
+    <li><b>Rubbish on west-coast beaches:</b> currents wash plastic onto Kuta, Legian and Seminyak beaches, especially from December to March.</li>
+    <li><b>Rougher seas</b> can cancel fast boats to Nusa Penida and the Gili Islands, and reduce diving visibility.</li>
+    <li><b>Humidity</b> is high, and traffic gets worse in downpours.</li>
+    <li><b>Hiking</b> up Mount Batur and Agung is slippery and often cloudy.</li>
+  </ul>
+
+  <h2>Tips for Bali in the rainy season</h2>
+  <ul>
+    <li><b>Plan outdoor activities for the morning;</b> rain usually arrives in the afternoon.</li>
+    <li><b>Stay on the Bukit Peninsula</b> (Uluwatu, Nusa Dua) — it’s drier than the mountains and the beaches stay cleaner.</li>
+    <li><b>Book flexible boat transfers</b> and keep a spare day.</li>
+    <li><b>Mind Nyepi:</b> the Balinese Day of Silence (usually in March) closes the whole island, airport included, for 24 hours.</li>
+  </ul>
+  <p>
+    Prefer dry weather? Bali’s dry season (April–October) is the classic time to go — see <a href="/destinations/bali/">the best time
+    to visit Bali</a> or nearby <a href="/destinations/lombok/">Lombok</a>. In December–February, <a href="/best-time-to-visit-thailand/">Thailand</a>
+    is at its driest.
+  </p>
+</Guide>

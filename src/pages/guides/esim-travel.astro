@@ -1,0 +1,71 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import Icon from '../../components/Icon.astro';
+import { partnerLinks } from '../../lib/data';
+
+const links = partnerLinks(undefined, ['esim']);
+---
+
+<Guide slug="esim-travel" photo="tokyo">
+  <p>
+    An eSIM is a digital SIM card built into your phone. Instead of buying a plastic SIM at the airport, you buy a data plan
+    online, scan a QR code or install it from an app, and your phone connects to a local network as soon as you land. For most
+    trips it’s far cheaper than your home carrier’s roaming charges.
+  </p>
+
+  <h2>How a travel eSIM works</h2>
+  <ol>
+    <li><b>Check your phone supports eSIM</b> and is unlocked (not tied to one carrier).</li>
+    <li><b>Buy a plan</b> for your destination or region — for example 5 GB for 15 days in Japan, or a Europe-wide plan.</li>
+    <li><b>Install it before you leave</b> while you’re on Wi-Fi. Most plans don’t start counting days until they first connect abroad.</li>
+    <li><b>On arrival,</b> switch mobile data to the travel eSIM and turn on data roaming for that line.</li>
+    <li><b>Keep your home number</b> on its own line for calls and texts (handy for bank codes), with roaming switched off to avoid charges.</li>
+  </ol>
+
+  <h2>Which phones support eSIM?</h2>
+  <p>
+    Most phones from about 2019 onwards do: iPhone XS, XR and newer (iPhones sold in the US since the iPhone 14 are eSIM-only),
+    Google Pixel 3 and newer, and recent Samsung Galaxy S, Z and many A-series models. Check your phone’s settings for an ‘Add
+    eSIM’ option, and confirm with your carrier that it’s unlocked.
+  </p>
+
+  <h2>How much data do you need?</h2>
+  <ul>
+    <li><b>Light use (maps, messages, email):</b> around 1 GB a week.</li>
+    <li><b>Typical use (plus social media and photos):</b> 3–5 GB a week.</li>
+    <li><b>Heavy use (video calls, streaming, hotspot for a laptop):</b> 10 GB+ a week, or an unlimited plan.</li>
+  </ul>
+  <p>Download offline maps and playlists on hotel Wi-Fi to stretch your allowance.</p>
+
+  <h2>Things to watch for</h2>
+  <ul>
+    <li><b>Data-only:</b> most travel eSIMs have no local phone number — use WhatsApp or FaceTime for calls.</li>
+    <li><b>Validity and speed:</b> check how long the plan lasts and whether speeds are throttled after a fair-use limit.</li>
+    <li><b>Hotspot:</b> not every plan allows tethering.</li>
+    <li><b>Multi-country trips:</b> a regional plan (Europe, Southeast Asia, Latin America) is usually simpler than several country plans.</li>
+    <li><b>China:</b> many travel eSIMs route data abroad, which means apps blocked in mainland China, like Google and WhatsApp, may still work — check the plan details.</li>
+  </ul>
+  {
+    links.length > 0 && (
+      <div class="card partner">
+        <h2 class="h3">Get a travel eSIM</h2>
+        {links.map((l) => (
+          <a class="btn" href={l.url} rel="sponsored nofollow noopener" target="_blank">
+            <Icon name={l.kind} size={18} /> {l.cta}
+          </a>
+        ))}
+        <p class="disclosure">Affiliate link — we may earn a commission at no extra cost to you. <a href="/affiliate-disclosure/">How affiliate links work</a></p>
+      </div>
+    )
+  }
+  <p>See also: <a href="/guides/travel-insurance/">travel insurance explained</a>.</p>
+</Guide>
+
+<style>
+  .partner {
+    margin: 16px 0;
+  }
+  .h3 {
+    font-size: 1.1rem;
+  }
+</style>

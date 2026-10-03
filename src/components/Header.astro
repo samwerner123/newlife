@@ -1,6 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Search from './Search.astro';
+import Icon from './Icon.astro';
 
 const path = Astro.url.pathname;
 const links = [
@@ -8,8 +9,10 @@ const links = [
   { href: '/destinations/', label: 'Destinations' },
   { href: '/countries/', label: 'Countries' },
   { href: '/compare/', label: 'Compare' },
-  { href: '/calendar/', label: 'Calendar' },
   { href: '/guides/', label: 'Guides' },
+  { href: '/trip-finder/', label: 'Trip finder' },
+  { href: '/map/', label: 'Map', menuOnly: true },
+  { href: '/calendar/', label: 'Calendar', menuOnly: true },
 ];
 const current = (href: string) => href !== '/#months' && path.startsWith(href);
 ---
@@ -19,16 +22,27 @@ const current = (href: string) => href !== '/#months' && path.startsWith(href);
     <Logo />
     <nav aria-label="Main" id="main-nav" class="nav">
       <ul>
-        {links.map((l) => <li><a href={l.href} aria-current={current(l.href) ? 'page' : undefined}>{l.label}</a></li>)}
+        {links.map((l) => <li class:list={{ 'menu-only': l.menuOnly }}><a href={l.href} aria-current={current(l.href) ? 'page' : undefined}>{l.label}</a></li>)}
         <li class="menu-units">
           <button type="button" class="units wide" data-units-toggle>
             Units: <span data-unit-c>°C</span><span class="sep">/</span><span data-unit-f>°F</span>
+          </button>
+        </li>
+        <li class="menu-units">
+          <button type="button" class="units wide" data-theme-toggle>
+            <Icon name="moon" size={18} /> Light / dark theme
           </button>
         </li>
       </ul>
     </nav>
     <div class="tools">
       <Search />
+      <a class="icon-btn saved-link" href="/saved/" aria-label="Saved places" title="Saved places">
+        <Icon name="heart" size={20} /><span class="count" data-saved-count hidden></span>
+      </a>
+      <button type="button" class="icon-btn theme" data-theme-toggle aria-label="Switch light or dark theme" title="Light / dark theme">
+        <span class="t-dark"><Icon name="moon" size={20} /></span><span class="t-light"><Icon name="sun" size={20} /></span>
+      </button>
       <button type="button" class="units" data-units-toggle aria-label="Switch temperature units" title="Switch °C / °F">
         <span data-unit-c>°C</span><span class="sep">/</span><span data-unit-f>°F</span>
       </button>
@@ -41,6 +55,17 @@ const current = (href: string) => href !== '/#months' && path.startsWith(href);
 </header>
 
 <script>
+  // Light/dark toggle: flips whatever is showing now and remembers the choice.
+  const root = document.documentElement;
+  document.querySelectorAll('[data-theme-toggle]').forEach((b) => b.addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    const next = dark ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch {}
+  }));
+
   const btn = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const nav = document.getElementById('main-nav');
   btn?.addEventListener('click', () => {
@@ -92,6 +117,10 @@ const current = (href: string) => href !== '/#months' && path.startsWith(href);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9375rem;
+    white-space: nowrap;
+  }
+  .menu-only {
+    display: none;
   }
   .nav a:hover,
   .nav a[aria-current='page'] {
@@ -104,7 +133,8 @@ const current = (href: string) => href !== '/#months' && path.startsWith(href);
     gap: 6px;
   }
   .units,
-  .menu {
+  .menu,
+  .icon-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -121,6 +151,46 @@ const current = (href: string) => href !== '/#months' && path.startsWith(href);
     font-weight: 600;
     cursor: pointer;
   }
+  .icon-btn {
+    position: relative;
+    padding: 0;
+    text-decoration: none;
+  }
+  .count {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    background: var(--cta);
+    color: var(--cta-text);
+    font-size: 0.6875rem;
+    line-height: 16px;
+    text-align: center;
+  }
+  .count[hidden] {
+    display: none;
+  }
+  /* Show the icon for the theme you'd switch to. */
+  .t-light {
+    display: none;
+  }
+  :global(html[data-theme='dark']) .t-light {
+    display: contents;
+  }
+  :global(html[data-theme='dark']) .t-dark {
+    display: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(html:not([data-theme='light'])) .t-light {
+      display: contents;
+    }
+    :global(html:not([data-theme='light'])) .t-dark {
+      display: none;
+    }
+  }
   .units .sep {
     color: var(--muted);
   }
@@ -133,7 +203,10 @@ const current = (href: string) => href !== '/#months' && path.startsWith(href);
   .menu-units {
     display: none;
   }
-  @media (max-width: 960px) {
+  @media (max-width: 1100px) {
+    .menu-only {
+      display: block;
+    }
     .bar {
       min-height: 56px;
     }
@@ -169,7 +242,8 @@ const current = (href: string) => href !== '/#months' && path.startsWith(href);
     }
   }
   @media (max-width: 480px) {
-    .tools > .units {
+    .tools > .units,
+    .tools > .theme {
       display: none;
     }
     .menu-units {

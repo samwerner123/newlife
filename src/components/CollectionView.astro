@@ -5,8 +5,9 @@ import DestinationCard from './DestinationCard.astro';
 import MonthPills from './MonthPills.astro';
 import RatingBadge from './RatingBadge.astro';
 import Faq from './Faq.astro';
+import Share from './Share.astro';
 import { COLLECTIONS, type Collection } from '../lib/collections';
-import { MONTHS, monthUrl, destMonthUrl, travelYear, deg, usd } from '../lib/data';
+import { MONTHS, monthUrl, destMonthUrl, travelYear, deg, usd, skiStatus, SKI_LABEL, SKI_RATING } from '../lib/data';
 import { breadcrumbLd } from '../lib/seo';
 import { faqLd } from '../lib/faq';
 import { SITE } from '../config';
@@ -29,13 +30,16 @@ const crumbs = [
 const cheapest = [...items].sort((a, b) => a.budget.low - b.budget.low)[0];
 const driest = [...items].sort((a, b) => a.months[m].rain - b.months[m].rain)[0];
 const warmest = [...items].sort((a, b) => b.months[m].high - a.months[m].high)[0];
-const faq = [
+const ski = c.kind === 'ski';
+const faq = c.faq ? c.faq(mn, items, m) : [
   { q: `Where is the best place to go in ${mn}?`, a: `${top.name} tops this list for ${mn}, with average highs of ${deg(top.months[m].high)} and about ${top.months[m].rain} mm of rain. ${items[1] ? `${items[1].name} and ${items[2]?.name ?? ''} are close behind.` : ''}`.trim() },
   { q: `Where is warmest in ${mn}?`, a: `Of these picks, ${warmest.name} is the warmest in ${mn}, averaging ${deg(warmest.months[m].high)} by day and ${deg(warmest.months[m].low)} at night.` },
   { q: `Which is the cheapest option in ${mn}?`, a: `${cheapest.name} is the best value here, from about ${usd(cheapest.budget.low)} per person per day excluding flights.` },
   { q: `Where is driest in ${mn}?`, a: `${driest.name} gets the least rain of these destinations in ${mn} — about ${driest.months[m].rain} mm on average.` },
 ];
-const description = `${c.h1(mn)}: ${items.slice(0, 4).map((d) => d.name).join(', ')} and more. Compare temperatures, rainfall and daily budgets from official climate data.`;
+const description = ski
+  ? `${c.h1(mn)}: ${items.slice(0, 4).map((d) => d.name).join(', ')} and more — ski areas open in ${mn}, with season status, resort temperatures and daily budgets.`
+  : `${c.h1(mn)}: ${items.slice(0, 4).map((d) => d.name).join(', ')} and more. Compare temperatures, rainfall and daily budgets from official climate data.`;
 const jsonLd = [
   breadcrumbLd(crumbs, Astro.site),
   {
@@ -60,15 +64,27 @@ const jsonLd = [
       <p class="eyebrow">{mn} {year} travel ideas</p>
       <h1>{c.h1(mn)}</h1>
       <p class="lead">{c.lead(mn, items, m)}</p>
+      <Share title={c.h1(mn)} />
     </header>
 
     <nav class="related" aria-label={`More ${mn} ideas`}>
       <a class="chip" href={monthUrl(m)}>All {mn} ideas</a>
       {COLLECTIONS.map((o) => <a class="chip" href={o.path(m)} aria-current={o.key === c.key ? 'page' : undefined}>{o.label}</a>)}
+      {m === 11 && <a class="chip" href="/christmas-destinations/">Christmas &amp; New Year</a>}
     </nav>
 
+    <h2 class="visually-hidden">{c.h1(mn)}: our picks</h2>
     <div class="grid-cards">
-      {items.map((d, i) => <DestinationCard dest={d} month={m} rank={i + 1} />)}
+      {
+        items.map((d, i) => {
+          const s = ski ? skiStatus(d, m) : undefined;
+          return s ? (
+            <DestinationCard dest={d} month={m} rank={i + 1} eager={i === 0} badge={{ label: SKI_LABEL[s], rating: SKI_RATING[s] }} note={`Ski areas: ${d.ski!.resorts}.`} />
+          ) : (
+            <DestinationCard dest={d} month={m} rank={i + 1} eager={i === 0} />
+          );
+        })
+      }
     </div>
 
     <section class="section">
@@ -77,16 +93,31 @@ const jsonLd = [
         <table class="data-table">
           <caption class="visually-hidden">{c.h1(mn)} — summary</caption>
           <thead>
-            <tr><th scope="col">Destination</th><th scope="col">Rating</th><th scope="col">High</th><th scope="col">Rain</th><th scope="col">From</th></tr>
+            {
+              ski ? (
+                <tr><th scope="col">Destination</th><th scope="col">Ski season</th><th scope="col">High / low (town)</th><th scope="col">From</th></tr>
+              ) : (
+                <tr><th scope="col">Destination</th><th scope="col">Rating</th><th scope="col">High</th><th scope="col">Rain</th><th scope="col">From</th></tr>
+              )
+            }
           </thead>
           <tbody>
             {
               items.map((d, i) => (
                 <tr>
                   <th scope="row"><span class="muted">{i + 1}.</span> <a href={destMonthUrl(d, m)}>{d.name}</a></th>
-                  <td><RatingBadge score={d.months[m].score} rating={d.months[m].rating} /></td>
-                  <td>{deg(d.months[m].high)}</td>
-                  <td>{d.months[m].rain} mm</td>
+                  {ski ? (
+                    <>
+                      <td><span class="badge" data-rating={SKI_RATING[skiStatus(d, m)!]}>{SKI_LABEL[skiStatus(d, m)!]}</span></td>
+                      <td>{deg(d.months[m].high)} / {deg(d.months[m].low)}</td>
+                    </>
+                  ) : (
+                    <>
+                      <td><RatingBadge score={d.months[m].score} rating={d.months[m].rating} /></td>
+                      <td>{deg(d.months[m].high)}</td>
+                      <td>{d.months[m].rain} mm</td>
+                    </>
+                  )}
                   <td>{usd(d.budget.low)}/day</td>
                 </tr>
               ))

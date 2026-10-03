@@ -1,0 +1,144 @@
+---
+// Saved places and recently viewed destinations, rendered in the browser from localStorage.
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Saved places', href: '/saved/' },
+];
+---
+
+<Base title="Your Saved Places" description="Destinations you saved and recently viewed on SeasonScout — stored privately in your browser." noindex>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <h1>Your saved places</h1>
+      <p class="lead">Tap the ♥ on any destination to save it here. Your list is stored only in this browser — no account needed.</p>
+    </header>
+
+    <section class="section-tight" aria-labelledby="saved-h">
+      <h2 id="saved-h" class="visually-hidden">Saved</h2>
+      <div class="grid-cards" data-list="saved"></div>
+      <p class="card muted" data-empty="saved" hidden>Nothing saved yet. Browse <a href="/destinations/">destinations</a> or try the <a href="/trip-finder/">trip finder</a>.</p>
+      <p data-compare hidden><a class="btn" href="/compare/custom/">Compare two saved places</a></p>
+    </section>
+
+    <section class="section-tight" aria-labelledby="recent-h">
+      <h2 id="recent-h">Recently viewed</h2>
+      <div class="grid-cards" data-list="recent"></div>
+      <p class="muted" data-empty="recent" hidden>Destinations you visit will appear here.</p>
+    </section>
+    <noscript><p class="card">Saved places need JavaScript.</p></noscript>
+  </div>
+</Base>
+
+<script>
+  type D = { id: string; name: string; country: string; url: string; best: string; budget: [number, number]; thumb: string };
+  const read = (k: string): string[] => {
+    try {
+      return JSON.parse(localStorage.getItem(k) || '[]');
+    } catch {
+      return [];
+    }
+  };
+
+  function card(d: D) {
+    const art = document.createElement('article');
+    art.className = 'card saved-card';
+    if (d.thumb) {
+      const img = document.createElement('img');
+      img.src = d.thumb;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.width = 400;
+      img.height = 225;
+      art.append(img);
+    }
+    const body = document.createElement('div');
+    body.className = 'body';
+    const h = document.createElement('h3');
+    const a = document.createElement('a');
+    a.href = d.url;
+    a.textContent = d.name;
+    h.append(a);
+    const p = document.createElement('p');
+    p.className = 'small muted';
+    p.textContent = `${d.country} · Best: ${d.best || '—'} · from $${d.budget[0]}/day`;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'save';
+    btn.dataset.save = d.id;
+    btn.setAttribute('aria-pressed', 'true');
+    btn.textContent = 'Remove';
+    body.append(h, p, btn);
+    art.append(body);
+    return art;
+  }
+
+  async function render() {
+    const data: { dests: D[] } = await (await fetch('/api/destinations.json')).json();
+    const by = new Map(data.dests.map((d) => [d.id, d]));
+    for (const key of ['saved', 'recent']) {
+      const list = document.querySelector<HTMLElement>(`[data-list="${key}"]`)!;
+      const items = read(key).map((s) => by.get(s)).filter((d): d is D => Boolean(d));
+      list.replaceChildren(...items.map(card));
+      document.querySelector<HTMLElement>(`[data-empty="${key}"]`)!.hidden = items.length > 0;
+      if (key === 'saved') {
+        const cmp = document.querySelector<HTMLElement>('[data-compare]')!;
+        cmp.hidden = items.length < 2;
+        if (items.length >= 2) cmp.querySelector('a')!.href = `/compare/custom/?a=${items[0].id}&b=${items[1].id}`;
+      }
+    }
+  }
+  render();
+  // The global save handler updates storage first; re-render after it runs.
+  document.addEventListener('click', (e) => {
+    if ((e.target as Element).closest('[data-save]')) setTimeout(render, 0);
+  });
+</script>
+
+<style is:global>
+  /* Global: these cards are created in the browser, so scoped styles wouldn't reach them. */
+  .saved-card {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .saved-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+  .saved-card .body {
+    padding: 14px 16px 16px;
+    display: grid;
+    gap: 6px;
+  }
+  .saved-card h3 {
+    margin: 0;
+  }
+  .saved-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .saved-card .save {
+    justify-self: start;
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  [data-empty][hidden],
+  [data-compare][hidden] {
+    display: none;
+  }
+</style>

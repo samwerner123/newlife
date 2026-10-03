@@ -29,8 +29,9 @@
   --font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Dark theme: follows the system unless the visitor picked a theme with the header toggle. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     color-scheme: dark;
     --bg: #0d0d0d;
     --surface: #1a1a19;
@@ -57,6 +58,34 @@
     --r-poor-ink: #ffffff;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
   }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-2: #232321;
+  --text: #ffffff;
+  --text-2: #c3c2b7;
+  --muted: #a3a29b;
+  --border: rgba(255, 255, 255, 0.1);
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --link: #86b6ef;
+  --cta: #c2410c;
+  --cta-hover: #dc5a1e;
+  --focus: #86b6ef;
+  --temp: #d95926;
+  --rain: #3987e5;
+  --r-great: #9ec5f4;
+  --r-good: #5598e7;
+  --r-fair: #256abf;
+  --r-poor: #184f95;
+  --r-great-ink: #0b0b0b;
+  --r-good-ink: #0b0b0b;
+  --r-fair-ink: #ffffff;
+  --r-poor-ink: #ffffff;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 *,
@@ -542,4 +571,56 @@ p {
 .quick .chip {
   flex: none;
   white-space: nowrap;
+}
+
+/* ---------- Save & share ---------- */
+
+.save[aria-pressed='true'] .icon path {
+  fill: var(--cta);
+  stroke: var(--cta);
+}
+
+/* ---------- Print: a clean fact sheet ---------- */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .bookbar,
+  .booking,
+  .skip,
+  #tip,
+  .share,
+  .related,
+  .month-pills,
+  .prev-next,
+  .save,
+  .cta,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+    padding: 0 !important;
+  }
+  .card,
+  .table-wrap {
+    break-inside: avoid;
+    border-color: #ccc;
+    box-shadow: none;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  .layout {
+    grid-template-columns: 1fr !important;
+  }
+  .photo-hero {
+    aspect-ratio: 21 / 6 !important;
+  }
+  .section,
+  .section-tight {
+    padding: 12px 0;
+  }
 }

@@ -1,0 +1,49 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+---
+
+<Guide slug="golden-week-japan" photo="tokyo">
+  <p>
+    Golden Week is a cluster of four Japanese public holidays at the turn of April and May — and the busiest domestic travel
+    period of the year. Trains, flights and hotels sell out, popular sights are crowded and prices rise. If you’re planning a
+    spring trip to Japan, it’s the week to know about.
+  </p>
+
+  <h2>Golden Week dates</h2>
+  <ul>
+    <li><b>29 April</b> — Shōwa Day</li>
+    <li><b>3 May</b> — Constitution Memorial Day</li>
+    <li><b>4 May</b> — Greenery Day</li>
+    <li><b>5 May</b> — Children’s Day</li>
+  </ul>
+  <p>
+    When a holiday falls on a Sunday, the following weekday becomes a substitute holiday. In <strong>2027</strong>, Shōwa Day is a
+    Thursday and 1–5 May runs from Saturday to Wednesday, so expect a five-day peak from 1 to 5 May — and many people taking the
+    whole week from 29 April off.
+  </p>
+
+  <h2>How Golden Week affects travel</h2>
+  <ul>
+    <li><b>Shinkansen and flights:</b> reserved seats sell out weeks ahead for the first and last days of the break.</li>
+    <li><b>Hotels:</b> prices jump in Kyoto, Hakone, Okinawa and other resort areas; book early.</li>
+    <li><b>Sights:</b> Kyoto’s temples, theme parks and hot-spring towns are crowded. Big cities like Tokyo can actually feel quieter, as residents leave.</li>
+    <li><b>Shops and restaurants:</b> mostly open — this isn’t a time when Japan shuts down.</li>
+  </ul>
+
+  <h2>Spring weather in Japan</h2>
+  <GuideTable caption="Japan weather rating April to June" months={[3, 4, 5]} rows={[{ slug: 'tokyo' }, { slug: 'kyoto' }, { slug: 'osaka' }, { slug: 'hokkaido' }, { slug: 'okinawa' }]} />
+  <p>
+    Weather-wise, late April and May are lovely across most of Japan — warm, sunny and green — before the rainy season (tsuyu)
+    arrives in June. See <a href="/guides/japan-rainy-season/">Japan’s rainy season</a>.
+  </p>
+
+  <h2>How to plan around it</h2>
+  <ul>
+    <li><b>Go just before or after:</b> mid-to-late April (after the cherry blossoms) and the second half of May are ideal.</li>
+    <li><b>If you must travel then,</b> base yourself in a big city, reserve train seats early and visit popular sights at opening time.</li>
+    <li><b>Hokkaido’s cherry blossoms</b> often bloom around Golden Week — a good reason to head north.</li>
+    <li><b>Other peak periods</b> to watch: Obon in mid-August and the New Year holidays (about 29 December to 3 January).</li>
+  </ul>
+  <p>See also: <a href="/best-time-to-visit-japan/">best time to visit Japan</a> and <a href="/guides/cherry-blossom-season/">cherry blossom season</a>.</p>
+</Guide>

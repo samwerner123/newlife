@@ -28,8 +28,9 @@ const sorted = [...destinations].sort((a, b) => a.name.localeCompare(b.name));
       </p>
     </header>
     <Filters target="#all-list" fields={['region', 'budget', 'sort']} defaultSort="name" />
+    <h2 class="visually-hidden">All destinations</h2>
     <div class="grid-cards" id="all-list">
-      {sorted.map((d) => <DestinationCard dest={d} />)}
+      {sorted.map((d, i) => <DestinationCard dest={d} eager={i === 0} />)}
     </div>
     <p class="card" data-empty hidden>No destinations match — try another region or budget.</p>
   </div>

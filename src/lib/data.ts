@@ -2,6 +2,8 @@ import destinationsJson from '../data/destinations.json';
 import climateJson from '../data/climate.json';
 import affiliatesJson from '../data/affiliates.json';
 import countriesJson from '../data/countries.json';
+import hubsJson from '../data/hubs.json';
+import seaJson from '../data/sea.json';
 import {
   weatherScore,
   rating,
@@ -51,7 +53,8 @@ interface RawDestination {
   iata: string;
   wiki: string;
   climateWiki?: string | string[];
-  hub?: string;
+  /** Country/state/region hub(s); the first one is the destination's home hub (breadcrumbs). */
+  hub?: string | string[];
   climate: ClimateType;
   currency: string;
   tz: string;
@@ -66,7 +69,19 @@ interface RawDestination {
   adjust: Record<string, [number, string]>;
   events: Record<string, string>;
   imagePage?: string;
+  /** Ski season by month ("1"–"12"), for destinations with major ski areas. */
+  ski?: { resorts: string; months: Record<string, SkiStatus> };
 }
+
+export type SkiStatus = 'peak' | 'season' | 'early' | 'late' | 'glacier';
+export const SKI_LABEL: Record<SkiStatus, string> = {
+  peak: 'Peak ski season',
+  season: 'Ski season',
+  early: 'Season opening',
+  late: 'Late season',
+  glacier: 'Glacier skiing',
+};
+export const SKI_RATING: Record<SkiStatus, Rating> = { peak: 'great', season: 'good', early: 'fair', late: 'fair', glacier: 'fair' };
 
 interface RawClimate {
   months: MonthClimate[];
@@ -83,7 +98,33 @@ export interface DestinationMonth extends MonthClimate {
   temp: TempClass;
   note: string | null;
   event: string | null;
+  /** Average hours of daylight (sunrise to sunset), computed from the latitude. */
+  daylight: number;
+  /** Average sea-surface temperature (°C) for coastal destinations, else null. */
+  sea: number | null;
 }
+
+const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+/** Hours from sunrise to sunset (including refraction) at a latitude on a day of the year (1–365). */
+export function dayLength(lat: number, day: number): number {
+  const rad = Math.PI / 180;
+  const decl = 23.44 * Math.sin(rad * (360 / 365) * (day - 81));
+  const cosH = (Math.sin(-0.833 * rad) - Math.sin(lat * rad) * Math.sin(decl * rad)) / (Math.cos(lat * rad) * Math.cos(decl * rad));
+  if (cosH <= -1) return 24;
+  if (cosH >= 1) return 0;
+  return (2 * Math.acos(cosH)) / rad / 15;
+}
+
+/** Average daylight for a month, to one decimal place. */
+export function monthDaylight(lat: number, m: number): number {
+  const first = DAYS_IN_MONTH.slice(0, m).reduce((a, b) => a + b, 0) + 1;
+  let total = 0;
+  for (let d = 0; d < DAYS_IN_MONTH[m]; d++) total += dayLength(lat, first + d);
+  return Math.round((total / DAYS_IN_MONTH[m]) * 10) / 10;
+}
+
+const sea = seaJson as Record<string, { months: number[] } | null>;
 
 export interface Destination extends RawDestination {
   months: DestinationMonth[];
@@ -114,6 +155,8 @@ export const destinations: Destination[] = raw.filter((d) => climate[d.slug]).ma
       temp: tempClass(m.high),
       note: adj ? adj[1] : null,
       event: d.events[String(i + 1)] ?? null,
+      daylight: monthDaylight(d.lat, i),
+      sea: sea[d.slug]?.months[i] ?? null,
     };
   });
   const great = months.filter((m) => m.rating === 'great').map((m) => m.index);
@@ -160,6 +203,8 @@ export function travelYear(m: number, now = new Date()): number {
   return m >= now.getMonth() ? now.getFullYear() : now.getFullYear() + 1;
 }
 
+export const skiStatus = (d: Destination, m: number): SkiStatus | undefined => d.ski?.months[String(m + 1)];
+
 export const isUS = (d: Destination) => d.country === 'United States' || d.country === 'Puerto Rico';
 
 // ---- Country facts ---------------------------------------------------------
@@ -188,6 +233,11 @@ export interface HubMonth {
 
 export interface Hub {
   name: string;
+  /** Name as used mid-sentence ("the Caribbean"), and capitalised for the start of a title ("The Caribbean"). */
+  label: string;
+  Label: string;
+  /** Destination whose photo represents the hub. */
+  photo: string;
   slug: string;
   url: string;
   members: Destination[];
@@ -198,9 +248,12 @@ export interface Hub {
 
 const avg = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
 
-export const hubs: Hub[] = [...new Set(destinations.map((d) => d.hub).filter(Boolean) as string[])]
+/** All hubs a destination belongs to, home hub first. */
+export const hubNames = (d: Pick<Destination, 'hub'>): string[] => (d.hub ? ([] as string[]).concat(d.hub) : []);
+
+export const hubs: Hub[] = [...new Set(destinations.flatMap(hubNames))]
   .map((name) => {
-    const members = destinations.filter((d) => d.hub === name);
+    const members = destinations.filter((d) => hubNames(d).includes(name));
     const months = MONTHS.map((mn, i): HubMonth => {
       const ranked = rankForMonth(i, members);
       const score = Math.round(avg(members.map((d) => d.months[i].score)));
@@ -219,8 +272,13 @@ export const hubs: Hub[] = [...new Set(destinations.map((d) => d.hub).filter(Boo
     const great = months.filter((m) => m.rating === 'great').map((m) => m.index);
     const bestMonths = great.length ? great : months.filter((m) => m.rating === 'good').map((m) => m.index);
     const countriesInHub = new Set(members.map((d) => d.country.replace(/\s*\(.*\)$/, '')));
+    const text = (hubsJson as Record<string, { label?: string; photo?: string }>)[name];
+    const label = text?.label ?? name;
     return {
       name,
+      label,
+      Label: label[0].toUpperCase() + label.slice(1),
+      photo: text?.photo && members.some((d) => d.slug === text.photo) ? text.photo : members[0].slug,
       slug: slugify(name),
       url: `/best-time-to-visit-${slugify(name)}/`,
       members,
@@ -233,7 +291,8 @@ export const hubs: Hub[] = [...new Set(destinations.map((d) => d.hub).filter(Boo
   .sort((a, b) => a.name.localeCompare(b.name));
 
 export const hubByName = new Map(hubs.map((h) => [h.name, h]));
-export const hubOf = (d: Destination) => (d.hub ? hubByName.get(d.hub) : undefined);
+export const hubOf = (d: Destination) => hubNames(d).map((n) => hubByName.get(n)).find((h) => h !== undefined);
+export const hubsOf = (d: Destination) => hubNames(d).map((n) => hubByName.get(n)).filter((h) => h !== undefined);
 export const hubMonthUrl = (h: Hub, m: number) => `/${h.slug}-in-${MONTH_SLUGS[m]}/`;
 export const destMonthUrl = (d: Destination, m: number) => `/destinations/${d.slug}/${MONTH_SLUGS[m]}/`;
 

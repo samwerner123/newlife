@@ -1,0 +1,63 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { destinations, rankForMonth, destMonthUrl, monthUrl, deg, MONTHS } from '../../lib/data';
+
+// Classic honeymoon picks: luxury islands and beaches plus famously romantic cities and regions.
+const ROMANTIC = ['paris', 'venice', 'florence', 'rome', 'amalfi-coast', 'lake-como', 'cinque-terre', 'santorini', 'mykonos', 'provence', 'french-riviera', 'kyoto', 'napa-valley', 'prague', 'vienna', 'cape-town', 'queenstown', 'iceland'];
+const pool = destinations.filter((d) => d.tags.includes('luxury') || d.tags.includes('islands') || ROMANTIC.includes(d.slug));
+const byMonth = MONTHS.map((_, m) => rankForMonth(m, pool).filter((d) => d.months[m].score >= 65).slice(0, 5));
+---
+
+<Guide slug="honeymoon-destinations" photo="bora-bora">
+  <p>
+    A honeymoon is one trip where you don’t want to gamble on the weather. We took {pool.length} classic honeymoon
+    destinations — overwater-villa islands, romantic cities and wine regions — and ranked them for each month using our
+    weather scores, which combine temperature and rainfall with seasonal factors like cyclones and hurricanes.
+  </p>
+
+  {
+    byMonth.map((items, m) => (
+      <>
+        <h2>Honeymoon destinations in {MONTHS[m]}</h2>
+        <ul class="hm">
+          {items.map((d) => (
+            <li>
+              <a href={destMonthUrl(d, m)}><b>{d.name}</b></a>
+              <RatingBadge score={d.months[m].score} rating={d.months[m].rating} />
+              <span class="muted small">{deg(d.months[m].high)} · {d.tagline}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="small"><a href={monthUrl(m)}>All destinations for {MONTHS[m]} →</a></p>
+      </>
+    ))
+  }
+
+  <h2>Tips for planning a honeymoon</h2>
+  <ul>
+    <li><b>Mention it’s your honeymoon</b> when booking — many resorts add upgrades, dinners or spa treatments.</li>
+    <li><b>Mind the wet seasons:</b> the Maldives and Seychelles are best from December to April, French Polynesia and Fiji from May to October, the Caribbean from December to April.</li>
+    <li><b>Mix city and beach:</b> Paris or Rome plus the Amalfi Coast or the Greek islands works brilliantly from May to September.</li>
+    <li><b>Insure the trip</b> as soon as you book — honeymoons are expensive and often booked far in advance.</li>
+  </ul>
+</Guide>
+
+<style>
+  .hm {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px;
+    display: grid;
+    gap: 8px;
+  }
+  .hm li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+  }
+  .hm li > span:last-child {
+    flex-basis: 100%;
+  }
+</style>

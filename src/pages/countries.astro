@@ -10,10 +10,10 @@ const crumbs = [
   { name: 'Countries & regions', href: '/countries/' },
 ];
 // Countries and islands that people search for directly but that we cover with a single destination page.
-const SINGLES = ['iceland', 'ireland', 'switzerland', 'malta', 'fiji', 'maldives', 'mauritius', 'seychelles', 'aruba', 'turks-and-caicos', 'bahamas', 'jamaica', 'puerto-rico', 'punta-cana', 'singapore', 'hong-kong', 'taiwan', 'sri-lanka', 'bali', 'zanzibar', 'galapagos', 'bora-bora', 'dubai'];
+const SINGLES = ['iceland', 'ireland', 'switzerland', 'malta', 'fiji', 'maldives', 'mauritius', 'seychelles', 'aruba', 'turks-and-caicos', 'bahamas', 'jamaica', 'puerto-rico', 'punta-cana', 'singapore', 'hong-kong', 'taiwan', 'sri-lanka', 'bali', 'zanzibar', 'galapagos', 'bora-bora', 'dubai', 'barbados', 'st-lucia', 'us-virgin-islands', 'curacao', 'cayman-islands', 'bermuda', 'belize', 'panama', 'uruguay', 'uyuni', 'namibia', 'okavango', 'victoria-falls', 'jordan', 'oman', 'doha', 'faroe-islands', 'lake-bled', 'kotor', 'albania', 'bhutan', 'uzbekistan', 'cook-islands', 'luang-prabang', 'lapland', 'azores'];
 const singles = destinations.filter((d) => SINGLES.includes(d.slug));
 const all = [
-  ...hubs.map((h) => ({ name: h.name, url: h.url, photo: h.members[0].slug, best: h.bestMonths, region: h.members[0].region, sub: `${h.members.length} destinations` })),
+  ...hubs.map((h) => ({ name: h.name, url: h.url, photo: h.photo, best: h.bestMonths, region: h.members[0].region, sub: `${h.members.length} destinations` })),
   ...singles.map((d) => ({ name: d.name, url: d.url, photo: d.slug, best: d.bestMonths, region: d.region, sub: d.tagline })),
 ];
 ---
@@ -38,7 +38,7 @@ const all = [
             <div class="grid">
               {items.map((x) => (
                 <a class="card tile" href={x.url}>
-                  <Photo slug={x.photo} alt="" variant="card" />
+                  <Photo slug={x.photo} alt="" variant="card" sizes="(max-width: 640px) 50vw, 240px" />
                   <div class="body">
                     <h3>{x.name}</h3>
                     <p class="small"><b>Best:</b> {monthRanges(x.best, MONTH_SHORT) || '—'}</p>

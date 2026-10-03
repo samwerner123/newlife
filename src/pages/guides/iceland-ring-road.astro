@@ -1,0 +1,61 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+const ice = bySlug.get('iceland')!;
+const fmt = (h: number) => `${Math.floor(h)} h ${Math.round((h % 1) * 60)} min`;
+---
+
+<Guide slug="iceland-ring-road" photo="iceland">
+  <p>
+    Iceland’s Ring Road (Route 1) circles the whole island in about 1,330 km, past waterfalls, glaciers, black-sand beaches
+    and fjords. You can drive it in a week, but 10–14 days lets you take detours. The best time to drive it is
+    <strong>June to August</strong>, with long days and all roads open; <strong>May and September</strong> are quieter and still
+    good. In winter, the Ring Road stays open but storms and ice can close sections for hours or days.
+  </p>
+
+  <h2>Daylight and weather by month</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption class="visually-hidden">Iceland daylight hours and temperatures by month</caption>
+      <thead><tr><th scope="col">Month</th><th scope="col">Daylight</th><th scope="col">High / low</th><th scope="col">Rain</th></tr></thead>
+      <tbody>
+        {
+          ice.months.map((m) => (
+            <tr>
+              <th scope="row"><a href={destMonthUrl(ice, m.index)}>{m.name}</a></th>
+              <td>{fmt(m.daylight)}</td>
+              <td>{deg(m.high)} / {deg(m.low)}</td>
+              <td>{m.rain} mm</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Daylight is the average time from sunrise to sunset in Reykjavík; temperatures from Reykjavík’s climate normals. The north and east are colder in winter.</p>
+
+  <h2>Driving the Ring Road by season</h2>
+  <ul>
+    <li><b>June–August:</b> 18–24 hours of light, the mildest weather and all attractions open. It’s also the busiest and most expensive time — book cars and guesthouses early.</li>
+    <li><b>May and September:</b> fewer visitors and lower prices. Roads are usually clear, though early-season snow is possible in the north and east. Northern lights season starts in September.</li>
+    <li><b>October–April:</b> short days (as little as 4–5 hours of daylight in December) and frequent storms. Driving the full ring is possible with flexibility, a 4x4 with winter tyres and time to wait out closures — many visitors stick to the South Coast instead.</li>
+  </ul>
+
+  <h2>Highland F-roads</h2>
+  <p>
+    The mountain roads into the interior — to Landmannalaugar, Askja or across Kjölur and Sprengisandur — are marked with an F.
+    They usually open between <strong>late June and early July</strong> and close again in <strong>September</strong>, depending on
+    snow and mud. You need a 4x4, and rental insurance usually doesn’t cover river crossings.
+  </p>
+
+  <h2>Tips for driving in Iceland</h2>
+  <ul>
+    <li><b>Check conditions every morning</b> on the official road map (road.is) and safety alerts on safetravel.is.</li>
+    <li><b>Never stop on the road</b> for photos — use proper pull-outs.</li>
+    <li><b>Mind the speed limits:</b> 90 km/h on paved roads, 80 km/h on gravel; cameras are common.</li>
+    <li><b>Fuel up when you can</b> in the east and north, where stations are far apart.</li>
+    <li><b>Take gravel and sand-and-ash cover</b> on your rental, especially on the South Coast.</li>
+  </ul>
+  <p>See also: <a href="/destinations/iceland/">the best time to visit Iceland</a>, <a href="/guides/northern-lights/">northern lights</a> and <a href="/guides/midnight-sun/">midnight sun</a>.</p>
+</Guide>

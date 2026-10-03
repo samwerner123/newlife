@@ -1,0 +1,188 @@
+---
+// Compare any two destinations or countries, month by month, in the browser.
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { destinations, hubs } from '../../lib/data';
+import { comparisons } from '../../lib/compare';
+import { breadcrumbLd } from '../../lib/seo';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Compare', href: '/compare/' },
+  { name: 'Compare any two', href: '/compare/custom/' },
+];
+const options = [
+  { group: 'Countries & regions', items: hubs.map((h) => ({ id: `hub:${h.name}`, name: h.name })) },
+  { group: 'Destinations', items: [...destinations].sort((a, b) => a.name.localeCompare(b.name)).map((d) => ({ id: d.slug, name: d.name })) },
+];
+const pages = comparisons.map((c) => [c.a.id, c.b.id, c.url]);
+---
+
+<Base
+  title="Compare Any Two Destinations: Weather Month by Month"
+  description={`Pick any two of ${destinations.length} destinations or ${hubs.length} countries and regions and compare their weather, rain and budgets for every month.`}
+  jsonLd={[breadcrumbLd(crumbs, Astro.site)]}
+>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <h1>Compare any two destinations</h1>
+      <p class="lead">Choose two places to see which has the better weather each month, how warm and wet they get, and what a day costs.</p>
+    </header>
+
+    <form class="card pick" data-pick>
+      {
+        ['a', 'b'].map((k, i) => (
+          <label class="field">
+            {i === 0 ? 'First place' : 'Second place'}
+            <select name={k} data-select={k}>
+              {options.map((g) => (
+                <optgroup label={g.group}>
+                  {g.items.map((o) => <option value={o.id}>{o.name}</option>)}
+                </optgroup>
+              ))}
+            </select>
+          </label>
+        ))
+      }
+    </form>
+
+    <section class="section-tight" aria-live="polite" data-out hidden>
+      <h2 data-title></h2>
+      <p class="lead" data-summary></p>
+      <p data-page hidden><a class="btn btn-ghost" href="#">Read the full comparison →</a></p>
+      <div class="table-wrap">
+        <table class="data-table cmp">
+          <caption class="visually-hidden">Month-by-month comparison</caption>
+          <thead><tr><th scope="col">Month</th><th scope="col" data-ha></th><th scope="col" data-hb></th><th scope="col">Better</th></tr></thead>
+          <tbody data-rows></tbody>
+        </table>
+      </div>
+      <p class="small muted">Ratings combine temperature and rainfall from official climate normals; temperatures are average daily highs.</p>
+    </section>
+    <noscript><p class="card">This tool needs JavaScript. See our <a href="/compare/">ready-made comparisons</a>.</p></noscript>
+    <p><a href="/compare/">Browse all ready-made comparisons →</a></p>
+  </div>
+</Base>
+
+<script define:vars={{ pages }}>
+  window.__comparePages = pages;
+</script>
+
+<script>
+  type M = [number, number, number, number];
+  type E = { id: string; name: string; url: string; budget?: [number, number]; months: M[] };
+  const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const rating = (s: number) => (s >= 80 ? 'great' : s >= 65 ? 'good' : s >= 50 ? 'fair' : 'poor');
+  const label = { great: 'Great', good: 'Good', fair: 'Fair', poor: 'Not ideal' } as const;
+  const pages = (window as unknown as { __comparePages: [string, string, string][] }).__comparePages;
+  const form = document.querySelector<HTMLFormElement>('[data-pick]')!;
+  const selA = form.querySelector<HTMLSelectElement>('[data-select="a"]')!;
+  const selB = form.querySelector<HTMLSelectElement>('[data-select="b"]')!;
+  const out = document.querySelector<HTMLElement>('[data-out]')!;
+  let by = new Map<string, E>();
+
+  const params = new URLSearchParams(location.search);
+  selA.value = params.get('a') ?? 'lisbon';
+  selB.value = params.get('b') ?? 'barcelona';
+  if (!selA.value) selA.selectedIndex = 0;
+  if (!selB.value) selB.selectedIndex = 1;
+
+  const ranges = (ms: number[]) => {
+    if (!ms.length) return 'no standout month';
+    if (ms.length === 12) return 'all year';
+    const set = new Set(ms);
+    const starts = ms.filter((m) => !set.has((m + 11) % 12));
+    return starts
+      .map((s) => {
+        let e = s;
+        while (set.has((e + 1) % 12) && (e + 1) % 12 !== s) e = (e + 1) % 12;
+        return e === s ? MONTHS[s] : `${MONTHS[s]}–${MONTHS[e]}`;
+      })
+      .join(', ');
+  };
+  const best = (e: E) => {
+    const great = e.months.map((m, i) => (m[0] >= 80 ? i : -1)).filter((i) => i >= 0);
+    return great.length ? great : e.months.map((m, i) => (m[0] >= 65 ? i : -1)).filter((i) => i >= 0);
+  };
+
+  function badge(score: number) {
+    const s = document.createElement('span');
+    const r = rating(score);
+    s.className = 'badge';
+    s.dataset.rating = r;
+    s.textContent = `${label[r]} ${score}`;
+    return s;
+  }
+
+  function render() {
+    const a = by.get(selA.value);
+    const b = by.get(selB.value);
+    if (!a || !b) return;
+    history.replaceState(null, '', `?a=${encodeURIComponent(a.id)}&b=${encodeURIComponent(b.id)}`);
+    out.hidden = false;
+    out.querySelector('[data-title]')!.textContent = `${a.name} vs ${b.name}`;
+    out.querySelector('[data-ha]')!.textContent = a.name;
+    out.querySelector('[data-hb]')!.textContent = b.name;
+    const winsA = a.months.filter((m, i) => m[0] > b.months[i][0]).length;
+    const winsB = b.months.filter((m, i) => m[0] > a.months[i][0]).length;
+    const lead = winsA === winsB ? `${a.name} and ${b.name} each have the better weather in ${winsA} months.` : `${winsA > winsB ? a.name : b.name} has the better weather in ${Math.max(winsA, winsB)} of 12 months.`;
+    const budget = a.budget && b.budget ? ` Budgets: ${a.name} from $${a.budget[0]}/day, ${b.name} from $${b.budget[0]}/day.` : '';
+    out.querySelector('[data-summary]')!.textContent = `${lead} Best time for ${a.name}: ${ranges(best(a))}; for ${b.name}: ${ranges(best(b))}.${budget}`;
+    const page = pages.find(([x, y]) => (x === a.id && y === b.id) || (x === b.id && y === a.id));
+    const pageEl = out.querySelector<HTMLElement>('[data-page]')!;
+    pageEl.hidden = !page;
+    if (page) pageEl.querySelector('a')!.href = page[2];
+    const rows = out.querySelector('[data-rows]')!;
+    rows.replaceChildren(
+      ...MONTHS.map((mn, i) => {
+        const tr = document.createElement('tr');
+        const th = document.createElement('th');
+        th.scope = 'row';
+        th.textContent = mn;
+        tr.append(th);
+        for (const e of [a, b]) {
+          const td = document.createElement('td');
+          const [score, high, , rain] = e.months[i];
+          td.append(badge(score), document.createTextNode(` ${high}°C · ${rain} mm`));
+          tr.append(td);
+        }
+        const w = document.createElement('td');
+        const d = a.months[i][0] - b.months[i][0];
+        w.textContent = Math.abs(d) < 3 ? 'Similar' : d > 0 ? a.name : b.name;
+        tr.append(w);
+        return tr;
+      }),
+    );
+    (window as unknown as { __convertUnits?: (el: Element) => void }).__convertUnits?.(out);
+  }
+
+  form.addEventListener('change', render);
+  fetch('/api/destinations.json')
+    .then((r) => r.json())
+    .then((j: { dests: E[]; hubs: E[] }) => {
+      by = new Map([...j.dests, ...j.hubs].map((e) => [e.id, e]));
+      render();
+    });
+</script>
+
+<style>
+  .pick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .pick .field {
+    flex: 1 1 240px;
+  }
+  .pick select {
+    width: 100%;
+  }
+  [data-out][hidden],
+  [data-page][hidden] {
+    display: none;
+  }
+  .cmp :global(td) {
+    text-align: left;
+  }
+</style>

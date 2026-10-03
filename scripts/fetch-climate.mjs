@@ -11,16 +11,38 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 const OUT = path.join(ROOT, 'src', 'data', 'climate.json');
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const DAYS = [31, 28.25, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const UA = 'SeasonScout/0.1 (static travel site; climate data builder)';
+const UA = 'SeasonScoutBot/0.2 (https://github.com/samwerner123/newlife; climate data builder)';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function getJson(url, tries = 4) {
+// Wikipedia rate-limits bursts (HTTP 429), so space out every request.
+let last = 0;
+async function getJson(url, tries = 6) {
   for (let i = 0; i < tries; i++) {
+    const wait = last + 1500 - Date.now();
+    if (wait > 0) await sleep(wait);
+    last = Date.now();
     try {
       const res = await fetch(url, { headers: { 'User-Agent': UA } });
       if (res.ok) return await res.json();
       console.warn(`  ${res.status} for ${url}`);
+    } catch (e) {
+      console.warn(`  ${e.message} for ${url}`);
+    }
+    await sleep(10000 * 2 ** i);
+  }
+  throw new Error(`failed: ${url}`);
+}
+
+async function getText(url, tries = 6) {
+  for (let i = 0; i < tries; i++) {
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': UA } });
+      if (res.ok) return await res.text();
+      if (res.status === 404) return null;
+      console.warn(`  ${res.status} for ${url}`);
+      const retry = Number(res.headers.get('retry-after'));
+      if (retry) await sleep(retry * 1000);
     } catch (e) {
       console.warn(`  ${e.message} for ${url}`);
     }
@@ -29,11 +51,17 @@ async function getJson(url, tries = 4) {
   throw new Error(`failed: ${url}`);
 }
 
+// Raw wikitext (served from Wikipedia's cache, so it isn't rate-limited like the API), following redirects.
 async function wikitext(title) {
-  const url = 'https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&rvslots=main' +
-    `&format=json&formatversion=2&redirects=1&titles=${encodeURIComponent(title)}`;
-  const page = (await getJson(url)).query.pages[0];
-  return page.missing ? null : { title: page.title, text: page.revisions[0].slots.main.content };
+  let t = title;
+  for (let hops = 0; hops < 3; hops++) {
+    const text = await getText(`https://en.wikipedia.org/w/index.php?title=${encodeURIComponent(t.replace(/ /g, '_'))}&action=raw`);
+    if (text === null) return null;
+    const redirect = text.match(/^\s*#REDIRECT\s*\[\[([^\]|#]+)/i);
+    if (!redirect) return { title: t, text };
+    t = redirect[1].trim();
+  }
+  return null;
 }
 
 // Returns the bodies of every {{Weather box ...}} in the text, braces balanced.
@@ -211,7 +239,7 @@ for (const dest of destinations) {
   await fs.writeFile(OUT, JSON.stringify(out, null, 2) + '\n'); // save progress after each destination
   console.log(`${box.location.slice(0, 70)} | ` +
     out[dest.slug].months.map((m) => `${Math.round(m.high)}/${Math.round(m.low)}/${m.rain}`).join(' '));
-  await sleep(2500);
+  await sleep(1000);
 }
 await fs.writeFile(OUT, JSON.stringify(out, null, 2) + '\n');
 console.log(`wrote ${OUT}`);

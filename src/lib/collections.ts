@@ -1,6 +1,6 @@
 // Month-based collections that match high-demand searches, e.g.
 // "warm places to visit in December", "cheap places to travel in March".
-import { destinations, rankForMonth, isUS, MONTH_SLUGS, type Destination } from './data';
+import { destinations, rankForMonth, isUS, skiStatus, deg, usd, SKI_LABEL, MONTH_SLUGS, type Destination, type SkiStatus } from './data';
 
 export interface Collection {
   key: string;
@@ -13,6 +13,10 @@ export interface Collection {
   pick: (m: number) => Destination[];
   /** Which number to show in the "at a glance" table. */
   metric: 'score' | 'high' | 'budget';
+  /** Ski collections rate the snow season rather than the weather. */
+  kind?: 'weather' | 'ski';
+  /** Collection-specific FAQ (replaces the generic weather questions). */
+  faq?: (month: string, items: Destination[], m: number) => { q: string; a: string }[];
 }
 
 const good = (d: Destination, m: number) => d.months[m].score >= 65;
@@ -148,10 +152,68 @@ function regionCollection(key: string, label: string, place: string, slugPart: s
   };
 }
 
+const SOUTH_AMERICA = ['Argentina', 'Bolivia', 'Brazil', 'Chile', 'Colombia', 'Ecuador', 'Peru', 'Uruguay'];
+const AFRICA = ['Botswana', 'Egypt', 'Kenya', 'Mauritius', 'Morocco', 'Namibia', 'Seychelles', 'South Africa', 'Tanzania', 'Zimbabwe'];
+
 COLLECTIONS.push(
   regionCollection('europe', 'Europe', 'Europe', 'europe', (d) => d.region === 'Europe'),
   regionCollection('asia', 'Asia', 'Asia', 'asia', (d) => d.region === 'Asia'),
   regionCollection('caribbean', 'Caribbean', 'the Caribbean', 'the-caribbean', (d) => d.region === 'Caribbean' || ['cancun', 'cartagena', 'key-west'].includes(d.slug)),
+  regionCollection('south-america', 'South America', 'South America', 'south-america', (d) => SOUTH_AMERICA.includes(d.country)),
+  regionCollection('africa', 'Africa', 'Africa', 'africa', (d) => AFRICA.includes(d.country)),
 );
+
+// "Where to ski in July": ranked by the state of the ski season, not by sightseeing weather.
+const SKI_ORDER: SkiStatus[] = ['peak', 'season', 'early', 'late', 'glacier'];
+const skiers = (m: number) =>
+  destinations
+    .filter((d) => skiStatus(d, m))
+    .sort(
+      (a, b) =>
+        SKI_ORDER.indexOf(skiStatus(a, m)!) - SKI_ORDER.indexOf(skiStatus(b, m)!) ||
+        a.months[m].high - b.months[m].high ||
+        a.name.localeCompare(b.name),
+    );
+const list = (ds: Destination[]) => ds.map((d) => d.name).join(', ');
+
+COLLECTIONS.push({
+  key: 'ski',
+  label: 'Skiing',
+  kind: 'ski',
+  path: (m) => `/where-to-ski-in-${MONTH_SLUGS[m]}/`,
+  title: (mn, y) => `Where to Ski in ${mn} ${y}: Ski Resorts Open in ${mn}`,
+  h1: (mn) => `Where to ski in ${mn}`,
+  lead: (mn, items, m) => {
+    const peak = items.filter((d) => skiStatus(d, m) === 'peak');
+    const glacier = items.filter((d) => skiStatus(d, m) === 'glacier');
+    if (peak.length)
+      return `${mn} is peak ski season in ${list(peak.slice(0, 5))}${peak.length > 5 ? ' and more' : ''}. We list the ski destinations open in ${mn}, with typical temperatures in the resort towns and daily budgets.`;
+    if (items.some((d) => skiStatus(d, m) === 'season'))
+      return `In ${mn} you can ski in ${list(items.slice(0, 4))}. Here's where the season is running, with typical temperatures and daily budgets.`;
+    return `${mn} is between the main ski seasons, but you can still ski in ${list(items.slice(0, 4))}${glacier.length ? ` — including summer glacier skiing in ${list(glacier)}` : ''}. Opening and closing dates vary with snowfall, so check resort websites before you book.`;
+  },
+  pick: skiers,
+  metric: 'score',
+  faq: (mn, items, m) => {
+    const by = (s: SkiStatus) => items.filter((d) => skiStatus(d, m) === s);
+    const peak = by('peak');
+    const cheapest = [...items].sort((a, b) => a.budget.low - b.budget.low)[0];
+    const coldest = [...items].sort((a, b) => a.months[m].high - b.months[m].high)[0];
+    return [
+      { q: `Where can you ski in ${mn}?`, a: `Ski destinations open in ${mn}: ${items.map((d) => `${d.name} (${SKI_LABEL[skiStatus(d, m)!].toLowerCase()})`).join(', ')}.` },
+      {
+        q: `Where is the best skiing in ${mn}?`,
+        a: peak.length
+          ? `${mn} is peak season in ${list(peak)} — the most reliable snow and the most terrain open.`
+          : `No major ski region is at its peak in ${mn}. The best bets are ${list(items.slice(0, 3))}; check snow reports and lift openings before you go.`,
+      },
+      { q: `What is the cheapest place to ski in ${mn}?`, a: `Of these, ${cheapest.name} has the lowest typical daily budget, from about ${usd(cheapest.budget.low)} per person excluding flights and lift passes.` },
+      { q: `How cold is it in ${mn}?`, a: `In the resort towns, average highs range from ${deg(coldest.months[m].high)} in ${coldest.name} upwards. It's colder on the slopes, which are usually 1,000 m or more above town.` },
+      ...(by('glacier').length
+        ? [{ q: `Can you ski in summer?`, a: `Yes — on glaciers. In ${mn}, ${list(by('glacier'))} offer glacier skiing on a small number of high-altitude runs, usually in the mornings. The big summer alternative is the southern hemisphere: Queenstown, Chile and Argentina ski from about late June to September.` }]
+        : []),
+    ];
+  },
+});
 
 export const collectionByKey = new Map(COLLECTIONS.map((c) => [c.key, c]));

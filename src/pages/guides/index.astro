@@ -1,33 +1,68 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { GUIDES } from '../../lib/guides';
+import { GUIDES, seasonalGuides } from '../../lib/guides';
+import { MONTHS } from '../../lib/data';
 import { breadcrumbLd } from '../../lib/seo';
 
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Guides', href: '/guides/' },
 ];
+const month = new Date().getMonth();
+const now = seasonalGuides(month).filter((g) => g.months?.includes(month)).slice(0, 4);
+const KICKERS = ['Where to go', 'Seasonal guide', 'Nature calendar', 'Events', 'Compare', 'Budget', 'Practical'];
+const groups = KICKERS.map((k) => ({ k, items: GUIDES.filter((g) => g.kicker === k) })).filter((g) => g.items.length);
 ---
 
-<Base title="Travel Guides: Seasons, Weather & Budgets" description="In-depth travel guides on hurricane and monsoon seasons, cherry blossoms, northern lights, winter sun, festivals and travel costs." jsonLd={[breadcrumbLd(crumbs, Astro.site)]}>
+<Base title="Travel Guides: Seasons, Weather & Budgets" description={`${GUIDES.length} in-depth travel guides: hurricane and monsoon seasons, ski seasons, safaris, whale watching, Christmas markets, cherry blossoms, northern lights and more.`} jsonLd={[breadcrumbLd(crumbs, Astro.site)]}>
   <div class="container">
     <Breadcrumbs items={crumbs} />
     <header class="section-tight">
       <h1>Travel guides</h1>
       <p class="lead">Seasonal know-how backed by climate data — so you can time your trip right.</p>
     </header>
-    <div class="grid-2">
-      {
-        GUIDES.map((g) => (
-          <a class="card g" href={`/guides/${g.slug}/`}>
-            <p class="eyebrow">{g.kicker}</p>
-            <h2>{g.title}</h2>
-            <p class="muted">{g.description}</p>
-          </a>
-        ))
-      }
-    </div>
+
+    {
+      now.length > 0 && (
+        <section class="section-tight">
+          <h2>Timely for {MONTHS[month]}</h2>
+          <div class="grid-2">
+            {now.map((g) => (
+              <a class="card g" href={`/guides/${g.slug}/`}>
+                <p class="eyebrow">{g.kicker}</p>
+                <h3>{g.title}</h3>
+                <p class="muted">{g.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <section class="section-tight">
+      <a class="card g feature" href="/christmas-destinations/">
+        <p class="eyebrow">Where to go</p>
+        <h2>Where to Go for Christmas &amp; New Year</h2>
+        <p class="muted">Winter sun, Europe’s best Christmas markets, snowy escapes and New Year’s Eve fireworks — ranked with real December weather.</p>
+      </a>
+    </section>
+
+    {
+      groups.map(({ k, items }) => (
+        <section class="section-tight">
+          <h2>{k}</h2>
+          <div class="grid-2">
+            {items.map((g) => (
+              <a class="card g" href={`/guides/${g.slug}/`}>
+                <h3>{g.title}</h3>
+                <p class="muted">{g.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))
+    }
   </div>
 </Base>
 
@@ -39,10 +74,15 @@ const crumbs = [
   .g:hover {
     box-shadow: var(--shadow);
   }
-  .g h2 {
-    font-size: 1.2rem;
+  .g h2,
+  .g h3 {
+    font-size: 1.15rem;
   }
   .g p:last-child {
     margin: 0;
+  }
+  .feature {
+    display: block;
+    border-color: var(--cta);
   }
 </style>

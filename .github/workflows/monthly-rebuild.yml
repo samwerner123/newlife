@@ -1,0 +1,31 @@
+# Rebuilds the live site on the 1st of every month so "next {month} {year}" titles, seasonal
+# links and featured guides stay current, then pings IndexNow.
+# Needs two repository secrets (Settings → Secrets and variables → Actions):
+#   CF_DEPLOY_HOOK — a Cloudflare Pages deploy hook URL (Pages project → Settings → Builds → Deploy hooks)
+#   SITE_URL       — the live address, e.g. https://www.example.com
+name: Monthly rebuild
+on:
+  schedule:
+    - cron: '17 3 1 * *'
+  workflow_dispatch:
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages build
+        env:
+          HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "::warning::CF_DEPLOY_HOOK secret not set — skipping"; exit 0; fi
+          curl -fsS -X POST "$HOOK"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - name: Wait for the deploy, then ping IndexNow
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+        run: |
+          if [ -z "$SITE_URL" ]; then echo "::warning::SITE_URL secret not set — skipping IndexNow"; exit 0; fi
+          sleep 600
+          node scripts/indexnow.mjs

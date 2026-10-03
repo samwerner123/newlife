@@ -1,0 +1,63 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+const DEC = 11;
+const picks: { slug: string; title: string; text: string }[] = [
+  { slug: 'sydney', title: 'Sydney: fireworks over the harbour', text: 'One of the first big cities to see in the new year, with a family display at 9 pm and the main show at midnight over the Harbour Bridge and Opera House. It’s summer, so stake out a foreshore spot for the day — some vantage points are ticketed or fill by mid-morning.' },
+  { slug: 'auckland', title: 'Auckland: the first major city to celebrate', text: 'Fireworks from the Sky Tower at midnight, with summer weather and harbour cruises.' },
+  { slug: 'rio-de-janeiro', title: 'Rio de Janeiro: Réveillon on Copacabana', text: 'Around two million people dressed in white pack Copacabana Beach for music stages and fireworks from barges. Locals jump seven waves and leave flowers for Iemanjá, goddess of the sea.' },
+  { slug: 'edinburgh', title: 'Edinburgh: Hogmanay', text: 'Scotland’s New Year is a three-day festival: a torchlight procession, the Street Party with fireworks over the castle, and a dip in the freezing Firth of Forth on New Year’s Day for the brave.' },
+  { slug: 'london', title: 'London: fireworks over the Thames', text: 'The London Eye display is world-famous; viewing areas along the river are ticketed and sell out, so book early or watch from a party or pub.' },
+  { slug: 'new-york', title: 'New York: the Times Square ball drop', text: 'Crowds wait for hours in the cold (with no bathrooms) for the ball drop. Fireworks in Central Park and Prospect Park are a more relaxed alternative.' },
+  { slug: 'madeira', title: 'Madeira: one of the world’s biggest firework shows', text: 'Funchal’s bay forms a natural amphitheatre, with fireworks launched from all around the hills and cruise ships lining the harbour. It once held the Guinness record for the largest display.' },
+  { slug: 'dubai', title: 'Dubai: the Burj Khalifa show', text: 'Fireworks and a light show cascading down the world’s tallest building — in warm, dry winter weather.' },
+  { slug: 'hong-kong', title: 'Hong Kong: Victoria Harbour', text: 'A synchronised display across the harbour skyline, best seen from the Tsim Sha Tsui waterfront.' },
+  { slug: 'iceland', title: 'Reykjavík: bonfires and DIY fireworks', text: 'Neighbourhood bonfires (brennur) are followed by a citywide free-for-all of private fireworks — the view from Hallgrímskirkja church is unforgettable.' },
+  { slug: 'paris', title: 'Paris: the Champs-Élysées', text: 'A light show and fireworks at the Arc de Triomphe, with a huge crowd on the avenue.' },
+  { slug: 'berlin', title: 'Berlin: the Brandenburg Gate party', text: 'One of Europe’s biggest open-air parties, followed by a long night in the city’s clubs.' },
+  { slug: 'tokyo', title: 'Tokyo: temple bells and shrine visits', text: 'A quieter, spiritual New Year: temples ring their bells 108 times at midnight (joya no kane), and millions visit shrines for hatsumōde in the first days of January.' },
+  { slug: 'cape-town', title: 'Cape Town: summer at the Waterfront', text: 'Fireworks at the V&A Waterfront and long summer evenings on the beaches of Camps Bay and Clifton.' },
+  { slug: 'las-vegas', title: 'Las Vegas: fireworks over the Strip', text: 'The Strip closes to traffic and casinos launch synchronised fireworks from their rooftops.' },
+  { slug: 'new-orleans', title: 'New Orleans: riverfront fireworks', text: 'Fireworks over the Mississippi, then jazz clubs on Frenchmen Street.' },
+];
+const rows = picks.map((p) => ({ ...p, d: bySlug.get(p.slug) })).filter((r) => r.d);
+const warm = rows.filter((r) => r.d!.months[DEC].high >= 24);
+---
+
+<Guide slug="new-years-eve" photo="sydney">
+  <p>
+    New Year’s Eve rolls around the world over about 25 hours, from the Line Islands of Kiribati to American Samoa. Some celebrations are about spectacle — giant fireworks over a famous skyline — while others are street parties,
+    beach gatherings or quiet traditions. Here are the best places to see in the new year, with the weather you can expect
+    in late December.
+  </p>
+  <p>
+    Want warmth? {warm.map((r, i) => <>{i > 0 && (i === warm.length - 1 ? ' and ' : ', ')}<a href={destMonthUrl(r.d!, DEC)}>{r.d!.name}</a></>)}
+    all average {deg(24)} or more by day in December.
+  </p>
+
+  <h2>The best places to celebrate New Year’s Eve</h2>
+  {
+    rows.map((r) => (
+      <>
+        <h3>{r.title}</h3>
+        <p>
+          {r.text} <span class="muted small">December: {deg(r.d!.months[DEC].high)} / {deg(r.d!.months[DEC].low)}.</span>{' '}
+          <a href={destMonthUrl(r.d!, DEC)}>{r.d!.name} in December →</a>
+        </p>
+      </>
+    ))
+  }
+
+  <h2>Tips for New Year’s Eve travel</h2>
+  <ul>
+    <li><b>Book early.</b> Hotels in Sydney, Edinburgh, Rio and New York sell out — and prices peak — for 31 December.</li>
+    <li><b>Check for tickets.</b> Prime viewing areas in London, Sydney and Edinburgh require tickets or wristbands bought in advance.</li>
+    <li><b>Plan your way home.</b> Public transport runs late in most big cities, but roads close and taxis are scarce.</li>
+    <li><b>Fly on the day.</b> Flights on 31 December and 1 January are often cheaper than the days around them.</li>
+  </ul>
+  <p>
+    More ideas: <a href="/christmas-destinations/">Christmas &amp; New Year destinations</a>,
+    <a href="/where-to-go-in-december/">where to go in December</a> and <a href="/guides/winter-sun/">winter sun</a>.
+  </p>
+</Guide>

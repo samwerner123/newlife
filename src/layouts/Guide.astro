@@ -2,8 +2,9 @@
 import Base from './Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Photo from '../components/Photo.astro';
+import Share from '../components/Share.astro';
 import { ogImage } from '../lib/images';
-import { GUIDES } from '../lib/guides';
+import { GUIDES, seasonalGuides } from '../lib/guides';
 import { breadcrumbLd } from '../lib/seo';
 import { SITE } from '../config';
 
@@ -23,7 +24,10 @@ const crumbs = [
   { name: g.title, href: url },
 ];
 const updated = new Date().toISOString().slice(0, 10);
-const more = GUIDES.filter((x) => x.slug !== slug).slice(0, 4);
+// Same-topic guides first, then whatever is in season.
+const more = [...GUIDES.filter((x) => x.kicker === g.kicker), ...seasonalGuides(new Date().getMonth())]
+  .filter((x, i, all) => x.slug !== slug && all.indexOf(x) === i)
+  .slice(0, 6);
 const jsonLd = [
   breadcrumbLd(crumbs, Astro.site),
   {
@@ -48,6 +52,7 @@ const jsonLd = [
         <h1>{g.title}</h1>
         <p class="lead">{g.description}</p>
         <p class="byline small muted">By the {SITE.name} editorial team · Updated {updated} · <a href="/about/">How we rate</a></p>
+        <Share title={g.title} image={image} />
       </header>
       {photo && <Photo slug={photo} alt="" variant="hero" />}
       <div class="prose body">

@@ -54,7 +54,7 @@ function fromHub(h: Hub): Entity {
     name: h.name,
     slug: h.slug,
     url: h.url,
-    photo: h.members[0].slug,
+    photo: h.photo,
     region: h.members[0].region,
     months: h.months.map((m) => ({ score: m.score, rating: rating(m.score), high: m.high, low: m.low, rain: m.rain })),
     bestMonths: h.bestMonths,

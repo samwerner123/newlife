@@ -1,0 +1,59 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+---
+
+<Guide slug="shoulder-season" photo="dubrovnik">
+  <p>
+    Shoulder season is the period just before and after a destination’s peak season. The weather is often nearly as good,
+    but crowds are thinner, hotels are cheaper and locals are more relaxed. For many places it’s simply the best time to go.
+  </p>
+  <p>
+    There’s no single shoulder season: it depends on when a destination’s peak is. Below are the shoulder months for the main
+    travel regions, with our weather ratings so you can see how little you give up.
+  </p>
+
+  <h2>Europe: April–May and September–October</h2>
+  <p>
+    Southern Europe’s summer peak (July–August) brings heat, crowds and the highest prices. In late spring and early autumn,
+    it’s warm enough to sightsee all day — and in September and early October the sea is still warm enough to swim.
+  </p>
+  <GuideTable caption="European destinations in shoulder season" months={[3, 4, 8, 9]} rows={[{ slug: 'rome' }, { slug: 'barcelona' }, { slug: 'lisbon' }, { slug: 'santorini' }, { slug: 'dubrovnik' }, { slug: 'amalfi-coast' }, { slug: 'provence' }, { slug: 'paris' }]} />
+
+  <h2>The Caribbean and Mexico: late April–June and November–mid-December</h2>
+  <p>
+    The dry high season runs from mid-December to mid-April. Late April to June is still mostly dry and sunny, while November and
+    early December follow the end of hurricane season — both with noticeably lower resort prices.
+  </p>
+  <GuideTable caption="Caribbean destinations in shoulder season" months={[4, 5, 10, 11]} rows={[{ slug: 'aruba' }, { slug: 'punta-cana' }, { slug: 'jamaica' }, { slug: 'barbados' }, { slug: 'cancun' }, { slug: 'turks-and-caicos' }]} />
+
+  <h2>Southeast Asia: November and March–April</h2>
+  <p>
+    Thailand, Vietnam and Cambodia peak from December to February. November is often fresh and green after the rains, while March
+    and April are hot but less busy (and Songkran, Thai New Year, falls in mid-April).
+  </p>
+  <GuideTable caption="Southeast Asian destinations in shoulder season" months={[2, 3, 10]} rows={[{ slug: 'bangkok' }, { slug: 'chiang-mai' }, { slug: 'hanoi' }, { slug: 'siem-reap' }, { slug: 'phuket' }]} />
+
+  <h2>US national parks: May and September–October</h2>
+  <p>
+    Summer brings school-holiday crowds and desert heat. May and early autumn have open roads in most parks, cooler hiking
+    temperatures and fewer people — and golden aspens or fall colours in late September and October.
+  </p>
+  <GuideTable caption="US national parks in shoulder season" months={[4, 8, 9]} rows={[{ slug: 'zion' }, { slug: 'grand-canyon' }, { slug: 'yellowstone' }, { slug: 'arches-bryce' }, { slug: 'acadia' }]} />
+
+  <h2>Japan: mid-April to May and October to mid-November</h2>
+  <p>
+    Cherry blossom season (late March–early April) and peak autumn colours (late November) are the busiest. The weeks around them
+    are mild and beautiful — just avoid Golden Week in early May.
+  </p>
+  <GuideTable caption="Japan in shoulder season" months={[3, 4, 9, 10]} rows={[{ slug: 'tokyo' }, { slug: 'kyoto' }, { slug: 'osaka' }, { slug: 'hokkaido' }]} />
+
+  <h2>How to make the most of shoulder season</h2>
+  <ul>
+    <li><b>Avoid holiday weeks</b> — Easter, half-terms and national holidays can make a shoulder week feel like peak season.</li>
+    <li><b>Check what’s open:</b> on some islands (the Greek islands, Ibiza, the Amalfi Coast), hotels and ferries only start running fully from May.</li>
+    <li><b>Pack a layer</b> for cooler evenings.</li>
+    <li><b>Book flexible rates,</b> as spring and autumn weather can be more variable.</li>
+  </ul>
+  <p>Browse every month: <a href="/calendar/">the travel calendar</a>.</p>
+</Guide>

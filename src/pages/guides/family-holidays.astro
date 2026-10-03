@@ -1,0 +1,64 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { destinations, rankForMonth, destMonthUrl, deg, usd } from '../../lib/data';
+
+// School holidays in the US and UK, with the month that best represents each.
+const holidays = [
+  { label: 'February half-term & Presidents’ Day week', m: 1, when: 'Mid-February', note: 'Winter sun is the big draw — the Canaries, the Caribbean and Florida, or snow in the mountains.' },
+  { label: 'Spring break & Easter holidays', m: 3, when: 'March–April', note: 'Warm beaches before the summer heat, and city breaks as Europe warms up.' },
+  { label: 'May half-term & Memorial Day', m: 4, when: 'Late May', note: 'The Mediterranean is warming up, and it’s a sweet spot for the US national parks.' },
+  { label: 'Summer holidays', m: 6, when: 'Late June – August', note: 'Peak season almost everywhere: northern Europe, Canada and the mountains are pleasant, the Mediterranean is hot.' },
+  { label: 'October half-term & fall break', m: 9, when: 'Late October', note: 'The last warm sea in the Mediterranean and the Canaries, or autumn colours.' },
+  { label: 'Thanksgiving', m: 10, when: 'Late November', note: 'Mexico, the Caribbean and Hawaii start their dry season.' },
+  { label: 'Christmas & New Year', m: 11, when: 'Late December', note: 'Winter sun, or a snowy Christmas in Lapland or the mountains.' },
+];
+const FAMILY = (d: (typeof destinations)[number]) => d.tags.includes('family') || d.tags.includes('beach');
+const rows = holidays.map((h) => ({ ...h, items: rankForMonth(h.m, destinations.filter(FAMILY)).filter((d) => d.months[h.m].score >= 65).slice(0, 6) }));
+---
+
+<Guide slug="family-holidays" photo="orlando">
+  <p>
+    With school-age children, the calendar decides for you — so the question becomes where the weather will be good in the
+    holidays you have. For each main US and UK school holiday, we ranked family-friendly and beach destinations by their
+    weather in that month, with typical daily budgets per person.
+  </p>
+  <p>
+    Remember that school holidays are peak season: book flights and family rooms early, and consider destinations closer to
+    home or the shoulder weeks around the holiday for better prices.
+  </p>
+
+  {
+    rows.map((h) => (
+      <>
+        <h2>{h.label} <span class="muted small">({h.when})</span></h2>
+        <p>{h.note}</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="visually-hidden">Family destinations for {h.label}</caption>
+            <thead><tr><th scope="col">Destination</th><th scope="col">Rating</th><th scope="col">High</th><th scope="col">From</th></tr></thead>
+            <tbody>
+              {h.items.map((d) => (
+                <tr>
+                  <th scope="row"><a href={destMonthUrl(d, h.m)}>{d.name}</a></th>
+                  <td><RatingBadge score={d.months[h.m].score} rating={d.months[h.m].rating} /></td>
+                  <td>{deg(d.months[h.m].high)}</td>
+                  <td>{usd(d.budget.low)}/day</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    ))
+  }
+
+  <h2>Tips for family trips</h2>
+  <ul>
+    <li><b>Shorter flights win</b> with young children — the Canaries and Mediterranean from the UK, Florida, Mexico and the Caribbean from the US.</li>
+    <li><b>Check the heat:</b> highs above 32°C can be hard for small children; look for shade, pools and siesta time.</li>
+    <li><b>Mind the sea:</b> calm, shallow beaches (the Gulf Coast, Aruba, the Canaries’ south coasts, the Algarve’s sheltered coves) are easier with toddlers.</li>
+    <li><b>Book family rooms early;</b> they’re often the first to sell out.</li>
+  </ul>
+  <p>See also: <a href="/guides/disney-world/">best time to visit Disney World</a> and <a href="/guides/spring-break/">spring break destinations</a>.</p>
+</Guide>

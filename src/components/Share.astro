@@ -1,0 +1,88 @@
+---
+// Share links (no third-party scripts): native share sheet where supported, plus plain links.
+import Icon from './Icon.astro';
+import { SITE } from '../config';
+
+interface Props {
+  title: string;
+  /** Absolute or site-relative image for Pinterest. */
+  image?: string;
+}
+const { title, image } = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site ?? SITE.url).toString();
+const img = image ? new URL(image, Astro.site ?? SITE.url).toString() : '';
+const e = encodeURIComponent;
+const links = [
+  { label: 'WhatsApp', href: `https://wa.me/?text=${e(`${title} ${url}`)}` },
+  { label: 'Pinterest', href: `https://www.pinterest.com/pin/create/button/?url=${e(url)}&description=${e(title)}${img ? `&media=${e(img)}` : ''}` },
+  { label: 'X', href: `https://twitter.com/intent/tweet?url=${e(url)}&text=${e(title)}` },
+  { label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${e(url)}` },
+  { label: 'Email', href: `mailto:?subject=${e(title)}&body=${e(url)}` },
+];
+---
+
+<div class="share" data-share data-url={url} data-title={title}>
+  <button type="button" class="chip native" data-share-native hidden><Icon name="share" size={16} />&nbsp;Share</button>
+  <span class="lbl small muted" data-share-label>Share:</span>
+  {links.map((l) => <a class="chip net" href={l.href} target="_blank" rel="noopener nofollow">{l.label}</a>)}
+  <button type="button" class="chip net" data-share-copy>Copy link</button>
+  <button type="button" class="chip net" data-print><Icon name="print" size={16} />&nbsp;Print</button>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-share]').forEach((box) => {
+    const url = box.dataset.url!;
+    const title = box.dataset.title!;
+    const native = box.querySelector<HTMLButtonElement>('[data-share-native]')!;
+    if (navigator.share) {
+      box.classList.add('has-native');
+      native.hidden = false;
+      box.querySelector<HTMLElement>('[data-share-label]')!.hidden = true;
+      native.addEventListener('click', () => navigator.share({ title, url }).catch(() => {}));
+    }
+    const copy = box.querySelector<HTMLButtonElement>('[data-share-copy]')!;
+    copy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+        copy.textContent = 'Link copied';
+      } catch {
+        copy.textContent = url;
+      }
+    });
+    box.querySelector('[data-print]')?.addEventListener('click', () => window.print());
+  });
+</script>
+
+<style>
+  .share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 8px 0 0;
+  }
+  .share .chip {
+    min-height: 34px;
+    padding: 4px 12px;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .share [hidden] {
+    display: none;
+  }
+  .lbl {
+    margin-right: 2px;
+  }
+  /* On phones the native share sheet covers every app, so keep the bar to one button. */
+  @media (max-width: 640px) {
+    .has-native .net {
+      display: none;
+    }
+  }
+  @media (pointer: coarse) {
+    .share .chip {
+      min-height: 44px;
+    }
+  }
+</style>

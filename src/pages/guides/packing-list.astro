@@ -1,0 +1,93 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { destinations, destMonthUrl, MONTHS, deg } from '../../lib/data';
+
+// One example destination-month for each climate, picked from the data so the numbers stay current.
+const example = (f: (d: (typeof destinations)[number], m: number) => boolean) => {
+  for (const d of destinations) for (let m = 0; m < 12; m++) if (f(d, m)) return { d, m };
+  return undefined;
+};
+const kits = [
+  {
+    title: 'Tropical beach (28–33°C, humid)',
+    ex: example((d, m) => d.slug === 'phuket' && m === 1),
+    items: ['Lightweight, breathable clothes (linen, cotton, quick-dry)', 'Two swimsuits, so one can dry', 'Reef-safe sunscreen (SPF 50), sunglasses and a wide-brimmed hat', 'Rash guard for long snorkelling sessions', 'Sandals plus light trainers for excursions', 'Insect repellent with DEET or picaridin', 'A light long-sleeved layer for air-conditioning and evening mosquitoes'],
+  },
+  {
+    title: 'Tropical rainy season or monsoon',
+    ex: example((d, m) => d.slug === 'bali' && m === 0),
+    items: ['Packable rain jacket or poncho, and a compact umbrella', 'Quick-dry clothes — cotton never dries in the humidity', 'Waterproof sandals or shoes that can get wet', 'Dry bags or zip-lock bags for your phone and documents', 'Anti-chafe balm and foot powder'],
+  },
+  {
+    title: 'Desert heat (35°C+ by day, cool nights)',
+    ex: example((d, m) => d.slug === 'luxor' && m === 4),
+    items: ['Loose, light-coloured clothes that cover shoulders and legs', 'Wide-brimmed hat and scarf for sun and dust', 'High-SPF sunscreen and lip balm', 'Refillable water bottle and electrolyte tablets', 'A warm layer for desert nights and early starts', 'Closed shoes for hot sand and rocky sites'],
+  },
+  {
+    title: 'Mediterranean summer (28–35°C, dry)',
+    ex: example((d, m) => d.slug === 'santorini' && m === 6),
+    items: ['Light summer clothes, plus something smarter for dinner', 'Shoulder-covering scarf for churches and monasteries', 'Comfortable walking sandals for cobbles and steps', 'Swimwear, beach towel and water shoes for pebble beaches', 'Sun hat and sunscreen'],
+  },
+  {
+    title: 'Spring or autumn city break (12–22°C, changeable)',
+    ex: example((d, m) => d.slug === 'paris' && m === 3),
+    items: ['Layers: T-shirts, a jumper and a light waterproof jacket', 'Comfortable walking shoes — you’ll walk 15,000+ steps a day', 'Compact umbrella', 'A scarf for cool evenings', 'Day bag that closes securely'],
+  },
+  {
+    title: 'Winter city (below 5°C)',
+    ex: example((d, m) => d.slug === 'vienna' && m === 11),
+    items: ['Warm, windproof coat', 'Thermal base layers, hat, scarf and gloves', 'Waterproof boots with good grip for icy pavements', 'Lip balm and hand cream — cold air is drying', 'Hand warmers for Christmas markets and outdoor events'],
+  },
+  {
+    title: 'Arctic winter and northern lights (−5 to −20°C)',
+    ex: example((d, m) => d.slug === 'lapland' && m === 0),
+    items: ['Merino wool base layers (top and bottom)', 'Insulated, waterproof jacket and trousers', 'Warm boots rated for −20°C, with wool socks', 'Balaclava or neck gaiter, insulated mittens with liner gloves', 'Head torch and spare phone batteries (the cold drains them fast)', 'Microspikes or ice grips for your boots'],
+  },
+  {
+    title: 'High altitude and trekking',
+    ex: example((d, m) => d.slug === 'cusco' && m === 6),
+    items: ['Layering system: base layer, fleece and waterproof shell', 'Broken-in hiking boots and trekking socks', 'Sun protection — UV is much stronger at altitude', 'Warm hat and gloves for cold nights', 'Altitude-sickness medication (ask your doctor) and a first-aid kit', 'Water purification tablets or a filter bottle'],
+  },
+];
+---
+
+<Guide slug="packing-list" photo="cusco">
+  <p>
+    The weather at your destination should decide what goes in your bag. Below are packing lists for the eight climates
+    travellers meet most often, each with a real example from our climate data. Every destination-month page on SeasonScout
+    also has its own packing tips based on that month’s temperatures and rainfall.
+  </p>
+
+  <h2>The essentials, whatever the weather</h2>
+  <ul>
+    <li>Passport (valid for at least six months for many countries), visas and printed or offline copies</li>
+    <li>Travel insurance details and emergency numbers — see <a href="/guides/travel-insurance/">travel insurance explained</a></li>
+    <li>Universal plug adapter (plug types are listed on every destination page)</li>
+    <li>Phone, charger, power bank and a data plan or <a href="/guides/esim-travel/">travel eSIM</a></li>
+    <li>Prescription medicines in their original packaging, plus a basic first-aid kit</li>
+    <li>A refillable water bottle and a lightweight day bag</li>
+  </ul>
+
+  {
+    kits.map((k) => (
+      <>
+        <h2>{k.title}</h2>
+        {k.ex && (
+          <p class="muted small">
+            Example: <a href={destMonthUrl(k.ex.d, k.ex.m)}>{k.ex.d.name} in {MONTHS[k.ex.m]}</a> averages {deg(k.ex.d.months[k.ex.m].high)} by day
+            and {deg(k.ex.d.months[k.ex.m].low)} at night, with {k.ex.d.months[k.ex.m].rain} mm of rain.
+          </p>
+        )}
+        <ul>{k.items.map((i) => <li>{i}</li>)}</ul>
+      </>
+    ))
+  }
+
+  <h2>Packing tips</h2>
+  <ul>
+    <li><b>Pack for the night as well as the day</b> — deserts, mountains and islands with sea breezes can be much cooler after dark.</li>
+    <li><b>Choose layers over bulk:</b> three thin layers are warmer and more flexible than one heavy jumper.</li>
+    <li><b>Leave room</b> for things you’ll buy there, especially in markets.</li>
+    <li><b>Check the dress code</b> for religious sites: covered shoulders and knees are expected in many countries.</li>
+  </ul>
+</Guide>

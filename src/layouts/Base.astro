@@ -11,9 +11,13 @@ interface Props {
   ogType?: 'website' | 'article';
   /** Site-relative or absolute URL of a JPEG/PNG used for social previews. */
   image?: string;
+  /** Destination slug to remember in the visitor's "recently viewed" list. */
+  recent?: string;
+  /** Keep the page out of search results (tools that only work with JavaScript, embeds). */
+  noindex?: boolean;
 }
 
-const { title, description, jsonLd = [], ogType = 'website', image } = Astro.props;
+const { title, description, jsonLd = [], ogType = 'website', image, recent, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 // Keep titles short enough for search results: drop the brand suffix on long titles.
 const fullTitle = title.includes(SITE.name) || title.length > 52 ? title : `${title} | ${SITE.name}`;
@@ -31,11 +35,16 @@ const ogImage = new URL(image ?? '/og-default.png', Astro.site).toString();
         try { u = localStorage.getItem('units'); } catch (e) {}
         if (u !== 'metric' && u !== 'imperial') u = /^en-(US|LR)$/i.test(navigator.language || '') ? 'imperial' : 'metric';
         document.documentElement.setAttribute('data-units', u);
+        // Theme chosen with the header toggle (otherwise the system setting applies).
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -52,7 +61,7 @@ const ogImage = new URL(image ?? '/og-default.png', Astro.site).toString();
     <meta name="twitter:card" content="summary_large_image" />
     {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
   </head>
-  <body>
+  <body data-recent={recent}>
     <a class="skip" href="#main">Skip to content</a>
     <Header />
     <main id="main">
@@ -65,9 +74,12 @@ const ogImage = new URL(image ?? '/og-default.png', Astro.site).toString();
       const root = document.documentElement;
       const toF = (c: number) => Math.round((c * 9) / 5 + 32);
       const toIn = (mm: number) => (mm / 25.4).toFixed(mm >= 254 ? 0 : 1);
+      // Handles single values (21°C), ranges (24–30°C, -5 to -20°C) and the typographic minus (−5°C).
+      const num = (x: string) => +x.replace('−', '-');
       const conv = (s: string) =>
         s
-          .replace(/(-?\d+(?:\.\d+)?)°C/g, (_, c) => `${toF(+c)}°F`)
+          .replace(/([−-]?\d+(?:\.\d+)?)(\s?[–-]\s?|\sto\s)([−-]?\d+(?:\.\d+)?)°C/g, (_, a, sep, b) => `${toF(num(a))}${sep}${toF(num(b))}°F`)
+          .replace(/([−-]?\d+(?:\.\d+)?)°C/g, (_, c) => `${toF(num(c))}°F`)
           .replace(/(\d+(?:\.\d+)?)(\s?)mm\b/g, (_, mm, sp) => `${toIn(+mm)}${sp}in`)
           .replace(/°C/g, '°F')
           .replace(/, mm\b/g, ', in');
@@ -105,6 +117,47 @@ const ogImage = new URL(image ?? '/og-default.png', Astro.site).toString();
         } catch {}
         location.reload();
       }));
+    </script>
+    <script>
+      // Saved places and recently viewed destinations live in localStorage (nothing leaves the browser).
+      const read = (k: string): string[] => {
+        try {
+          return JSON.parse(localStorage.getItem(k) || '[]');
+        } catch {
+          return [];
+        }
+      };
+      const write = (k: string, v: string[]) => {
+        try {
+          localStorage.setItem(k, JSON.stringify(v));
+        } catch {}
+      };
+      function paintSaved() {
+        const saved = read('saved');
+        document.querySelectorAll<HTMLElement>('[data-save]').forEach((b) => {
+          const on = saved.includes(b.dataset.save!);
+          b.setAttribute('aria-pressed', String(on));
+          const label = b.querySelector('[data-save-label]');
+          if (label) label.textContent = on ? 'Saved' : 'Save';
+        });
+        document.querySelectorAll<HTMLElement>('[data-saved-count]').forEach((c) => {
+          c.textContent = saved.length ? String(saved.length) : '';
+          c.hidden = !saved.length;
+        });
+      }
+      document.addEventListener('click', (e) => {
+        const b = (e.target as Element | null)?.closest?.('[data-save]') as HTMLElement | null;
+        if (!b) return;
+        e.preventDefault();
+        const slug = b.dataset.save!;
+        const saved = read('saved');
+        write('saved', saved.includes(slug) ? saved.filter((s) => s !== slug) : [slug, ...saved]);
+        paintSaved();
+      });
+      paintSaved();
+      if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('/sw.js').catch(() => {});
+      const recent = document.body.dataset.recent;
+      if (recent) write('recent', [recent, ...read('recent').filter((s) => s !== recent)].slice(0, 12));
     </script>
     <script>
       // One shared tooltip for every element carrying data-tip ("first line\nmore lines").

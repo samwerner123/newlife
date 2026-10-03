@@ -4,6 +4,8 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import BookingBox from '../../../components/BookingBox.astro';
 import Photo from '../../../components/Photo.astro';
 import MobileBookBar from '../../../components/MobileBookBar.astro';
+import SaveButton from '../../../components/SaveButton.astro';
+import Share from '../../../components/Share.astro';
 import { ogImage } from '../../../lib/images';
 import ClimateCharts from '../../../components/ClimateCharts.astro';
 import ClimateTable from '../../../components/ClimateTable.astro';
@@ -13,7 +15,7 @@ import TripCost from '../../../components/TripCost.astro';
 import PracticalInfo from '../../../components/PracticalInfo.astro';
 import WhereToStay from '../../../components/WhereToStay.astro';
 import { comparisonsFor } from '../../../lib/compare';
-import { destinations, monthRanges, MONTHS, destMonthUrl, hubOf, deg, usd, type Destination } from '../../../lib/data';
+import { destinations, monthRanges, MONTHS, MONTH_SLUGS, destMonthUrl, hubOf, hubsOf, deg, usd, type Destination } from '../../../lib/data';
 import { breadcrumbLd } from '../../../lib/seo';
 
 export function getStaticPaths() {
@@ -36,6 +38,11 @@ const similar = destinations
   .map((x) => x.d);
 
 const hub = hubOf(dest);
+const otherHubs = hubsOf(dest).filter((h) => h !== hub);
+const skiOf = (f: (s: string) => boolean) => (dest.ski ? Object.entries(dest.ski.months).filter(([, s]) => f(s)).map(([k]) => +k - 1) : []);
+const skiMonths = skiOf((s) => s !== 'glacier');
+const skiGlacier = skiOf((s) => s === 'glacier');
+const skiPeak = skiOf((s) => s === 'peak');
 const versus = comparisonsFor(dest.slug);
 const crumbs = [
   { name: 'Home', href: '/' },
@@ -44,6 +51,7 @@ const crumbs = [
 ];
 
 const title = `Best Time to Visit ${dest.name}: Weather by Month`;
+const og = await ogImage(dest.slug);
 const description = `The best time to visit ${dest.name} is ${best}. Month-by-month temperatures, rainfall and sunshine from official climate normals, plus daily budgets from ${usd(dest.budget.low)}.`;
 
 const jsonLd = [
@@ -59,7 +67,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={title} description={description} jsonLd={jsonLd} ogType="article" image={await ogImage(dest.slug)}>
+<Base title={title} description={description} jsonLd={jsonLd} ogType="article" image={og} recent={dest.slug}>
   <div class="container">
     <Breadcrumbs items={crumbs} />
 
@@ -67,6 +75,7 @@ const jsonLd = [
       <p class="eyebrow">{dest.country} · {dest.region}</p>
       <h1>Best time to visit {dest.name}</h1>
       <p class="lead">{dest.tagline}</p>
+      <div class="tools-row"><SaveButton slug={dest.slug} name={dest.name} /><Share title={`Best time to visit ${dest.name}`} image={og} /></div>
     </header>
     <Photo slug={dest.slug} alt={`${dest.name}, ${dest.country}`} variant="hero" />
     <div class="gap"></div>
@@ -80,6 +89,16 @@ const jsonLd = [
           </p>
           <p>{dest.best}</p>
           <p class="muted"><b>Watch out:</b> {dest.avoid}</p>
+          {
+            dest.ski && (
+              <p>
+                <b>Skiing:</b> the ski season at {dest.ski.resorts} runs {monthRanges(skiMonths)}
+                {skiPeak.length > 0 && `, peaking in ${monthRanges(skiPeak)}`}
+                {skiGlacier.length > 0 && `, with glacier skiing on a few high runs in ${monthRanges(skiGlacier)}`}.{' '}
+                <a href={`/where-to-ski-in-${MONTH_SLUGS[skiPeak[0] ?? skiMonths[0]]}/`}>Where to ski by month</a>
+              </p>
+            )
+          }
           <MonthStrip dest={dest} size="lg" />
           <div class="legend">
             <span><i data-rating="great"></i>Great</span>
@@ -144,7 +163,7 @@ const jsonLd = [
             <div><dt>Daily budget</dt><dd>{usd(dest.budget.low)}–{usd(dest.budget.mid)}</dd></div>
           </dl>
           <PracticalInfo dest={dest} />
-          {hub && <a class="card hub-link" href={hub.url}>Best time to visit {hub.name} → <span class="muted small">Compare {hub.members.length} places</span></a>}
+          {[hub, ...otherHubs].map((h) => h && <a class="card hub-link" href={h.url}>Best time to visit {h.label} → <span class="muted small">Compare {h.members.length} places</span></a>)}
         </div>
       </aside>
     </div>
@@ -163,6 +182,12 @@ const jsonLd = [
       )
     }
 
+    <details class="card embed no-print">
+      <summary>Embed this climate chart on your site</summary>
+      <p class="small muted">Free for blogs and travel sites — copy the code below. Please keep the credit link.</p>
+      <textarea readonly rows="3" aria-label="Embed code" onclick="this.select()">{`<iframe src="${new URL(`/embed/${dest.slug}/`, Astro.site)}" title="${dest.name} weather by month" width="100%" height="190" style="border:0;max-width:640px" loading="lazy"></iframe>`}</textarea>
+    </details>
+
     <nav aria-label={`${dest.name} by month`} class="months">
       <h2 class="h3">{dest.name} month by month</h2>
       <div class="pill-row">
@@ -176,6 +201,16 @@ const jsonLd = [
 <style>
   .gap {
     height: 24px;
+  }
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .tools-row :global(.share) {
+    margin: 0;
   }
   .layout {
     display: grid;
@@ -248,6 +283,22 @@ const jsonLd = [
   }
   .hub-link:hover {
     border-color: var(--cta);
+  }
+  .embed {
+    margin: 0 0 24px;
+  }
+  .embed summary {
+    cursor: pointer;
+    font-weight: 650;
+  }
+  .embed textarea {
+    width: 100%;
+    font: 0.8125rem ui-monospace, monospace;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
   }
   .months .pill {
     font-size: 0.875rem;

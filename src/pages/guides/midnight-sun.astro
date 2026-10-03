@@ -1,0 +1,93 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, dayLength, deg } from '../../lib/data';
+
+// Midnight-sun period for a latitude: days when the sun stays above the horizon all day (refraction included).
+const DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const date = (day: number) => {
+  let m = 0;
+  while (day > DAYS[m]) day -= DAYS[m++];
+  return `${day} ${MON[m]}`;
+};
+function period(lat: number) {
+  const days = Array.from({ length: 365 }, (_, i) => i + 1).filter((n) => dayLength(lat, n) >= 24);
+  return days.length ? `${date(days[0])} – ${date(days[days.length - 1])}` : null;
+}
+const places: { slug?: string; place: string; lat: number; note: string }[] = [
+  { place: 'Svalbard (Longyearbyen), Norway', lat: 78.22, note: 'The longest midnight sun of any inhabited town — four months.' },
+  { place: 'North Cape, Norway', lat: 71.17, note: 'Mainland Europe’s northernmost point, a classic midnight-sun pilgrimage.' },
+  { place: 'Utqiaġvik (Barrow), Alaska', lat: 71.29, note: 'The northernmost town in the US.' },
+  { slug: 'tromso', place: 'Tromsø, Norway', lat: 69.65, note: 'A lively Arctic city with midnight hikes, fjord cruises and sea kayaking.' },
+  { slug: 'lofoten', place: 'Lofoten Islands, Norway', lat: 68.23, note: 'Midnight light on jagged peaks and white beaches — perfect for hiking.' },
+  { place: 'Abisko, Swedish Lapland', lat: 68.35, note: 'A national park famous for its midnight-sun hikes on the Kungsleden trail.' },
+  { place: 'Grímsey, Iceland', lat: 66.55, note: 'The only part of Iceland on the Arctic Circle; the mainland gets 20+ hours of daylight instead.' },
+];
+const rows = places.map((p) => ({ ...p, d: p.slug ? bySlug.get(p.slug) : undefined, period: period(p.lat) }));
+const nearly = ['lapland', 'iceland', 'alaska', 'faroe-islands', 'stockholm', 'oslo', 'edinburgh', 'scottish-highlands'].map((s) => bySlug.get(s)).filter((d) => d !== undefined);
+const fmt = (h: number) => (h >= 24 ? '24 h' : `${Math.floor(h)} h ${String(Math.round((h % 1) * 60)).padStart(2, '0')}`);
+---
+
+<Guide slug="midnight-sun" photo="lofoten">
+  <p>
+    North of the Arctic Circle (about 66.6°N), the sun doesn’t set for at least one day around the June solstice — and the
+    further north you go, the longer the ‘midnight sun’ lasts. At the same latitudes, winter brings the opposite: the polar
+    night, when the sun doesn’t rise at all. The southern hemisphere has its midnight sun in December, but only in Antarctica.
+  </p>
+
+  <h2>Where and when to see the midnight sun</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption class="visually-hidden">Midnight sun periods by place</caption>
+      <thead><tr><th scope="col">Place</th><th scope="col">Latitude</th><th scope="col" class="left">Midnight sun (approx.)</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row">{r.d ? <a href={destMonthUrl(r.d, 5)}>{r.place}</a> : r.place}</th>
+              <td>{r.lat.toFixed(1)}°N</td>
+              <td class="left">{r.period ?? 'Around midsummer'}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Dates calculated from latitude, including atmospheric refraction; mountains on the horizon can hide the sun for a while each night.</p>
+  <ul>{rows.map((r) => <li><b>{r.place}:</b> {r.note}</li>)}</ul>
+
+  <h2>Almost-midnight sun: the ‘white nights’</h2>
+  <p>Just south of the Arctic Circle, the sun dips below the horizon for a few hours but it never gets fully dark. June daylight at our destinations:</p>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption class="visually-hidden">June daylight hours</caption>
+      <thead><tr><th scope="col">Destination</th><th scope="col">June daylight</th><th scope="col">June high / low</th></tr></thead>
+      <tbody>
+        {
+          nearly.map((d) => (
+            <tr>
+              <th scope="row"><a href={destMonthUrl(d!, 5)}>{d!.name}</a></th>
+              <td>{fmt(d!.months[5].daylight)}</td>
+              <td>{deg(d!.months[5].high)} / {deg(d!.months[5].low)}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Tips for the midnight sun</h2>
+  <ul>
+    <li><b>Bring an eye mask</b> — many hotels have blackout blinds, but not all.</li>
+    <li><b>Make the most of the light:</b> hikes, kayaking and boat trips run late into the night.</li>
+    <li><b>Celebrate Midsummer</b> in Scandinavia (around 20–24 June) with bonfires and festivals.</li>
+    <li><b>Pack layers:</b> even in July, Arctic nights can be cool, around 8–12°C.</li>
+  </ul>
+  <p>See also: <a href="/guides/daylight-hours/">daylight hours around the world</a> and <a href="/best-time-to-visit-scandinavia/">the best time to visit Scandinavia</a>.</p>
+</Guide>
+
+<style>
+  .left {
+    text-align: left;
+  }
+</style>

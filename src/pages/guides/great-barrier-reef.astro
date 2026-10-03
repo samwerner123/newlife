@@ -1,0 +1,50 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { MONTHS } from '../../lib/data';
+
+const calendar: [string, string][] = [
+  ['June–July', 'Dwarf minke whales visit the Ribbon Reefs north of Cairns — you can snorkel with them on licensed trips.'],
+  ['July–September', 'Humpback whales calve in the Whitsundays and pass along the coast.'],
+  ['September–December', 'Often the clearest water and calm seas — a favourite time for divers.'],
+  ['November–December', 'Coral spawning, a few nights after the full moon, when corals release eggs and sperm in a mass ‘underwater snowstorm’.'],
+  ['November–March', 'Turtle nesting on the southern reef islands and at Mon Repos near Bundaberg; hatchlings emerge from January to April.'],
+];
+---
+
+<Guide slug="great-barrier-reef" photo="whitsundays">
+  <p>
+    The best time to visit the Great Barrier Reef is <strong>June to October</strong>: the dry season brings sunny days,
+    calmer seas, good visibility and no marine stingers. Water temperatures are a little cooler (around 23–25°C), so a 3 mm
+    wetsuit is comfortable. The reef is open all year, though: from November to May the water is warmer, but it’s the wet and
+    cyclone season, and stinger suits are a must.
+  </p>
+
+  <h2>Weather on the reef, month by month</h2>
+  <GuideTable caption="Weather rating by month at Cairns and the Whitsundays" months={MONTHS.map((_, i) => i)} rows={[{ slug: 'cairns', label: 'Cairns & Port Douglas' }, { slug: 'whitsundays' }]} />
+  <GuideTable caption="Sea temperature by month at Cairns and the Whitsundays" months={MONTHS.map((_, i) => i)} show="sea" rows={[{ slug: 'cairns', label: 'Cairns (sea °C)' }, { slug: 'whitsundays', label: 'Whitsundays (sea °C)' }]} />
+
+  <h2>Dry season vs stinger season</h2>
+  <ul>
+    <li><b>June–October (dry season):</b> warm, sunny days around 25–28°C, low humidity and the best snorkelling conditions. It’s also Australia’s winter school-holiday season, so book ahead.</li>
+    <li><b>November–May (wet season):</b> hot and humid with tropical downpours. Box jellyfish and Irukandji (‘stingers’) are present near the coast, so wear a full-body stinger suit — tour boats provide them. Cyclones are possible, especially from January to March.</li>
+  </ul>
+
+  <h2>Reef calendar</h2>
+  <ul>{calendar.map(([when, what]) => <li><b>{when}:</b> {what}</li>)}</ul>
+
+  <h2>Cairns or the Whitsundays?</h2>
+  <ul>
+    <li><b><a href="/destinations/cairns/">Cairns and Port Douglas</a></b> give the easiest access to the outer reef for snorkelling and diving, plus the Daintree Rainforest.</li>
+    <li><b><a href="/destinations/whitsundays/">The Whitsundays</a></b> are better for sailing, island beaches like Whitehaven, and scenic flights over Heart Reef.</li>
+  </ul>
+
+  <h2>Tips</h2>
+  <ul>
+    <li><b>Choose an outer-reef trip</b> for the best coral and visibility; inner reefs and islands are calmer for beginners.</li>
+    <li><b>Use reef-safe sunscreen</b> or a rash guard.</li>
+    <li><b>Look for eco-certified operators</b> that contribute to reef monitoring and protection.</li>
+    <li><b>Allow a spare day</b> in case wind cancels your boat trip.</li>
+  </ul>
+  <p>See also: <a href="/best-time-to-visit-australia/">best time to visit Australia</a> and <a href="/guides/diving-snorkelling-seasons/">diving seasons worldwide</a>.</p>
+</Guide>

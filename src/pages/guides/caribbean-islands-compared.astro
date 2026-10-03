@@ -1,0 +1,48 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { hubByName, rankForMonth, destMonthUrl, MONTHS, MONTH_SHORT } from '../../lib/data';
+
+const hub = hubByName.get('Caribbean')!;
+const rows = [...hub.members].sort((a, b) => b.bestMonths.length - a.bestMonths.length).map((d) => ({ slug: d.slug }));
+const best = MONTHS.map((_, m) => rankForMonth(m, hub.members)[0]);
+---
+
+<Guide slug="caribbean-islands-compared" photo="st-lucia">
+  <p>
+    Every Caribbean island has a dry high season from about December to April and a wetter season from June to November, when
+    hurricanes are possible. But the details differ: the ‘ABC’ islands of Aruba and Curaçao are dry and outside the hurricane
+    belt, while islands further north and east see more rain and more storm risk. Here’s how {hub.members.length} islands compare,
+    month by month.
+  </p>
+
+  <h2>Caribbean islands: weather rating by month</h2>
+  <GuideTable caption="Weather rating by Caribbean island and month" months={MONTHS.map((_, i) => i)} rows={rows} />
+  <p class="small muted">Our ratings combine temperature and rainfall and subtract points in peak hurricane months for islands in the hurricane belt.</p>
+
+  <h2>The best island each month</h2>
+  <ul class="cols">
+    {best.map((d, m) => <li><b>{MONTH_SHORT[m]}:</b> <a href={destMonthUrl(d, m)}>{d.name}</a></li>)}
+  </ul>
+
+  <h2>By season</h2>
+  <ul>
+    <li><b>December–April (high season):</b> every island is at its best. The Bahamas and Turks and Caicos are the closest to the US East Coast but can be breezy and a little cool in January–February; Barbados, St Lucia and the US Virgin Islands are warmer.</li>
+    <li><b>May–July (shoulder season):</b> still mostly sunny, with lower prices. Watch for <a href="/guides/sargassum-season/">sargassum seaweed</a> on Atlantic-facing beaches.</li>
+    <li><b>August–October (peak hurricane season):</b> stick to <a href="/destinations/aruba/">Aruba</a> and <a href="/destinations/curacao/">Curaçao</a>, which are rarely hit, and buy travel insurance when you book.</li>
+    <li><b>November:</b> the season winds down and prices are low before the Christmas rush.</li>
+  </ul>
+  <p>See also: <a href="/best-time-to-visit-caribbean/">best time to visit the Caribbean</a> and <a href="/guides/hurricane-season/">hurricane season</a>.</p>
+</Guide>
+
+<style>
+  .cols {
+    columns: 2;
+    column-gap: 24px;
+  }
+  @media (min-width: 640px) {
+    .cols {
+      columns: 3;
+    }
+  }
+</style>

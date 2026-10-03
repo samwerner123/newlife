@@ -1,0 +1,72 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import Icon from '../../components/Icon.astro';
+import { partnerLinks } from '../../lib/data';
+
+const links = partnerLinks(undefined, ['insurance']);
+---
+
+<Guide slug="travel-insurance" photo="iceland">
+  <p>
+    Travel insurance protects you against the expensive things that can go wrong on a trip: a medical emergency abroad, a
+    cancelled holiday, lost bags or a missed connection. For most international trips it’s worth having — above all for the
+    medical cover, because a hospital stay or an air ambulance home can cost tens of thousands of dollars.
+  </p>
+  <p class="small muted">This guide explains common features in general terms; it isn’t financial advice. Policies differ, so always read the policy wording.</p>
+
+  <h2>What travel insurance usually covers</h2>
+  <ul>
+    <li><b>Emergency medical expenses</b> abroad, including hospital treatment and repatriation or medical evacuation.</li>
+    <li><b>Trip cancellation and curtailment</b> if you can’t travel or have to come home early for a covered reason, such as illness or a family emergency.</li>
+    <li><b>Travel delay and missed connections,</b> including extra accommodation costs.</li>
+    <li><b>Baggage and personal belongings,</b> usually with limits per item.</li>
+    <li><b>Personal liability</b> if you accidentally injure someone or damage property.</li>
+  </ul>
+
+  <h2>What to check before you buy</h2>
+  <ul>
+    <li><b>Medical limits:</b> for trips to the US, Canada or the Caribbean, look for high medical cover — US healthcare is very expensive.</li>
+    <li><b>Pre-existing conditions:</b> declare them, or a related claim may be refused.</li>
+    <li><b>Activities:</b> skiing, scuba diving, trekking at altitude or riding a scooter often need an add-on. Check the depth or altitude limits.</li>
+    <li><b>Weather and hurricanes:</b> cover for named storms usually only applies if you bought the policy <em>before</em> the storm was named. Buy as soon as you book a trip in <a href="/guides/hurricane-season/">hurricane season</a>.</li>
+    <li><b>‘Cancel for any reason’ upgrades</b> refund part of your costs even for reasons a standard policy excludes — at a higher price.</li>
+    <li><b>Excess (deductible):</b> how much you pay towards each claim.</li>
+  </ul>
+
+  <h2>Do you already have some cover?</h2>
+  <ul>
+    <li><b>Credit cards</b> sometimes include travel cover — but often with low limits, or only if you paid for the trip with the card.</li>
+    <li><b>UK travellers</b> can use a GHIC card for state healthcare in the EU, but it doesn’t replace travel insurance (no repatriation or cancellation cover).</li>
+    <li><b>US travellers:</b> Medicare generally doesn’t cover care outside the US, and many domestic health plans offer limited cover abroad — check before you go.</li>
+  </ul>
+
+  <h2>When to buy</h2>
+  <p>
+    Buy travel insurance <strong>as soon as you’ve booked</strong>, not just before you fly. Cancellation cover only protects
+    you against events that happen after the policy starts, and some benefits (like cover for named storms or pre-existing
+    conditions) depend on buying within a few days of your first payment.
+  </p>
+  {
+    links.length > 0 && (
+      <div class="card partner">
+        <h2 class="h3">Compare travel insurance</h2>
+        {links.map((l) => (
+          <a class="btn" href={l.url} rel="sponsored nofollow noopener" target="_blank">
+            <Icon name={l.kind} size={18} /> {l.cta}
+          </a>
+        ))}
+        <p class="disclosure">Affiliate link — we may earn a commission at no extra cost to you. <a href="/affiliate-disclosure/">How affiliate links work</a></p>
+      </div>
+    )
+  }
+  <p>See also: <a href="/guides/esim-travel/">eSIMs for travel</a> and <a href="/guides/packing-list/">packing list by climate</a>.</p>
+</Guide>
+
+<style>
+  .partner {
+    margin: 16px 0;
+  }
+  .h3 {
+    font-size: 1.1rem;
+  }
+</style>

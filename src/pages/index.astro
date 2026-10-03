@@ -7,7 +7,7 @@ import { SITE } from '../config';
 import { destinations, rankForMonth, MONTHS, monthUrl, REGIONS, regionSlug, deg, hubs, hubByName, bySlug, hubMonthUrl, monthRanges, MONTH_SHORT } from '../lib/data';
 import { COLLECTIONS } from '../lib/collections';
 import { comparisons } from '../lib/compare';
-import { GUIDES } from '../lib/guides';
+import { seasonalGuides } from '../lib/guides';
 
 const buildMonth = new Date().getMonth();
 const perMonth = MONTHS.map((_, m) => rankForMonth(m));
@@ -16,7 +16,7 @@ const perMonth = MONTHS.map((_, m) => rankForMonth(m));
 const POPULAR = ['Hawaii', 'Japan', 'iceland', 'Costa Rica', 'Greece', 'Italy', 'Thailand', 'Mexico', 'Portugal', 'bali', 'Florida', 'puerto-rico'];
 const popular = POPULAR.map((k) => {
   const h = hubByName.get(k);
-  if (h) return { name: h.name, url: h.url, photo: h.members[0].slug, best: h.bestMonths };
+  if (h) return { name: h.name, url: h.url, photo: h.photo, best: h.bestMonths };
   const d = bySlug.get(k);
   return d ? { name: d.name, url: d.url, photo: d.slug, best: d.bestMonths } : null;
 }).filter((x) => x !== null);
@@ -69,11 +69,11 @@ const jsonLd = [
             {[...hubs]
               .sort((a, b) => b.months[m].score - a.months[m].score)
               .slice(0, 4)
-              .map((h) => <a class="chip" href={hubMonthUrl(h, m)}>{h.name} in {MONTHS[m]}</a>)}
+              .map((h) => <a class="chip" href={hubMonthUrl(h, m)}>{h.Label} in {MONTHS[m]}</a>)}
           </div>
           <div class="grid-cards">
             {ranked.slice(0, 6).map((d, i) => (
-              <DestinationCard dest={d} month={m} rank={i + 1} />
+              <DestinationCard dest={d} month={m} rank={i + 1} eager={m === buildMonth && i === 0} />
             ))}
           </div>
         </section>
@@ -89,7 +89,7 @@ const jsonLd = [
         {
           popular.map((x) => (
             <a class="card tile" href={x!.url}>
-              <Photo slug={x!.photo} alt="" variant="card" />
+              <Photo slug={x!.photo} alt="" variant="card" sizes="(max-width: 640px) 50vw, 220px" />
               <span class="t-body">
                 <b>{x!.name}</b>
                 <span class="small muted">Best: {monthRanges(x!.best, MONTH_SHORT) || '—'}</span>
@@ -124,6 +124,27 @@ const jsonLd = [
     </section>
 
     <section class="section">
+      <h2>Plan with our tools</h2>
+      <div class="grid-2 three tools">
+        <a class="card tool" href="/trip-finder/">
+          <Icon name="compass" size={26} />
+          <b>Trip finder</b>
+          <span class="small muted">Pick a month, temperature, budget and interests — get your best matches.</span>
+        </a>
+        <a class="card tool" href="/map/">
+          <Icon name="map" size={26} />
+          <b>Weather map</b>
+          <span class="small muted">See where the weather is great on a world map, month by month.</span>
+        </a>
+        <a class="card tool" href="/compare/custom/">
+          <Icon name="calendar" size={26} />
+          <b>Compare any two places</b>
+          <span class="small muted">Side-by-side weather, rain and budgets for every month.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="sec-head">
         <h2>Popular comparisons</h2>
         <a href="/compare/">All comparisons →</a>
@@ -138,7 +159,7 @@ const jsonLd = [
       </div>
       <div class="grid-2">
         {
-          GUIDES.slice(0, 4).map((g) => (
+          seasonalGuides(buildMonth).slice(0, 4).map((g) => (
             <a class="card guide" href={`/guides/${g.slug}/`}>
               <span class="eyebrow">{g.kicker}</span>
               <b>{g.title}</b>
@@ -286,6 +307,18 @@ const jsonLd = [
     color: var(--text-2);
     display: grid;
     gap: 2px;
+  }
+  .tool {
+    display: grid;
+    gap: 6px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .tool:hover {
+    box-shadow: var(--shadow);
+  }
+  .tool :global(.icon) {
+    color: var(--cta);
   }
   .guide {
     display: grid;

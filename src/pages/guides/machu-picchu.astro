@@ -1,0 +1,56 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, monthRanges, MONTHS } from '../../lib/data';
+
+const cusco = bySlug.get('cusco')!;
+const wettest = [...cusco.months].sort((a, b) => b.rain - a.rain)[0];
+const driest = [...cusco.months].sort((a, b) => a.rain - b.rain)[0];
+---
+
+<Guide slug="machu-picchu" photo="cusco">
+  <p>
+    The best time to visit Machu Picchu is the <strong>dry season, from May to September</strong>, when mornings are clear and
+    the trails are firm. The shoulder months of <strong>April and October</strong> are a good compromise: still mostly dry,
+    greener and less crowded. The rainy season runs from November to March, peaking in January and February, and the
+    <strong>Inca Trail closes every February</strong> for maintenance.
+  </p>
+  <p>
+    Machu Picchu sits at about 2,430 m, lower and warmer than Cusco (3,400 m), where most trips start. Our climate figures are
+    for Cusco: the wettest month there is {wettest.name} (about {wettest.rain} mm), the driest {driest.name}
+    ({driest.rain} mm). Our weather ratings put the best months at {monthRanges(cusco.bestMonths)}.
+  </p>
+
+  <h2>Cusco and the Sacred Valley by month</h2>
+  <GuideTable caption="Cusco weather rating by month" months={MONTHS.map((_, i) => i)} rows={[{ slug: 'cusco', label: 'Cusco & Machu Picchu' }, { slug: 'lima' }]} />
+  <GuideTable caption="Cusco temperatures by month" months={MONTHS.map((_, i) => i)} show="temp" rows={[{ slug: 'cusco', label: 'Cusco (high / low)' }]} />
+
+  <h2>Dry season vs rainy season</h2>
+  <ul>
+    <li><b>May–September (dry):</b> sunny days and cold nights (often near freezing in Cusco in June–July). It’s the busiest time, especially in June–August and around Inti Raymi on 24 June.</li>
+    <li><b>April and October (shoulder):</b> the sweet spot for many travellers — fewer people, green terraces and mostly good weather.</li>
+    <li><b>November–March (rainy):</b> afternoon downpours, clouds over the ruins and occasional landslides on the railway. The site stays open (except the Inca Trail in February), it’s lush and much quieter.</li>
+  </ul>
+
+  <h2>Tickets, circuits and visitor limits</h2>
+  <p>
+    Entry is by timed ticket for a set circuit (route) through the site, sold through the Ministry of Culture’s official
+    website. Daily numbers are capped — around 4,500 visitors on most days in 2026, rising to about 5,600 on peak dates from
+    late June to early November. Tickets for the most popular circuits, and for the add-on hikes up Huayna Picchu or Machu
+    Picchu Mountain, sell out weeks or months ahead in the dry season; a limited number are sold in person in Aguas Calientes.
+  </p>
+  <p>
+    The classic four-day <b>Inca Trail</b> is limited to 500 people a day including porters and guides, can only be booked
+    through licensed operators, and often sells out six months or more ahead for May–August. Alternatives like the Salkantay
+    and Lares treks don’t need permits.
+  </p>
+
+  <h2>Tips for visiting</h2>
+  <ul>
+    <li><b>Acclimatise first.</b> Spend a night or two in the lower Sacred Valley (about 2,800 m) before Cusco to ease altitude sickness.</li>
+    <li><b>Go early or late.</b> The first entry slots have the best chance of clouds lifting dramatically; afternoons can be quieter.</li>
+    <li><b>Book the train early.</b> Trains from Cusco/Ollantaytambo to Aguas Calientes (PeruRail and Inca Rail) fill up in the dry season.</li>
+    <li><b>Pack layers and rain gear</b> in any season — the weather changes quickly in the mountains.</li>
+  </ul>
+  <p>See also: <a href="/best-time-to-visit-peru/">best time to visit Peru</a> and <a href="/destinations/cusco/">Cusco month by month</a>.</p>
+</Guide>

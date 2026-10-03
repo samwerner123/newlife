@@ -1,0 +1,204 @@
+---
+// World map of every destination, coloured by its weather rating for the chosen month.
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import world from '../data/world.json';
+import { destinations, rankForMonth, destMonthUrl, monthUrl, deg, MONTHS } from '../lib/data';
+import { RATING_LABEL } from '../lib/score';
+import { breadcrumbLd } from '../lib/seo';
+
+const now = new Date().getMonth();
+// Same equirectangular projection as scripts/make-map.mjs.
+const x = (lon: number) => ((lon + 180) / 360) * world.w;
+const y = (lat: number) => ((world.north - lat) / (world.north - world.south)) * world.h;
+const dots = [...destinations].sort((a, b) => a.months[now].score - b.months[now].score);
+const top = rankForMonth(now).slice(0, 10);
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Weather map', href: '/map/' },
+];
+---
+
+<Base
+  title="Travel Weather Map: Where Is the Weather Best This Month?"
+  description={`An interactive world map of ${destinations.length} destinations, coloured by their weather rating for each month — find where it's great to travel right now.`}
+  jsonLd={[breadcrumbLd(crumbs, Astro.site)]}
+>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <h1>Travel weather map</h1>
+      <p class="lead">Every destination we cover, coloured by its weather rating for the month you choose. Hover or tap a dot for details.</p>
+    </header>
+
+    <nav class="month-switch" aria-label="Choose a month">
+      <div class="row" role="group">
+        {MONTHS.map((m, i) => <button type="button" class="pill" data-month={i} aria-pressed={i === now ? 'true' : 'false'}>{m.slice(0, 3)}</button>)}
+      </div>
+    </nav>
+
+    <div class="map-wrap card">
+      <svg viewBox={`0 0 ${world.w} ${world.h}`} class="map" role="group" aria-label="World map of destinations coloured by weather rating" data-map>
+        <path d={world.d} class="land"></path>
+        {
+          dots.map((d) => (
+            <a
+              href={destMonthUrl(d, now)}
+              data-url={d.url}
+              data-name={d.name}
+              aria-label={`${d.name}: ${RATING_LABEL[d.months[now].rating]} in ${MONTHS[now]}`}
+              data-tip={`${d.name}\n${RATING_LABEL[d.months[now].rating]} (${d.months[now].score}/100) · ${deg(d.months[now].high)}`}
+            >
+              <circle
+                cx={x(d.lon).toFixed(1)}
+                cy={y(d.lat).toFixed(1)}
+                r="5.5"
+                data-rating={d.months[now].rating}
+                data-scores={d.months.map((m) => m.score).join(',')}
+                data-highs={d.months.map((m) => Math.round(m.high)).join(',')}
+              ></circle>
+            </a>
+          ))
+        }
+      </svg>
+    </div>
+    <div class="legend">
+      <span><i data-rating="great"></i>Great</span>
+      <span><i data-rating="good"></i>Good</span>
+      <span><i data-rating="fair"></i>Fair</span>
+      <span><i data-rating="poor"></i>Not ideal</span>
+      <a href="/about/">How we rate</a>
+    </div>
+
+    <section class="section-tight">
+      <h2 data-top-title>Top 10 for {MONTHS[now]}</h2>
+      <ol class="top" data-top>
+        {top.map((d) => <li><a href={destMonthUrl(d, now)}>{d.name}</a> <span class="muted">{deg(d.months[now].high)}</span></li>)}
+      </ol>
+      <p><a href={monthUrl(now)} data-month-link>All destinations for {MONTHS[now]} →</a></p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const LABEL: Record<string, string> = { great: 'Great', good: 'Good', fair: 'Fair', poor: 'Not ideal' };
+  const rating = (s: number) => (s >= 80 ? 'great' : s >= 65 ? 'good' : s >= 50 ? 'fair' : 'poor');
+  const map = document.querySelector<SVGSVGElement>('[data-map]')!;
+  const links = [...map.querySelectorAll<SVGAElement>('a')];
+  const units = document.documentElement.dataset.units === 'imperial';
+  const t = (c: number) => (units ? `${Math.round((c * 9) / 5 + 32)}°F` : `${c}°C`);
+
+  function show(m: number) {
+    const slug = MONTHS[m].toLowerCase();
+    const rows: { name: string; href: string; score: number; high: number }[] = [];
+    for (const a of links) {
+      const c = a.querySelector('circle')!;
+      const score = Number(c.dataset.scores!.split(',')[m]);
+      const high = Number(c.dataset.highs!.split(',')[m]);
+      const r = rating(score);
+      c.dataset.rating = r;
+      a.dataset.tip = `${a.dataset.name}\n${LABEL[r]} (${score}/100) · ${t(high)}`;
+      a.setAttribute('aria-label', `${a.dataset.name}: ${LABEL[r]} in ${MONTHS[m]}`);
+      const href = `${a.dataset.url}${slug}/`;
+      a.setAttribute('href', href);
+      rows.push({ name: a.dataset.name!, href, score, high });
+    }
+    // Draw the best-rated dots on top.
+    links.sort((a, b) => Number(a.querySelector('circle')!.dataset.scores!.split(',')[m]) - Number(b.querySelector('circle')!.dataset.scores!.split(',')[m]));
+    links.forEach((a) => map.append(a));
+    document.querySelectorAll<HTMLButtonElement>('[data-month]').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.month) === m)));
+    document.querySelector('[data-top-title]')!.textContent = `Top 10 for ${MONTHS[m]}`;
+    const link = document.querySelector<HTMLAnchorElement>('[data-month-link]')!;
+    link.href = `/where-to-go-in-${slug}/`;
+    link.textContent = `All destinations for ${MONTHS[m]} →`;
+    const list = document.querySelector('[data-top]')!;
+    list.replaceChildren(
+      ...rows
+        .sort((a, b) => b.score - a.score || b.high - a.high)
+        .slice(0, 10)
+        .map((r) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = r.href;
+          a.textContent = r.name;
+          const s = document.createElement('span');
+          s.className = 'muted';
+          s.textContent = ` ${t(r.high)}`;
+          li.append(a, s);
+          return li;
+        }),
+    );
+  }
+  document.querySelectorAll<HTMLButtonElement>('[data-month]').forEach((b) => b.addEventListener('click', () => show(Number(b.dataset.month))));
+  // The page is built once; switch to the visitor's current month.
+  show(new Date().getMonth());
+</script>
+
+<style>
+  .month-switch .row {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 2px 2px 10px;
+  }
+  .month-switch .pill {
+    flex: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+  }
+  .month-switch .pill[aria-pressed='true'] {
+    background: var(--text);
+    color: var(--surface);
+    border-color: var(--text);
+  }
+  .map-wrap {
+    padding: 8px;
+    overflow-x: auto;
+  }
+  .map {
+    display: block;
+    width: 100%;
+    min-width: 640px;
+    height: auto;
+  }
+  .land {
+    fill: var(--surface-2);
+    stroke: var(--grid);
+    stroke-width: 0.6;
+  }
+  circle {
+    stroke: var(--surface);
+    stroke-width: 1.2;
+    cursor: pointer;
+  }
+  circle[data-rating='great'] {
+    fill: var(--r-great);
+  }
+  circle[data-rating='good'] {
+    fill: var(--r-good);
+  }
+  circle[data-rating='fair'] {
+    fill: var(--r-fair);
+  }
+  circle[data-rating='poor'] {
+    fill: var(--r-poor);
+  }
+  circle:hover,
+  a:focus-visible circle {
+    r: 8;
+    outline: none;
+    stroke: var(--text);
+  }
+  .legend {
+    margin-top: 12px;
+  }
+  .top {
+    columns: 2;
+    column-gap: 24px;
+  }
+  .top :global(li) {
+    margin-bottom: 4px;
+  }
+</style>

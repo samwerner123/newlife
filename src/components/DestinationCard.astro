@@ -3,20 +3,28 @@ import Icon from './Icon.astro';
 import MonthStrip from './MonthStrip.astro';
 import Photo from './Photo.astro';
 import RatingBadge from './RatingBadge.astro';
+import SaveButton from './SaveButton.astro';
 import { deg, plural, destMonthUrl, monthRanges, MONTH_SHORT, partnerLinks, regionSlug, usd, type Destination } from '../lib/data';
+import type { Rating } from '../lib/score';
 
 interface Props {
   dest: Destination;
   month?: number;
   rank?: number;
   hidden?: boolean;
+  /** Replaces the weather badge, e.g. with the state of the ski season. */
+  badge?: { label: string; rating: Rating };
+  /** Replaces the month's event or seasonal note. */
+  note?: string;
+  /** Load the photo immediately (for the first card when it is the largest thing on screen). */
+  eager?: boolean;
 }
 
-const { dest, month, rank, hidden } = Astro.props;
+const { dest, month, rank, hidden, badge, eager = false } = Astro.props;
 const m = month === undefined ? undefined : dest.months[month];
 const href = month === undefined ? dest.url : destMonthUrl(dest, month);
 const cta = partnerLinks(dest.slug, ['flights', 'hotels', 'transfers'])[0];
-const note = m ? (m.event ?? m.note) : null;
+const note = Astro.props.note ?? (m ? (m.event ?? m.note) : null);
 ---
 
 <article
@@ -29,7 +37,7 @@ const note = m ? (m.event ?? m.note) : null;
   data-high={m?.high}
   data-name={dest.name}
 >
-  <a href={href} class="thumb" tabindex="-1" aria-hidden="true"><Photo slug={dest.slug} alt="" variant="card" /></a>
+  <a href={href} class="thumb" tabindex="-1" aria-hidden="true"><Photo slug={dest.slug} alt="" variant="card" eager={eager} /></a>
   <div class="head">
     <div>
       <h3>
@@ -37,7 +45,7 @@ const note = m ? (m.event ?? m.note) : null;
       </h3>
       <p class="where muted small">{dest.country} · {dest.region}</p>
     </div>
-    {m && <RatingBadge score={m.score} rating={m.rating} />}
+    {badge ? <span class="badge" data-rating={badge.rating}>{badge.label}</span> : m && <RatingBadge score={m.score} rating={m.rating} />}
   </div>
 
   {
@@ -72,6 +80,7 @@ const note = m ? (m.event ?? m.note) : null;
 
   <div class="actions">
     <a class="more" href={href}>{m ? `${dest.name} in ${m.name}` : 'Best time to visit'} →</a>
+    <SaveButton slug={dest.slug} name={dest.name} compact />
     {
       cta && (
         <a class="cta" href={cta.url} rel="sponsored nofollow noopener" target="_blank">
@@ -87,6 +96,9 @@ const note = m ? (m.event ?? m.note) : null;
     display: none;
   }
   .dest {
+    /* Skip rendering work for cards far below the fold (month pages list 240+ cards). */
+    content-visibility: auto;
+    contain-intrinsic-size: auto 560px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -173,6 +185,9 @@ const note = m ? (m.event ?? m.note) : null;
   }
   .more:hover {
     text-decoration: underline;
+  }
+  .actions :global(.save) {
+    margin-left: auto;
   }
   .cta {
     display: inline-flex;

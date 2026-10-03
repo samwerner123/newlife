@@ -1,0 +1,85 @@
+---
+// Compact month-by-month table for guides: one row per destination, one column per month,
+// showing the weather rating, temperatures or rainfall from our climate data.
+import RatingBadge from './RatingBadge.astro';
+import { bySlug, destMonthUrl, deg, MONTH_SHORT } from '../lib/data';
+
+interface Row {
+  slug: string;
+  /** Overrides the destination name, e.g. "Maui (Hawaii)". */
+  label?: string;
+  /** Extra text for the last column. */
+  text?: string;
+}
+interface Props {
+  rows: Row[];
+  months: number[];
+  show?: 'rating' | 'temp' | 'high' | 'rain' | 'sea';
+  textHead?: string;
+  caption: string;
+}
+
+const { rows, months, show = 'rating', textHead, caption } = Astro.props;
+const items = rows.map((r) => {
+  const d = bySlug.get(r.slug);
+  if (!d) throw new Error(`GuideTable: unknown destination "${r.slug}"`);
+  return { ...r, d };
+});
+---
+
+<div class="table-wrap">
+  <table class="data-table">
+    <caption class="visually-hidden">{caption}</caption>
+    <thead>
+      <tr>
+        <th scope="col">Destination</th>
+        {months.map((m) => <th scope="col">{MONTH_SHORT[m]}</th>)}
+        {textHead && <th scope="col" class="left">{textHead}</th>}
+      </tr>
+    </thead>
+    <tbody>
+      {
+        items.map(({ d, label, text }) => (
+          <tr>
+            <th scope="row"><a href={d.url}>{label ?? d.name}</a></th>
+            {months.map((m) => {
+              const mo = d.months[m];
+              return (
+                <td>
+                  <a href={destMonthUrl(d, m)}>
+                    {show === 'rating' ? (
+                      <RatingBadge score={mo.score} rating={mo.rating} />
+                    ) : show === 'temp' ? (
+                      `${deg(mo.high)} / ${deg(mo.low)}`
+                    ) : show === 'high' ? (
+                      deg(mo.high)
+                    ) : show === 'sea' ? (
+                      mo.sea !== null ? deg(mo.sea) : '—'
+                    ) : (
+                      `${mo.rain} mm`
+                    )}
+                  </a>
+                </td>
+              );
+            })}
+            {textHead && <td class="left wrap">{text}</td>}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .left {
+    text-align: left;
+  }
+  td.wrap {
+    white-space: normal;
+    min-width: 240px;
+  }
+  th[scope='row'] a {
+    color: var(--text);
+    font-weight: 600;
+  }
+</style>

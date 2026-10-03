@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../config';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Advertising & partnerships', href: '/advertise/' },
+];
+---
+
+<Base title="Advertising, Partnerships & Sponsored Content Policy" description={`How brands, tourism boards and travel companies can work with ${SITE.name}, and the rules we follow for sponsored content.`}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="prose section-tight">
+      <h1>Advertising &amp; partnerships</h1>
+      <p>
+        {SITE.name} helps travellers decide where to go and when, using real climate data. We work with travel brands,
+        tourism boards and booking platforms when a partnership is genuinely useful to our readers — and we keep our
+        weather ratings completely independent.
+      </p>
+
+      <h2>Ways to work with us</h2>
+      <ul>
+        <li><b>Affiliate partnerships:</b> booking links for flights, hotels, tours, transfers, insurance and eSIMs, shown in clearly labelled “Plan your trip” boxes.</li>
+        <li><b>Sponsored guides:</b> practical, in-depth guides on a destination or season, written by our editorial team to our usual standards.</li>
+        <li><b>Data partnerships:</b> custom climate and seasonality data, or our embeddable climate widget for your site.</li>
+        <li><b>Tourism boards:</b> help us add destinations, verify practical information and keep festival dates up to date.</li>
+      </ul>
+
+      <h2>Our sponsored content rules</h2>
+      <ol>
+        <li><b>Scores are never for sale.</b> Weather scores and rankings come from a fixed, published formula (<a href="/about/">how we rate</a>). No payment can change a score, a ranking, a “best time to visit” recommendation or a comparison verdict.</li>
+        <li><b>Clear labels.</b> Sponsored content is marked “Sponsored” or “In partnership with …” at the top of the page, and the partner is named.</li>
+        <li><b>Editorial control.</b> We write and edit all sponsored content ourselves. Partners can check facts but can’t approve opinions or remove criticism.</li>
+        <li><b>No hidden links.</b> Paid and affiliate links use <code>rel="sponsored"</code> and are never disguised as editorial recommendations.</li>
+        <li><b>Relevance only.</b> We only accept partnerships that are useful to travellers planning a trip — no unrelated products, gambling or misleading offers.</li>
+        <li><b>Honest seasons.</b> We won’t promote a destination for a month our data rates as poor without saying so clearly.</li>
+      </ol>
+
+      <h2>Get in touch</h2>
+      <p>
+        To discuss a partnership, please use our <a href="/contact/">contact page</a> and tell us a little about your company,
+        the destinations you work with and what you have in mind. See also our <a href="/editorial-policy/">editorial policy</a>
+        and <a href="/affiliate-disclosure/">affiliate disclosure</a>.
+      </p>
+    </article>
+  </div>
+</Base>

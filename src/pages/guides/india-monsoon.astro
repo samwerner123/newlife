@@ -1,0 +1,47 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+---
+
+<Guide slug="india-monsoon" photo="ladakh">
+  <p>
+    India’s southwest monsoon brings around three-quarters of the country’s annual rain in four months. It usually reaches the
+    Kerala coast around <strong>1 June</strong>, Mumbai around mid-June and Delhi in late June, covering the whole country by early
+    July. It begins to withdraw from Rajasthan in September and has left most of India by mid-October. Tamil Nadu and the far
+    southeast get their main rains later, from the northeast monsoon in October–December.
+  </p>
+  <p>
+    Monsoon travel has its charms — dramatic skies, green landscapes, low prices — but heavy rain, flooding and landslides can
+    disrupt plans, especially in the mountains. Here’s how our Indian destinations rate, and where to go instead.
+  </p>
+
+  <h2>India during the monsoon</h2>
+  <GuideTable caption="Weather rating June to September across India" months={[5, 6, 7, 8]} rows={[{ slug: 'goa' }, { slug: 'kerala' }, { slug: 'rajasthan' }, { slug: 'ladakh' }]} />
+  <GuideTable caption="Rainfall June to September across India" months={[5, 6, 7, 8]} show="rain" rows={[{ slug: 'goa' }, { slug: 'kerala' }, { slug: 'rajasthan' }, { slug: 'ladakh' }]} />
+
+  <h2>Where to go in India during the monsoon</h2>
+  <ul>
+    <li><b><a href="/destinations/ladakh/">Ladakh</a>:</b> high in the rain shadow of the Himalaya, it’s dry and sunny from June to September — the best time of year to visit. Spiti Valley in Himachal Pradesh is similar.</li>
+    <li><b><a href="/destinations/kerala/">Kerala</a> for Ayurveda:</b> the monsoon is considered the ideal season for Ayurvedic treatments, and resorts offer low-season rates.</li>
+    <li><b><a href="/destinations/goa/">Goa</a> in green season:</b> many beach shacks close and the sea is too rough to swim, but waterfalls like Dudhsagar and the spice farms are at their best.</li>
+    <li><b><a href="/destinations/rajasthan/">Rajasthan</a> in September:</b> the monsoon is lighter in the desert state and leaves early, and Udaipur’s lakes fill up.</li>
+  </ul>
+
+  <h2>Where to go nearby instead</h2>
+  <GuideTable caption="Weather rating June to September in alternatives near India" months={[5, 6, 7, 8]} rows={[{ slug: 'bali' }, { slug: 'lombok' }, { slug: 'yogyakarta' }, { slug: 'uzbekistan' }, { slug: 'kathmandu', label: 'Kathmandu (also in the monsoon)' }, { slug: 'maldives', label: 'Maldives (southwest monsoon)' }]} />
+  <ul>
+    <li><b>Indonesia</b> — Bali, Lombok and Java — is in its dry season from June to September.</li>
+    <li><b>Sri Lanka’s east coast</b> (Trincomalee, Arugam Bay) is dry while the southwest monsoon hits the west and south.</li>
+    <li><b>Central Asia:</b> Uzbekistan’s Silk Road cities are hot but dry — better in May and September.</li>
+    <li><b>Nepal and Bhutan</b> also have monsoon summers; save them for October–November or spring.</li>
+  </ul>
+
+  <h2>Tips for monsoon travel</h2>
+  <ul>
+    <li><b>Build in slack</b> for delayed trains and closed mountain roads.</li>
+    <li><b>Pack quick-dry clothes</b>, waterproof sandals and a dry bag.</li>
+    <li><b>Watch for health risks:</b> mosquito-borne illnesses like dengue increase during and after the rains.</li>
+    <li><b>Check local news</b> for flood and landslide warnings, especially in the Himalaya and the Western Ghats.</li>
+  </ul>
+  <p>See also: <a href="/best-time-to-visit-india/">best time to visit India</a> and <a href="/guides/monsoon-season-asia/">monsoon season in Asia</a>.</p>
+</Guide>

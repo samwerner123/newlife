@@ -14,6 +14,8 @@ const sourcePage = dest.climateSource.page.startsWith('Template:')
   ? ([] as string[]).concat(dest.climateWiki ?? dest.wiki)[0]
   : dest.climateSource.page;
 const hasSun = dest.months.every((m) => m.sunHours !== null);
+const hasSea = dest.months.every((m) => m.sea !== null);
+const hm = (h: number) => (h >= 24 ? '24 h' : h <= 0 ? '0 h' : `${h.toFixed(1)} h`);
 ---
 
 <div class="table-wrap">
@@ -28,6 +30,8 @@ const hasSun = dest.months.every((m) => m.sunHours !== null);
         <th scope="col">Rain</th>
         {hasDays && <th scope="col">Rainy days</th>}
         {hasSun && <th scope="col">Sun / day</th>}
+        <th scope="col">Daylight</th>
+        {hasSea && <th scope="col">Sea</th>}
       </tr>
     </thead>
     <tbody>
@@ -41,6 +45,8 @@ const hasSun = dest.months.every((m) => m.sunHours !== null);
             <td>{m.rain} mm</td>
             {hasDays && <td>{Math.round(m.rainDays!)}</td>}
             {hasSun && <td>{m.sunHours!.toFixed(1)} h</td>}
+            <td>{hm(m.daylight)}</td>
+            {hasSea && <td>{deg(m.sea!)}</td>}
           </tr>
         ))
       }
@@ -52,6 +58,8 @@ const hasSun = dest.months.every((m) => m.sunHours !== null);
   <a href={`https://en.wikipedia.org/wiki/${encodeURIComponent(sourcePage.replace(/ /g, '_'))}`} rel="noopener">{sourcePage}</a>{' '}
   article on Wikipedia (CC BY-SA){dest.climateSource.rain === 'nasa-power' ? '; rainfall from NASA POWER' : ''}.
   {hasDays && dest.climateSource.rainDaysUnit && ` Rainy days count days with at least ${dest.climateSource.rainDaysUnit.replace(/&nbsp;/g, ' ')} of rain.`}
+  Daylight is the average time from sunrise to sunset, calculated from the latitude.
+  {hasSea && ' Sea temperatures are average sea-surface temperatures for 2023–2025 from the Open-Meteo Marine API.'}
 </p>
 
 <style>

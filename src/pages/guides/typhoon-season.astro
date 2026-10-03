@@ -1,0 +1,51 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+---
+
+<Guide slug="typhoon-season" photo="okinawa">
+  <p>
+    Typhoons are the Western Pacific’s hurricanes. They can form in any month, but most develop between <strong>June and
+    November</strong>, with the peak in <strong>August and September</strong>. An average year brings around 25 named storms
+    to the region, of which a handful affect Japan, Taiwan, the Philippines, Hong Kong, southern China or Vietnam.
+  </p>
+  <p>
+    Unlike a rainy season, a typhoon usually disrupts travel for one to three days: flights and ferries are cancelled,
+    trains stop and shops close while it passes. The risk on any given week is low — but it’s worth booking flexibly if you
+    travel in late summer.
+  </p>
+
+  <h2>Typhoon risk by destination</h2>
+  <ul>
+    <li><b>Japan:</b> August–September for the main islands; July–September for <a href="/destinations/okinawa/">Okinawa</a>, which sits on the main typhoon track. <a href="/destinations/hokkaido/">Hokkaido</a> is rarely hit.</li>
+    <li><b>Taiwan:</b> July–September; typhoons often bring heavy rain to the mountains and east coast.</li>
+    <li><b>Hong Kong and southern China:</b> June–October. Hong Kong’s warning system matters: when Signal No. 8 is raised, public transport winds down and most businesses close.</li>
+    <li><b>The Philippines:</b> June–November, peaking August–October, mainly in Luzon and the Visayas. Mindanao and southern Palawan are rarely hit.</li>
+    <li><b>Vietnam:</b> August–November; the central coast (Da Nang, Hoi An) has its typhoon and flood season in October–November.</li>
+    <li><b>South Korea and Shanghai:</b> occasional storms in August and September.</li>
+  </ul>
+
+  <h2>Late-summer weather in typhoon-prone places</h2>
+  <GuideTable
+    caption="Weather rating July to October in typhoon-prone destinations"
+    months={[6, 7, 8, 9]}
+    rows={[{ slug: 'tokyo' }, { slug: 'okinawa' }, { slug: 'taiwan' }, { slug: 'hong-kong' }, { slug: 'boracay' }, { slug: 'cebu' }, { slug: 'da-nang' }, { slug: 'jeju' }]}
+  />
+
+  <h2>Where to go instead in August and September</h2>
+  <p>
+    Typhoons don’t form near the equator, so the dry season in Indonesia is a natural alternative: <a href="/destinations/bali/">Bali</a>,
+    <a href="/destinations/lombok/">Lombok</a> and <a href="/destinations/komodo/">Komodo</a> are at their best. Malaysian
+    <a href="/destinations/borneo/">Borneo</a> and <a href="/destinations/singapore/">Singapore</a> are also outside the typhoon belt,
+    and northern Japan (Hokkaido) has its pleasant summer.
+  </p>
+
+  <h2>Travelling in typhoon season</h2>
+  <ul>
+    <li><b>Buy travel insurance when you book,</b> before a storm is named, and check it covers weather disruption.</li>
+    <li><b>Keep a buffer day</b> before international flights home.</li>
+    <li><b>Follow official warnings:</b> the Japan Meteorological Agency, the Hong Kong Observatory, Taiwan’s Central Weather Administration and PAGASA in the Philippines.</li>
+    <li><b>Prefer refundable bookings</b> for island hops and ferries, which are the first to be cancelled.</li>
+  </ul>
+  <p>See also: <a href="/guides/monsoon-season-asia/">monsoon season in Asia</a> and <a href="/guides/japan-rainy-season/">Japan’s rainy season</a>.</p>
+</Guide>

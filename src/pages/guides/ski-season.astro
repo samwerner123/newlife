@@ -1,0 +1,126 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { destinations, skiStatus, SKI_LABEL, SKI_RATING, MONTH_SHORT, MONTH_SLUGS, deg } from '../../lib/data';
+
+const skiers = destinations.filter((d) => d.ski);
+const regions: { label: string; slugs: string[] }[] = [
+  { label: 'The Alps', slugs: ['switzerland', 'innsbruck', 'chamonix', 'dolomites'] },
+  { label: 'North America', slugs: ['whistler', 'banff', 'colorado', 'park-city', 'lake-tahoe', 'grand-teton', 'vermont'] },
+  { label: 'Japan & the Arctic', slugs: ['hokkaido', 'lapland'] },
+  { label: 'Southern hemisphere', slugs: ['queenstown', 'santiago-chile', 'bariloche'] },
+];
+const rows = regions.map((r) => ({ ...r, items: r.slugs.map((s) => skiers.find((d) => d.slug === s)).filter((d) => d !== undefined) }));
+const SHORT: Record<string, string> = { peak: 'Peak', season: 'Open', early: 'Opening', late: 'Late', glacier: 'Glacier' };
+---
+
+<Guide slug="ski-season" photo="dolomites">
+  <p>
+    In the northern hemisphere, the main ski season runs from <strong>December to April</strong>, with the most reliable snow
+    from <strong>mid-January to mid-March</strong>. In the southern hemisphere — New Zealand, Chile and Argentina — it runs
+    from about <strong>late June to late September</strong>. Add glacier skiing in the Alps and a handful of very high or very
+    snowy resorts, and you can ski somewhere in every month of the year.
+  </p>
+  <p>
+    Opening and closing dates depend on snowfall and change every year, so treat this calendar as a guide and check resort
+    websites and snow reports before you book.
+  </p>
+
+  <h2>Ski season calendar</h2>
+  <div class="table-wrap">
+    <table class="data-table ski">
+      <caption class="visually-hidden">Ski season by destination and month</caption>
+      <thead><tr><th scope="col">Destination</th>{MONTH_SHORT.map((m) => <th scope="col">{m}</th>)}</tr></thead>
+      <tbody>
+        {
+          rows.flatMap((r) => [
+            <tr class="group"><th scope="rowgroup" colspan="13">{r.label}</th></tr>,
+            ...r.items.map((d) => (
+              <tr>
+                <th scope="row"><a href={d.url}>{d.name}</a></th>
+                {MONTH_SHORT.map((_, m) => {
+                  const s = skiStatus(d, m);
+                  return <td>{s ? <span class="badge" data-rating={SKI_RATING[s]} title={SKI_LABEL[s]}>{SHORT[s]}</span> : <span class="muted">—</span>}</td>;
+                })}
+              </tr>
+            )),
+          ])
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">
+    Peak = the most reliable snow and terrain; Open = main season; Opening/Late = early- or late-season conditions;
+    Glacier = limited summer skiing on high glaciers. Month by month: {MONTH_SLUGS.map((s, m) => <><a href={`/where-to-ski-in-${s}/`}>{MONTH_SHORT[m]}</a>{m < 11 ? ' · ' : ''}</>)}
+  </p>
+
+  <h2>The Alps: December to April</h2>
+  <p>
+    Most Alpine resorts open in early-to-mid December and close after Easter. January brings cold, quiet slopes; February
+    is the snowiest and busiest month thanks to school holidays across Europe; and March offers deep bases, longer days and
+    sunny spring skiing. High resorts such as Zermatt, Val Thorens and those around Innsbruck are the safest bets early and
+    late in the season, and glaciers like the <b>Hintertux Glacier</b> (open all year) and <b>Zermatt’s Matterhorn Glacier
+    Paradise</b> offer summer skiing on a few high runs.
+  </p>
+
+  <h2>North America: November to April</h2>
+  <p>
+    Colorado’s highest resorts often open in late October, and most of the Rockies, Utah, Lake Tahoe and Whistler are running
+    by Thanksgiving or early December. <b>January to March</b> is prime time: Utah and Whistler are famous for big snowfall,
+    Colorado for dry powder and sunshine. Spring skiing lasts into April almost everywhere, into May at Whistler, Sunshine
+    Village and Palisades Tahoe, and sometimes into June at Colorado’s Arapahoe Basin.
+  </p>
+
+  <h2>Japan: December to April, powder in January and February</h2>
+  <p>
+    Cold Siberian air picks up moisture over the Sea of Japan and drops it as light, dry snow on <a href="/destinations/hokkaido/">Hokkaido</a>
+    and the Japan Alps. <b>Mid-January to mid-February</b> is the heart of ‘Japow’ season in Niseko, Rusutsu and Furano. December
+    can be hit-and-miss early on; March brings sunnier, softer spring snow.
+  </p>
+
+  <h2>The southern hemisphere: late June to September</h2>
+  <p>
+    <a href="/destinations/queenstown/">Queenstown’s</a> resorts — Coronet Peak, The Remarkables and Cardrona — usually open in
+    mid-June and run into early October, with the best conditions in July and August. In South America, resorts near
+    <a href="/destinations/santiago-chile/">Santiago</a> (Valle Nevado, La Parva, Portillo) and
+    <a href="/destinations/bariloche/">Bariloche</a> (Cerro Catedral) run from late June to September. July coincides with local
+    school holidays, so August is often quieter.
+  </p>
+
+  <h2>Tips for planning a ski trip</h2>
+  <ul>
+    <li><b>Avoid school holidays</b> if you can: Christmas–New Year, mid-February half-term in Europe, and Presidents’ Day weekend in the US are the busiest and most expensive weeks.</li>
+    <li><b>Go high early and late.</b> In December and April, pick resorts with high-altitude terrain or glaciers for more reliable snow.</li>
+    <li><b>Look at multi-resort passes.</b> Season passes such as Epic and Ikon can pay for themselves in a week at the big North American resorts — buy them in spring or autumn before prices rise.</li>
+    <li><b>Book lessons and rentals in advance</b> for peak weeks, and buy travel insurance that covers winter sports.</li>
+  </ul>
+  <p>
+    The town temperatures we show on destination pages are measured in the valley; the slopes are much colder — in
+    {skiers.length} ski destinations, January highs in town range from {deg(Math.min(...skiers.map((d) => d.months[0].high)))} to
+    {deg(Math.max(...skiers.map((d) => d.months[0].high)))}.
+  </p>
+</Guide>
+
+<style>
+  .ski th,
+  .ski td {
+    padding: 8px 6px;
+    text-align: center;
+  }
+  .ski th[scope='row'],
+  .ski th[scope='rowgroup'] {
+    text-align: left;
+  }
+  .ski .badge {
+    padding: 2px 6px;
+    font-size: 0.75rem;
+  }
+  .group th {
+    background: var(--surface-2);
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+  th[scope='row'] a {
+    color: var(--text);
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,93 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, MONTH_SHORT } from '../../lib/data';
+
+// Typical seasons (months 1–12). Sightings vary year to year; peak months in `peak`.
+const spots: { slug?: string; place: string; whales: string; months: number[]; peak: number[]; tip: string }[] = [
+  { slug: 'maui', place: 'Maui & Hawaii', whales: 'Humpback whales', months: [12, 1, 2, 3, 4], peak: [1, 2, 3], tip: 'Thousands of humpbacks breed in the warm, shallow channel between Maui, Lānaʻi and Molokaʻi; you can often see them from shore.' },
+  { slug: 'cabo-san-lucas', place: 'Los Cabos & Baja California, Mexico', whales: 'Humpbacks, grey whales', months: [12, 1, 2, 3, 4], peak: [1, 2, 3], tip: 'Humpbacks off Cabo; grey whale mothers and calves come right up to boats in the lagoons of Magdalena Bay and San Ignacio.' },
+  { slug: 'puerto-vallarta', place: 'Puerto Vallarta, Mexico', whales: 'Humpback whales', months: [12, 1, 2, 3], peak: [1, 2], tip: 'Banderas Bay is a humpback nursery — boat trips leave from the marina.' },
+  { slug: 'punta-cana', place: 'Samaná Bay, Dominican Republic', whales: 'Humpback whales', months: [1, 2, 3], peak: [2], tip: 'North Atlantic humpbacks gather to breed; it’s a day trip from Punta Cana.' },
+  { slug: 'sri-lanka', place: 'Mirissa, Sri Lanka', whales: 'Blue whales, sperm whales', months: [12, 1, 2, 3, 4], peak: [1, 2, 3], tip: 'One of the best places in the world to see blue whales, close to shore off the south coast.' },
+  { slug: 'azores', place: 'Azores, Portugal', whales: 'Blue, fin, sperm whales', months: [4, 5, 6, 7, 8, 9, 10], peak: [4, 5, 6], tip: 'Sperm whales live here all year; blue and fin whales pass by in spring. Spotters on the cliffs guide the boats.' },
+  { slug: 'iceland', place: 'Húsavík & Reykjavík, Iceland', whales: 'Humpbacks, minkes, blue whales', months: [4, 5, 6, 7, 8, 9, 10], peak: [6, 7, 8], tip: 'Húsavík in the north is Iceland’s whale-watching capital, with occasional blue whales in early summer.' },
+  { slug: 'tromso', place: 'Tromsø, Norway', whales: 'Orcas and humpbacks', months: [11, 12, 1], peak: [11, 12], tip: 'Orcas and humpbacks follow the herring into the northern fjords in winter — combine with the northern lights.' },
+  { slug: 'alaska', place: 'Alaska', whales: 'Humpbacks, orcas', months: [5, 6, 7, 8, 9], peak: [6, 7, 8], tip: 'Juneau and Kenai Fjords are famous for humpbacks bubble-net feeding in summer.' },
+  { slug: 'vancouver', place: 'Vancouver Island & the Salish Sea', whales: 'Orcas, humpbacks', months: [5, 6, 7, 8, 9, 10], peak: [7, 8, 9], tip: 'Tours from Victoria and Vancouver search for resident and transient orcas.' },
+  { slug: 'boston', place: 'Cape Cod & Boston', whales: 'Humpbacks, fin and minke whales', months: [5, 6, 7, 8, 9, 10], peak: [7, 8], tip: 'Stellwagen Bank, off Boston and Cape Cod, is one of the world’s top whale-watching spots.' },
+  { slug: 'acadia', place: 'Bar Harbor, Maine', whales: 'Humpbacks, finbacks, minkes', months: [5, 6, 7, 8, 9, 10], peak: [7, 8], tip: 'Boats head to the Gulf of Maine from Bar Harbor; puffin cruises run in early summer.' },
+  { slug: 'cape-town', place: 'Hermanus, South Africa', whales: 'Southern right whales', months: [6, 7, 8, 9, 10, 11], peak: [9, 10], tip: 'Watch from the cliff paths — whales come within metres of the shore. Hermanus even has a whale crier.' },
+  { slug: 'sydney', place: 'Sydney & the east coast of Australia', whales: 'Humpback whales', months: [5, 6, 7, 8, 9, 10, 11], peak: [6, 7, 9, 10], tip: 'The ‘humpback highway’ passes Sydney heading north in June–July and south in September–November.' },
+  { slug: 'whitsundays', place: 'Whitsundays & Hervey Bay, Australia', whales: 'Humpback whales', months: [7, 8, 9, 10], peak: [8, 9], tip: 'Humpbacks calve in the sheltered waters of the Great Barrier Reef; Hervey Bay is famous for close encounters.' },
+  { place: 'Kaikōura, New Zealand', whales: 'Sperm whales', months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], peak: [6, 7], tip: 'Sperm whales feed in a deep canyon close to shore all year; humpbacks pass in June–July.' },
+  { slug: 'galapagos', place: 'Galápagos, Ecuador', whales: 'Humpbacks, orcas, sperm whales', months: [6, 7, 8, 9, 10], peak: [7, 8, 9], tip: 'Cooler, nutrient-rich water brings whales to the western islands in the garúa season.' },
+];
+const rows = spots.map((s) => ({ ...s, d: s.slug ? bySlug.get(s.slug) : undefined }));
+---
+
+<Guide slug="whale-watching" photo="maui">
+  <p>
+    Many great whales migrate thousands of kilometres a year between cold feeding grounds and warm breeding waters, so
+    almost every month there is somewhere on Earth where whales gather close to shore. In general: <strong>December to April</strong>
+    is breeding season in tropical waters (Hawaii, Mexico, the Caribbean), while <strong>May to October</strong> is feeding season
+    in the north (Iceland, Alaska, New England) and humpback season along the coasts of Australia and South Africa.
+  </p>
+
+  <h2>Whale-watching calendar</h2>
+  <div class="table-wrap">
+    <table class="data-table cal">
+      <caption class="visually-hidden">Whale-watching season by place and month</caption>
+      <thead><tr><th scope="col">Where</th>{MONTH_SHORT.map((m) => <th scope="col">{m}</th>)}</tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row">{r.d ? <a href={r.d.url}>{r.place}</a> : r.place}</th>
+              {MONTH_SHORT.map((_, i) => {
+                const m = i + 1;
+                const s = r.peak.includes(m) ? 'great' : r.months.includes(m) ? 'good' : null;
+                return <td>{s ? <span class="dot" data-rating={s} title={s === 'great' ? 'Peak season' : 'In season'}>{s === 'great' ? 'Peak' : '✓'}</span> : ''}</td>;
+              })}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Where to see whales</h2>
+  <ul>{rows.map((r) => <li><b>{r.place} — {r.whales}:</b> {r.tip}</li>)}</ul>
+
+  <h2>Responsible whale watching</h2>
+  <ul>
+    <li><b>Choose operators that follow local guidelines</b> on distance and speed — many regions have certification schemes.</li>
+    <li><b>Watch from land</b> where you can: Maui, Hermanus, Sydney’s headlands and the Azores cliffs are superb and free.</li>
+    <li><b>Avoid ‘swim with’ tours</b> unless they are licensed and tightly regulated, as in Tonga or French Polynesia.</li>
+    <li><b>Bring seasickness tablets</b> — open-ocean trips can be rough.</li>
+  </ul>
+</Guide>
+
+<style>
+  .cal th,
+  .cal td {
+    padding: 8px 6px;
+    text-align: center;
+  }
+  .cal th[scope='row'] {
+    text-align: left;
+    white-space: normal;
+    min-width: 180px;
+  }
+  .dot {
+    display: inline-block;
+    min-width: 34px;
+    padding: 2px 4px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 650;
+  }
+  th[scope='row'] a {
+    color: var(--text);
+    font-weight: 600;
+  }
+</style>

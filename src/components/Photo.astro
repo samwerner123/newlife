@@ -6,9 +6,13 @@ interface Props {
   slug: string;
   alt: string;
   variant: 'card' | 'hero';
+  /** Override `sizes` when cards are narrower than usual (e.g. 2-up grids on phones). */
+  sizes?: string;
+  /** Load a card photo immediately (when it is the page's largest visible image). */
+  eager?: boolean;
 }
 
-const { slug, alt, variant } = Astro.props;
+const { slug, alt, variant, sizes, eager = false } = Astro.props;
 const p = photo(slug);
 const hero = variant === 'hero';
 ---
@@ -19,10 +23,10 @@ const hero = variant === 'hero';
       <Image
         src={p.src}
         alt={alt}
-        widths={hero ? [640, 960, 1280] : [400, 640]}
-        sizes={hero ? '(max-width: 1160px) 100vw, 1128px' : '(max-width: 640px) 100vw, 380px'}
-        loading={hero ? 'eager' : 'lazy'}
-        fetchpriority={hero ? 'high' : 'auto'}
+        widths={hero ? [480, 720, 960, 1280] : [240, 400, 640]}
+        sizes={sizes ?? (hero ? '(max-width: 1160px) 100vw, 1128px' : '(max-width: 640px) 100vw, 380px')}
+        loading={hero || eager ? 'eager' : 'lazy'}
+        fetchpriority={hero || eager ? 'high' : 'auto'}
         format="webp"
         quality={hero ? 72 : 65}
       />

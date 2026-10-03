@@ -1,0 +1,88 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+// Typical opening periods; exact dates are announced each autumn by the cities.
+const markets: { slug?: string; city: string; market: string; when: string; why: string }[] = [
+  { slug: 'vienna', city: 'Vienna, Austria', market: 'Wiener Christkindlmarkt (Rathausplatz) and a dozen more', when: 'Mid-November to 26 December', why: 'Imperial backdrops — the City Hall, Schönbrunn and Belvedere palaces — plus punch and live choirs.' },
+  { slug: 'strasbourg', city: 'Strasbourg, France', market: 'Christkindelsmärik', when: 'Late November to 24 December', why: 'One of Europe’s oldest (since 1570), spread over a dozen squares in the half-timbered old town.' },
+  { city: 'Nuremberg, Germany', market: 'Christkindlesmarkt', when: 'Friday before Advent to 24 December', why: 'Germany’s most famous market, with gingerbread (Lebkuchen), Nuremberg sausages and the Christkind opening ceremony.' },
+  { slug: 'prague', city: 'Prague, Czechia', market: 'Old Town Square and Wenceslas Square', when: 'Late November or early December to 6 January', why: 'A towering tree in front of the Týn Church, with views from the Old Town Hall tower.' },
+  { slug: 'budapest', city: 'Budapest, Hungary', market: 'Vörösmarty Square and St Stephen’s Basilica', when: 'Mid-November to 1 January', why: 'Frequently voted Europe’s best, with a light show on the basilica and an ice rink.' },
+  { slug: 'salzburg', city: 'Salzburg, Austria', market: 'Christkindlmarkt on Domplatz and Residenzplatz', when: 'Late November to late December', why: 'Baroque squares below the fortress, Advent singing and the Silent Night chapel nearby at Oberndorf.' },
+  { slug: 'munich', city: 'Munich, Germany', market: 'Christkindlmarkt on Marienplatz', when: 'Late November to 24 December', why: 'Bavarian crafts below the town hall, plus a medieval market and a pink-themed queer market.' },
+  { city: 'Cologne, Germany', market: 'Markets at the cathedral and the old town', when: 'Late November to 23 December', why: 'Seven big markets, the most atmospheric beneath the twin spires of the cathedral.' },
+  { city: 'Dresden, Germany', market: 'Striezelmarkt', when: 'Late November to 24 December', why: 'First held in 1434, famous for Stollen fruit bread and a giant wooden pyramid.' },
+  { slug: 'bruges', city: 'Bruges, Belgium', market: 'Markt and Simon Stevinplein', when: 'Late November to early January', why: 'An ice rink beneath the belfry and a medieval centre lit up for Winter Glow.' },
+  { slug: 'krakow', city: 'Kraków, Poland', market: 'Main Market Square', when: 'Late November to early January', why: 'Great value, with grilled oscypek cheese, pierogi and the city’s glittering nativity scenes.' },
+  { slug: 'copenhagen', city: 'Copenhagen, Denmark', market: 'Tivoli Gardens and Nyhavn', when: 'Mid-November to early January', why: 'Tivoli’s historic amusement park becomes a forest of lights and stalls.' },
+  { slug: 'berlin', city: 'Berlin, Germany', market: 'More than 70 markets citywide', when: 'Late November to late December', why: 'Choose your mood: elegant, alternative, palace gardens or Scandinavian-themed.' },
+  { slug: 'edinburgh', city: 'Edinburgh, UK', market: 'Edinburgh’s Christmas, Princes Street Gardens', when: 'Mid-November to early January', why: 'A big wheel below the castle — and Hogmanay to follow.' },
+  { slug: 'london', city: 'London, UK', market: 'Winter Wonderland, Southbank and Covent Garden', when: 'Mid-November to early January', why: 'Less traditional, but with the best Christmas lights and shopping on this list.' },
+];
+const rows = markets.map((r) => ({ ...r, d: r.slug ? bySlug.get(r.slug) : undefined }));
+const DEC = 11;
+---
+
+<Guide slug="christmas-markets-europe" photo="strasbourg">
+  <p>
+    Christmas markets are one of the great reasons to visit Europe in winter: wooden stalls, mulled wine, roasted chestnuts
+    and handmade decorations in squares that have hosted markets for centuries. Most of the classic markets are in
+    <strong>Germany, Austria, Alsace and Central Europe</strong>, and they usually run from <strong>mid-to-late November
+    until 23 or 24 December</strong> — the start of Advent, four Sundays before Christmas, is the traditional opening weekend.
+  </p>
+  <p>
+    Exact dates are announced by each city in the autumn and shift slightly every year, so treat the dates below as typical
+    and check the official site before you book. Temperatures are December averages from official climate normals.
+  </p>
+
+  <h2>Europe’s best Christmas markets and when they open</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">City</th><th scope="col" class="left">Usual dates</th><th scope="col">Dec high / low</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row">{r.d ? <a href={destMonthUrl(r.d, DEC)}>{r.city}</a> : r.city}</th>
+              <td class="left">{r.when}</td>
+              <td>{r.d ? `${deg(r.d.months[DEC].high)} / ${deg(r.d.months[DEC].low)}` : '—'}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>What makes each one special</h2>
+  <ul>
+    {rows.map((r) => <li><b>{r.city} — {r.market}:</b> {r.why}</li>)}
+  </ul>
+
+  <h2>When to go</h2>
+  <ul>
+    <li><b>Late November and the first week of December</b> are the quietest weeks once markets are open, and hotel prices are lower than in mid-December.</li>
+    <li><b>Weekends from mid-December</b> are packed, especially in Strasbourg, Vienna and Prague — go on a weekday evening if you can.</li>
+    <li><b>After Christmas</b>, most German and French markets have closed, but Prague, Budapest, Bruges, Kraków, Copenhagen and London keep going into the new year.</li>
+  </ul>
+
+  <h2>Tips for Christmas market trips</h2>
+  <ul>
+    <li><b>Dress for the cold.</b> You’ll be outside for hours in temperatures close to freezing: thermal layers, a hat and waterproof shoes make all the difference.</li>
+    <li><b>Keep your mug.</b> Mulled wine (Glühwein, vin chaud, svařák) comes with a deposit on the mug — return it for a refund or keep it as a souvenir.</li>
+    <li><b>Carry some cash.</b> Card payments are now widespread, but smaller stalls may still prefer cash.</li>
+    <li><b>Combine cities by train.</b> Vienna–Salzburg–Munich, Prague–Vienna–Budapest and Strasbourg–Colmar–Basel make easy multi-market trips.</li>
+    <li><b>Book early.</b> Strasbourg and Colmar hotels sell out months ahead for December weekends.</li>
+  </ul>
+  <p>
+    More festive ideas: <a href="/christmas-destinations/">where to go for Christmas &amp; New Year</a>,
+    <a href="/warmest-places-in-europe-in-december/">the warmest places in Europe in December</a> and
+    <a href="/best-places-to-visit-in-europe-in-december/">the best places to visit in Europe in December</a>.
+  </p>
+</Guide>
+
+<style>
+  .left {
+    text-align: left;
+  }
+</style>

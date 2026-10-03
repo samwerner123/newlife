@@ -1,0 +1,70 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { destinations, destMonthUrl, deg, usd, type Destination } from '../../lib/data';
+
+const MAR = 2;
+const APR = 3;
+const avg = (d: Destination) => (d.months[MAR].score + d.months[APR].score) / 2;
+const warm = destinations
+  .filter((d) => d.months[MAR].score >= 65 && d.months[APR].score >= 65 && d.months[MAR].high >= 25 && (d.tags.includes('beach') || d.tags.includes('islands')))
+  .sort((a, b) => avg(b) - avg(a));
+const tiers = [
+  { label: 'On a budget (under $60 a day)', items: warm.filter((d) => d.budget.low < 60) },
+  { label: 'Mid-range ($60–120 a day)', items: warm.filter((d) => d.budget.low >= 60 && d.budget.low < 120) },
+  { label: 'Splurge ($120+ a day)', items: warm.filter((d) => d.budget.low >= 120) },
+].map((t) => ({ ...t, items: t.items.slice(0, 8) }));
+---
+
+<Guide slug="spring-break" photo="cancun">
+  <p>
+    Spring break usually falls between <strong>early March and mid-April</strong> — US colleges mostly break in March, and
+    many schools around Easter. It’s a great time for a beach trip: the Caribbean, Mexico and Central America are in their dry
+    season, and hurricane season is months away. We picked beach destinations that rate good or great for weather in both
+    March and April, with average highs of at least 25°C, and sorted them by daily budget.
+  </p>
+
+  {
+    tiers.map((t) => (
+      <>
+        <h2>{t.label}</h2>
+        {t.items.length ? (
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption class="visually-hidden">{t.label}</caption>
+              <thead><tr><th scope="col">Destination</th><th scope="col">March</th><th scope="col">April</th><th scope="col">High</th><th scope="col">From</th></tr></thead>
+              <tbody>
+                {t.items.map((d) => (
+                  <tr>
+                    <th scope="row"><a href={d.url}>{d.name}</a></th>
+                    <td><a href={destMonthUrl(d, MAR)}><RatingBadge score={d.months[MAR].score} rating={d.months[MAR].rating} /></a></td>
+                    <td><a href={destMonthUrl(d, APR)}><RatingBadge score={d.months[APR].score} rating={d.months[APR].rating} /></a></td>
+                    <td>{deg(d.months[MAR].high)}</td>
+                    <td>{usd(d.budget.low)}/day</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p class="muted">No destinations in this range.</p>
+        )}
+      </>
+    ))
+  }
+
+  <h2>Party or peace and quiet?</h2>
+  <ul>
+    <li><b>The classic party scene:</b> <a href="/destinations/cancun/">Cancún</a>, Panama City Beach, South Padre Island, <a href="/destinations/punta-cana/">Punta Cana</a> and the <a href="/destinations/bahamas/">Bahamas</a> fill with students in March.</li>
+    <li><b>Families:</b> look at <a href="/destinations/aruba/">Aruba</a>, <a href="/destinations/turks-and-caicos/">Turks and Caicos</a>, <a href="/best-time-to-visit-hawaii/">Hawaii</a> or a Central American adventure in <a href="/best-time-to-visit-costa-rica/">Costa Rica</a>.</li>
+    <li><b>Closer to home:</b> South Florida and the Keys are warm in March, but the Gulf Coast and the Carolinas are still too cool to swim.</li>
+  </ul>
+
+  <h2>Tips for spring break</h2>
+  <ul>
+    <li><b>Book early</b> — flights to Mexico and the Caribbean for March are among the most expensive of the year.</li>
+    <li><b>Check passports:</b> US citizens need a valid passport for Mexico, the Caribbean (except Puerto Rico and the US Virgin Islands) and Central America.</li>
+    <li><b>Watch the sun:</b> the tropical sun is strong in March — use reef-safe sunscreen and stay hydrated.</li>
+  </ul>
+  <p>More ideas: <a href="/warm-places-to-visit-in-march/">warm places in March</a>, <a href="/cheap-places-to-travel-in-march/">cheap places in March</a> and <a href="/beach-vacations-in-april/">beach vacations in April</a>.</p>
+</Guide>

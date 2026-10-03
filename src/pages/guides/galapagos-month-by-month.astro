@@ -1,0 +1,65 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg, MONTHS } from '../../lib/data';
+
+const g = bySlug.get('galapagos')!;
+const calendar: string[] = [
+  'Warm season begins in earnest. Green sea turtles nest on the beaches and land iguanas mate on Isabela. Calm seas and warm water make it great for snorkelling.',
+  'Greater flamingos nest on Floreana and marine iguanas nest on Santa Cruz. Water is around its warmest, and seas are calm.',
+  'The wettest and hottest month, with short tropical showers and lush green islands. Waved albatrosses start arriving on Española late in the month.',
+  'Waved albatross courtship begins on Española — one of the archipelago’s great sights. Green turtle eggs and land iguana eggs hatch.',
+  'Blue-footed boobies perform their courtship dances on North Seymour and Española. Albatrosses lay their eggs.',
+  'The cool garúa season starts. Humpback whales arrive, and giant tortoises on Santa Cruz migrate to the lowlands to nest.',
+  'Seabirds are very active: blue-footed boobies nest and flightless cormorants court on Fernandina. Whales and dolphins feed in the west.',
+  'Sea lion pupping begins, and Nazca boobies and swallow-tailed gulls nest. The coolest water and roughest seas of the year.',
+  'Peak of the cool season. Sea lions are very active and Galápagos penguins court on Bartolomé.',
+  'Fur seals mate and blue-footed boobies raise their chicks. Giant tortoises are still laying eggs.',
+  'Playful sea lion pups make for memorable snorkelling. Seas start to calm and the water begins to warm.',
+  'Giant tortoise eggs start hatching (through April) and green sea turtles mate. Young albatrosses leave Española. The warm season returns.',
+];
+---
+
+<Guide slug="galapagos-month-by-month" photo="galapagos">
+  <p>
+    There’s no bad time to visit the Galápagos: the wildlife is there all year and remarkably unafraid of people. What changes
+    is the weather, the sea and which animals are nesting, courting or raising young. The islands have two seasons:
+  </p>
+  <ul>
+    <li><b>December–May, the warm season:</b> hotter, sunnier and calmer, with short tropical showers, warm water (often 25–28°C) and the best snorkelling visibility.</li>
+    <li><b>June–November, the cool ‘garúa’ season:</b> mistier skies, cooler water (around 22–24°C, colder at depth and in the west) and rougher seas — but nutrient-rich currents bring more marine life, from whales to penguins.</li>
+  </ul>
+
+  <h2>Galápagos weather and water temperature by month</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption class="visually-hidden">Galápagos climate by month</caption>
+      <thead><tr><th scope="col">Month</th><th scope="col">Rating</th><th scope="col">Air high / low</th><th scope="col">Sea</th><th scope="col">Rain</th></tr></thead>
+      <tbody>
+        {
+          g.months.map((m) => (
+            <tr>
+              <th scope="row"><a href={destMonthUrl(g, m.index)}>{m.name}</a></th>
+              <td><span class="badge" data-rating={m.rating}>{m.score}</span></td>
+              <td>{deg(m.high)} / {deg(m.low)}</td>
+              <td>{m.sea !== null ? deg(m.sea) : '—'}</td>
+              <td>{m.rain} mm</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Air temperatures from official climate normals; sea-surface temperatures are 2023–2025 averages (Open-Meteo).</p>
+
+  <h2>Wildlife calendar, month by month</h2>
+  {MONTHS.map((name, i) => (<><h3>{name}</h3><p>{calendar[i]}</p></>))}
+
+  <h2>Planning tips</h2>
+  <ul>
+    <li><b>Book cruises early</b> for June–August and the Christmas–New Year holidays, the busiest periods.</li>
+    <li><b>Cruise or land-based?</b> Small cruise ships reach the remote western and southern islands; land-based trips from Santa Cruz and San Cristóbal are cheaper and good for people prone to seasickness.</li>
+    <li><b>Budget for park fees:</b> since August 2024 the national park entrance fee for most foreign adults is US$200, plus a transit control card bought at the airport in Quito or Guayaquil.</li>
+    <li><b>Bring a wetsuit or rent one</b> in the cool season, and pack seasickness tablets for open-sea crossings.</li>
+  </ul>
+  <p>Combine with <a href="/destinations/quito/">Quito</a> — see <a href="/best-time-to-visit-ecuador/">the best time to visit Ecuador</a>.</p>
+</Guide>

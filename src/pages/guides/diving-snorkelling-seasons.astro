@@ -1,0 +1,77 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, monthRanges, deg } from '../../lib/data';
+
+// Best months (1–12) for diving conditions: visibility, calm seas and marine life.
+const spots: { slug: string; place: string; best: number[]; tip: string }[] = [
+  { slug: 'cairns', place: 'Great Barrier Reef (Cairns)', best: [6, 7, 8, 9, 10, 11], tip: 'Best visibility and no stingers in the dry season; minke whales on the Ribbon Reefs in June–July and coral spawning in November or December.' },
+  { slug: 'maldives', place: 'Maldives', best: [1, 2, 3, 4], tip: 'The dry northeast monsoon brings the clearest water; manta rays and whale sharks gather on the west sides of the atolls from May to November.' },
+  { slug: 'hurghada', place: 'Red Sea (Egypt)', best: [3, 4, 5, 9, 10, 11], tip: 'Diveable all year; spring and autumn combine warm water with comfortable air temperatures. Famous for wrecks like the SS Thistlegorm.' },
+  { slug: 'komodo', place: 'Komodo, Indonesia', best: [4, 5, 6, 7, 8, 9, 10, 11], tip: 'Strong currents, mantas and huge fish schools; the dry season brings calmer crossings and the best liveaboard conditions.' },
+  { slug: 'bali', place: 'Bali & Nusa Penida', best: [5, 6, 7, 8, 9, 10], tip: 'Dry-season diving; the giant mola mola (oceanic sunfish) visits Nusa Penida from about July to October — in cold upwellings.' },
+  { slug: 'phuket', place: 'Similan Islands (Thailand)', best: [11, 12, 1, 2, 3, 4], tip: 'The Similan Islands national park is open only from mid-October to mid-May. Liveaboards leave from Phuket and Khao Lak.' },
+  { slug: 'koh-samui', place: 'Koh Tao (Gulf of Thailand)', best: [3, 4, 5, 6, 7, 8, 9], tip: 'One of the world’s cheapest places to learn to dive; the Gulf islands are best outside the October–December rains.' },
+  { slug: 'palawan', place: 'Palawan & Tubbataha (Philippines)', best: [3, 4, 5, 6], tip: 'Coron’s Second World War wrecks are diveable most of the year; the remote Tubbataha Reefs are only open from about mid-March to mid-June.' },
+  { slug: 'cebu', place: 'Cebu (Moalboal & Malapascua)', best: [1, 2, 3, 4, 5], tip: 'Moalboal’s sardine run happens year-round; Malapascua is famous for thresher sharks at dawn.' },
+  { slug: 'borneo', place: 'Sipadan (Malaysian Borneo)', best: [4, 5, 6, 7, 8, 9, 10, 11, 12], tip: 'Turtles, barracuda tornadoes and walls; daily permits are limited, so book well ahead.' },
+  { slug: 'galapagos', place: 'Galápagos', best: [6, 7, 8, 9, 10, 11], tip: 'Cooler, nutrient-rich water brings hammerheads and, at Darwin and Wolf, whale sharks; warmer, calmer water from December to May suits snorkellers.' },
+  { slug: 'cozumel', place: 'Cozumel, Mexico', best: [12, 1, 2, 3, 4, 5], tip: 'Easy drift diving with 30 m+ visibility on the Mesoamerican Reef.' },
+  { slug: 'belize', place: 'Belize Barrier Reef', best: [3, 4, 5, 6], tip: 'Calm seas for the Great Blue Hole; whale sharks gather at Gladden Spit around the full moons of spring.' },
+  { slug: 'cayman-islands', place: 'Cayman Islands', best: [4, 5, 6, 7], tip: 'Dramatic wall dives and Stingray City; summer seas are often glassy, but watch the hurricane season later on.' },
+  { slug: 'curacao', place: 'Curaçao', best: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], tip: 'Superb shore diving all year, south of the hurricane belt.' },
+  { slug: 'fiji', place: 'Fiji', best: [5, 6, 7, 8, 9, 10], tip: 'Soft-coral capital of the world; the Beqa Lagoon shark dive runs year-round.' },
+  { slug: 'mauritius', place: 'Mauritius', best: [10, 11, 12, 1, 2, 3, 4], tip: 'Warmer water and better visibility in the southern summer, outside the cyclone peak.' },
+  { slug: 'sri-lanka', place: 'Sri Lanka', best: [11, 12, 1, 2, 3, 4], tip: 'The south and west coasts in the northeast monsoon; switch to Trincomalee on the east coast from May to September.' },
+];
+const rows = spots.map((s) => {
+  const d = bySlug.get(s.slug);
+  if (!d) throw new Error(s.slug);
+  const seas = s.best.map((m) => d.months[m - 1].sea).filter((x): x is number => x !== null);
+  return { ...s, d, water: seas.length ? `${deg(Math.min(...seas))}–${deg(Math.max(...seas))}` : '—' };
+});
+---
+
+<Guide slug="diving-snorkelling-seasons" photo="maldives">
+  <p>
+    Good diving needs three things: <strong>calm seas, clear water and the marine life you came for</strong>. In the tropics,
+    that usually means the dry season, when there’s less run-off from rivers and fewer storms. But some of the best
+    encounters — manta rays, whale sharks, hammerheads — happen in the rainy or cooler seasons, when plankton blooms.
+  </p>
+
+  <h2>Best months to dive, and the water temperature</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption class="visually-hidden">Best diving months and water temperatures</caption>
+      <thead><tr><th scope="col">Where</th><th scope="col" class="left">Best months</th><th scope="col">Water then</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d.url}>{r.place}</a></th>
+              <td class="left">{monthRanges(r.best.map((m) => m - 1))}</td>
+              <td>{r.water}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Water temperatures are average sea-surface temperatures in the best months (2023–2025, Open-Meteo); it’s cooler at depth.</p>
+
+  <h2>Where to dive, region by region</h2>
+  <ul>{rows.map((r) => <li><b>{r.place}:</b> {r.tip}</li>)}</ul>
+
+  <h2>Snorkelling tips</h2>
+  <ul>
+    <li><b>Go in the morning,</b> before the wind picks up and the water gets choppy.</li>
+    <li><b>Use reef-safe sunscreen</b> — or better, a rash guard — to protect both you and the coral. Hawaii, Palau and several Caribbean islands restrict some sunscreen chemicals.</li>
+    <li><b>Never stand on coral</b> and don’t touch or chase wildlife.</li>
+    <li><b>Check your insurance</b> covers diving to the depth you plan, and leave 24 hours between your last dive and a flight.</li>
+  </ul>
+</Guide>
+
+<style>
+  .left {
+    text-align: left;
+  }
+</style>

@@ -1,0 +1,69 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { destinations, MONTH_SHORT } from '../../lib/data';
+
+const sorted = [...destinations].sort((a, b) => b.lat - a.lat);
+const fmt = (h: number) => (h >= 24 ? '24' : h <= 0 ? '0' : h.toFixed(1));
+const tone = (h: number) => (h >= 16 ? 'great' : h >= 12.5 ? 'good' : h >= 9 ? 'fair' : 'poor');
+---
+
+<Guide slug="daylight-hours" photo="tromso">
+  <p>
+    Day length shapes a trip as much as temperature: a December day in London has under eight hours of daylight, while Tromsø
+    gets none at all and Singapore has twelve hours all year. Long summer days mean more time for sightseeing and hiking; short
+    winter days are perfect for northern lights. Here is the average daylight — sunrise to sunset — for every destination we
+    cover, from north to south.
+  </p>
+  <ul>
+    <li><b>Near the equator</b> (Singapore, Bali, the Galápagos), days are about 12 hours long all year.</li>
+    <li><b>In the mid-latitudes</b> (Europe, the US, Japan), summer days are 14–17 hours and winter days 8–10 hours.</li>
+    <li><b>Above the Arctic Circle</b>, there’s a midnight sun in summer and polar night in winter.</li>
+    <li><b>In the southern hemisphere</b>, the pattern is reversed: the longest days are in December.</li>
+  </ul>
+
+  <h2>Average hours of daylight by month</h2>
+  <div class="table-wrap">
+    <table class="data-table dl">
+      <caption class="visually-hidden">Average daylight hours by destination and month, north to south</caption>
+      <thead><tr><th scope="col">Destination</th>{MONTH_SHORT.map((m) => <th scope="col">{m}</th>)}</tr></thead>
+      <tbody>
+        {
+          sorted.map((d) => (
+            <tr>
+              <th scope="row"><a href={d.url}>{d.name}</a></th>
+              {d.months.map((m) => <td><span class="h" data-rating={tone(m.daylight)}>{fmt(m.daylight)}</span></td>)}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">
+    Hours from sunrise to sunset, averaged over each month and calculated from each destination’s latitude (including
+    atmospheric refraction). Twilight adds usable light before sunrise and after sunset, especially at high latitudes.
+  </p>
+  <p>See also: <a href="/guides/midnight-sun/">midnight sun</a> and <a href="/guides/northern-lights/">northern lights</a>.</p>
+</Guide>
+
+<style>
+  .dl th,
+  .dl td {
+    padding: 6px 4px;
+    text-align: center;
+  }
+  .dl th[scope='row'] {
+    text-align: left;
+  }
+  .h {
+    display: inline-block;
+    min-width: 34px;
+    padding: 2px 4px;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+  .dl th[scope='row'] a {
+    color: var(--text);
+    font-weight: 600;
+  }
+</style>

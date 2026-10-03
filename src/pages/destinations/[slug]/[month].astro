@@ -4,6 +4,8 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import BookingBox from '../../../components/BookingBox.astro';
 import Photo from '../../../components/Photo.astro';
 import MobileBookBar from '../../../components/MobileBookBar.astro';
+import SaveButton from '../../../components/SaveButton.astro';
+import Share from '../../../components/Share.astro';
 import { ogImage } from '../../../lib/images';
 import ClimateCharts from '../../../components/ClimateCharts.astro';
 import DestinationCard from '../../../components/DestinationCard.astro';
@@ -21,6 +23,8 @@ import {
   deg,
   plural,
   usd,
+  skiStatus,
+  SKI_LABEL,
   type Destination,
 } from '../../../lib/data';
 import { RATING_LABEL } from '../../../lib/score';
@@ -34,6 +38,7 @@ export function getStaticPaths() {
 
 const { dest, m } = Astro.props as { dest: Destination; m: number };
 const mo = dest.months[m];
+const ski = skiStatus(dest, m);
 const prev = dest.months[(m + 11) % 12];
 const next = dest.months[(m + 1) % 12];
 const ranked = rankForMonth(m);
@@ -79,12 +84,13 @@ const crumbs = [
 ];
 
 const title = `${dest.name} in ${mo.name}: Weather & Travel Tips`;
+const og = await ogImage(dest.slug);
 const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, ${mo.rain} mm of rain${
   mo.sunHours !== null ? ` and ${mo.sunHours.toFixed(1)} h of sun a day` : ''
 }. Rated "${RATING_LABEL[mo.rating]}" for travel — packing tips, budget and alternatives.`;
 ---
 
-<Base title={title} description={description} jsonLd={[breadcrumbLd(crumbs, Astro.site)]} ogType="article" image={await ogImage(dest.slug)}>
+<Base title={title} description={description} jsonLd={[breadcrumbLd(crumbs, Astro.site)]} ogType="article" image={og} recent={dest.slug}>
   <div class="container">
     <Breadcrumbs items={crumbs} />
 
@@ -92,6 +98,7 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
       <p class="eyebrow">{dest.country} · {mo.name} travel guide</p>
       <h1>{dest.name} in {mo.name}</h1>
       <p class="lead">{opener} {sentence}</p>
+      <div class="tools-row"><SaveButton slug={dest.slug} name={dest.name} /><Share title={`${dest.name} in ${mo.name}`} image={og} /></div>
     </header>
     <Photo slug={dest.slug} alt={`${dest.name}, ${dest.country}`} variant="hero" />
     <div class="gap"></div>
@@ -121,6 +128,21 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
               </li>
             )
           }
+          {
+            mo.sea !== null && (
+              <li class="card tile">
+                <span class="label"><Icon name="wave" size={16} /> Sea</span>
+                <span class="value">{deg(mo.sea)}</span>
+                <span class="small muted">{mo.sea >= 26 ? 'Warm for swimming' : mo.sea >= 22 ? 'Pleasant for swimming' : mo.sea >= 18 ? 'Refreshing' : 'Cold'}</span>
+              </li>
+            )
+          }
+          <li class="card tile">
+            <span class="label"><Icon name="calendar" size={16} /> Daylight</span>
+            <span class="value">{mo.daylight >= 24 ? '24' : mo.daylight.toFixed(1)}<small> h/day</small></span>
+            {mo.daylight >= 24 && <span class="small muted">Midnight sun</span>}
+            {mo.daylight <= 0 && <span class="small muted">Polar night</span>}
+          </li>
         </ul>
 
         <section class="card">
@@ -136,6 +158,14 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
           <p>{trend}</p>
           {mo.note && <p><b>Heads-up:</b> {mo.note}.</p>}
           {mo.event && <p><b>Don't miss:</b> {mo.event}</p>}
+          {
+            ski && (
+              <p>
+                <b>Skiing:</b> {SKI_LABEL[ski].toLowerCase()} at {dest.ski!.resorts}. See more ideas for{' '}
+                <a href={`/where-to-ski-in-${MONTH_SLUGS[m]}/`}>where to ski in {mo.name}</a>.
+              </p>
+            )
+          }
           <p>
             Across the year, the best time to visit {dest.name} is {monthRanges(dest.bestMonths)}. {dest.best}
           </p>
@@ -191,6 +221,16 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
 <style>
   .gap {
     height: 24px;
+  }
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .tools-row :global(.share) {
+    margin: 0;
   }
   .layout {
     display: grid;

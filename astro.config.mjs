@@ -6,5 +6,6 @@ import { SITE } from './src/config.ts';
 export default defineConfig({
   site: process.env.SITE_URL || SITE.url,
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  // Embeds and the saved-places page are noindex, so they stay out of the sitemap too.
+  integrations: [sitemap({ filter: (page) => !page.includes('/embed/') && !page.endsWith('/saved/') })],
 });

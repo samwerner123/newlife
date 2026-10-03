@@ -1,0 +1,85 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+// Typical peak windows; colours arrive earlier at altitude and in the north, and shift with each year's weather.
+const spots: { slug: string; place: string; when: string; m: number; tip: string }[] = [
+  { slug: 'vermont', place: 'Vermont', when: 'Late September – mid-October', m: 9, tip: 'Drive Route 100 and the roads around Stowe and Smugglers’ Notch; the Northeast Kingdom peaks first.' },
+  { slug: 'acadia', place: 'Acadia & coastal Maine', when: 'Early – mid-October', m: 9, tip: 'Red maples and golden birches against granite and sea; Cadillac Mountain at sunrise.' },
+  { slug: 'boston', place: 'Boston & Massachusetts', when: 'Mid – late October', m: 9, tip: 'The Berkshires and the Mohawk Trail peak around mid-October; Boston’s parks a little later.' },
+  { slug: 'quebec-city', place: 'Quebec', when: 'Late September – mid-October', m: 9, tip: 'Mont-Tremblant, the Laurentians and the Charlevoix coast; Quebec City’s old town is lovely in October.' },
+  { slug: 'great-smoky-mountains', place: 'Great Smoky Mountains', when: 'Mid-October – early November', m: 9, tip: 'Colours start at the high ridges (Clingmans Dome) and work down to the valleys by early November.' },
+  { slug: 'colorado', place: 'Colorado Rockies', when: 'Mid – late September', m: 8, tip: 'Golden aspens around the Maroon Bells, Kebler Pass and Rocky Mountain National Park.' },
+  { slug: 'banff', place: 'Banff & the Canadian Rockies', when: 'Mid – late September', m: 8, tip: 'Golden larches on trails like Larch Valley near Moraine Lake — a short, spectacular window.' },
+  { slug: 'kyoto', place: 'Kyoto, Japan', when: 'Mid – late November', m: 10, tip: 'Tofuku-ji, Eikan-do and Arashiyama glow with red maples (momiji); evening illuminations at temples.' },
+  { slug: 'tokyo', place: 'Tokyo, Japan', when: 'Late November – early December', m: 10, tip: 'Ginkgo avenues in Meiji Jingu Gaien and maples in Rikugien Garden.' },
+  { slug: 'hokkaido', place: 'Hokkaido, Japan', when: 'Late September – October', m: 9, tip: 'Japan’s first colours, in Daisetsuzan National Park and around Jozankei.' },
+  { slug: 'seoul', place: 'Seoul, South Korea', when: 'Mid-October – early November', m: 9, tip: 'Seoraksan National Park peaks in mid-October; Seoul’s palaces and Namsan follow in early November.' },
+  { slug: 'munich', place: 'Bavaria, Germany', when: 'October', m: 9, tip: 'Golden forests around Neuschwanstein and the Bavarian lakes.' },
+  { slug: 'scottish-highlands', place: 'Scottish Highlands', when: 'October', m: 9, tip: 'Perthshire, known as ‘Big Tree Country’, is the classic autumn-colour region.' },
+  { slug: 'queenstown', place: 'Queenstown & Arrowtown, New Zealand', when: 'April', m: 3, tip: 'The southern-hemisphere autumn: Arrowtown’s poplars and willows turn gold.' },
+  { slug: 'patagonia', place: 'Patagonia', when: 'April', m: 3, tip: 'Lenga beech forests turn red around El Chaltén and Torres del Paine.' },
+];
+const rows = spots.map((s) => ({ ...s, d: bySlug.get(s.slug) })).filter((r) => r.d);
+---
+
+<Guide slug="fall-foliage" photo="vermont">
+  <p>
+    Autumn colours depend on cool nights, sunny days and enough rain over the summer, so the timing moves by a week or two
+    each year. As a rule, leaves turn <strong>first in the north and at altitude</strong>, then sweep south and downhill. In
+    the northern hemisphere the show runs from <strong>mid-September to late November</strong>; in the southern hemisphere
+    it comes in <strong>April</strong>.
+  </p>
+
+  <h2>When autumn colours peak</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Where</th><th scope="col" class="left">Typical peak</th><th scope="col">Weather then</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d!.url}>{r.place}</a></th>
+              <td class="left">{r.when}</td>
+              <td><a href={destMonthUrl(r.d!, r.m)}>{deg(r.d!.months[r.m].high)} / {deg(r.d!.months[r.m].low)}</a></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Average daily high / low in the peak month, from official climate normals.</p>
+
+  <h2>Where to see the best colours</h2>
+  <ul>{rows.map((r) => <li><b>{r.place}:</b> {r.tip}</li>)}</ul>
+
+  <h2>New England: the classic leaf-peeping trip</h2>
+  <p>
+    New England’s maples, birches and oaks make it the world’s most famous foliage destination. Colour usually starts in
+    northern Vermont, New Hampshire and Maine in the last week of September, peaks across most of the region in the first
+    half of October, and reaches southern New England and the coast by late October. Weekends around Columbus Day
+    (Indigenous Peoples’ Day, the second Monday of October) are the busiest — book inns months ahead or go midweek.
+    See <a href="/best-time-to-visit-new-england/">the best time to visit New England</a>.
+  </p>
+
+  <h2>Japan and Korea</h2>
+  <p>
+    In Japan, autumn leaves (kōyō) move south from Hokkaido in late September to Tokyo and Kyoto in late November and early
+    December — the reverse of the cherry blossom front. In South Korea, colours peak from mid-October in the mountains to early
+    November in Seoul. Both countries publish foliage forecasts each autumn.
+  </p>
+
+  <h2>Tips for leaf-peeping</h2>
+  <ul>
+    <li><b>Follow the foliage reports.</b> State tourism offices in New England and Japan’s weather services publish weekly colour maps.</li>
+    <li><b>Plan a flexible route.</b> If one area has peaked, drive a few hours south or downhill.</li>
+    <li><b>Go midweek.</b> Scenic drives and inns are much quieter Monday to Thursday.</li>
+    <li><b>Pack layers.</b> Mornings can be near freezing even when afternoons are warm.</li>
+  </ul>
+</Guide>
+
+<style>
+  .left {
+    text-align: left;
+  }
+</style>

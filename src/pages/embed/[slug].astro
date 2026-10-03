@@ -1,0 +1,113 @@
+---
+// Embeddable climate widget for bloggers: a compact month-by-month card with a credit link.
+// Served without the site header/footer and allowed in iframes (see public/_headers).
+import '../../styles/global.css';
+import { destinations, monthRanges, MONTH_SHORT, deg, type Destination } from '../../lib/data';
+import { RATING_LABEL } from '../../lib/score';
+import { SITE } from '../../config';
+
+export function getStaticPaths() {
+  return destinations.map((dest) => ({ params: { slug: dest.slug }, props: { dest } }));
+}
+const { dest } = Astro.props as { dest: Destination };
+const home = new URL(dest.url, Astro.site ?? SITE.url).toString();
+const maxHigh = Math.max(...dest.months.map((m) => m.high));
+const minLow = Math.min(...dest.months.map((m) => m.low));
+const span = Math.max(1, maxHigh - minLow);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{dest.name} weather by month — {SITE.name}</title>
+    <link rel="canonical" href={home} />
+  </head>
+  <body class="embed">
+    <div class="w">
+      <p class="t"><b>{dest.name}</b> weather by month</p>
+      <p class="b small">Best time to visit: <b>{monthRanges(dest.bestMonths)}</b> · average highs in °C</p>
+      <ol class="months">
+        {
+          dest.months.map((m) => (
+            <li title={`${m.name}: ${RATING_LABEL[m.rating]} (${m.score}/100), high ${deg(m.high)}, low ${deg(m.low)}, ${m.rain} mm rain`}>
+              <span class="bar" style={`--lo:${((m.low - minLow) / span) * 100}%;--hi:${((m.high - minLow) / span) * 100}%`}></span>
+              <span class="cell" data-rating={m.rating}>{MONTH_SHORT[m.index][0]}</span>
+              <span class="hi">{Math.round(m.high)}°</span>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="credit small">
+        <a href={home} target="_blank" rel="noopener">Climate data &amp; travel guide: {SITE.name}</a>
+      </p>
+    </div>
+  </body>
+</html>
+
+<style>
+  .embed {
+    margin: 0;
+    background: var(--surface);
+  }
+  .w {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+  .t {
+    margin: 0 0 2px;
+    font-size: 1.05rem;
+  }
+  .b {
+    margin: 0 0 10px;
+    color: var(--text-2);
+  }
+  .months {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 4px;
+    align-items: end;
+  }
+  .months li {
+    display: grid;
+    gap: 3px;
+    justify-items: center;
+  }
+  .bar {
+    position: relative;
+    width: 6px;
+    height: 60px;
+    border-radius: 3px;
+    background: var(--surface-2);
+  }
+  .bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: var(--lo);
+    top: calc(100% - var(--hi));
+    border-radius: 3px;
+    background: var(--temp);
+  }
+  .cell {
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 0;
+  }
+  .hi {
+    font-size: 0.6875rem;
+    color: var(--text-2);
+  }
+  .credit {
+    margin: 10px 0 0;
+  }
+</style>

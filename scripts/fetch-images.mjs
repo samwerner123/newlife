@@ -10,7 +10,7 @@ import path from 'node:path';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const OUT_DIR = path.join(ROOT, 'src', 'assets', 'destinations');
 const OUT_JSON = path.join(ROOT, 'src', 'data', 'images.json');
-const UA = 'SeasonScout/0.1 (static travel site; photo credits builder)';
+const UA = 'SeasonScoutBot/0.2 (https://github.com/samwerner123/newlife; photo credits builder)';
 const WIDTH = 1280; // Wikimedia only serves standard thumbnail widths (e.g. 960, 1280)
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -21,7 +21,8 @@ async function get(url, as = 'text', tries = 4) {
     if (res.ok) return as === 'buffer' ? Buffer.from(await res.arrayBuffer()) : as === 'json' ? res.json() : res.text();
     console.warn(`  ${res.status} for ${url}`);
     if (res.status === 404 || res.status === 400) return null;
-    await sleep(5000 * 2 ** i);
+    const retry = Number(res.headers?.get?.('retry-after'));
+    await sleep(Math.max(retry * 1000 || 0, 5000 * 2 ** i));
   }
   throw new Error(`failed: ${url}`);
 }
@@ -56,6 +57,10 @@ function findLicense(wikitext) {
 
 function cleanWikitext(v) {
   return v
+    // Wrapper templates whose content is the name: {{noping|X}}, {{Author assumed|X}}, {{author|Original|X}}.
+    .replace(/\{\{\s*(?:noping|ping|nobr|nowrap)\s*\|\s*([^{}|]+)\}\}/gi, '$1')
+    .replace(/\{\{\s*author assumed\s*\|\s*((?:\[\[[^\]]*\]\]|\[[^\]]*\]|[^{}])+)\}\}/gi, '$1')
+    .replace(/\{\{\s*author\s*\|\s*[^|{}]*\|\s*((?:\[\[[^\]]*\]\]|\[[^\]]*\]|[^{}])+)\}\}/gi, '$1')
     .replace(/\{\{\s*creator\s*:\s*([^}|]+)[^}]*\}\}/gi, '$1')
     .replace(/\{\{\s*(?:u|user|user at project)\s*\|\s*([^}|]+)[^}]*\}\}/gi, '$1')
     .replace(/\{\{[^}]*\}\}/g, '')
@@ -69,12 +74,24 @@ function cleanWikitext(v) {
 }
 
 function findAuthor(wikitext) {
-  // An explicit attribution in the licence template wins ({{Cc-by-sa-3.0|attribution=...}}).
-  const attr = wikitext.match(/\{\{\s*cc-[^}]*?\|\s*attribution\s*=\s*([^}|]+)/i);
+  // An explicit attribution in a licence template wins ({{Cc-by-sa-3.0|attribution=...}}, {{self|...|attribution=...}}).
+  const attr = wikitext.match(/\|\s*attribution\s*=\s*((?:\[[^\]]*\]|[^|}\n])+)/i);
   if (attr && cleanWikitext(attr[1])) return cleanWikitext(attr[1]);
-  // Otherwise the {{Information}} author field, stopping at the next top-level "|".
-  const m = wikitext.match(/\|\s*author\s*=\s*((?:\{\{[^{}]*\}\}|\[\[[^\]]*\]\]|\[[^\]]*\]|[^|\n{}[\]])*)/i);
-  return (m && cleanWikitext(m[1])) || 'Unknown author';
+  // Photographers often sign with a personal template: {{User:Name/Author}}.
+  const userTpl = wikitext.match(/\|\s*author\s*=\s*\{\{\s*User:([^/}|]+)\//i);
+  if (userTpl) return userTpl[1].trim();
+  // Otherwise the author/photographer/artist field, stopping at the next top-level "|".
+  const m = wikitext.match(/\|\s*(?:author|photographer|artist)\s*=\s*((?:\{\{(?:[^{}]|\{\{[^{}]*\}\})*\}\}|\[\[[^\]]*\]\]|\[[^\]]*\]|[^|\n{}[\]])*)/i);
+  return (m && cleanWikitext(m[1])) || null;
+}
+
+// Fallback: Commons' own parsed "Artist" field (works for any author template we don't recognise).
+async function commonsArtist(name) {
+  const j = await get(`https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata&format=json&titles=${encodeURIComponent(`File:${name}`)}`, 'json');
+  const page = j && Object.values(j.query?.pages ?? {})[0];
+  const html = page?.imageinfo?.[0]?.extmetadata?.Artist?.value;
+  const textValue = html?.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+  return textValue || null;
 }
 
 function thumbUrl(file, width) {
@@ -83,8 +100,10 @@ function thumbUrl(file, width) {
 }
 
 async function leadImage(title) {
-  const j = await get(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/ /g, '_'))}`, 'json');
-  const src = j?.originalimage?.source;
+  // The article's og:image is its lead image. Article HTML is served from Wikipedia's cache, so unlike
+  // the REST API it isn't rate-limited.
+  const html = await get(`https://en.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, '_'))}`);
+  const src = html?.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
   if (!src) return null;
   const u = new URL(src);
   // Either /wikipedia/commons/a/ab/Name.jpg or /wikipedia/commons/thumb/a/ab/Name.jpg/3840px-Name.jpg
@@ -92,7 +111,7 @@ async function leadImage(title) {
     u.pathname.match(/^\/wikipedia\/commons\/thumb\/([0-9a-f])\/([0-9a-f]{2})\/([^/]+)\/[^/]+$/) ||
     u.pathname.match(/^\/wikipedia\/commons\/([0-9a-f])\/([0-9a-f]{2})\/([^/]+)$/);
   if (!m) return null; // local (non-Commons) file — skip
-  return { name: decodeURIComponent(m[3]), width: j.originalimage.width, dirs: `https://upload.wikimedia.org/wikipedia/commons/thumb/${m[1]}/${m[2]}` };
+  return { name: decodeURIComponent(m[3]), width: null, dirs: `https://upload.wikimedia.org/wikipedia/commons/thumb/${m[1]}/${m[2]}` };
 }
 
 async function namedFile(name) {
@@ -117,20 +136,35 @@ for (const d of destinations) {
   if (credits[d.slug] && !force && !only.length) continue;
   process.stdout.write(`${d.slug}: `);
   try {
-    const file = d.imageFile ? await namedFile(d.imageFile) : await leadImage(d.imagePage || d.wiki);
-    if (!file) throw new Error('no Commons lead image');
-    if (/\.(svg|png|gif|tiff?)$/i.test(file.name)) throw new Error(`not a photo (${file.name})`);
-    const raw = await get(`https://commons.wikimedia.org/w/index.php?title=${encodeURIComponent(`File:${file.name}`)}&action=raw`);
-    if (!raw) throw new Error(`no file page for ${file.name}`);
-    const license = findLicense(raw);
-    if (!license) throw new Error(`no accepted licence for ${file.name}`);
+    // imagePage may list several articles; the first whose lead image is a freely licensed photo wins.
+    let file = null;
+    let raw = null;
+    let license = null;
+    const reasons = [];
+    const candidates = d.imageFile ? [null] : [].concat(d.imagePage || d.wiki);
+    for (const page of candidates) {
+      const f = page === null ? await namedFile(d.imageFile) : await leadImage(page);
+      if (!f) { reasons.push(`${page}: no Commons lead image`); continue; }
+      if (/\.(svg|png|gif|tiff?)$/i.test(f.name)) { reasons.push(`not a photo (${f.name})`); continue; }
+      const r = await get(`https://commons.wikimedia.org/w/index.php?title=${encodeURIComponent(`File:${f.name}`)}&action=raw`);
+      if (!r) { reasons.push(`no file page for ${f.name}`); continue; }
+      const l = findLicense(r);
+      if (!l) { reasons.push(`no accepted licence for ${f.name}`); continue; }
+      file = f;
+      raw = r;
+      license = l;
+      break;
+    }
+    if (!file) throw new Error(reasons.join('; '));
     const width = file.width && file.width < WIDTH ? file.width : WIDTH;
-    const img = await get(file.width && file.width <= WIDTH ? `${file.dirs.replace('/thumb', '')}/${encodeURIComponent(file.name)}` : thumbUrl(file, width), 'buffer');
+    const original = `${file.dirs.replace('/thumb', '')}/${encodeURIComponent(file.name)}`;
+    // Thumbnails can't be larger than the original, so fall back to the original file if the thumb fails.
+    const img = (await get(file.width && file.width <= WIDTH ? original : thumbUrl(file, width), 'buffer')) ?? (await get(original, 'buffer'));
     if (!img) throw new Error('image download failed');
     await fs.writeFile(path.join(OUT_DIR, `${d.slug}.jpg`), img);
     credits[d.slug] = {
       file: file.name,
-      author: findAuthor(raw),
+      author: findAuthor(raw) ?? (await commonsArtist(file.name)) ?? 'Unknown author',
       license: license[0],
       licenseUrl: license[1],
       source: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.name)}`,

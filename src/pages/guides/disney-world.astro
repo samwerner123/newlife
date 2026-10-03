@@ -1,0 +1,100 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+const o = bySlug.get('orlando')!;
+// Typical crowd level by month (school holidays and events), 1 = quiet … 5 = very busy.
+const crowd = [3, 4, 5, 4, 3, 5, 5, 3, 1, 3, 3, 4];
+const crowdNote = [
+  'Quiet after New Year until the Martin Luther King Jr. Day weekend and marathon weekend.',
+  'Busy around Presidents’ Day week; otherwise moderate, with mild weather.',
+  'Spring break season: one of the busiest months, especially mid-March onwards.',
+  'Busy around Easter; quieter in the second half of the month.',
+  'A sweet spot before Memorial Day, though it’s getting hot.',
+  'Summer holidays begin: busy, hot and stormy every afternoon.',
+  'Peak summer: very busy, hot and humid, with daily thunderstorms.',
+  'Crowds drop late in the month as US schools go back.',
+  'Usually the quietest month — but the hottest stretch of hurricane season.',
+  'Pleasant weather; busy on Columbus Day weekend and during Halloween events.',
+  'Quiet early in the month, very busy over Thanksgiving week.',
+  'Lovely in early December; the Christmas–New Year week is the busiest of the year.',
+];
+const levels = ['', 'Low', 'Fairly low', 'Moderate', 'High', 'Very high'];
+---
+
+<Guide slug="disney-world" photo="orlando">
+  <p>
+    The best times to visit Walt Disney World are <strong>mid-to-late January, early May, late August to September (if you
+    can handle the heat), early November and the first half of December</strong>. Those windows avoid US school holidays,
+    which drive the biggest crowds and the highest ticket and hotel prices — Disney uses date-based pricing, so quiet weeks are
+    also cheaper.
+  </p>
+  <p>
+    Weather matters too. Orlando is pleasantly warm from November to April, while June to September brings heat, humidity and
+    near-daily afternoon thunderstorms, and the Atlantic hurricane season runs from June to November.
+  </p>
+
+  <h2>Disney World crowds and weather by month</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption class="visually-hidden">Orlando weather and typical Disney crowd levels by month</caption>
+      <thead><tr><th scope="col">Month</th><th scope="col">Crowds</th><th scope="col">High / low</th><th scope="col">Rain</th><th scope="col" class="left">What to expect</th></tr></thead>
+      <tbody>
+        {
+          o.months.map((m) => (
+            <tr>
+              <th scope="row"><a href={destMonthUrl(o, m.index)}>{m.name}</a></th>
+              <td><span class="badge" data-rating={['', 'great', 'good', 'fair', 'poor', 'poor'][crowd[m.index]]}>{levels[crowd[m.index]]}</span></td>
+              <td>{deg(m.high)} / {deg(m.low)}</td>
+              <td>{m.rain} mm</td>
+              <td class="left wrap">{crowdNote[m.index]}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Crowd levels are our typical pattern based on US school calendars and holidays; exact weeks shift with Easter and local school dates.</p>
+
+  <h2>The best weeks to go</h2>
+  <ul>
+    <li><b>Mid-to-late January:</b> low crowds and cool, sunny days — avoid the Martin Luther King Jr. Day weekend.</li>
+    <li><b>Late April to mid-May:</b> after Easter and before Memorial Day; warm but not yet oppressive.</li>
+    <li><b>Late August to September:</b> the lowest crowds of the year once schools return, but it’s hot and in the middle of hurricane season — buy travel insurance.</li>
+    <li><b>Early November and early December:</b> mild weather, holiday decorations and shorter queues before Thanksgiving and Christmas.</li>
+  </ul>
+
+  <h2>Times to avoid (if you can)</h2>
+  <ul>
+    <li><b>Christmas to New Year:</b> the parks regularly hit capacity.</li>
+    <li><b>Spring break and Easter</b> (March to mid-April), <b>Presidents’ Day week</b> and <b>Thanksgiving week</b>.</li>
+    <li><b>June and July:</b> long summer holidays, peak heat and afternoon storms.</li>
+  </ul>
+
+  <h2>Seasonal events</h2>
+  <ul>
+    <li><b>EPCOT International Festival of the Arts:</b> roughly January–February.</li>
+    <li><b>EPCOT Flower &amp; Garden Festival:</b> spring, from about March to early summer.</li>
+    <li><b>EPCOT Food &amp; Wine Festival:</b> late summer through autumn.</li>
+    <li><b>Halloween and Christmas after-hours parties</b> at Magic Kingdom (separately ticketed), from August to December.</li>
+  </ul>
+  <p class="small muted">Event dates change each year — check the official Walt Disney World website before booking.</p>
+
+  <h2>Tips</h2>
+  <ul>
+    <li><b>Arrive at opening</b> (or use early entry if you stay at a Disney hotel): the first two hours have the shortest queues.</li>
+    <li><b>Plan for the afternoon storms</b> in summer — have indoor rides and shows lined up, and pack a poncho.</li>
+    <li><b>Book dining early;</b> popular restaurants open reservations about 60 days ahead.</li>
+    <li><b>Compare with the coast:</b> add a few days at the beach — see <a href="/best-time-to-visit-florida/">the best time to visit Florida</a>.</li>
+  </ul>
+</Guide>
+
+<style>
+  .left {
+    text-align: left;
+  }
+  td.wrap {
+    white-space: normal;
+    min-width: 240px;
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+// Heart button that adds a destination to the visitor's saved places (stored in their browser).
+import Icon from './Icon.astro';
+
+interface Props {
+  slug: string;
+  name: string;
+  /** Icon only (on cards) or icon with a "Save" label. */
+  compact?: boolean;
+}
+const { slug, name, compact = false } = Astro.props;
+---
+
+<button type="button" class:list={['save', { compact }]} data-save={slug} aria-pressed="false" aria-label={`Save ${name}`} title={`Save ${name}`}>
+  <Icon name="heart" size={compact ? 18 : 18} />
+  {!compact && <span data-save-label>Save</span>}
+</button>
+
+<style>
+  .save {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 40px;
+    min-width: 40px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .save.compact {
+    padding: 0;
+  }
+  .save:hover {
+    background: var(--surface-2);
+  }
+  @media (pointer: coarse) {
+    .save {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+</style>

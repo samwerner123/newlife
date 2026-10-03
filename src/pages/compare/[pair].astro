@@ -86,7 +86,7 @@ const description = `${a.name} or ${b.name}? Compare weather month by month, dai
     <section class="section-tight">
       <h2>Month by month</h2>
       <CompareChart a={a} b={b} />
-      <div class="table-wrap tbl">
+      <div class="table-wrap tbl" tabindex="0" role="region" aria-label="Month-by-month comparison table">
         <table class="data-table">
           <caption class="visually-hidden">{a.name} vs {b.name} weather by month</caption>
           <thead>

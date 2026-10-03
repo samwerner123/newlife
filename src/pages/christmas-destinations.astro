@@ -1,0 +1,283 @@
+---
+// "Where to go for Christmas & New Year": winter sun ranked by December weather, plus
+// curated festive and snowy picks (with their December climate from our data).
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import DestinationCard from '../components/DestinationCard.astro';
+import Faq from '../components/Faq.astro';
+import Photo from '../components/Photo.astro';
+import Share from '../components/Share.astro';
+import RatingBadge from '../components/RatingBadge.astro';
+import { bySlug, rankForMonth, isUS, monthUrl, destMonthUrl, travelYear, deg, usd, type Destination } from '../lib/data';
+import { breadcrumbLd } from '../lib/seo';
+import { faqLd } from '../lib/faq';
+import { ogImage } from '../lib/images';
+import { SITE } from '../config';
+
+const DEC = 11;
+const year = travelYear(DEC);
+const pick = (slugs: [string, string][]) =>
+  slugs.map(([slug, note]) => ({ d: bySlug.get(slug), note })).filter((x): x is { d: Destination; note: string } => Boolean(x.d));
+
+const warm = rankForMonth(DEC).filter((d) => d.months[DEC].score >= 65 && d.months[DEC].high >= 25);
+const warmTop = warm.slice(0, 12);
+const warmUS = warm.filter(isUS).slice(0, 6);
+const cheapWarm = [...warm].sort((a, b) => a.budget.low - b.budget.low).slice(0, 5);
+
+const markets = pick([
+  ['vienna', 'More than a dozen markets, from the Rathausplatz to Schönbrunn Palace, from mid-November; some stay open until early January.'],
+  ['strasbourg', 'The Christkindelsmärik has run since 1570 and spreads across the old town; Colmar and the Alsace wine villages are nearby.'],
+  ['prague', 'Old Town Square has a giant tree, mulled wine and trdelník stalls, usually from late November into early January.'],
+  ['salzburg', 'The Christkindlmarkt fills the cathedral squares below the fortress; Silent Night was first sung near Salzburg in 1818.'],
+  ['munich', 'The Christkindlmarkt on Marienplatz and the medieval market at Wittelsbacher Platz; Nuremberg\'s famous market is an hour away by train.'],
+  ['budapest', 'Vörösmarty Square and the market in front of St Stephen\'s Basilica, with its light show, are among Europe\'s most acclaimed.'],
+  ['krakow', 'The Main Market Square hosts one of Poland\'s best markets, alongside the city\'s nativity-scene (szopka) tradition.'],
+  ['berlin', 'More than 70 markets, from the elegant Gendarmenmarkt to Charlottenburg Palace.'],
+  ['bruges', 'Markets on the Markt and Simon Stevinplein, an ice rink and the medieval centre lit up for Winter Glow.'],
+  ['copenhagen', 'Tivoli Gardens turns into a Christmas wonderland of lights, stalls and rides from mid-November.'],
+  ['london', 'Lights on Oxford and Regent Streets, Winter Wonderland in Hyde Park and skating at Somerset House.'],
+  ['edinburgh', 'Christmas markets in Princes Street Gardens, then Hogmanay — one of the world\'s great New Year parties.'],
+  ['new-york', 'The Rockefeller Center tree, Fifth Avenue windows, skating in Central Park and the Bryant Park Winter Village.'],
+  ['quebec-city', 'A German Christmas market in snowy, walled Old Quebec — the closest thing to Europe in North America.'],
+]);
+
+const snowy = pick([
+  ['lapland', 'Snow is all but certain, with husky rides, reindeer and Santa Claus Village in Rovaniemi. Just a few hours of twilight a day.'],
+  ['quebec-city', 'A white Christmas is very likely in the snowy old town, plus skating and the Christmas market.'],
+  ['hokkaido', 'Japan\'s snowiest island: Niseko\'s ski season is under way and Sapporo glows with winter illuminations.'],
+  ['banff', 'Snowy peaks, skiing at Lake Louise and Sunshine, and Christmas in the Fairmont castle hotels.'],
+  ['whistler', 'The ski season usually opens in late November; the village is busy and festive over the holidays.'],
+  ['tromso', 'Polar night, snow-covered streets and the northern lights — the sun doesn\'t rise from late November to mid-January.'],
+  ['switzerland', 'Alpine villages like Zermatt and St. Moritz are reliably snowy at altitude; early-season snow lower down varies.'],
+  ['innsbruck', 'Christmas markets in the old town and Tyrolean ski resorts all around.'],
+  ['colorado', 'Ski towns like Breckenridge, Vail and Aspen do Christmas in style, with dry, sunny winter days.'],
+  ['vermont', 'Covered bridges and inns under snow — likely, though not guaranteed, by Christmas.'],
+]);
+
+const nye = pick([
+  ['sydney', 'Fireworks over the Harbour Bridge and Opera House, in the middle of summer.'],
+  ['rio-de-janeiro', 'Two million people in white on Copacabana Beach for Réveillon.'],
+  ['edinburgh', 'Hogmanay: a torchlight procession, street party and castle fireworks.'],
+  ['new-york', 'The Times Square ball drop — or fireworks over Central Park and Brooklyn.'],
+  ['madeira', 'Funchal\'s amphitheatre-like bay fills with cruise ships for one of the world\'s biggest fireworks displays.'],
+  ['dubai', 'Fireworks and light shows at the Burj Khalifa, in warm winter weather.'],
+]);
+
+const faq = [
+  {
+    q: 'Where is warm at Christmas?',
+    a: `The best-rated warm places for late December are ${warmTop.slice(0, 5).map((d) => `${d.name} (${deg(d.months[DEC].high)})`).join(', ')}. The Caribbean, Southeast Asia, the Indian Ocean and Australia are all in their dry or summer season.`,
+  },
+  {
+    q: 'Where is it most likely to snow at Christmas?',
+    a: 'Finnish Lapland, Quebec City, Hokkaido, Tromsø and high Alpine and Rocky Mountain resorts have the most reliable snow at Christmas. In big European cities such as Vienna or Prague, a white Christmas is possible but far from guaranteed.',
+  },
+  {
+    q: 'Which European city has the best Christmas markets?',
+    a: 'Vienna, Strasbourg, Prague, Salzburg, Munich and Budapest are consistently among the favourites. Most markets open in mid-to-late November and close on 23 or 24 December, though some run into early January.',
+  },
+  {
+    q: 'Where can I go for a cheap Christmas in the sun?',
+    a: `Good-value warm options in December include ${cheapWarm.map((d) => `${d.name} (from ${usd(d.budget.low)}/day)`).join(', ')}. Book early: flights over Christmas and New Year are the most expensive of the year.`,
+  },
+  {
+    q: 'Where is warm for Christmas in the US?',
+    a: warmUS.length
+      ? `${warmUS.map((d) => d.name).join(', ')} are the warmest US options in December, with average highs of ${deg(Math.min(...warmUS.map((d) => d.months[DEC].high)))} or more.`
+      : 'Hawaii, South Florida and Puerto Rico are the warmest US options in December.',
+  },
+];
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Where to go in December', href: monthUrl(DEC) },
+  { name: 'Christmas & New Year destinations', href: '/christmas-destinations/' },
+];
+const title = `Best Places to Spend Christmas & New Year ${year}: Warm, Snowy & Festive`;
+const description = `Where to go for Christmas and New Year ${year}: winter sun in ${warmTop.slice(0, 3).map((d) => d.name).join(', ')}, Europe's best Christmas markets, snowy escapes and New Year's Eve fireworks.`;
+const jsonLd = [
+  breadcrumbLd(crumbs, Astro.site),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Warm places to go for Christmas',
+    itemListElement: warmTop.map((d, i) => ({ '@type': 'ListItem', position: i + 1, name: d.name, url: new URL(destMonthUrl(d, DEC), Astro.site ?? SITE.url).toString() })),
+  },
+  faqLd(faq),
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} ogType="article" image={await ogImage('vienna')}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <p class="eyebrow">Christmas {year} · New Year {year + 1}</p>
+      <h1>Where to go for Christmas &amp; New Year</h1>
+      <p class="lead">
+        Sunshine, snow or Christmas markets? We ranked winter-sun destinations by their real December weather and picked the
+        best festive cities, snowy escapes and New Year's Eve parties — with the climate you can expect in each.
+      </p>
+      <Share title="Where to go for Christmas & New Year" />
+      <nav class="chips jump" aria-label="On this page">
+        <a class="chip" href="#warm">Warm Christmas</a>
+        <a class="chip" href="#markets">Christmas markets</a>
+        <a class="chip" href="#snow">Snowy Christmas</a>
+        <a class="chip" href="#usa">Christmas in the US</a>
+        <a class="chip" href="#nye">New Year's Eve</a>
+      </nav>
+    </header>
+    <Photo slug="vienna" alt="Vienna in winter" variant="hero" />
+
+    <section class="section" id="warm" aria-labelledby="warm-h">
+      <h2 id="warm-h">Warm places to go for Christmas</h2>
+      <p class="muted">
+        Ranked by our December weather score; every pick averages 25°C or more by day. {warm.length} destinations qualify — see
+        all of them in <a href="/warm-places-to-visit-in-december/">warm places to visit in December</a>.
+      </p>
+      <div class="grid-cards">{warmTop.map((d, i) => <DestinationCard dest={d} month={DEC} rank={i + 1} />)}</div>
+    </section>
+
+    <section class="section-tight" id="markets" aria-labelledby="markets-h">
+      <h2 id="markets-h">The best Christmas markets and festive cities</h2>
+      <p class="muted">
+        Most European markets open in mid-to-late November and close on 23 or 24 December. Expect cold: these are December
+        averages from official climate normals. Full dates in our <a href="/guides/christmas-markets-europe/">European Christmas markets guide</a>.
+      </p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption class="visually-hidden">Christmas market cities and their December weather</caption>
+          <thead><tr><th scope="col">City</th><th scope="col">Dec high / low</th><th scope="col" class="left">Why go</th></tr></thead>
+          <tbody>
+            {
+              markets.map(({ d, note }) => (
+                <tr>
+                  <th scope="row"><a href={destMonthUrl(d, DEC)}>{d.name}</a></th>
+                  <td>{deg(d.months[DEC].high)} / {deg(d.months[DEC].low)}</td>
+                  <td class="left wrap">{note}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section-tight" id="snow" aria-labelledby="snow-h">
+      <h2 id="snow-h">For a white Christmas</h2>
+      <ul class="picks">
+        {
+          snowy.map(({ d, note }) => (
+            <li class="card">
+              <a href={destMonthUrl(d, DEC)}><b>{d.name}</b></a>
+              <span class="muted small">December: {deg(d.months[DEC].high)} / {deg(d.months[DEC].low)}</span>
+              <span>{note}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p>Skiing over the holidays? See <a href="/where-to-ski-in-december/">where to ski in December</a>.</p>
+    </section>
+
+    <section class="section-tight" id="usa" aria-labelledby="usa-h">
+      <h2 id="usa-h">Christmas in the US</h2>
+      <p>
+        For warmth, head to {warmUS.map((d, i) => (
+          <>
+            {i > 0 && (i === warmUS.length - 1 ? ' or ' : ', ')}
+            <a href={destMonthUrl(d, DEC)}>{d.name}</a>
+          </>
+        ))}. For a classic festive city, nothing beats <a href={destMonthUrl(bySlug.get('new-york')!, DEC)}>New York</a> in
+        December; for snow, the ski towns of <a href="/destinations/colorado/december/">Colorado</a>,
+        <a href="/destinations/park-city/december/">Park City</a> and <a href="/destinations/vermont/december/">Vermont</a>.
+        More ideas: <a href="/warm-places-to-visit-in-the-us-in-december/">warm places in the US in December</a>.
+      </p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption class="visually-hidden">Warm US destinations in December</caption>
+          <thead><tr><th scope="col">Destination</th><th scope="col">Rating</th><th scope="col">High</th><th scope="col">From</th></tr></thead>
+          <tbody>
+            {
+              warmUS.map((d) => (
+                <tr>
+                  <th scope="row"><a href={destMonthUrl(d, DEC)}>{d.name}</a></th>
+                  <td><RatingBadge score={d.months[DEC].score} rating={d.months[DEC].rating} /></td>
+                  <td>{deg(d.months[DEC].high)}</td>
+                  <td>{usd(d.budget.low)}/day</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section-tight" id="nye" aria-labelledby="nye-h">
+      <h2 id="nye-h">Where to spend New Year's Eve</h2>
+      <ul class="picks">
+        {
+          nye.map(({ d, note }) => (
+            <li class="card">
+              <a href={destMonthUrl(d, DEC)}><b>{d.name}</b></a>
+              <span class="muted small">December: {deg(d.months[DEC].high)} / {deg(d.months[DEC].low)}</span>
+              <span>{note}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p>More in our guide to <a href="/guides/new-years-eve/">the best places to spend New Year's Eve</a>.</p>
+    </section>
+
+    <section class="section-tight prose">
+      <h2>Tips for travelling at Christmas</h2>
+      <ul>
+        <li><b>Book early.</b> The two weeks from about 20 December to 3 January are the busiest and most expensive of the year for flights and beach hotels.</li>
+        <li><b>Travel on the day itself.</b> Flights on 24–25 December and 31 December–1 January are often noticeably cheaper.</li>
+        <li><b>Check what closes.</b> In much of Europe, shops, museums and even some restaurants close on 24–26 December, and most Christmas markets shut on the 23rd or 24th.</li>
+        <li><b>Mind the weather in the tropics.</b> December is dry season in the Caribbean, Mexico, Thailand and Sri Lanka's west coast, but the wet season in Bali and much of Indonesia.</li>
+      </ul>
+      <p>
+        Still deciding? Compare everything in <a href={monthUrl(DEC)}>where to go in December</a> or
+        <a href={monthUrl(0)}>January</a>, or read our <a href="/guides/winter-sun/">winter sun guide</a>.
+      </p>
+    </section>
+
+    <Faq items={faq} />
+  </div>
+</Base>
+
+<style>
+  .jump {
+    margin-top: 16px;
+  }
+  .picks {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 12px;
+  }
+  .picks li {
+    display: grid;
+    gap: 4px;
+  }
+  .picks a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .picks a:hover {
+    text-decoration: underline;
+  }
+  th.left,
+  td.left {
+    text-align: left;
+  }
+  td.wrap {
+    white-space: normal;
+    min-width: 260px;
+  }
+  th[scope='row'] a {
+    color: var(--text);
+    font-weight: 600;
+  }
+</style>
