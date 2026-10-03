@@ -1,0 +1,105 @@
+---
+import { SITE } from '../config';
+import { usd, type Destination } from '../lib/data';
+
+interface Props {
+  dest: Destination;
+}
+
+const { dest } = Astro.props;
+const days = 7;
+---
+
+<div class="cost card" data-low={dest.budget.low} data-mid={dest.budget.mid}>
+  <div class="tiles">
+    <div class="tile">
+      <p class="label">Budget traveller</p>
+      <p class="value">{usd(dest.budget.low)}<span>/day</span></p>
+      <p class="small muted">Hostel or guesthouse, street food and local transport</p>
+    </div>
+    <div class="tile">
+      <p class="label">Mid-range</p>
+      <p class="value">{usd(dest.budget.mid)}<span>/day</span></p>
+      <p class="small muted">Comfortable hotel, restaurants and a few tours</p>
+    </div>
+  </div>
+  <div class="calc">
+    <label for={`days-${dest.slug}`}>Trip length: <output data-days>{days}</output> days</label>
+    <input id={`days-${dest.slug}`} type="range" min="2" max="30" value={days} data-range />
+    <p class="total">
+      Estimated total per person: <b data-total-low>{usd(dest.budget.low * days)}</b> on a budget ·{' '}
+      <b data-total-mid>{usd(dest.budget.mid * days)}</b> mid-range
+    </p>
+  </div>
+  <p class="disclosure">
+    Approximate {SITE.priceYear} prices per person in USD, excluding flights. Local prices change — treat these as a
+    starting point.
+  </p>
+</div>
+
+<script>
+  for (const box of document.querySelectorAll<HTMLElement>('.cost[data-low]')) {
+    const range = box.querySelector<HTMLInputElement>('[data-range]')!;
+    const out = box.querySelector('[data-days]')!;
+    const lo = box.querySelector('[data-total-low]')!;
+    const mid = box.querySelector('[data-total-mid]')!;
+    const fmt = (n: number) => `$${Math.round(n).toLocaleString('en-US')}`;
+    range.addEventListener('input', () => {
+      const d = Number(range.value);
+      out.textContent = String(d);
+      lo.textContent = fmt(Number(box.dataset.low) * d);
+      mid.textContent = fmt(Number(box.dataset.mid) * d);
+    });
+  }
+</script>
+
+<style>
+  .cost {
+    display: grid;
+    gap: 16px;
+  }
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 12px;
+  }
+  .tile {
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--surface-2);
+  }
+  .tile p {
+    margin: 0;
+  }
+  .label {
+    font-size: 0.875rem;
+    color: var(--text-2);
+    font-weight: 600;
+  }
+  .value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 4px 0 !important;
+  }
+  .value span {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .calc label {
+    font-weight: 600;
+  }
+  input[type='range'] {
+    width: 100%;
+    accent-color: var(--cta);
+    margin: 8px 0;
+  }
+  .total {
+    margin: 0;
+    color: var(--text-2);
+  }
+  .total b {
+    color: var(--text);
+  }
+</style>

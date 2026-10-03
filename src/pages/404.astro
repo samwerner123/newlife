@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { MONTHS, monthUrl } from '../lib/data';
+
+const m = new Date().getMonth();
+---
+
+<Base title="Page not found" description="This page doesn't exist.">
+  <div class="container section">
+    <h1>Lost? Happens to the best travellers.</h1>
+    <p class="lead">The page you were looking for doesn't exist. Try one of these instead:</p>
+    <div class="pill-row">
+      <a class="pill" href="/">Home</a>
+      <a class="pill" href={monthUrl(m)}>Where to go in {MONTHS[m]}</a>
+      <a class="pill" href="/destinations/">All destinations</a>
+      <a class="pill" href="/calendar/">Travel calendar</a>
+    </div>
+  </div>
+</Base>

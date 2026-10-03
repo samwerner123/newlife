@@ -1,0 +1,42 @@
+{
+  "_help": "Paste your Travelpayouts links into `url`. A button only appears once its url is filled in. `overrides` lets you set a destination-specific link, e.g. a hotel search for one city.",
+  "partners": {
+    "flights": {
+      "label": "Flights",
+      "brand": "Aviasales",
+      "cta": "Find cheap flights",
+      "url": ""
+    },
+    "hotels": {
+      "label": "Hotels",
+      "brand": "",
+      "cta": "Compare hotel prices",
+      "url": ""
+    },
+    "tours": {
+      "label": "Tours & activities",
+      "brand": "",
+      "cta": "Browse tours and tickets",
+      "url": ""
+    },
+    "transfers": {
+      "label": "Airport transfer",
+      "brand": "GetTransfer",
+      "cta": "Book an airport transfer",
+      "url": "https://gettransfer.tpm.li/fo9ykTnk?erid=2Vtzquo4954"
+    },
+    "insurance": {
+      "label": "Travel insurance",
+      "brand": "",
+      "cta": "Get travel insurance",
+      "url": ""
+    },
+    "esim": {
+      "label": "eSIM data",
+      "brand": "",
+      "cta": "Get an eSIM",
+      "url": ""
+    }
+  },
+  "overrides": {}
+}

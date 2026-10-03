@@ -1,0 +1,235 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import BookingBox from '../../../components/BookingBox.astro';
+import Photo from '../../../components/Photo.astro';
+import { ogImage } from '../../../lib/images';
+import ClimateCharts from '../../../components/ClimateCharts.astro';
+import ClimateTable from '../../../components/ClimateTable.astro';
+import DestinationCard from '../../../components/DestinationCard.astro';
+import MonthStrip from '../../../components/MonthStrip.astro';
+import TripCost from '../../../components/TripCost.astro';
+import { destinations, monthRanges, MONTHS, destMonthUrl, deg, usd, type Destination } from '../../../lib/data';
+import { breadcrumbLd } from '../../../lib/seo';
+
+export function getStaticPaths() {
+  return destinations.map((dest) => ({ params: { slug: dest.slug }, props: { dest } }));
+}
+
+const { dest } = Astro.props as { dest: Destination };
+const best = monthRanges(dest.bestMonths);
+const worst = dest.months.filter((m) => m.rating === 'poor').map((m) => m.index);
+const warmest = dest.months.reduce((a, b) => (b.high > a.high ? b : a));
+const wettest = dest.months.reduce((a, b) => (b.rain > a.rain ? b : a));
+const events = dest.months.filter((m) => m.event);
+
+const overlap = (a: Destination, b: Destination) => a.bestMonths.filter((m) => b.bestMonths.includes(m)).length;
+const similar = destinations
+  .filter((d) => d.slug !== dest.slug)
+  .map((d) => ({ d, s: (d.region === dest.region ? 2 : 0) + overlap(d, dest) / 3 + d.tags.filter((t) => dest.tags.includes(t)).length / 2 }))
+  .sort((a, b) => b.s - a.s)
+  .slice(0, 3)
+  .map((x) => x.d);
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Destinations', href: '/destinations/' },
+  { name: dest.name, href: dest.url },
+];
+
+const title = `Best Time to Visit ${dest.name}: Weather by Month`;
+const description = `The best time to visit ${dest.name} is ${best}. Month-by-month temperatures, rainfall and sunshine from official climate normals, plus daily budgets from ${usd(dest.budget.low)}.`;
+
+const jsonLd = [
+  breadcrumbLd(crumbs, Astro.site),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristDestination',
+    name: dest.name,
+    description: dest.intro,
+    geo: { '@type': 'GeoCoordinates', latitude: dest.lat, longitude: dest.lon },
+    containedInPlace: { '@type': 'Country', name: dest.country },
+  },
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} ogType="article" image={await ogImage(dest.slug)}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="section-tight">
+      <p class="eyebrow">{dest.country} · {dest.region}</p>
+      <h1>Best time to visit {dest.name}</h1>
+      <p class="lead">{dest.tagline}</p>
+    </header>
+    <Photo slug={dest.slug} alt={`${dest.name}, ${dest.country}`} variant="hero" />
+    <div class="gap"></div>
+
+    <div class="layout">
+      <div class="main">
+        <section class="card verdict" aria-labelledby="verdict-h">
+          <h2 id="verdict-h" class="h3">Our verdict</h2>
+          <p class="best">
+            Best time to go: <strong>{best}</strong>
+          </p>
+          <p>{dest.best}</p>
+          <p class="muted"><b>Watch out:</b> {dest.avoid}</p>
+          <MonthStrip dest={dest} size="lg" />
+          <div class="legend">
+            <span><i data-rating="great"></i>Great</span>
+            <span><i data-rating="good"></i>Good</span>
+            <span><i data-rating="fair"></i>Fair</span>
+            <span><i data-rating="poor"></i>Not ideal</span>
+            <span class="muted">Tap a month for details</span>
+          </div>
+        </section>
+
+        <section class="section-tight" aria-labelledby="weather-h">
+          <h2 id="weather-h">{dest.name} weather by month</h2>
+          <p class="muted">
+            Warmest in {warmest.name} (average high {deg(warmest.high)}), wettest in {wettest.name} ({wettest.rain} mm).
+            {worst.length > 0 && `Least appealing: ${monthRanges(worst)}.`}
+          </p>
+          <ClimateCharts dest={dest} />
+        </section>
+
+        <section class="section-tight" aria-labelledby="table-h">
+          <h2 id="table-h">Month-by-month climate</h2>
+          <ClimateTable dest={dest} />
+        </section>
+
+        <section class="section-tight prose" aria-labelledby="about-h">
+          <h2 id="about-h">About {dest.name}</h2>
+          <p>{dest.intro}</p>
+          <h3>Top things to do</h3>
+          <ul>{dest.highlights.map((h) => <li>{h}</li>)}</ul>
+          {
+            events.length > 0 && (
+              <>
+                <h3>Festivals and seasonal highlights</h3>
+                <ul>
+                  {events.map((m) => (
+                    <li>
+                      <a href={destMonthUrl(dest, m.index)}>{m.name}</a>: {m.event}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )
+          }
+        </section>
+
+        <section class="section-tight" aria-labelledby="budget-h">
+          <h2 id="budget-h">How much does a trip to {dest.name} cost?</h2>
+          <TripCost dest={dest} />
+        </section>
+      </div>
+
+      <aside class="side">
+        <div class="sticky">
+          <BookingBox dest={dest} />
+          <dl class="card facts">
+            <div><dt>Best months</dt><dd>{best}</dd></div>
+            <div><dt>Daily budget</dt><dd>{usd(dest.budget.low)}–{usd(dest.budget.mid)}</dd></div>
+            <div><dt>Currency</dt><dd>{dest.currency}</dd></div>
+            <div><dt>Airport code</dt><dd>{dest.iata}</dd></div>
+          </dl>
+        </div>
+      </aside>
+    </div>
+
+    <section class="section" aria-labelledby="similar-h">
+      <h2 id="similar-h">You might also like</h2>
+      <div class="grid-cards">{similar.map((d) => <DestinationCard dest={d} />)}</div>
+    </section>
+
+    <nav aria-label={`${dest.name} by month`} class="months">
+      <h2 class="h3">{dest.name} month by month</h2>
+      <div class="pill-row">
+        {MONTHS.map((mn, i) => <a class="pill" href={destMonthUrl(dest, i)}>{dest.name} in {mn}</a>)}
+      </div>
+    </nav>
+  </div>
+</Base>
+
+<style>
+  .gap {
+    height: 24px;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+    align-items: start;
+  }
+  .main {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+  }
+  .sticky {
+    position: sticky;
+    top: 76px;
+    display: grid;
+    gap: 16px;
+  }
+  .h3 {
+    font-size: 1.1rem;
+  }
+  .verdict {
+    display: grid;
+    gap: 6px;
+  }
+  .main > *,
+  .verdict > * {
+    min-width: 0;
+  }
+  .verdict p {
+    margin: 0 0 4px;
+  }
+  .best {
+    font-size: 1.125rem;
+  }
+  .verdict .legend {
+    margin-top: 6px;
+  }
+  .facts {
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .facts div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--grid);
+    padding-bottom: 8px;
+  }
+  .facts div:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  dt {
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+  dd {
+    margin: 0;
+    font-weight: 600;
+    text-align: right;
+  }
+  .months .pill {
+    font-size: 0.875rem;
+  }
+  .side {
+    min-width: 0;
+  }
+  @media (max-width: 960px) {
+    .layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .sticky {
+      position: static;
+    }
+  }
+</style>

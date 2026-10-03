@@ -1,0 +1,92 @@
+---
+import Logo from './Logo.astro';
+
+const path = Astro.url.pathname;
+const links = [
+  { href: '/#months', label: 'Where to go' },
+  { href: '/destinations/', label: 'Destinations' },
+  { href: '/calendar/', label: 'Calendar' },
+  { href: '/about/', label: 'How we rate' },
+];
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <Logo />
+    <nav aria-label="Main">
+      <ul>
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href} aria-current={path.startsWith(l.href) && l.href !== '/#months' ? 'page' : undefined}>
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 60px;
+  }
+  ul {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--text-2);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+  a:hover,
+  a[aria-current='page'] {
+    color: var(--text);
+    background: var(--surface-2);
+  }
+  @media (max-width: 760px) {
+    .site-header {
+      position: static;
+    }
+    .bar {
+      flex-wrap: wrap;
+      padding-top: 8px;
+      padding-bottom: 4px;
+      gap: 4px;
+    }
+    nav {
+      width: 100%;
+    }
+    ul {
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    a {
+      padding: 6px 10px;
+      font-size: 0.875rem;
+      white-space: nowrap;
+    }
+  }
+</style>

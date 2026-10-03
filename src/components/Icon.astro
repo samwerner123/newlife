@@ -1,0 +1,45 @@
+---
+// Minimal stroke icons (24×24). Decorative — always pair with visible text.
+interface Props {
+  name: keyof typeof paths;
+  size?: number;
+}
+
+const paths = {
+  sun: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4',
+  drop: 'M12 3s6 6.8 6 11a6 6 0 0 1-12 0c0-4.2 6-11 6-11z',
+  wallet: 'M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7zm0 0l12-3v3M16 13.5h2',
+  thermo: 'M10 13.5V5a2 2 0 1 1 4 0v8.5a4 4 0 1 1-4 0z',
+  flights: 'M10.2 13.8L4 12l-1 1 5 3 3 5 1-1-1.8-6.2L14 10l4.5 7 1.5-1.5-2.5-8.5 2.8-2.8a1.4 1.4 0 0 0-2-2L15.5 5 7 2.5 5.5 4l7 4.5z',
+  hotels: 'M3 19V6M3 14h18v5M21 14v-2a3 3 0 0 0-3-3h-7v5M7 11.5a1.5 1.5 0 1 0 0-.01',
+  tours: 'M4 8a2 2 0 0 0 2-2h12a2 2 0 0 0 2 2v8a2 2 0 0 0-2 2H6a2 2 0 0 0-2-2V8zM12 6v12',
+  transfers: 'M5 16V11l2-5h10l2 5v5M5 16h14M5 16v2M19 16v2M7.5 13.5h.01M16.5 13.5h.01M5 11h14',
+  insurance: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3zM9 12l2 2 4-4',
+  esim: 'M7 3h7l5 5v13H7V3zM10 12h6v5h-6z',
+  arrow: 'M7 17L17 7M9 7h8v8',
+  calendar: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',
+  pin: 'M12 21s7-6.3 7-11.5a7 7 0 1 0-14 0C5 14.7 12 21 12 21zM12 7.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4z',
+} as const;
+
+const { name, size = 18 } = Astro.props;
+---
+
+<svg
+  class="icon"
+  viewBox="0 0 24 24"
+  width={size}
+  height={size}
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"><path d={paths[name]}></path></svg
+>
+
+<style>
+  .icon {
+    flex: none;
+  }
+</style>

@@ -1,0 +1,204 @@
+---
+import Base from '../layouts/Base.astro';
+import DestinationCard from '../components/DestinationCard.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../config';
+import { destinations, rankForMonth, MONTHS, monthUrl, REGIONS, regionSlug, deg } from '../lib/data';
+
+const buildMonth = new Date().getMonth();
+const perMonth = MONTHS.map((_, m) => rankForMonth(m));
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: Astro.site?.toString() ?? SITE.url,
+    description: SITE.description,
+  },
+];
+---
+
+<Base title={`${SITE.name} — Where to Go, Month by Month`} description={SITE.description} jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Weather-rated travel ideas</p>
+      <h1>Find where the weather is <span class="hl">great</span> — any month, any budget</h1>
+      <p class="lead">
+        We rate {destinations.length} popular destinations for every month of the year using official climate normals, so you
+        can pick the right place at the right time.
+      </p>
+      <nav aria-label="Where to go by month" id="months">
+        <p class="pick">Where do you want to go in…</p>
+        <div class="pill-row months">
+          {
+            MONTHS.map((mn, i) => (
+              <a class:list={['pill', { 'is-current': i === buildMonth }]} href={monthUrl(i)} data-month={i}>
+                {mn}
+              </a>
+            ))
+          }
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <div class="container">
+    {
+      perMonth.map((ranked, m) => (
+        <section class="section top" data-top={m} hidden={m !== buildMonth}>
+          <div class="sec-head">
+            <h2>Top picks for {MONTHS[m]}</h2>
+            <a href={monthUrl(m)}>See all {MONTHS[m]} ideas →</a>
+          </div>
+          <div class="grid-cards">
+            {ranked.slice(0, 6).map((d, i) => (
+              <DestinationCard dest={d} month={m} rank={i + 1} />
+            ))}
+          </div>
+        </section>
+      ))
+    }
+
+    <section class="section">
+      <div class="sec-head">
+        <h2>Browse by month</h2>
+        <a href="/calendar/">Open the travel calendar →</a>
+      </div>
+      <ol class="month-grid">
+        {
+          perMonth.map((ranked, m) => (
+            <li class="card">
+              <a class="mname" href={monthUrl(m)}>{MONTHS[m]}</a>
+              <ul>
+                {ranked.slice(0, 3).map((d) => (
+                  <li>
+                    {d.name} <span class="muted">{deg(d.months[m].high)}</span>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Browse by region</h2>
+      <div class="pill-row">
+        {
+          REGIONS.map((r) => (
+            <a class="pill" href={`/destinations/?region=${regionSlug(r)}`}>
+              <Icon name="pin" size={16} /> &nbsp;{r} ({destinations.filter((d) => d.region === r).length})
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section how">
+      <h2>How it works</h2>
+      <div class="grid-2 three">
+        <div class="card">
+          <Icon name="thermo" size={26} />
+          <h3>Real climate data</h3>
+          <p class="muted">Average highs, lows, rainfall and sunshine from national weather services' 30-year normals — not guesses.</p>
+        </div>
+        <div class="card">
+          <Icon name="calendar" size={26} />
+          <h3>Rated month by month</h3>
+          <p class="muted">Every destination gets a 0–100 weather score for each month, adjusted for monsoons, hurricanes and smoke seasons.</p>
+        </div>
+        <div class="card">
+          <Icon name="wallet" size={26} />
+          <h3>Budget-aware</h3>
+          <p class="muted">See typical daily costs, then compare flights, hotels and transfers in one place when you're ready to book.</p>
+        </div>
+      </div>
+      <p><a href="/about/">Read our methodology →</a></p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  // The page is built once; show the visitor's current month.
+  const m = new Date().getMonth();
+  const sections = document.querySelectorAll<HTMLElement>('[data-top]');
+  if (sections[m]?.hidden) {
+    sections.forEach((s) => (s.hidden = Number(s.dataset.top) !== m));
+    document.querySelectorAll<HTMLElement>('[data-month]').forEach((p) => {
+      p.classList.toggle('is-current', Number(p.dataset.month) === m);
+    });
+  }
+</script>
+
+<style>
+  .hero {
+    padding: 48px 0 24px;
+    background:
+      radial-gradient(1200px 400px at 85% -10%, color-mix(in srgb, var(--temp) 16%, transparent), transparent 70%),
+      radial-gradient(900px 380px at 0% 0%, color-mix(in srgb, var(--rain) 14%, transparent), transparent 70%);
+  }
+  .hl {
+    color: var(--cta);
+  }
+  .pick {
+    margin: 24px 0 10px;
+    font-weight: 650;
+  }
+  .top[hidden] {
+    display: none;
+  }
+  .sec-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .sec-head h2 {
+    margin: 0;
+  }
+  .sec-head a {
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .month-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+    gap: 12px;
+  }
+  .mname {
+    display: block;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+    text-decoration: none;
+    margin-bottom: 6px;
+  }
+  .mname:hover {
+    text-decoration: underline;
+  }
+  .month-grid ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--text-2);
+    display: grid;
+    gap: 2px;
+  }
+  .three {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  }
+  .how .card :global(.icon) {
+    color: var(--cta);
+  }
+  .how h3 {
+    margin-top: 10px;
+  }
+</style>

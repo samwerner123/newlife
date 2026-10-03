@@ -1,0 +1,266 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import BookingBox from '../../../components/BookingBox.astro';
+import Photo from '../../../components/Photo.astro';
+import { ogImage } from '../../../lib/images';
+import ClimateCharts from '../../../components/ClimateCharts.astro';
+import DestinationCard from '../../../components/DestinationCard.astro';
+import MonthStrip from '../../../components/MonthStrip.astro';
+import RatingBadge from '../../../components/RatingBadge.astro';
+import Icon from '../../../components/Icon.astro';
+import {
+  destinations,
+  rankForMonth,
+  MONTH_SLUGS,
+  monthUrl,
+  destMonthUrl,
+  monthRanges,
+  packingTips,
+  deg,
+  plural,
+  usd,
+  type Destination,
+} from '../../../lib/data';
+import { RATING_LABEL } from '../../../lib/score';
+import { breadcrumbLd } from '../../../lib/seo';
+
+export function getStaticPaths() {
+  return destinations.flatMap((dest) =>
+    MONTH_SLUGS.map((month, m) => ({ params: { slug: dest.slug, month }, props: { dest, m } })),
+  );
+}
+
+const { dest, m } = Astro.props as { dest: Destination; m: number };
+const mo = dest.months[m];
+const prev = dest.months[(m + 11) % 12];
+const next = dest.months[(m + 1) % 12];
+const ranked = rankForMonth(m);
+const rank = ranked.findIndex((d) => d.slug === dest.slug) + 1;
+
+const opener = {
+  great: `${mo.name} is one of the best times to visit ${dest.name}.`,
+  good: `${mo.name} is a good time to visit ${dest.name}.`,
+  fair: `${mo.name} is a so-so time to visit ${dest.name} — expect some compromises.`,
+  poor: `${mo.name} is not an ideal time to visit ${dest.name}.`,
+}[mo.rating];
+
+const details = [
+  `average highs of ${deg(mo.high)} and lows of ${deg(mo.low)}`,
+  `about ${mo.rain} mm of rain${mo.rainDays !== null ? ` over ${plural(mo.rainDays, 'rainy day')}` : ''}`,
+  ...(mo.sunHours !== null ? [`${mo.sunHours.toFixed(1)} hours of sunshine a day`] : []),
+];
+const sentence = `Expect ${details.slice(0, -1).join(', ')}${details.length > 1 ? ' and ' : ''}${details.at(-1)}.`;
+
+// "2°C warmer and drier (40 mm vs 95 mm)" / "similar in temperature, with similar rainfall"
+function compare(other: typeof mo) {
+  const dt = Math.round(mo.high - other.high);
+  const temp = Math.abs(dt) >= 1 ? `${Math.abs(dt)}°C ${dt > 0 ? 'warmer' : 'cooler'}` : 'similar in temperature';
+  const dr = mo.rain - other.rain;
+  const rain =
+    Math.abs(dr) >= Math.max(10, other.rain * 0.2)
+      ? `${dr > 0 ? 'wetter' : 'drier'} (${mo.rain} mm vs ${other.rain} mm)`
+      : 'similar rainfall';
+  return rain === 'similar rainfall' ? `${temp}, with similar rainfall` : `${temp} and ${rain}`;
+}
+const trend = `Compared with ${prev.name}, ${mo.name} is ${compare(prev)}. Compared with ${next.name}, it is ${compare(next)}.`;
+
+const sameRegion = ranked.filter((d) => d.slug !== dest.slug && d.region === dest.region).slice(0, 3);
+const better = ranked.filter((d) => d.slug !== dest.slug && d.months[m].score > mo.score).slice(0, 3);
+const alternatives = (mo.rating === 'great' ? sameRegion : better.length ? better : sameRegion).slice(0, 3);
+const otherGood = dest.bestMonths.filter((i) => i !== m);
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Destinations', href: '/destinations/' },
+  { name: dest.name, href: dest.url },
+  { name: mo.name, href: destMonthUrl(dest, m) },
+];
+
+const title = `${dest.name} in ${mo.name}: Weather & Travel Tips`;
+const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, ${mo.rain} mm of rain${
+  mo.sunHours !== null ? ` and ${mo.sunHours.toFixed(1)} h of sun a day` : ''
+}. Rated "${RATING_LABEL[mo.rating]}" for travel — packing tips, budget and alternatives.`;
+---
+
+<Base title={title} description={description} jsonLd={[breadcrumbLd(crumbs, Astro.site)]} ogType="article" image={await ogImage(dest.slug)}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="section-tight">
+      <p class="eyebrow">{dest.country} · {mo.name} travel guide</p>
+      <h1>{dest.name} in {mo.name}</h1>
+      <p class="lead">{opener} {sentence}</p>
+    </header>
+    <Photo slug={dest.slug} alt={`${dest.name}, ${dest.country}`} variant="hero" />
+    <div class="gap"></div>
+
+    <div class="layout">
+      <div class="main">
+        <ul class="tiles" aria-label={`${dest.name} in ${mo.name} at a glance`}>
+          <li class="card tile">
+            <span class="label">Rating</span>
+            <span class="value"><RatingBadge score={mo.score} rating={mo.rating} /></span>
+            <span class="small muted">#{rank} of {destinations.length} for {mo.name}</span>
+          </li>
+          <li class="card tile">
+            <span class="label"><Icon name="thermo" size={16} /> High / low</span>
+            <span class="value">{deg(mo.high)}<small> / {deg(mo.low)}</small></span>
+          </li>
+          <li class="card tile">
+            <span class="label"><Icon name="drop" size={16} /> Rainfall</span>
+            <span class="value">{mo.rain}<small> mm</small></span>
+            {mo.rainDays !== null && <span class="small muted">{plural(mo.rainDays, 'rainy day')}</span>}
+          </li>
+          {
+            mo.sunHours !== null && (
+              <li class="card tile">
+                <span class="label"><Icon name="sun" size={16} /> Sunshine</span>
+                <span class="value">{mo.sunHours.toFixed(1)}<small> h/day</small></span>
+              </li>
+            )
+          }
+        </ul>
+
+        <section class="card">
+          <h2 class="h3">{dest.name} through the year</h2>
+          <MonthStrip dest={dest} active={m} size="lg" />
+          <p class="small muted strip-note">
+            {otherGood.length ? `Other great months: ${monthRanges(otherGood)}.` : ''} Tap any month to compare.
+          </p>
+        </section>
+
+        <section class="prose section-tight">
+          <h2>What's the weather like in {mo.name}?</h2>
+          <p>{trend}</p>
+          {mo.note && <p><b>Heads-up:</b> {mo.note}.</p>}
+          {mo.event && <p><b>Don't miss:</b> {mo.event}</p>}
+          <p>
+            Across the year, the best time to visit {dest.name} is {monthRanges(dest.bestMonths)}. {dest.best}
+          </p>
+
+          <h2>What to pack for {dest.name} in {mo.name}</h2>
+          <ul>{packingTips(dest, mo).map((t) => <li>{t}</li>)}</ul>
+
+          <h2>Budget</h2>
+          <p>
+            Plan on roughly <b>{usd(dest.budget.low)} a day</b> as a budget traveller or <b>{usd(dest.budget.mid)}</b> for
+            mid-range comfort, excluding flights. <a href={`${dest.url}#budget-h`}>Estimate your total trip cost</a>.
+          </p>
+        </section>
+
+        <section class="section-tight">
+          <h2>Climate in {dest.name}: {mo.name} vs the rest of the year</h2>
+          <ClimateCharts dest={dest} active={m} />
+        </section>
+      </div>
+
+      <aside class="side">
+        <div class="sticky">
+          <BookingBox dest={dest} title={`Book ${dest.name} for ${mo.name}`} />
+          <div class="card">
+            <h2 class="h3">More for {mo.name}</h2>
+            <p class="small">See all {destinations.length} destinations rated for {mo.name}.</p>
+            <a class="btn btn-ghost" href={monthUrl(m)}>Where to go in {mo.name}</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    {
+      alternatives.length > 0 && (
+        <section class="section">
+          <h2>{mo.rating === 'great' ? `Also great in ${mo.name}` : `Better weather in ${mo.name}`}</h2>
+          <div class="grid-cards">
+            {alternatives.map((d) => <DestinationCard dest={d} month={m} />)}
+          </div>
+        </section>
+      )
+    }
+
+    <nav class="prev-next" aria-label="Previous and next month">
+      <a class="btn btn-ghost" href={destMonthUrl(dest, prev.index)}>← {dest.name} in {prev.name}</a>
+      <a class="btn btn-ghost" href={dest.url}>All months</a>
+      <a class="btn btn-ghost" href={destMonthUrl(dest, next.index)}>{dest.name} in {next.name} →</a>
+    </nav>
+  </div>
+</Base>
+
+<style>
+  .gap {
+    height: 24px;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+    align-items: start;
+  }
+  .main {
+    display: grid;
+    gap: 16px;
+    min-width: 0;
+  }
+  .sticky {
+    position: sticky;
+    top: 76px;
+    display: grid;
+    gap: 16px;
+  }
+  .h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  .tiles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px;
+  }
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-2);
+  }
+  .value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .value small {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .strip-note {
+    margin: 10px 0 0;
+  }
+  .prev-next {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .side {
+    min-width: 0;
+  }
+  @media (max-width: 960px) {
+    .layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .sticky {
+      position: static;
+    }
+  }
+</style>

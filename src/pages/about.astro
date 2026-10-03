@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../config';
+import { destinations } from '../lib/data';
+import { IDEAL_HIGH } from '../lib/score';
+import { breadcrumbLd } from '../lib/seo';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'How we rate', href: '/about/' },
+];
+const adjusted = destinations.filter((d) => Object.keys(d.adjust).length > 0);
+---
+
+<Base
+  title="How We Rate Destinations"
+  description={`How ${SITE.name} scores the weather for every destination and month: data sources, formula and seasonal adjustments.`}
+  jsonLd={[breadcrumbLd(crumbs, Astro.site)]}
+>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="prose section-tight">
+      <h1>How we rate destinations</h1>
+      <p class="lead">
+        Every month of every destination gets a weather score from 0 to 100. Here is exactly how it is calculated — no
+        sponsored placements, no guesswork.
+      </p>
+
+      <h2>Where the data comes from</h2>
+      <ul>
+        <li>
+          <b>Temperatures, rainfall, rainy days and sunshine</b> are climate normals — usually 30-year averages for
+          1991–2020 — published by national meteorological services (such as IPMA in Portugal, the Thai Meteorological
+          Department or the Japan Meteorological Agency). We take them from the "Climate data" tables in each city's
+          English Wikipedia article, which cite those services, and link the source on every destination page.
+        </li>
+        <li>Where a table has no rainfall figures, we use NASA's POWER climatology (MERRA-2, 2001–2020).</li>
+        <li>
+          <b>Daily budgets</b> are our own estimates of typical {SITE.priceYear} costs per person, excluding flights: a
+          "budget" day means hostels or guesthouses, street food and public transport; "mid-range" means a comfortable
+          hotel, restaurant meals and some paid activities.
+        </li>
+      </ul>
+
+      <h2>The weather score</h2>
+      <p>The score blends two parts — <b>temperature (55%)</b> and <b>rainfall (45%)</b>:</p>
+      <ul>
+        <li>
+          <b>Temperature</b> starts at 100 when the average daily high sits in a comfortable range: {IDEAL_HIGH.temperate[0]}–{IDEAL_HIGH.temperate[1]}°C
+          for most cities, {IDEAL_HIGH.tropical[0]}–{IDEAL_HIGH.tropical[1]}°C for tropical beach and city destinations, and
+          {IDEAL_HIGH.highland[0]}–{IDEAL_HIGH.highland[1]}°C for high-altitude places like Cusco or Mexico City. We subtract 9
+          points per degree below the range and 10–11 per degree above it, plus up to 20 points for near-freezing nights.
+        </li>
+        <li>
+          <b>Rainfall</b> scores 100 up to 40 mm a month, then falls steadily: about 50 at 150 mm, 20 at 300 mm and close to
+          zero in the wettest monsoon months.
+        </li>
+        <li>
+          <b>Seasonal adjustments.</b> Some things climate averages miss: Chiang Mai's smoke season, Caribbean hurricanes,
+          typhoons in central Vietnam, monsoon closures in Goa or the Inca Trail closing in February. For
+          {adjusted.length} destinations we subtract points in the affected months and say why on the page.
+        </li>
+      </ul>
+
+      <h2>What the ratings mean</h2>
+      <div class="legend">
+        <span><i data-rating="great"></i><b>Great (80–100)</b> — about as good as it gets</span>
+        <span><i data-rating="good"></i><b>Good (65–79)</b> — a solid choice with minor trade-offs</span>
+        <span><i data-rating="fair"></i><b>Fair (50–64)</b> — noticeable heat, cold or rain</span>
+        <span><i data-rating="poor"></i><b>Not ideal (under 50)</b> — consider another month</span>
+      </div>
+
+      <h2>Limits</h2>
+      <p>
+        Averages describe typical conditions, not the forecast for your dates, and a score can't capture everything — crowds,
+        prices, festivals or personal taste. That's why every page also lists events, seasonal notes and budgets. If you
+        spot an error, we'd love to fix it.
+      </p>
+
+      <h2>How we make money</h2>
+      <p>
+        {SITE.name} is free. Some links are affiliate links to booking sites: if you book through them we may earn a small
+        commission at no extra cost to you. Partners never influence scores or rankings. <a href="/affiliate-disclosure/">Read
+        the full disclosure</a>.
+      </p>
+    </article>
+  </div>
+</Base>
+
+<style>
+  .legend {
+    flex-direction: column;
+    align-items: start;
+    font-size: 0.9375rem;
+    gap: 10px;
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+import RatingBadge from './RatingBadge.astro';
+import { destMonthUrl, deg, type Destination } from '../lib/data';
+
+interface Props {
+  dest: Destination;
+  active?: number;
+}
+
+const { dest, active } = Astro.props;
+const hasDays = dest.months.every((m) => m.rainDays !== null);
+const hasSun = dest.months.every((m) => m.sunHours !== null);
+---
+
+<div class="table-wrap">
+  <table class="data-table">
+    <caption class="visually-hidden">{dest.name} climate averages and weather rating by month</caption>
+    <thead>
+      <tr>
+        <th scope="col">Month</th>
+        <th scope="col">Rating</th>
+        <th scope="col">High</th>
+        <th scope="col">Low</th>
+        <th scope="col">Rain</th>
+        {hasDays && <th scope="col">Rainy days</th>}
+        {hasSun && <th scope="col">Sun / day</th>}
+      </tr>
+    </thead>
+    <tbody>
+      {
+        dest.months.map((m) => (
+          <tr class:list={{ 'is-active': m.index === active }}>
+            <th scope="row"><a href={destMonthUrl(dest, m.index)}>{m.name}</a></th>
+            <td><RatingBadge score={m.score} rating={m.rating} /></td>
+            <td>{deg(m.high)}</td>
+            <td>{deg(m.low)}</td>
+            <td>{m.rain} mm</td>
+            {hasDays && <td>{Math.round(m.rainDays!)}</td>}
+            {hasSun && <td>{m.sunHours!.toFixed(1)} h</td>}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+<p class="disclosure source">
+  Source: {dest.climateSource.location} — via the{' '}
+  <a href={`https://en.wikipedia.org/wiki/${encodeURIComponent(dest.climateSource.page.replace(/ /g, '_'))}`} rel="noopener">{dest.climateSource.page}</a>{' '}
+  article on Wikipedia (CC BY-SA){dest.climateSource.rain === 'nasa-power' ? '; rainfall from NASA POWER' : ''}.
+  {hasDays && dest.climateSource.rainDaysUnit && ` Rainy days count days with at least ${dest.climateSource.rainDaysUnit.replace(/&nbsp;/g, ' ')} of rain.`}
+</p>
+
+<style>
+  th[scope='row'] {
+    font-weight: 600;
+  }
+  th[scope='row'] a {
+    color: var(--text);
+  }
+  tr.is-active td,
+  tr.is-active th {
+    background: var(--surface-2);
+  }
+  .source {
+    margin-top: 8px;
+  }
+</style>

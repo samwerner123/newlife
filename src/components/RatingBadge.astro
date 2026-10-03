@@ -1,0 +1,16 @@
+---
+import { RATING_LABEL, type Rating } from '../lib/score';
+
+interface Props {
+  score: number;
+  rating: Rating;
+  showScore?: boolean;
+}
+
+const { score, rating, showScore = true } = Astro.props;
+---
+
+<span class="badge" data-rating={rating} title={`Weather score ${score}/100`}>
+  {RATING_LABEL[rating]}
+  {showScore && <b>{score}</b>}
+</span>

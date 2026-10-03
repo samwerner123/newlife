@@ -1,0 +1,149 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { destinations, MONTH_SHORT, MONTHS, REGIONS, monthUrl, destMonthUrl, usd, deg } from '../lib/data';
+import { RATING_LABEL } from '../lib/score';
+import { breadcrumbLd } from '../lib/seo';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Travel calendar', href: '/calendar/' },
+];
+---
+
+<Base
+  title="Travel Calendar: Where to Go Each Month at a Glance"
+  description={`A year-round travel calendar: weather ratings for ${destinations.length} destinations across all 12 months in one table. Spot the best time to go anywhere in seconds.`}
+  jsonLd={[breadcrumbLd(crumbs, Astro.site)]}
+>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <header class="section-tight">
+      <h1>Travel calendar</h1>
+      <p class="lead">Every destination, every month, in one view. Higher scores mean better weather; select any cell for details.</p>
+      <div class="legend">
+        <span><i data-rating="great"></i>Great 80+</span>
+        <span><i data-rating="good"></i>Good 65–79</span>
+        <span><i data-rating="fair"></i>Fair 50–64</span>
+        <span><i data-rating="poor"></i>Not ideal &lt;50</span>
+      </div>
+    </header>
+
+    <div class="table-wrap cal-wrap">
+      <table class="cal">
+        <caption class="visually-hidden">Weather score (0–100) by destination and month</caption>
+        <thead>
+          <tr>
+            <th scope="col" class="dest-col">Destination</th>
+            {MONTH_SHORT.map((s, i) => <th scope="col"><a href={monthUrl(i)} title={`Where to go in ${MONTHS[i]}`}>{s}</a></th>)}
+            <th scope="col">From</th>
+          </tr>
+        </thead>
+        {
+          REGIONS.map((r) => (
+            <tbody>
+              <tr class="region">
+                <th scope="rowgroup" colspan="14">{r}</th>
+              </tr>
+              {destinations
+                .filter((d) => d.region === r)
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .map((d) => (
+                  <tr>
+                    <th scope="row" class="dest-col"><a href={d.url}>{d.name}</a></th>
+                    {d.months.map((m) => (
+                      <td>
+                        <a
+                          href={destMonthUrl(d, m.index)}
+                          data-rating={m.rating}
+                          aria-label={`${d.name} in ${m.name}: ${RATING_LABEL[m.rating]}, ${m.score}`}
+                          data-tip={`${d.name} · ${m.name}\n${RATING_LABEL[m.rating]} (${m.score}) · ${deg(m.high)} / ${deg(m.low)} · ${m.rain} mm`}
+                        >
+                          {m.score}
+                        </a>
+                      </td>
+                    ))}
+                    <td class="price">{usd(d.budget.low)}</td>
+                  </tr>
+                ))}
+            </tbody>
+          ))
+        }
+      </table>
+    </div>
+    <p class="disclosure">Scores combine average temperature and rainfall for each month. <a href="/about/">How we rate</a>.</p>
+  </div>
+</Base>
+
+<style>
+  .cal-wrap {
+    margin-top: 8px;
+  }
+  .cal {
+    border-collapse: separate;
+    border-spacing: 2px;
+    width: 100%;
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .cal th {
+    font-weight: 600;
+    color: var(--muted);
+    padding: 6px 4px;
+  }
+  .cal thead a {
+    color: var(--text-2);
+    text-decoration: none;
+  }
+  .cal thead a:hover {
+    color: var(--text);
+    text-decoration: underline;
+  }
+  .dest-col {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: var(--surface);
+    text-align: left;
+    min-width: 150px;
+    padding-left: 10px !important;
+  }
+  th.dest-col a {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  th.dest-col a:hover {
+    text-decoration: underline;
+  }
+  .region th {
+    text-align: left;
+    padding: 14px 10px 4px;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    position: sticky;
+    left: 0;
+  }
+  td {
+    padding: 0;
+    min-width: 38px;
+  }
+  td a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    border-radius: 4px;
+    font-weight: 650;
+    text-decoration: none;
+  }
+  td a:hover {
+    filter: brightness(1.12);
+  }
+  .price {
+    text-align: center;
+    color: var(--text-2);
+    padding: 0 8px;
+  }
+</style>

@@ -1,0 +1,165 @@
+---
+// One filter row above the list it scopes. Works on any container whose children
+// carry data-region / data-temp / data-budget / data-score / data-high / data-name.
+import { REGIONS, regionSlug } from '../lib/data';
+import { TEMP_LABEL } from '../lib/score';
+
+type Field = 'region' | 'temp' | 'budget' | 'rating' | 'sort';
+
+interface Props {
+  target: string;
+  fields: Field[];
+  defaultRating?: 'good' | 'great' | 'all';
+  defaultSort?: 'score' | 'budget' | 'warm' | 'name';
+}
+
+const { target, fields, defaultRating = 'all', defaultSort = 'score' } = Astro.props;
+const has = (f: Field) => fields.includes(f);
+---
+
+<form class="filters" data-filters data-target={target} aria-label="Filter destinations" onsubmit="return false">
+  {
+    has('region') && (
+      <label class="field">
+        Region
+        <select name="region">
+          <option value="">All regions</option>
+          {REGIONS.map((r) => <option value={regionSlug(r)}>{r}</option>)}
+        </select>
+      </label>
+    )
+  }
+  {
+    has('temp') && (
+      <label class="field">
+        Temperature
+        <select name="temp">
+          <option value="">Any temperature</option>
+          {Object.entries(TEMP_LABEL).map(([v, l]) => <option value={v}>{l}</option>)}
+        </select>
+      </label>
+    )
+  }
+  {
+    has('budget') && (
+      <label class="field">
+        Daily budget
+        <select name="budget">
+          <option value="">Any budget</option>
+          <option value="40">Under $40/day</option>
+          <option value="60">Under $60/day</option>
+          <option value="90">Under $90/day</option>
+        </select>
+      </label>
+    )
+  }
+  {
+    has('rating') && (
+      <label class="field">
+        Weather
+        <select name="rating">
+          <option value="good" selected={defaultRating === 'good'}>Good or better</option>
+          <option value="great" selected={defaultRating === 'great'}>Great only</option>
+          <option value="all" selected={defaultRating === 'all'}>All ratings</option>
+        </select>
+      </label>
+    )
+  }
+  {
+    has('sort') && (
+      <label class="field">
+        Sort by
+        <select name="sort">
+          {has('rating') && <option value="score" selected={defaultSort === 'score'}>Best weather</option>}
+          <option value="budget" selected={defaultSort === 'budget'}>Lowest budget</option>
+          {has('temp') && <option value="warm" selected={defaultSort === 'warm'}>Warmest</option>}
+          <option value="name" selected={defaultSort === 'name'}>Name A–Z</option>
+        </select>
+      </label>
+    )
+  }
+  <p class="count small muted" aria-live="polite" data-count></p>
+</form>
+
+<script>
+  const MIN: Record<string, number> = { great: 80, good: 65, all: -1 };
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-filters]')) {
+    const found = document.querySelector<HTMLElement>(form.dataset.target!);
+    if (!found) continue;
+    const list = found;
+    const items = [...list.children] as HTMLElement[];
+    // Server order is the canonical ranking (it breaks ties by sunshine); keep it for ties.
+    const order = new Map(items.map((el, i) => [el, i]));
+    const count = form.querySelector<HTMLElement>('[data-count]')!;
+    const empty = list.parentElement?.querySelector<HTMLElement>('[data-empty]');
+    const params = new URLSearchParams(location.search);
+
+    for (const el of form.elements) {
+      const s = el as HTMLSelectElement;
+      const v = params.get(s.name);
+      if (v !== null && [...s.options].some((o) => o.value === v)) s.value = v;
+    }
+
+    const num = (el: HTMLElement, key: string) => Number(el.dataset[key] ?? 0);
+
+    function apply() {
+      const f = Object.fromEntries(new FormData(form)) as Record<string, string>;
+      let shown = 0;
+      for (const el of items) {
+        const ok =
+          (!f.region || el.dataset.region === f.region) &&
+          (!f.temp || el.dataset.temp === f.temp) &&
+          (!f.budget || num(el, 'budget') < Number(f.budget)) &&
+          (!f.rating || num(el, 'score') >= MIN[f.rating]);
+        el.hidden = !ok;
+        if (ok) shown++;
+      }
+      const sorted = [...items].sort((a, b) => {
+        switch (f.sort) {
+          case 'budget':
+            return num(a, 'budget') - num(b, 'budget');
+          case 'warm':
+            return num(b, 'high') - num(a, 'high');
+          case 'name':
+            return (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '');
+          default:
+            return num(b, 'score') - num(a, 'score') || order.get(a)! - order.get(b)!;
+        }
+      });
+      list.append(...sorted);
+      count.textContent = `${shown} of ${items.length} destinations`;
+      if (empty) empty.hidden = shown > 0;
+
+      const q = new URLSearchParams();
+      for (const [k, v] of Object.entries(f)) {
+        const sel = form.elements.namedItem(k) as HTMLSelectElement;
+        const def = [...sel.options].find((o) => o.defaultSelected)?.value ?? sel.options[0].value;
+        if (v !== def) q.set(k, v);
+      }
+      history.replaceState(null, '', q.size ? `?${q}` : location.pathname);
+    }
+
+    form.addEventListener('change', apply);
+    apply();
+  }
+</script>
+
+<style>
+  @media (max-width: 640px) {
+    .filters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .filters :global(select) {
+      width: 100%;
+    }
+    .count {
+      grid-column: 1 / -1;
+    }
+  }
+  .count {
+    margin: 0 0 10px auto;
+    align-self: center;
+  }
+</style>

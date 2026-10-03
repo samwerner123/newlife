@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import { photo } from '../lib/images';
+
+interface Props {
+  slug: string;
+  alt: string;
+  variant: 'card' | 'hero';
+}
+
+const { slug, alt, variant } = Astro.props;
+const p = photo(slug);
+const hero = variant === 'hero';
+---
+
+{
+  p && (
+    <figure class:list={['photo', `photo-${variant}`]}>
+      <Image
+        src={p.src}
+        alt={alt}
+        widths={hero ? [640, 960, 1280] : [400, 640]}
+        sizes={hero ? '(max-width: 1160px) 100vw, 1128px' : '(max-width: 640px) 100vw, 380px'}
+        loading={hero ? 'eager' : 'lazy'}
+        fetchpriority={hero ? 'high' : 'auto'}
+        format="webp"
+        quality={hero ? 72 : 65}
+      />
+      {hero && (
+        <figcaption>
+          Photo: <a href={p.credit.source} rel="noopener">{p.credit.author}</a>,{' '}
+          {p.credit.licenseUrl ? <a href={p.credit.licenseUrl} rel="license noopener">{p.credit.license}</a> : p.credit.license},
+          via Wikimedia Commons
+        </figcaption>
+      )}
+    </figure>
+  )
+}
+
+<style>
+  .photo {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    background: var(--surface-2);
+  }
+  .photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .photo-card {
+    aspect-ratio: 16 / 9;
+  }
+  .photo-hero {
+    aspect-ratio: 21 / 8;
+    border-radius: var(--radius);
+  }
+  figcaption {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    max-width: calc(100% - 16px);
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 0.6875rem;
+    line-height: 1.4;
+  }
+  figcaption a {
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .photo-hero {
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+import Icon from './Icon.astro';
+import { partnerLinks, type Destination } from '../lib/data';
+
+interface Props {
+  dest?: Destination;
+  title?: string;
+}
+
+const { dest, title } = Astro.props;
+const links = partnerLinks(dest?.slug);
+const label = (cta: string, kind: string) => {
+  if (!dest) return cta;
+  if (kind === 'flights') return `Flights to ${dest.name}`;
+  if (kind === 'hotels') return `Hotels in ${dest.name}`;
+  if (kind === 'tours') return `Tours in ${dest.name}`;
+  if (kind === 'transfers') return `${dest.name} airport transfer`;
+  return cta;
+};
+---
+
+{
+  links.length > 0 && (
+    <aside class="booking card" aria-label="Book your trip">
+      <h2 class="h">{title ?? (dest ? `Plan your trip to ${dest.name}` : 'Plan your trip')}</h2>
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a href={l.url} rel="sponsored nofollow noopener" target="_blank">
+              <span class="ico"><Icon name={l.kind} size={20} /></span>
+              <span class="txt">
+                <b>{label(l.cta, l.kind)}</b>
+                <span class="muted small">{l.brand ? `${l.label} · ${l.brand}` : l.label}</span>
+              </span>
+              <Icon name="arrow" size={16} />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="disclosure">
+        Affiliate links — we may earn a commission at no extra cost to you. <a href="/affiliate-disclosure/">Learn more</a>
+      </p>
+    </aside>
+  )
+}
+
+<style>
+  .h {
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+  }
+  ul {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    background: var(--surface);
+  }
+  a:hover {
+    border-color: var(--cta);
+  }
+  .ico {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--cta);
+    color: var(--cta-text);
+    flex: none;
+  }
+  .txt {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    line-height: 1.3;
+  }
+  .disclosure a {
+    display: inline;
+    padding: 0;
+    border: 0;
+    color: var(--link);
+    background: none;
+  }
+</style>

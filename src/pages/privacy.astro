@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../config';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Privacy', href: '/privacy/' },
+];
+---
+
+<Base title="Privacy Policy" description={`Privacy policy for ${SITE.name}.`}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="prose section-tight">
+      <h1>Privacy policy</h1>
+      <p>
+        {SITE.name} is a static website. We don't ask you to create an account, we don't run advertising trackers, and we
+        don't set cookies of our own.
+      </p>
+      <h2>Hosting and statistics</h2>
+      <p>
+        Our hosting provider processes standard technical data (such as IP address and browser type) to deliver pages and
+        protect the site from abuse. We may use privacy-friendly, cookie-free analytics to count page views in aggregate.
+      </p>
+      <h2>Affiliate links</h2>
+      <p>
+        When you click a booking link you leave {SITE.name} for a partner website, which may use cookies to attribute your
+        booking to us. Their own privacy policies apply there.
+      </p>
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to the site owner via the contact details on this site.</p>
+    </article>
+  </div>
+</Base>

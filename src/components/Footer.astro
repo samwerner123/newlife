@@ -1,0 +1,84 @@
+---
+import Logo from './Logo.astro';
+import { SITE } from '../config';
+import { MONTHS, monthUrl } from '../lib/data';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <Logo />
+      <p class="muted small">{SITE.tagline}. Ratings are based on official climate normals and updated as new data is published.</p>
+    </div>
+    <div>
+      <h2 class="eyebrow">Where to go in</h2>
+      <ul class="months">
+        {MONTHS.map((m, i) => <li><a href={monthUrl(i)}>{m}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <h2 class="eyebrow">Site</h2>
+      <ul>
+        <li><a href="/destinations/">All destinations</a></li>
+        <li><a href="/calendar/">Travel calendar</a></li>
+        <li><a href="/about/">How we rate destinations</a></li>
+        <li><a href="/affiliate-disclosure/">Affiliate disclosure</a></li>
+        <li><a href="/photo-credits/">Photo credits</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container fine">
+    <p class="disclosure">
+      Some links on this site are affiliate links: if you book through them we may earn a commission at no extra cost
+      to you. It never affects our ratings. Climate data: national meteorological services (via Wikipedia, CC BY-SA)
+      and NASA POWER. Photos: Wikimedia Commons contributors — see <a href="/photo-credits/">photo credits</a>.
+    </p>
+    <p class="disclosure">© {year} {SITE.name}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 48px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    padding: 36px 0 20px;
+  }
+  .cols {
+    display: grid;
+    grid-template-columns: 1.4fr 1.6fr 1fr;
+    gap: 28px;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+    font-size: 0.9375rem;
+  }
+  .months {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  a {
+    color: var(--text-2);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--text);
+    text-decoration: underline;
+  }
+  .fine {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  @media (max-width: 760px) {
+    .cols {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

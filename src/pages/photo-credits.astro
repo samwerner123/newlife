@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { destinations } from '../lib/data';
+import { photo } from '../lib/images';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Photo credits', href: '/photo-credits/' },
+];
+const rows = destinations
+  .map((d) => ({ d, p: photo(d.slug) }))
+  .filter((r) => r.p)
+  .sort((a, b) => a.d.name.localeCompare(b.d.name));
+---
+
+<Base title="Photo Credits" description="Credits and licences for the destination photos used on this site.">
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="section-tight">
+      <h1>Photo credits</h1>
+      <p class="lead">
+        Destination photos come from Wikimedia Commons and are used under the free licences listed below. Thank you to every
+        photographer who shares their work.
+      </p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th scope="col">Destination</th><th scope="col">Photographer</th><th scope="col">Licence</th></tr>
+          </thead>
+          <tbody>
+            {
+              rows.map(({ d, p }) => (
+                <tr>
+                  <th scope="row"><a href={d.url}>{d.name}</a></th>
+                  <td><a href={p!.credit.source} rel="noopener">{p!.credit.author}</a></td>
+                  <td>{p!.credit.licenseUrl ? <a href={p!.credit.licenseUrl} rel="license noopener">{p!.credit.license}</a> : p!.credit.license}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </div>
+</Base>
+
+<style>
+  td,
+  th {
+    white-space: normal !important;
+    text-align: left !important;
+  }
+</style>

@@ -1,0 +1,78 @@
+---
+// 12 cells, one per month, coloured by weather rating (ordinal blue ramp).
+// Each cell carries its label so identity is never colour-only, plus a tooltip.
+import { RATING_LABEL } from '../lib/score';
+import { destMonthUrl, deg, type Destination } from '../lib/data';
+
+interface Props {
+  dest: Destination;
+  active?: number;
+  size?: 'sm' | 'lg';
+}
+
+const { dest, active, size = 'sm' } = Astro.props;
+---
+
+<ol class:list={['strip', size]} aria-label={`${dest.name}: weather rating by month`}>
+  {
+    dest.months.map((m) => (
+      <li>
+        <a
+          href={destMonthUrl(dest, m.index)}
+          data-rating={m.rating}
+          class:list={{ 'is-active': m.index === active }}
+          aria-current={m.index === active ? 'true' : undefined}
+          aria-label={`${m.name}: ${RATING_LABEL[m.rating]}, score ${m.score}`}
+          data-tip={`${m.name}: ${RATING_LABEL[m.rating]} (${m.score})\n${deg(m.high)} / ${deg(m.low)} · ${m.rain} mm rain${m.note ? `\n${m.note}` : ''}`}
+        >
+          {size === 'lg' ? (<><span class="full">{m.short}</span><span class="letter" aria-hidden="true">{m.short[0]}</span></>) : m.short[0]}
+        </a>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .strip {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    border-radius: 4px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+  }
+  .lg a {
+    height: 44px;
+    font-size: 0.8125rem;
+  }
+  a:hover {
+    filter: brightness(1.12);
+  }
+  .letter {
+    display: none;
+  }
+  @media (max-width: 560px) {
+    .lg .full {
+      display: none;
+    }
+    .lg .letter {
+      display: inline;
+    }
+  }
+  .is-active {
+    outline: 2px solid var(--text);
+    outline-offset: 1px;
+    z-index: 1;
+  }
+</style>

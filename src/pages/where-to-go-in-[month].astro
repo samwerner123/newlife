@@ -1,0 +1,257 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import DestinationCard from '../components/DestinationCard.astro';
+import Filters from '../components/Filters.astro';
+import RatingBadge from '../components/RatingBadge.astro';
+import {
+  destinations,
+  rankForMonth,
+  MONTHS,
+  MONTH_SLUGS,
+  monthUrl,
+  destMonthUrl,
+  deg,
+  usd,
+} from '../lib/data';
+import { breadcrumbLd } from '../lib/seo';
+import { SITE } from '../config';
+
+export function getStaticPaths() {
+  return MONTH_SLUGS.map((month, i) => ({ params: { month }, props: { m: i } }));
+}
+
+const { m } = Astro.props as { m: number };
+const name = MONTHS[m];
+const ranked = rankForMonth(m);
+const good = ranked.filter((d) => d.months[m].score >= 65);
+const great = ranked.filter((d) => d.months[m].rating === 'great');
+const top3 = ranked.slice(0, 3);
+const warmest = [...good].sort((a, b) => b.months[m].high - a.months[m].high).slice(0, 5);
+const cheapest = [...good].sort((a, b) => a.budget.low - b.budget.low).slice(0, 5);
+const driest = [...good].sort((a, b) => a.months[m].rain - b.months[m].rain).slice(0, 5);
+const avoid = ranked.filter((d) => d.months[m].rating === 'poor');
+const beachy = good.filter((d) => d.tags.includes('beach') && d.months[m].high >= 26).slice(0, 5);
+const prev = (m + 11) % 12;
+const next = (m + 1) % 12;
+
+const list = (ds: typeof ranked, f: (d: (typeof ranked)[number]) => string) =>
+  ds.map((d) => `${d.name} (${f(d)})`).join(', ');
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: `Where to go in ${name}`, href: monthUrl(m) },
+];
+
+const title = `Where to Go in ${name}: ${good.length} Best Places to Travel`;
+const description = `The best places to travel in ${name}, rated by real climate data: ${top3
+  .map((d) => d.name)
+  .join(', ')} and more. Compare temperatures, rainfall and daily budgets for ${destinations.length} destinations.`;
+
+const faq = [
+  {
+    q: `Where is warm in ${name}?`,
+    a: `The warmest well-rated destinations in ${name} are ${list(warmest, (d) => `average high ${deg(d.months[m].high)}`)}.`,
+  },
+  {
+    q: `Where can I travel cheaply in ${name}?`,
+    a: `For good weather on a budget, try ${list(cheapest, (d) => `from ${usd(d.budget.low)} a day`)}. Budgets are per person and exclude flights.`,
+  },
+  ...(beachy.length
+    ? [{ q: `Where is good for a beach holiday in ${name}?`, a: `Warm beach destinations with good weather in ${name}: ${list(beachy, (d) => deg(d.months[m].high))}.` }]
+    : []),
+  ...(avoid.length
+    ? [{ q: `Which destinations should I avoid in ${name}?`, a: `Weather is not ideal in ${name} for ${avoid.map((d) => d.name).join(', ')} — expect heavy rain, extreme heat or cold.` }]
+    : []),
+];
+
+const jsonLd = [
+  breadcrumbLd(crumbs, Astro.site),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Best places to travel in ${name}`,
+    itemListElement: ranked.slice(0, 10).map((d, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: d.name,
+      url: new URL(destMonthUrl(d, m), Astro.site ?? SITE.url).toString(),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="section-tight">
+      <p class="eyebrow">Travel ideas by month</p>
+      <h1>Where to go in {name}</h1>
+      <p class="lead">
+        {top3[0].name}, {top3[1].name} and {top3[2].name} top our list for {name}. We rated {destinations.length} destinations
+        on temperature and rainfall using official climate normals — filter by region, warmth and budget to find your trip.
+      </p>
+      <ul class="facts">
+        <li><b>{great.length}</b> destinations with great weather</li>
+        <li><b>{good.filter((d) => d.months[m].high >= 25).length}</b> warm (25°C+) and well rated</li>
+        {cheapest[0] && <li>Best value: <a href={destMonthUrl(cheapest[0], m)}>{cheapest[0].name}</a> from <b>{usd(cheapest[0].budget.low)}</b>/day</li>}
+      </ul>
+    </header>
+
+    <nav class="month-nav" aria-label="Choose a month">
+      <div class="pill-row">
+        {MONTHS.map((mn, i) => <a class="pill" href={monthUrl(i)} aria-current={i === m ? 'page' : undefined}>{mn.slice(0, 3)}</a>)}
+      </div>
+    </nav>
+
+    <section aria-labelledby="list-h">
+      <h2 id="list-h" class="visually-hidden">Destinations rated for {name}</h2>
+      <Filters target="#month-list" fields={['region', 'temp', 'budget', 'rating', 'sort']} defaultRating="good" />
+      <div class="grid-cards" id="month-list">
+        {ranked.map((d) => <DestinationCard dest={d} month={m} hidden={d.months[m].score < 65} />)}
+      </div>
+      <p class="empty card" data-empty hidden>No destinations match these filters — try widening the budget or temperature.</p>
+      <div class="legend" aria-label="Rating legend">
+        <span><i data-rating="great"></i>Great 80+</span>
+        <span><i data-rating="good"></i>Good 65–79</span>
+        <span><i data-rating="fair"></i>Fair 50–64</span>
+        <span><i data-rating="poor"></i>Not ideal &lt;50</span>
+        <a href="/about/">How we rate</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>{name} at a glance</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Warmest good-weather picks</h3>
+          <ol class="rank-list">
+            {warmest.map((d) => <li><a href={destMonthUrl(d, m)}>{d.name}</a><span>{deg(d.months[m].high)}</span></li>)}
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Best value</h3>
+          <ol class="rank-list">
+            {cheapest.map((d) => <li><a href={destMonthUrl(d, m)}>{d.name}</a><span>from {usd(d.budget.low)}/day</span></li>)}
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Driest</h3>
+          <ol class="rank-list">
+            {driest.map((d) => <li><a href={destMonthUrl(d, m)}>{d.name}</a><span>{d.months[m].rain} mm</span></li>)}
+          </ol>
+        </div>
+        {
+          avoid.length > 0 && (
+            <div class="card">
+              <h3>Not ideal in {name}</h3>
+              <ul class="rank-list">
+                {avoid.map((d) => (
+                  <li>
+                    <a href={destMonthUrl(d, m)}>{d.name}</a>
+                    <RatingBadge score={d.months[m].score} rating={d.months[m].rating} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <section class="section prose">
+      <h2>Frequently asked questions</h2>
+      {
+        faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))
+      }
+    </section>
+
+    <nav class="prev-next" aria-label="Other months">
+      <a class="btn btn-ghost" href={monthUrl(prev)}>← Where to go in {MONTHS[prev]}</a>
+      <a class="btn btn-ghost" href={monthUrl(next)}>Where to go in {MONTHS[next]} →</a>
+    </nav>
+  </div>
+</Base>
+
+<style>
+  .facts {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    color: var(--text-2);
+    font-size: 0.9375rem;
+  }
+  .month-nav {
+    margin: 4px 0 8px;
+  }
+  .month-nav .pill-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .empty {
+    margin-top: 16px;
+  }
+  .empty[hidden] {
+    display: none;
+  }
+  .legend {
+    margin-top: 16px;
+  }
+  .rank-list {
+    margin: 0;
+    padding-left: 1.2em;
+    display: grid;
+    gap: 8px;
+  }
+  ul.rank-list {
+    list-style: none;
+    padding: 0;
+  }
+  .rank-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+  }
+  ol.rank-list li {
+    display: list-item;
+  }
+  ol.rank-list li span {
+    float: right;
+    color: var(--text-2);
+    font-variant-numeric: tabular-nums;
+  }
+  details {
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 650;
+  }
+  details p {
+    margin: 8px 0 0;
+    color: var(--text-2);
+  }
+  .prev-next {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+</style>

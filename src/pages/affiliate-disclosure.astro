@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../config';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Affiliate disclosure', href: '/affiliate-disclosure/' },
+];
+---
+
+<Base title="Affiliate Disclosure" description={`How ${SITE.name} uses affiliate links and how that keeps the site free.`}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <article class="prose section-tight">
+      <h1>Affiliate disclosure</h1>
+      <p>
+        {SITE.name} is free to use. To keep it that way, some links to flights, hotels, transfers, tours and other travel
+        services are <b>affiliate links</b>. If you click one and make a booking, we may receive a commission from the
+        provider or from an affiliate network such as Travelpayouts. You pay the same price either way.
+      </p>
+      <p>
+        Affiliate links are marked with a booking icon or appear in "Plan your trip" boxes, and they open in a new tab.
+        They are tagged <code>rel="sponsored"</code> for search engines.
+      </p>
+      <p>
+        <b>Commissions never affect our weather scores or rankings.</b> Scores are calculated automatically from climate data
+        using the method described on <a href="/about/">How we rate</a>, and every destination appears whether or not it
+        has a booking partner.
+      </p>
+      <p>Prices and availability are set by the booking providers and can change at any time.</p>
+    </article>
+  </div>
+</Base>

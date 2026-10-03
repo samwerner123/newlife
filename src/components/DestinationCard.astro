@@ -1,0 +1,187 @@
+---
+import Icon from './Icon.astro';
+import MonthStrip from './MonthStrip.astro';
+import Photo from './Photo.astro';
+import RatingBadge from './RatingBadge.astro';
+import { deg, plural, destMonthUrl, monthRanges, MONTH_SHORT, partnerLinks, regionSlug, usd, type Destination } from '../lib/data';
+
+interface Props {
+  dest: Destination;
+  month?: number;
+  rank?: number;
+  hidden?: boolean;
+}
+
+const { dest, month, rank, hidden } = Astro.props;
+const m = month === undefined ? undefined : dest.months[month];
+const href = month === undefined ? dest.url : destMonthUrl(dest, month);
+const cta = partnerLinks(dest.slug, ['flights', 'hotels', 'transfers'])[0];
+const note = m ? (m.event ?? m.note) : null;
+---
+
+<article
+  class="card dest"
+  hidden={hidden}
+  data-region={regionSlug(dest.region)}
+  data-temp={m?.temp}
+  data-budget={dest.budget.low}
+  data-score={m?.score}
+  data-high={m?.high}
+  data-name={dest.name}
+>
+  <a href={href} class="thumb" tabindex="-1" aria-hidden="true"><Photo slug={dest.slug} alt="" variant="card" /></a>
+  <div class="head">
+    <div>
+      <h3>
+        <a href={href}>{rank ? <span class="rank">{rank}.</span> : null}{dest.name}</a>
+      </h3>
+      <p class="where muted small">{dest.country} · {dest.region}</p>
+    </div>
+    {m && <RatingBadge score={m.score} rating={m.rating} />}
+  </div>
+
+  {
+    m ? (
+      <ul class="stats" aria-label="Averages for this month">
+        <li title="Average daily high / low">
+          <Icon name="thermo" /> <span><b>{deg(m.high)}</b> / {deg(m.low)}</span>
+        </li>
+        <li title="Average monthly rainfall">
+          <Icon name="drop" /> <span>{m.rain} mm{m.rainDays !== null && <span class="muted"> · {plural(m.rainDays, 'day')}</span>}</span>
+        </li>
+        {m.sunHours !== null && (
+          <li title="Average hours of sunshine per day">
+            <Icon name="sun" /> <span>{m.sunHours.toFixed(1)} h sun/day</span>
+          </li>
+        )}
+        <li title="Approximate daily budget per person, excluding flights">
+          <Icon name="wallet" /> <span>from {usd(dest.budget.low)}/day</span>
+        </li>
+      </ul>
+    ) : (
+      <>
+        <p class="tagline">{dest.tagline}</p>
+        <p class="small"><b>Best:</b> {monthRanges(dest.bestMonths, MONTH_SHORT)} · from {usd(dest.budget.low)}/day</p>
+      </>
+    )
+  }
+
+  {note && <p class="note small">{note}</p>}
+
+  <MonthStrip dest={dest} active={month} />
+
+  <div class="actions">
+    <a class="more" href={href}>{m ? `${dest.name} in ${m.name}` : 'Best time to visit'} →</a>
+    {
+      cta && (
+        <a class="cta" href={cta.url} rel="sponsored nofollow noopener" target="_blank">
+          <Icon name={cta.kind} size={16} /> {cta.kind === 'transfers' ? 'Transfer' : cta.label}
+        </a>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .dest[hidden] {
+    display: none;
+  }
+  .dest {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .dest:hover {
+    box-shadow: var(--shadow);
+  }
+  .thumb {
+    display: block;
+    margin: -18px -18px 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+    overflow: hidden;
+  }
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+  h3 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  h3 a:hover {
+    text-decoration: underline;
+  }
+  .rank {
+    color: var(--muted);
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .where {
+    margin: 2px 0 0;
+  }
+  .stats {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 10px;
+    font-size: 0.875rem;
+    color: var(--text-2);
+  }
+  .stats li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .stats b {
+    color: var(--text);
+  }
+  .tagline {
+    margin: 0;
+    color: var(--text-2);
+    font-size: 0.9375rem;
+  }
+  .note {
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: var(--surface-2);
+    color: var(--text-2);
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .more {
+    text-decoration: none;
+  }
+  .more:hover {
+    text-decoration: underline;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: var(--cta);
+    color: var(--cta-text);
+    text-decoration: none;
+  }
+  .cta:hover {
+    background: var(--cta-hover);
+  }
+</style>
