@@ -1,0 +1,95 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { destinations, rankForMonth, destMonthUrl, deg, MONTHS } from '../../lib/data';
+
+const europe = destinations.filter((d) => d.region === 'Europe');
+// The cheap months for transatlantic fares, and where the weather is best in each.
+const CHEAP = [0, 1, 2, 10];
+const picks = CHEAP.map((m) => ({ m, items: rankForMonth(m, europe).slice(0, 5) }));
+---
+
+<Guide slug="cheapest-months-to-fly-to-europe" photo="lisbon">
+  <p>
+    Transatlantic fares follow demand. Flights from the US to Europe are usually <strong>cheapest from January to March</strong>
+    (avoiding Presidents' Day weekend and spring break) and in <strong>November</strong> (avoiding Thanksgiving week). They are
+    most expensive from <strong>June to August</strong> and over Christmas and New Year. April–May and September–October sit in
+    between — often the best value once you factor in the weather.
+  </p>
+
+  <h2>Fares through the year</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Months</th><th scope="col" class="left">Typical fares</th><th scope="col" class="left">Why</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">January–March</th><td class="left">Lowest</td><td class="left">Post-holiday lull and winter weather; ski resorts and spring-break dates are the exceptions.</td></tr>
+        <tr><th scope="row">April–May</th><td class="left">Moderate, rising</td><td class="left">Spring shoulder season; Easter weeks are pricier.</td></tr>
+        <tr><th scope="row">June–August</th><td class="left">Highest</td><td class="left">US and European school holidays; book early.</td></tr>
+        <tr><th scope="row">September–October</th><td class="left">Moderate, falling</td><td class="left">Autumn shoulder season, often the best value for good weather.</td></tr>
+        <tr><th scope="row">November</th><td class="left">Low</td><td class="left">Quiet before Christmas, except Thanksgiving week.</td></tr>
+        <tr><th scope="row">December</th><td class="left">Low early, high late</td><td class="left">Cheap until mid-month, then Christmas and New Year peaks.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">A general pattern, not a price guarantee: fares vary by route, airline and how far ahead you book.</p>
+
+  <h2>Where to go when flights are cheap</h2>
+  <p>
+    The catch with the cheapest months is the weather: most of Europe is cold and grey from November to March. These are the
+    best-rated European destinations in each cheap month, by our weather scores.
+  </p>
+  {
+    picks.map(({ m, items }) => (
+      <>
+        <h3>{MONTHS[m]}</h3>
+        <ul class="picks">
+          {items.map((d) => (
+            <li>
+              <a href={destMonthUrl(d, m)}>{d.name}</a> <RatingBadge score={d.months[m].score} rating={d.months[m].rating} />
+              <span class="muted small">{deg(d.months[m].high)} by day</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))
+  }
+  <p>
+    Winter is also the season for <a href="/guides/christmas-markets-europe/">Christmas markets</a> (late November–December),
+    <a href="/guides/ski-season/">skiing in the Alps</a> and <a href="/guides/northern-lights/">the Northern Lights</a> in Tromsø,
+    Lapland and Iceland — all good reasons to travel when fares are low.
+  </p>
+
+  <h2>Ways to pay less</h2>
+  <ul>
+    <li><b>Book at the right time:</b> for summer, two to six months ahead usually gets better fares than the last minute; for winter, sales often appear in late summer and autumn.</li>
+    <li><b>Be flexible on dates:</b> midweek departures are often cheaper than Friday and Sunday flights; use flexible-date search to see a whole month.</li>
+    <li><b>Try different gateways:</b> big hubs such as London, Paris, Amsterdam, Frankfurt, Dublin and Lisbon usually have the most competition. Fly into one and take a cheap train or short-haul flight onward.</li>
+    <li><b>Consider stopovers:</b> some airlines let you stop in Reykjavik, Lisbon or Istanbul for a few days at little or no extra cost.</li>
+    <li><b>Watch the extras:</b> basic-economy fares may not include a checked bag or seat choice, which can wipe out the saving.</li>
+    <li><b>Set fare alerts</b> for the route and month you want, and book when the price drops.</li>
+  </ul>
+
+  <h2>The sweet spot</h2>
+  <p>
+    If you want low fares <em>and</em> good weather, aim for late April–May or late September–October and head south: Spain,
+    Portugal, Italy, Greece, Malta and Cyprus are warm and sunny then. See the
+    <a href="/guides/best-time-to-visit-europe/">best time to visit Europe</a> and our
+    <a href="/guides/shoulder-season/">shoulder-season guide</a>.
+  </p>
+</Guide>
+
+<style>
+  .picks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 6px;
+    display: grid;
+    gap: 6px;
+  }
+  .picks li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+</style>

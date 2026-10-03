@@ -22746,5 +22746,3765 @@
       "rain": "wikipedia",
       "rainDaysUnit": ""
     }
+  },
+  "andaman-islands": {
+    "months": [
+      {
+        "high": 29.9,
+        "low": 23,
+        "rain": 49,
+        "rainDays": 2.2,
+        "sunHours": 8.6
+      },
+      {
+        "high": 30.6,
+        "low": 22.7,
+        "rain": 14,
+        "rainDays": 0.9,
+        "sunHours": 9.4
+      },
+      {
+        "high": 31.7,
+        "low": 23.4,
+        "rain": 33,
+        "rainDays": 1.8,
+        "sunHours": 8.6
+      },
+      {
+        "high": 32.5,
+        "low": 24.7,
+        "rain": 78,
+        "rainDays": 4.2,
+        "sunHours": 7.9
+      },
+      {
+        "high": 31.5,
+        "low": 24.9,
+        "rain": 407,
+        "rainDays": 15.9,
+        "sunHours": 5.1
+      },
+      {
+        "high": 30,
+        "low": 24.6,
+        "rain": 484,
+        "rainDays": 18.7,
+        "sunHours": 3
+      },
+      {
+        "high": 29.6,
+        "low": 24.2,
+        "rain": 449,
+        "rainDays": 19.3,
+        "sunHours": 3.3
+      },
+      {
+        "high": 29.5,
+        "low": 24.2,
+        "rain": 460,
+        "rainDays": 19.1,
+        "sunHours": 3.2
+      },
+      {
+        "high": 29.5,
+        "low": 23.7,
+        "rain": 505,
+        "rainDays": 20,
+        "sunHours": 3.9
+      },
+      {
+        "high": 30.2,
+        "low": 23.8,
+        "rain": 301,
+        "rainDays": 14.9,
+        "sunHours": 5.4
+      },
+      {
+        "high": 30.5,
+        "low": 24.3,
+        "rain": 222,
+        "rainDays": 10.4,
+        "sunHours": 6.3
+      },
+      {
+        "high": 30.1,
+        "low": 23.9,
+        "rain": 111,
+        "rainDays": 4.9,
+        "sunHours": 7.8
+      }
+    ],
+    "source": {
+      "page": "Port Blair",
+      "location": "Port Blair (1991–2020, extremes 1901–present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": ""
+    }
+  },
+  "hoi-an": {
+    "months": [
+      {
+        "high": 25,
+        "low": 19.3,
+        "rain": 82,
+        "rainDays": 12,
+        "sunHours": 4.3
+      },
+      {
+        "high": 26.2,
+        "low": 20.2,
+        "rain": 24,
+        "rainDays": 5.6,
+        "sunHours": 5.2
+      },
+      {
+        "high": 28.3,
+        "low": 21.8,
+        "rain": 25,
+        "rainDays": 4.8,
+        "sunHours": 5.9
+      },
+      {
+        "high": 31,
+        "low": 23.8,
+        "rain": 35,
+        "rainDays": 5.4,
+        "sunHours": 7
+      },
+      {
+        "high": 33.3,
+        "low": 25.2,
+        "rain": 81,
+        "rainDays": 9.2,
+        "sunHours": 8
+      },
+      {
+        "high": 34.5,
+        "low": 26,
+        "rain": 83,
+        "rainDays": 8.1,
+        "sunHours": 8.1
+      },
+      {
+        "high": 34.4,
+        "low": 25.7,
+        "rain": 93,
+        "rainDays": 9.4,
+        "sunHours": 7.9
+      },
+      {
+        "high": 33.9,
+        "low": 25.6,
+        "rain": 141,
+        "rainDays": 11.6,
+        "sunHours": 6.9
+      },
+      {
+        "high": 31.8,
+        "low": 24.5,
+        "rain": 351,
+        "rainDays": 14.6,
+        "sunHours": 5.9
+      },
+      {
+        "high": 29.5,
+        "low": 23.5,
+        "rain": 628,
+        "rainDays": 20,
+        "sunHours": 4.6
+      },
+      {
+        "high": 27.4,
+        "low": 22.1,
+        "rain": 448,
+        "rainDays": 20.3,
+        "sunHours": 3.9
+      },
+      {
+        "high": 25.1,
+        "low": 20,
+        "rain": 218,
+        "rainDays": 18.7,
+        "sunHours": 3.1
+      }
+    ],
+    "source": {
+      "page": "Da Nang",
+      "location": "Da Nang",
+      "rain": "wikipedia",
+      "rainDaysUnit": ""
+    }
+  },
+  "koh-phangan": {
+    "months": [
+      {
+        "high": 29,
+        "low": 24.2,
+        "rain": 127,
+        "rainDays": 8.5,
+        "sunHours": 6.4
+      },
+      {
+        "high": 29.4,
+        "low": 24.9,
+        "rain": 64,
+        "rainDays": 4.3,
+        "sunHours": 7.6
+      },
+      {
+        "high": 30.4,
+        "low": 25.4,
+        "rain": 116,
+        "rainDays": 4.7,
+        "sunHours": 7.7
+      },
+      {
+        "high": 31.8,
+        "low": 26,
+        "rain": 83,
+        "rainDays": 6.1,
+        "sunHours": 6.7
+      },
+      {
+        "high": 32.9,
+        "low": 25.7,
+        "rain": 132,
+        "rainDays": 11,
+        "sunHours": 6.2
+      },
+      {
+        "high": 32.7,
+        "low": 25.3,
+        "rain": 134,
+        "rainDays": 10.3,
+        "sunHours": 5
+      },
+      {
+        "high": 32.3,
+        "low": 25.1,
+        "rain": 117,
+        "rainDays": 10.7,
+        "sunHours": 5
+      },
+      {
+        "high": 32.4,
+        "low": 25.1,
+        "rain": 102,
+        "rainDays": 10.5,
+        "sunHours": 4.9
+      },
+      {
+        "high": 31.9,
+        "low": 24.8,
+        "rain": 118,
+        "rainDays": 10.6,
+        "sunHours": 4.8
+      },
+      {
+        "high": 30.6,
+        "low": 24.3,
+        "rain": 295,
+        "rainDays": 15.8,
+        "sunHours": 4.7
+      },
+      {
+        "high": 29.7,
+        "low": 24.1,
+        "rain": 445,
+        "rainDays": 16.5,
+        "sunHours": 5.8
+      },
+      {
+        "high": 29.3,
+        "low": 24,
+        "rain": 263,
+        "rainDays": 11.6,
+        "sunHours": 5.7
+      }
+    ],
+    "source": {
+      "page": "Ko Samui",
+      "location": "Ko Samui (1991–2020, extremes 1968-present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "mount-fuji": {
+    "months": [
+      {
+        "high": 5.5,
+        "low": -5.7,
+        "rain": 61,
+        "rainDays": 5.8,
+        "sunHours": 6.8
+      },
+      {
+        "high": 6.6,
+        "low": -4.8,
+        "rain": 55,
+        "rainDays": 6.1,
+        "sunHours": 6.8
+      },
+      {
+        "high": 10.5,
+        "low": -1.3,
+        "rain": 108,
+        "rainDays": 10.4,
+        "sunHours": 6
+      },
+      {
+        "high": 16.1,
+        "low": 3.7,
+        "rain": 106,
+        "rainDays": 9.9,
+        "sunHours": 6.2
+      },
+      {
+        "high": 20.6,
+        "low": 8.9,
+        "rain": 123,
+        "rainDays": 10.8,
+        "sunHours": 5.8
+      },
+      {
+        "high": 23,
+        "low": 13.7,
+        "rain": 157,
+        "rainDays": 13.3,
+        "sunHours": 4.1
+      },
+      {
+        "high": 27.2,
+        "low": 18,
+        "rain": 178,
+        "rainDays": 13.3,
+        "sunHours": 4.8
+      },
+      {
+        "high": 28.1,
+        "low": 18.5,
+        "rain": 177,
+        "rainDays": 11.3,
+        "sunHours": 5.3
+      },
+      {
+        "high": 23.8,
+        "low": 14.8,
+        "rain": 265,
+        "rainDays": 12.4,
+        "sunHours": 4.1
+      },
+      {
+        "high": 18.3,
+        "low": 8.7,
+        "rain": 230,
+        "rainDays": 11.4,
+        "sunHours": 4.3
+      },
+      {
+        "high": 13.8,
+        "low": 2.2,
+        "rain": 76,
+        "rainDays": 7.8,
+        "sunHours": 5.5
+      },
+      {
+        "high": 8.5,
+        "low": -2.9,
+        "rain": 50,
+        "rainDays": 5.3,
+        "sunHours": 6.4
+      }
+    ],
+    "source": {
+      "page": "Template:Kawaguchi weatherbox",
+      "location": "Kawaguchiko (1991–2020 normals, extremes 1933–present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.5 mm"
+    }
+  },
+  "hiroshima": {
+    "months": [
+      {
+        "high": 9.9,
+        "low": 1.6,
+        "rain": 46,
+        "rainDays": 6.8,
+        "sunHours": 4.5
+      },
+      {
+        "high": 10.9,
+        "low": 2.2,
+        "rain": 64,
+        "rainDays": 8.3,
+        "sunHours": 5
+      },
+      {
+        "high": 14.5,
+        "low": 5.1,
+        "rain": 118,
+        "rainDays": 10.6,
+        "sunHours": 5.7
+      },
+      {
+        "high": 19.8,
+        "low": 10.1,
+        "rain": 141,
+        "rainDays": 9.9,
+        "sunHours": 6.4
+      },
+      {
+        "high": 24.4,
+        "low": 15.1,
+        "rain": 170,
+        "rainDays": 9.7,
+        "sunHours": 6.8
+      },
+      {
+        "high": 27.2,
+        "low": 19.8,
+        "rain": 227,
+        "rainDays": 11.9,
+        "sunHours": 5.2
+      },
+      {
+        "high": 30.9,
+        "low": 24.1,
+        "rain": 280,
+        "rainDays": 11.6,
+        "sunHours": 5.6
+      },
+      {
+        "high": 32.8,
+        "low": 25.1,
+        "rain": 131,
+        "rainDays": 8.6,
+        "sunHours": 6.7
+      },
+      {
+        "high": 29.1,
+        "low": 21.1,
+        "rain": 163,
+        "rainDays": 9.6,
+        "sunHours": 5.6
+      },
+      {
+        "high": 23.7,
+        "low": 14.9,
+        "rain": 109,
+        "rainDays": 7.1,
+        "sunHours": 5.8
+      },
+      {
+        "high": 17.7,
+        "low": 8.9,
+        "rain": 69,
+        "rainDays": 6.9,
+        "sunHours": 5.1
+      },
+      {
+        "high": 12.1,
+        "low": 3.9,
+        "rain": 54,
+        "rainDays": 7.6,
+        "sunHours": 4.5
+      }
+    ],
+    "source": {
+      "page": "Hiroshima",
+      "location": "Hiroshima (1991–2020 normals, extremes 1879–present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.5 mm"
+    }
+  },
+  "pokhara": {
+    "months": [
+      {
+        "high": 19.9,
+        "low": 7.1,
+        "rain": 22,
+        "rainDays": 2.4,
+        "sunHours": 6.6
+      },
+      {
+        "high": 22.7,
+        "low": 9.7,
+        "rain": 35,
+        "rainDays": 3.8,
+        "sunHours": 7.4
+      },
+      {
+        "high": 27.1,
+        "low": 13.1,
+        "rain": 64,
+        "rainDays": 6.4,
+        "sunHours": 7.4
+      },
+      {
+        "high": 30,
+        "low": 16.1,
+        "rain": 142,
+        "rainDays": 10.5,
+        "sunHours": 7.3
+      },
+      {
+        "high": 30.4,
+        "low": 18.7,
+        "rain": 355,
+        "rainDays": 18.3,
+        "sunHours": 5.4
+      },
+      {
+        "high": 30.8,
+        "low": 21.2,
+        "rain": 648,
+        "rainDays": 22.2,
+        "sunHours": 3.7
+      },
+      {
+        "high": 30.4,
+        "low": 22.4,
+        "rain": 941,
+        "rainDays": 25.6,
+        "sunHours": 3.4
+      },
+      {
+        "high": 30.5,
+        "low": 22.3,
+        "rain": 839,
+        "rainDays": 24.3,
+        "sunHours": 3.1
+      },
+      {
+        "high": 29.9,
+        "low": 21.1,
+        "rain": 635,
+        "rainDays": 19.4,
+        "sunHours": 4.4
+      },
+      {
+        "high": 27.9,
+        "low": 17.2,
+        "rain": 159,
+        "rainDays": 8,
+        "sunHours": 6.1
+      },
+      {
+        "high": 24.4,
+        "low": 12.3,
+        "rain": 17,
+        "rainDays": 1.3,
+        "sunHours": 7.4
+      },
+      {
+        "high": 21,
+        "low": 8.3,
+        "rain": 12,
+        "rainDays": 1,
+        "sunHours": 7.1
+      }
+    ],
+    "source": {
+      "page": "Pokhara",
+      "location": "Pokhara (Pokhara Airport), elevation 827 m, (1991–2020 normals, extremes 1969–2020)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "raja-ampat": {
+    "months": [
+      {
+        "high": 30.6,
+        "low": 24.4,
+        "rain": 194,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 30.5,
+        "low": 24.4,
+        "rain": 180,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 30.5,
+        "low": 24.6,
+        "rain": 198,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 30.7,
+        "low": 24.5,
+        "rain": 243,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 30.6,
+        "low": 24.5,
+        "rain": 368,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 30,
+        "low": 24.3,
+        "rain": 373,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 29.4,
+        "low": 23.9,
+        "rain": 321,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 29.5,
+        "low": 23.9,
+        "rain": 277,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 29.9,
+        "low": 24,
+        "rain": 234,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 30.7,
+        "low": 24.3,
+        "rain": 207,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 31,
+        "low": 24.6,
+        "rain": 186,
+        "rainDays": null,
+        "sunHours": null
+      },
+      {
+        "high": 30.8,
+        "low": 24.5,
+        "rain": 188,
+        "rainDays": null,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Sorong",
+      "location": "Sorong, West Papua",
+      "rain": "wikipedia",
+      "rainDaysUnit": ""
+    }
+  },
+  "abu-dhabi": {
+    "months": [
+      {
+        "high": 24.5,
+        "low": 13.8,
+        "rain": 13,
+        "rainDays": 2.8,
+        "sunHours": 8
+      },
+      {
+        "high": 26.5,
+        "low": 15.9,
+        "rain": 8,
+        "rainDays": 2,
+        "sunHours": 8.7
+      },
+      {
+        "high": 29.7,
+        "low": 17.5,
+        "rain": 13,
+        "rainDays": 2.9,
+        "sunHours": 8.6
+      },
+      {
+        "high": 35,
+        "low": 21.1,
+        "rain": 5,
+        "rainDays": 1.4,
+        "sunHours": 9.8
+      },
+      {
+        "high": 39.6,
+        "low": 24.6,
+        "rain": 0,
+        "rainDays": 1,
+        "sunHours": 11.1
+      },
+      {
+        "high": 41.4,
+        "low": 26.9,
+        "rain": 0,
+        "rainDays": 0,
+        "sunHours": 11.4
+      },
+      {
+        "high": 42.5,
+        "low": 29.7,
+        "rain": 1,
+        "rainDays": 1,
+        "sunHours": 10.6
+      },
+      {
+        "high": 43.4,
+        "low": 30.2,
+        "rain": 0,
+        "rainDays": 1,
+        "sunHours": 10.4
+      },
+      {
+        "high": 40.9,
+        "low": 27.4,
+        "rain": 0,
+        "rainDays": 0,
+        "sunHours": 10.2
+      },
+      {
+        "high": 36.6,
+        "low": 23.7,
+        "rain": 0,
+        "rainDays": 1,
+        "sunHours": 9.8
+      },
+      {
+        "high": 31,
+        "low": 19.6,
+        "rain": 2,
+        "rainDays": 2.2,
+        "sunHours": 8.8
+      },
+      {
+        "high": 26.5,
+        "low": 15.7,
+        "rain": 8,
+        "rainDays": 2.4,
+        "sunHours": 8.2
+      }
+    ],
+    "source": {
+      "page": "Abu Dhabi",
+      "location": "Abu Dhabi (Zayed International Airport), 1991–2020 normals",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1&nbsp;mm"
+    }
+  },
+  "madagascar": {
+    "months": [
+      {
+        "high": 26.4,
+        "low": 17.4,
+        "rain": 312,
+        "rainDays": 16.8,
+        "sunHours": 6.8
+      },
+      {
+        "high": 26.3,
+        "low": 17.5,
+        "rain": 237,
+        "rainDays": 14.3,
+        "sunHours": 6.3
+      },
+      {
+        "high": 26.2,
+        "low": 17.2,
+        "rain": 156,
+        "rainDays": 11,
+        "sunHours": 6.4
+      },
+      {
+        "high": 25.5,
+        "low": 15.9,
+        "rain": 45,
+        "rainDays": 4.4,
+        "sunHours": 7.4
+      },
+      {
+        "high": 23.5,
+        "low": 14,
+        "rain": 15,
+        "rainDays": 2,
+        "sunHours": 7.4
+      },
+      {
+        "high": 21.3,
+        "low": 11.6,
+        "rain": 6,
+        "rainDays": 1.4,
+        "sunHours": 6.9
+      },
+      {
+        "high": 20.4,
+        "low": 10.7,
+        "rain": 6,
+        "rainDays": 0.9,
+        "sunHours": 6.9
+      },
+      {
+        "high": 21.6,
+        "low": 10.9,
+        "rain": 5,
+        "rainDays": 1.1,
+        "sunHours": 7.6
+      },
+      {
+        "high": 23.9,
+        "low": 12.2,
+        "rain": 8,
+        "rainDays": 1,
+        "sunHours": 8.3
+      },
+      {
+        "high": 26,
+        "low": 14.3,
+        "rain": 39,
+        "rainDays": 4.3,
+        "sunHours": 8.1
+      },
+      {
+        "high": 27.1,
+        "low": 15.9,
+        "rain": 117,
+        "rainDays": 9,
+        "sunHours": 7.8
+      },
+      {
+        "high": 27.1,
+        "low": 17.1,
+        "rain": 226,
+        "rainDays": 13.6,
+        "sunHours": 6.5
+      }
+    ],
+    "source": {
+      "page": "Antananarivo",
+      "location": "Antananarivo (1991–2020)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "rwanda": {
+    "months": [
+      {
+        "high": 24.5,
+        "low": 11.8,
+        "rain": 96,
+        "rainDays": 11.2,
+        "sunHours": null
+      },
+      {
+        "high": 24.6,
+        "low": 12,
+        "rain": 99,
+        "rainDays": 11.9,
+        "sunHours": null
+      },
+      {
+        "high": 24.1,
+        "low": 12,
+        "rain": 146,
+        "rainDays": 18.4,
+        "sunHours": null
+      },
+      {
+        "high": 23.5,
+        "low": 12.7,
+        "rain": 202,
+        "rainDays": 20.8,
+        "sunHours": null
+      },
+      {
+        "high": 23,
+        "low": 12.9,
+        "rain": 141,
+        "rainDays": 16.3,
+        "sunHours": null
+      },
+      {
+        "high": 23.3,
+        "low": 11.9,
+        "rain": 57,
+        "rainDays": 4.9,
+        "sunHours": null
+      },
+      {
+        "high": 23.9,
+        "low": 11.6,
+        "rain": 13,
+        "rainDays": 1.5,
+        "sunHours": null
+      },
+      {
+        "high": 24.4,
+        "low": 12.2,
+        "rain": 49,
+        "rainDays": 4.9,
+        "sunHours": null
+      },
+      {
+        "high": 24.8,
+        "low": 12.2,
+        "rain": 124,
+        "rainDays": 16,
+        "sunHours": null
+      },
+      {
+        "high": 24,
+        "low": 12.1,
+        "rain": 180,
+        "rainDays": 22.3,
+        "sunHours": null
+      },
+      {
+        "high": 23.2,
+        "low": 11.7,
+        "rain": 170,
+        "rainDays": 21.2,
+        "sunHours": null
+      },
+      {
+        "high": 23.7,
+        "low": 11.1,
+        "rain": 102,
+        "rainDays": 14.2,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Ruhengeri",
+      "location": "Ruhengeri Airport (1991–2020)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "cape-verde": {
+    "months": [
+      {
+        "high": 25,
+        "low": 19.2,
+        "rain": 3,
+        "rainDays": 0.5,
+        "sunHours": 5.9
+      },
+      {
+        "high": 24.9,
+        "low": 18.8,
+        "rain": 1,
+        "rainDays": 0.2,
+        "sunHours": 6.2
+      },
+      {
+        "high": 25.2,
+        "low": 18.9,
+        "rain": 1,
+        "rainDays": 0.1,
+        "sunHours": 6.5
+      },
+      {
+        "high": 25.5,
+        "low": 19.6,
+        "rain": 1,
+        "rainDays": 0.2,
+        "sunHours": 7.2
+      },
+      {
+        "high": 26.1,
+        "low": 20.6,
+        "rain": 1,
+        "rainDays": 0.1,
+        "sunHours": 6.6
+      },
+      {
+        "high": 27,
+        "low": 21.6,
+        "rain": 0,
+        "rainDays": 0,
+        "sunHours": 5.8
+      },
+      {
+        "high": 28.1,
+        "low": 22.8,
+        "rain": 2,
+        "rainDays": 0.1,
+        "sunHours": 4.8
+      },
+      {
+        "high": 29.6,
+        "low": 24.2,
+        "rain": 13,
+        "rainDays": 1.2,
+        "sunHours": 5.2
+      },
+      {
+        "high": 30.1,
+        "low": 24.8,
+        "rain": 35,
+        "rainDays": 2.7,
+        "sunHours": 6
+      },
+      {
+        "high": 29.6,
+        "low": 24.1,
+        "rain": 16,
+        "rainDays": 1.1,
+        "sunHours": 6.4
+      },
+      {
+        "high": 28.1,
+        "low": 22.5,
+        "rain": 1,
+        "rainDays": 0.4,
+        "sunHours": 6.3
+      },
+      {
+        "high": 26.1,
+        "low": 20.5,
+        "rain": 3,
+        "rainDays": 0.5,
+        "sunHours": 5
+      }
+    ],
+    "source": {
+      "page": "Sal, Cape Verde",
+      "location": "Sal, Cape Verde (Amílcar Cabral International Airport) 1991–2020, extremes 1950–1990",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.1 mm"
+    }
+  },
+  "samoa": {
+    "months": [
+      {
+        "high": 30.6,
+        "low": 24.5,
+        "rain": 483,
+        "rainDays": 20.5,
+        "sunHours": 4.8
+      },
+      {
+        "high": 30.8,
+        "low": 24.6,
+        "rain": 406,
+        "rainDays": 18.4,
+        "sunHours": 5.7
+      },
+      {
+        "high": 30.9,
+        "low": 24.5,
+        "rain": 302,
+        "rainDays": 18.1,
+        "sunHours": 5.6
+      },
+      {
+        "high": 31.1,
+        "low": 24.5,
+        "rain": 232,
+        "rainDays": 13.9,
+        "sunHours": 6.2
+      },
+      {
+        "high": 30.6,
+        "low": 24,
+        "rain": 245,
+        "rainDays": 13.2,
+        "sunHours": 6.2
+      },
+      {
+        "high": 30.2,
+        "low": 23.9,
+        "rain": 139,
+        "rainDays": 10.1,
+        "sunHours": 6.6
+      },
+      {
+        "high": 29.8,
+        "low": 23.5,
+        "rain": 133,
+        "rainDays": 10.7,
+        "sunHours": 6.9
+      },
+      {
+        "high": 29.8,
+        "low": 23.4,
+        "rain": 112,
+        "rainDays": 9.9,
+        "sunHours": 7.1
+      },
+      {
+        "high": 30,
+        "low": 23.6,
+        "rain": 143,
+        "rainDays": 12,
+        "sunHours": 6.9
+      },
+      {
+        "high": 30.2,
+        "low": 23.9,
+        "rain": 221,
+        "rainDays": 13.1,
+        "sunHours": 6.4
+      },
+      {
+        "high": 30.5,
+        "low": 24.2,
+        "rain": 261,
+        "rainDays": 15.5,
+        "sunHours": 6
+      },
+      {
+        "high": 30.7,
+        "low": 24.4,
+        "rain": 414,
+        "rainDays": 17.8,
+        "sunHours": 5
+      }
+    ],
+    "source": {
+      "page": "Apia",
+      "location": "Apia (Elevation: 2 m) (1991–2020 normals, extremes 1971–2020)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "puglia": {
+    "months": [
+      {
+        "high": 12.6,
+        "low": 4.1,
+        "rain": 51,
+        "rainDays": 7.4,
+        "sunHours": 4.3
+      },
+      {
+        "high": 13.2,
+        "low": 4.2,
+        "rain": 37,
+        "rainDays": 5.6,
+        "sunHours": 5.8
+      },
+      {
+        "high": 15.7,
+        "low": 6,
+        "rain": 41,
+        "rainDays": 6.5,
+        "sunHours": 7.4
+      },
+      {
+        "high": 19,
+        "low": 8.9,
+        "rain": 42,
+        "rainDays": 6,
+        "sunHours": 8.9
+      },
+      {
+        "high": 23.6,
+        "low": 13,
+        "rain": 30,
+        "rainDays": 4.5,
+        "sunHours": 10.1
+      },
+      {
+        "high": 28.2,
+        "low": 17.3,
+        "rain": 29,
+        "rainDays": 3,
+        "sunHours": 11.2
+      },
+      {
+        "high": 30.6,
+        "low": 20,
+        "rain": 18,
+        "rainDays": 1.9,
+        "sunHours": 11.5
+      },
+      {
+        "high": 30.5,
+        "low": 20.1,
+        "rain": 13,
+        "rainDays": 2.3,
+        "sunHours": 10.3
+      },
+      {
+        "high": 26.2,
+        "low": 16.5,
+        "rain": 42,
+        "rainDays": 4.8,
+        "sunHours": 8.4
+      },
+      {
+        "high": 21.9,
+        "low": 12.6,
+        "rain": 54,
+        "rainDays": 5.5,
+        "sunHours": 6.5
+      },
+      {
+        "high": 17.6,
+        "low": 9,
+        "rain": 62,
+        "rainDays": 7,
+        "sunHours": 4.6
+      },
+      {
+        "high": 13.9,
+        "low": 5.8,
+        "rain": 47,
+        "rainDays": 7,
+        "sunHours": 3.9
+      }
+    ],
+    "source": {
+      "page": "Bari",
+      "location": "Bari Karol Wojtyła Airport (1991–2020 normals, extremes 1932–present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "sardinia": {
+    "months": [
+      {
+        "high": 14.7,
+        "low": 5.4,
+        "rain": 37,
+        "rainDays": 6.5,
+        "sunHours": 5
+      },
+      {
+        "high": 15,
+        "low": 5.1,
+        "rain": 34,
+        "rainDays": 5.8,
+        "sunHours": 5.9
+      },
+      {
+        "high": 17.5,
+        "low": 7.3,
+        "rain": 32,
+        "rainDays": 5.7,
+        "sunHours": 7
+      },
+      {
+        "high": 19.9,
+        "low": 9.7,
+        "rain": 46,
+        "rainDays": 6.4,
+        "sunHours": 7.4
+      },
+      {
+        "high": 24.1,
+        "low": 13.3,
+        "rain": 26,
+        "rainDays": 4.2,
+        "sunHours": 8.8
+      },
+      {
+        "high": 28.7,
+        "low": 17.3,
+        "rain": 13,
+        "rainDays": 2.2,
+        "sunHours": 10.4
+      },
+      {
+        "high": 31.7,
+        "low": 19.9,
+        "rain": 3,
+        "rainDays": 0.6,
+        "sunHours": 11
+      },
+      {
+        "high": 32.1,
+        "low": 20.5,
+        "rain": 11,
+        "rainDays": 1.4,
+        "sunHours": 10.1
+      },
+      {
+        "high": 28.1,
+        "low": 17.5,
+        "rain": 39,
+        "rainDays": 4.2,
+        "sunHours": 8
+      },
+      {
+        "high": 23.9,
+        "low": 13.9,
+        "rain": 44,
+        "rainDays": 5.3,
+        "sunHours": 6.4
+      },
+      {
+        "high": 19,
+        "low": 10,
+        "rain": 74,
+        "rainDays": 8.3,
+        "sunHours": 5
+      },
+      {
+        "high": 15.7,
+        "low": 6.8,
+        "rain": 55,
+        "rainDays": 8,
+        "sunHours": 4.5
+      }
+    ],
+    "source": {
+      "page": "Cagliari",
+      "location": "Cagliari (Elmas Airport), elevation: 4 m, 1991–2020 normals, extremes 1981–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "cyprus": {
+    "months": [
+      {
+        "high": 17.3,
+        "low": 8.6,
+        "rain": 90,
+        "rainDays": null,
+        "sunHours": 5.8
+      },
+      {
+        "high": 17.6,
+        "low": 8.5,
+        "rain": 60,
+        "rainDays": null,
+        "sunHours": 6.8
+      },
+      {
+        "high": 19.2,
+        "low": 9.6,
+        "rain": 35,
+        "rainDays": null,
+        "sunHours": 7.9
+      },
+      {
+        "high": 21.8,
+        "low": 11.9,
+        "rain": 15,
+        "rainDays": null,
+        "sunHours": 9.3
+      },
+      {
+        "high": 24.9,
+        "low": 15.2,
+        "rain": 11,
+        "rainDays": null,
+        "sunHours": 10.9
+      },
+      {
+        "high": 28.1,
+        "low": 18.5,
+        "rain": 2,
+        "rainDays": null,
+        "sunHours": 12.4
+      },
+      {
+        "high": 30.4,
+        "low": 21,
+        "rain": 0,
+        "rainDays": null,
+        "sunHours": 12.3
+      },
+      {
+        "high": 31,
+        "low": 21.7,
+        "rain": 0,
+        "rainDays": null,
+        "sunHours": 11.5
+      },
+      {
+        "high": 29.4,
+        "low": 19.8,
+        "rain": 4,
+        "rainDays": null,
+        "sunHours": 10.4
+      },
+      {
+        "high": 27,
+        "low": 17.2,
+        "rain": 22,
+        "rainDays": null,
+        "sunHours": 9
+      },
+      {
+        "high": 23.1,
+        "low": 13.4,
+        "rain": 58,
+        "rainDays": null,
+        "sunHours": 7.3
+      },
+      {
+        "high": 19.3,
+        "low": 10.4,
+        "rain": 98,
+        "rainDays": null,
+        "sunHours": 5.8
+      }
+    ],
+    "source": {
+      "page": "Paphos",
+      "location": "Paphos (Paphos International Airport) (1991–2020)",
+      "rain": "wikipedia",
+      "rainDaysUnit": ""
+    }
+  },
+  "granada": {
+    "months": [
+      {
+        "high": 12.6,
+        "low": 1.2,
+        "rain": 41,
+        "rainDays": 5.8,
+        "sunHours": 5.5
+      },
+      {
+        "high": 14.6,
+        "low": 2.4,
+        "rain": 33,
+        "rainDays": 5.6,
+        "sunHours": 6.1
+      },
+      {
+        "high": 18,
+        "low": 4.8,
+        "rain": 35,
+        "rainDays": 5.1,
+        "sunHours": 7.1
+      },
+      {
+        "high": 19.5,
+        "low": 6.8,
+        "rain": 37,
+        "rainDays": 6.3,
+        "sunHours": 7.8
+      },
+      {
+        "high": 24,
+        "low": 10.2,
+        "rain": 30,
+        "rainDays": 4.7,
+        "sunHours": 9
+      },
+      {
+        "high": 30.2,
+        "low": 14.7,
+        "rain": 11,
+        "rainDays": 1.7,
+        "sunHours": 11
+      },
+      {
+        "high": 34.2,
+        "low": 17.7,
+        "rain": 2,
+        "rainDays": 0.3,
+        "sunHours": 11.7
+      },
+      {
+        "high": 33.5,
+        "low": 17.6,
+        "rain": 3,
+        "rainDays": 0.6,
+        "sunHours": 10.6
+      },
+      {
+        "high": 28.7,
+        "low": 14.4,
+        "rain": 23,
+        "rainDays": 2.7,
+        "sunHours": 8.5
+      },
+      {
+        "high": 22.6,
+        "low": 10.1,
+        "rain": 38,
+        "rainDays": 5.1,
+        "sunHours": 6.8
+      },
+      {
+        "high": 16.5,
+        "low": 5.3,
+        "rain": 50,
+        "rainDays": 6.7,
+        "sunHours": 5.5
+      },
+      {
+        "high": 13.1,
+        "low": 2.7,
+        "rain": 50,
+        "rainDays": 7.2,
+        "sunHours": 4.8
+      }
+    ],
+    "source": {
+      "page": "Granada",
+      "location": "Granada (Granada Base Aérea, altitude )",
+      "rain": "wikipedia",
+      "rainDaysUnit": ""
+    }
+  },
+  "normandy": {
+    "months": [
+      {
+        "high": 8.3,
+        "low": 2.9,
+        "rain": 63,
+        "rainDays": 11.6,
+        "sunHours": 2.3
+      },
+      {
+        "high": 9.1,
+        "low": 2.8,
+        "rain": 53,
+        "rainDays": 11.2,
+        "sunHours": 3.2
+      },
+      {
+        "high": 11.7,
+        "low": 4.2,
+        "rain": 50,
+        "rainDays": 10,
+        "sunHours": 4.2
+      },
+      {
+        "high": 14.4,
+        "low": 5.5,
+        "rain": 53,
+        "rainDays": 10,
+        "sunHours": 6
+      },
+      {
+        "high": 17.4,
+        "low": 8.5,
+        "rain": 59,
+        "rainDays": 9.5,
+        "sunHours": 6.6
+      },
+      {
+        "high": 20.5,
+        "low": 11.2,
+        "rain": 58,
+        "rainDays": 8.6,
+        "sunHours": 7.1
+      },
+      {
+        "high": 22.9,
+        "low": 13.1,
+        "rain": 51,
+        "rainDays": 8,
+        "sunHours": 7
+      },
+      {
+        "high": 23.2,
+        "low": 13.3,
+        "rain": 60,
+        "rainDays": 8.3,
+        "sunHours": 6.6
+      },
+      {
+        "high": 20.4,
+        "low": 11.1,
+        "rain": 54,
+        "rainDays": 9.1,
+        "sunHours": 5.7
+      },
+      {
+        "high": 16.2,
+        "low": 8.8,
+        "rain": 79,
+        "rainDays": 12.2,
+        "sunHours": 3.8
+      },
+      {
+        "high": 11.8,
+        "low": 5.6,
+        "rain": 79,
+        "rainDays": 13.4,
+        "sunHours": 2.7
+      },
+      {
+        "high": 8.8,
+        "low": 3.3,
+        "rain": 81,
+        "rainDays": 14.2,
+        "sunHours": 2.2
+      }
+    ],
+    "source": {
+      "page": "Caen",
+      "location": "Caen (CFR), elevation: , 1991–2020 normals, extremes 1945–present, humidity 1961–1990",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "bergen": {
+    "months": [
+      {
+        "high": 4.7,
+        "low": 0.6,
+        "rain": 256,
+        "rainDays": 19.2,
+        "sunHours": 1
+      },
+      {
+        "high": 4.9,
+        "low": 0.1,
+        "rain": 210,
+        "rainDays": 17.4,
+        "sunHours": 2.3
+      },
+      {
+        "high": 6.9,
+        "low": 1.3,
+        "rain": 202,
+        "rainDays": 17.6,
+        "sunHours": 3.8
+      },
+      {
+        "high": 11.1,
+        "low": 3.9,
+        "rain": 141,
+        "rainDays": 14.1,
+        "sunHours": 7.3
+      },
+      {
+        "high": 15,
+        "low": 6.9,
+        "rain": 109,
+        "rainDays": 13,
+        "sunHours": 8.1
+      },
+      {
+        "high": 17.7,
+        "low": 10.1,
+        "rain": 132,
+        "rainDays": 13.3,
+        "sunHours": 7.8
+      },
+      {
+        "high": 19.6,
+        "low": 12.4,
+        "rain": 158,
+        "rainDays": 15.2,
+        "sunHours": 6.6
+      },
+      {
+        "high": 19.4,
+        "low": 12.4,
+        "rain": 208,
+        "rainDays": 16.6,
+        "sunHours": 5.6
+      },
+      {
+        "high": 16.1,
+        "low": 9.9,
+        "rain": 248,
+        "rainDays": 18.1,
+        "sunHours": 4.5
+      },
+      {
+        "high": 11.7,
+        "low": 6.1,
+        "rain": 268,
+        "rainDays": 18.5,
+        "sunHours": 2.7
+      },
+      {
+        "high": 7.6,
+        "low": 3.1,
+        "rain": 275,
+        "rainDays": 18.5,
+        "sunHours": 1.5
+      },
+      {
+        "high": 5.3,
+        "low": 1,
+        "rain": 290,
+        "rainDays": 19.3,
+        "sunHours": 0.4
+      }
+    ],
+    "source": {
+      "page": "Bergen",
+      "location": "Bergen – Florida 1991–2020 normals (12 m, extremes 1957–present, sunshine 2016–2024 (Bergen Airport, Flesland))",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "cornwall": {
+    "months": [
+      {
+        "high": 9.2,
+        "low": 4.9,
+        "rain": 121,
+        "rainDays": 16.6,
+        "sunHours": 2
+      },
+      {
+        "high": 9.2,
+        "low": 4.6,
+        "rain": 95,
+        "rainDays": 13.6,
+        "sunHours": 3
+      },
+      {
+        "high": 10.2,
+        "low": 5.4,
+        "rain": 72,
+        "rainDays": 12.1,
+        "sunHours": 4
+      },
+      {
+        "high": 12.1,
+        "low": 6.6,
+        "rain": 73,
+        "rainDays": 11.6,
+        "sunHours": 6.3
+      },
+      {
+        "high": 14.5,
+        "low": 8.8,
+        "rain": 61,
+        "rainDays": 9.8,
+        "sunHours": 7
+      },
+      {
+        "high": 16.9,
+        "low": 11.3,
+        "rain": 63,
+        "rainDays": 9.5,
+        "sunHours": 7.2
+      },
+      {
+        "high": 18.7,
+        "low": 13.2,
+        "rain": 69,
+        "rainDays": 9.8,
+        "sunHours": 6.4
+      },
+      {
+        "high": 19,
+        "low": 13.4,
+        "rain": 79,
+        "rainDays": 11.4,
+        "sunHours": 6
+      },
+      {
+        "high": 17.5,
+        "low": 12,
+        "rain": 78,
+        "rainDays": 11.4,
+        "sunHours": 5.3
+      },
+      {
+        "high": 14.6,
+        "low": 10,
+        "rain": 111,
+        "rainDays": 15,
+        "sunHours": 3.6
+      },
+      {
+        "high": 11.8,
+        "low": 7.4,
+        "rain": 130,
+        "rainDays": 17.5,
+        "sunHours": 2.3
+      },
+      {
+        "high": 9.9,
+        "low": 5.6,
+        "rain": 126,
+        "rainDays": 17,
+        "sunHours": 1.8
+      }
+    ],
+    "source": {
+      "page": "Camborne",
+      "location": "Camborne (1991–2020 normals, extremes 1973–present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "gran-canaria": {
+    "months": [
+      {
+        "high": 21.1,
+        "low": 15.2,
+        "rain": 23,
+        "rainDays": 5.7,
+        "sunHours": null
+      },
+      {
+        "high": 21.3,
+        "low": 15.3,
+        "rain": 20,
+        "rainDays": 5.5,
+        "sunHours": null
+      },
+      {
+        "high": 22.2,
+        "low": 15.7,
+        "rain": 12,
+        "rainDays": 4.1,
+        "sunHours": null
+      },
+      {
+        "high": 22.9,
+        "low": 16.6,
+        "rain": 5,
+        "rainDays": 3.3,
+        "sunHours": null
+      },
+      {
+        "high": 24,
+        "low": 17.8,
+        "rain": 1,
+        "rainDays": 1.4,
+        "sunHours": null
+      },
+      {
+        "high": 25.6,
+        "low": 19.5,
+        "rain": 0,
+        "rainDays": 0.6,
+        "sunHours": null
+      },
+      {
+        "high": 27.2,
+        "low": 21,
+        "rain": 2,
+        "rainDays": 0.1,
+        "sunHours": null
+      },
+      {
+        "high": 27.8,
+        "low": 21.9,
+        "rain": 1,
+        "rainDays": 0.7,
+        "sunHours": null
+      },
+      {
+        "high": 27.2,
+        "low": 21.6,
+        "rain": 5,
+        "rainDays": 2.2,
+        "sunHours": null
+      },
+      {
+        "high": 26.3,
+        "low": 20.3,
+        "rain": 21,
+        "rainDays": 5,
+        "sunHours": null
+      },
+      {
+        "high": 24.3,
+        "low": 18.4,
+        "rain": 17,
+        "rainDays": 7,
+        "sunHours": null
+      },
+      {
+        "high": 22.3,
+        "low": 16.5,
+        "rain": 29,
+        "rainDays": 7,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Las Palmas",
+      "location": "Las Palmas de Gran Canaria (Gran Canaria Airport), WMO ID: 60030; Climate ID: C649I; coordinates ; elevation: ; 1991–2020 provisional normals, extremes 1951–present",
+      "rain": "nasa-power",
+      "rainDaysUnit": "0.1 mm"
+    }
+  },
+  "lanzarote": {
+    "months": [
+      {
+        "high": 20.9,
+        "low": 14.2,
+        "rain": 15,
+        "rainDays": 2.8,
+        "sunHours": 6.6
+      },
+      {
+        "high": 21.5,
+        "low": 14.4,
+        "rain": 16,
+        "rainDays": 2.5,
+        "sunHours": 7.1
+      },
+      {
+        "high": 22.9,
+        "low": 15.2,
+        "rain": 12,
+        "rainDays": 2.2,
+        "sunHours": 8
+      },
+      {
+        "high": 23.8,
+        "low": 16.1,
+        "rain": 4,
+        "rainDays": 0.9,
+        "sunHours": 8.6
+      },
+      {
+        "high": 25.2,
+        "low": 17.5,
+        "rain": 1,
+        "rainDays": 0.3,
+        "sunHours": 9.5
+      },
+      {
+        "high": 26.7,
+        "low": 19.2,
+        "rain": 0,
+        "rainDays": 0,
+        "sunHours": 9.7
+      },
+      {
+        "high": 28.5,
+        "low": 20.7,
+        "rain": 0,
+        "rainDays": 0,
+        "sunHours": 10.1
+      },
+      {
+        "high": 29.5,
+        "low": 21.5,
+        "rain": 1,
+        "rainDays": 0.1,
+        "sunHours": 9.8
+      },
+      {
+        "high": 28.6,
+        "low": 21,
+        "rain": 2,
+        "rainDays": 0.4,
+        "sunHours": 8.7
+      },
+      {
+        "high": 27,
+        "low": 19.6,
+        "rain": 13,
+        "rainDays": 2.1,
+        "sunHours": 7.5
+      },
+      {
+        "high": 24.3,
+        "low": 17.4,
+        "rain": 16,
+        "rainDays": 3,
+        "sunHours": 6.8
+      },
+      {
+        "high": 22,
+        "low": 15.5,
+        "rain": 21,
+        "rainDays": 3.2,
+        "sunHours": 6.5
+      }
+    ],
+    "source": {
+      "page": "Arrecife",
+      "location": "Lanzarote Airport (1991-2020), extremes (1972-present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1 mm"
+    }
+  },
+  "austin": {
+    "months": [
+      {
+        "high": 16.9,
+        "low": 5.4,
+        "rain": 67,
+        "rainDays": 7.6,
+        "sunHours": 5.3
+      },
+      {
+        "high": 19.2,
+        "low": 7.7,
+        "rain": 48,
+        "rainDays": 7.7,
+        "sunHours": 6
+      },
+      {
+        "high": 22.9,
+        "low": 11.2,
+        "rain": 73,
+        "rainDays": 8.9,
+        "sunHours": 6.6
+      },
+      {
+        "high": 26.8,
+        "low": 14.9,
+        "rain": 61,
+        "rainDays": 7.1,
+        "sunHours": 6.9
+      },
+      {
+        "high": 30.5,
+        "low": 19.3,
+        "rain": 128,
+        "rainDays": 8.9,
+        "sunHours": 7.3
+      },
+      {
+        "high": 34,
+        "low": 22.7,
+        "rain": 93,
+        "rainDays": 7.4,
+        "sunHours": 9.5
+      },
+      {
+        "high": 35.9,
+        "low": 23.9,
+        "rain": 50,
+        "rainDays": 4.9,
+        "sunHours": 10.2
+      },
+      {
+        "high": 36.6,
+        "low": 23.9,
+        "rain": 70,
+        "rainDays": 4.8,
+        "sunHours": 9.6
+      },
+      {
+        "high": 33,
+        "low": 21.2,
+        "rain": 88,
+        "rainDays": 7.1,
+        "sunHours": 7.8
+      },
+      {
+        "high": 28.1,
+        "low": 16,
+        "rain": 99,
+        "rainDays": 7,
+        "sunHours": 7
+      },
+      {
+        "high": 21.9,
+        "low": 10.3,
+        "rain": 74,
+        "rainDays": 6.9,
+        "sunHours": 5.6
+      },
+      {
+        "high": 17.7,
+        "low": 6.3,
+        "rain": 69,
+        "rainDays": 7.5,
+        "sunHours": 5
+      }
+    ],
+    "source": {
+      "page": "Template:Austin weatherbox",
+      "location": "Camp Mabry, Austin, Texas (1991–2020 normals, extremes 1897–present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.01 in"
+    }
+  },
+  "san-antonio": {
+    "months": [
+      {
+        "high": 17.4,
+        "low": 5,
+        "rain": 50,
+        "rainDays": 6.9,
+        "sunHours": 5.1
+      },
+      {
+        "high": 19.7,
+        "low": 7.3,
+        "rain": 44,
+        "rainDays": 7.4,
+        "sunHours": 6
+      },
+      {
+        "high": 23.2,
+        "low": 11,
+        "rain": 59,
+        "rainDays": 8.5,
+        "sunHours": 7
+      },
+      {
+        "high": 26.8,
+        "low": 14.7,
+        "rain": 61,
+        "rainDays": 6.4,
+        "sunHours": 7
+      },
+      {
+        "high": 30.3,
+        "low": 19.1,
+        "rain": 112,
+        "rainDays": 8.3,
+        "sunHours": 7.2
+      },
+      {
+        "high": 33.6,
+        "low": 22.6,
+        "rain": 83,
+        "rainDays": 7,
+        "sunHours": 9.2
+      },
+      {
+        "high": 34.9,
+        "low": 23.7,
+        "rain": 61,
+        "rainDays": 5,
+        "sunHours": 10
+      },
+      {
+        "high": 35.6,
+        "low": 23.8,
+        "rain": 55,
+        "rainDays": 4.7,
+        "sunHours": 9.5
+      },
+      {
+        "high": 32.3,
+        "low": 20.9,
+        "rain": 99,
+        "rainDays": 6.9,
+        "sunHours": 7.8
+      },
+      {
+        "high": 27.9,
+        "low": 15.8,
+        "rain": 95,
+        "rainDays": 6.4,
+        "sunHours": 7
+      },
+      {
+        "high": 22.1,
+        "low": 9.9,
+        "rain": 53,
+        "rainDays": 6.4,
+        "sunHours": 5.7
+      },
+      {
+        "high": 18.2,
+        "low": 5.8,
+        "rain": 51,
+        "rainDays": 7.4,
+        "sunHours": 4.8
+      }
+    ],
+    "source": {
+      "page": "Template:San Antonio weatherbox",
+      "location": "San Antonio (San Antonio Int'l), 1991–2020 normals, extremes 1885–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.01 in"
+    }
+  },
+  "philadelphia": {
+    "months": [
+      {
+        "high": 5.2,
+        "low": -3.3,
+        "rain": 80,
+        "rainDays": 11,
+        "sunHours": 5
+      },
+      {
+        "high": 6.8,
+        "low": -2.5,
+        "rain": 70,
+        "rainDays": 9.7,
+        "sunHours": 5.5
+      },
+      {
+        "high": 11.6,
+        "low": 1.3,
+        "rain": 101,
+        "rainDays": 10.9,
+        "sunHours": 6.5
+      },
+      {
+        "high": 18.2,
+        "low": 6.8,
+        "rain": 88,
+        "rainDays": 10.9,
+        "sunHours": 7.2
+      },
+      {
+        "high": 23.6,
+        "low": 12.3,
+        "rain": 85,
+        "rainDays": 11,
+        "sunHours": 7.9
+      },
+      {
+        "high": 28.4,
+        "low": 17.7,
+        "rain": 103,
+        "rainDays": 10.3,
+        "sunHours": 9
+      },
+      {
+        "high": 31,
+        "low": 20.9,
+        "rain": 111,
+        "rainDays": 10.1,
+        "sunHours": 8.9
+      },
+      {
+        "high": 29.9,
+        "low": 19.9,
+        "rain": 109,
+        "rainDays": 8.9,
+        "sunHours": 8.4
+      },
+      {
+        "high": 26.1,
+        "low": 16.1,
+        "rain": 112,
+        "rainDays": 9.3,
+        "sunHours": 7.3
+      },
+      {
+        "high": 19.6,
+        "low": 9.6,
+        "rain": 88,
+        "rainDays": 9.1,
+        "sunHours": 6.6
+      },
+      {
+        "high": 13.3,
+        "low": 3.8,
+        "rain": 74,
+        "rainDays": 8.6,
+        "sunHours": 5.2
+      },
+      {
+        "high": 7.8,
+        "low": -0.4,
+        "rain": 101,
+        "rainDays": 11,
+        "sunHours": 4.4
+      }
+    ],
+    "source": {
+      "page": "Template:Philadelphia weatherbox",
+      "location": "Philadelphia (Philadelphia Airport), 1991–2020 normals, extremes 1872–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.01 in"
+    }
+  },
+  "hilton-head": {
+    "months": [
+      {
+        "high": 16.1,
+        "low": 3.3,
+        "rain": 94,
+        "rainDays": 10,
+        "sunHours": 6
+      },
+      {
+        "high": 17.2,
+        "low": 4.4,
+        "rain": 89,
+        "rainDays": 9,
+        "sunHours": 7
+      },
+      {
+        "high": 20.6,
+        "low": 8.3,
+        "rain": 99,
+        "rainDays": 9,
+        "sunHours": 8
+      },
+      {
+        "high": 21.7,
+        "low": 12.2,
+        "rain": 76,
+        "rainDays": 7,
+        "sunHours": 9
+      },
+      {
+        "high": 27.8,
+        "low": 16.7,
+        "rain": 91,
+        "rainDays": 9,
+        "sunHours": 9
+      },
+      {
+        "high": 30.6,
+        "low": 20.6,
+        "rain": 135,
+        "rainDays": 11,
+        "sunHours": 9
+      },
+      {
+        "high": 32.2,
+        "low": 22.2,
+        "rain": 157,
+        "rainDays": 13,
+        "sunHours": 9
+      },
+      {
+        "high": 31.1,
+        "low": 21.7,
+        "rain": 226,
+        "rainDays": 13,
+        "sunHours": 8
+      },
+      {
+        "high": 29.4,
+        "low": 20,
+        "rain": 130,
+        "rainDays": 10,
+        "sunHours": 7
+      },
+      {
+        "high": 25.6,
+        "low": 13.9,
+        "rain": 66,
+        "rainDays": 6,
+        "sunHours": 7
+      },
+      {
+        "high": 21.1,
+        "low": 8.9,
+        "rain": 61,
+        "rainDays": 6,
+        "sunHours": 6
+      },
+      {
+        "high": 17.2,
+        "low": 5,
+        "rain": 81,
+        "rainDays": 8,
+        "sunHours": 6
+      }
+    ],
+    "source": {
+      "page": "Hilton Head Island, South Carolina",
+      "location": "Hilton Head Island",
+      "rain": "wikipedia",
+      "rainDaysUnit": ""
+    }
+  },
+  "st-augustine": {
+    "months": [
+      {
+        "high": 19.7,
+        "low": 8.8,
+        "rain": 70,
+        "rainDays": 9.4,
+        "sunHours": null
+      },
+      {
+        "high": 20.9,
+        "low": 10.1,
+        "rain": 68,
+        "rainDays": 7.8,
+        "sunHours": null
+      },
+      {
+        "high": 23.6,
+        "low": 12.6,
+        "rain": 87,
+        "rainDays": 8.6,
+        "sunHours": null
+      },
+      {
+        "high": 26.6,
+        "low": 15.9,
+        "rain": 74,
+        "rainDays": 6.8,
+        "sunHours": null
+      },
+      {
+        "high": 29.5,
+        "low": 19.7,
+        "rain": 93,
+        "rainDays": 7.2,
+        "sunHours": null
+      },
+      {
+        "high": 31.4,
+        "low": 22.4,
+        "rain": 159,
+        "rainDays": 12.3,
+        "sunHours": null
+      },
+      {
+        "high": 32.8,
+        "low": 23.2,
+        "rain": 124,
+        "rainDays": 11.6,
+        "sunHours": null
+      },
+      {
+        "high": 32.2,
+        "low": 23.4,
+        "rain": 182,
+        "rainDays": 15,
+        "sunHours": null
+      },
+      {
+        "high": 30.8,
+        "low": 22.8,
+        "rain": 182,
+        "rainDays": 13.5,
+        "sunHours": null
+      },
+      {
+        "high": 27.7,
+        "low": 19.2,
+        "rain": 111,
+        "rainDays": 9.1,
+        "sunHours": null
+      },
+      {
+        "high": 23.8,
+        "low": 14.2,
+        "rain": 59,
+        "rainDays": 8.1,
+        "sunHours": null
+      },
+      {
+        "high": 20.5,
+        "low": 10.7,
+        "rain": 76,
+        "rainDays": 8.4,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "St. Augustine, Florida",
+      "location": "St. Augustine, Florida (St. Augustine Light), 1991–2020 normals, extremes 1892–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.01 in"
+    }
+  },
+  "big-sur": {
+    "months": [
+      {
+        "high": 15.8,
+        "low": 5.8,
+        "rain": 241,
+        "rainDays": 10.7,
+        "sunHours": null
+      },
+      {
+        "high": 16.2,
+        "low": 6,
+        "rain": 218,
+        "rainDays": 11.2,
+        "sunHours": null
+      },
+      {
+        "high": 17.9,
+        "low": 6.3,
+        "rain": 171,
+        "rainDays": 10.2,
+        "sunHours": null
+      },
+      {
+        "high": 19.6,
+        "low": 6.4,
+        "rain": 75,
+        "rainDays": 6.3,
+        "sunHours": null
+      },
+      {
+        "high": 21.4,
+        "low": 7.5,
+        "rain": 29,
+        "rainDays": 3.7,
+        "sunHours": null
+      },
+      {
+        "high": 23.4,
+        "low": 8.9,
+        "rain": 5,
+        "rainDays": 0.8,
+        "sunHours": null
+      },
+      {
+        "high": 24.1,
+        "low": 10.3,
+        "rain": 2,
+        "rainDays": 0.3,
+        "sunHours": null
+      },
+      {
+        "high": 25.2,
+        "low": 10.1,
+        "rain": 1,
+        "rainDays": 0.4,
+        "sunHours": null
+      },
+      {
+        "high": 24.9,
+        "low": 10.1,
+        "rain": 3,
+        "rainDays": 0.7,
+        "sunHours": null
+      },
+      {
+        "high": 23.1,
+        "low": 9.2,
+        "rain": 48,
+        "rainDays": 3,
+        "sunHours": null
+      },
+      {
+        "high": 18.5,
+        "low": 7.4,
+        "rain": 106,
+        "rainDays": 6.9,
+        "sunHours": null
+      },
+      {
+        "high": 15.2,
+        "low": 5.8,
+        "rain": 233,
+        "rainDays": 10.6,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Big Sur",
+      "location": "Big Sur, California (1991–2020 normals, extremes 1993–present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.01 in"
+    }
+  },
+  "death-valley": {
+    "months": [
+      {
+        "high": 19.6,
+        "low": 5.8,
+        "rain": 9,
+        "rainDays": 2.4,
+        "sunHours": null
+      },
+      {
+        "high": 23.2,
+        "low": 9.4,
+        "rain": 13,
+        "rainDays": 2.9,
+        "sunHours": null
+      },
+      {
+        "high": 28.1,
+        "low": 13.9,
+        "rain": 6,
+        "rainDays": 2,
+        "sunHours": null
+      },
+      {
+        "high": 32.8,
+        "low": 18.2,
+        "rain": 3,
+        "rainDays": 1.1,
+        "sunHours": null
+      },
+      {
+        "high": 38.2,
+        "low": 23.9,
+        "rain": 1,
+        "rainDays": 0.9,
+        "sunHours": null
+      },
+      {
+        "high": 43.9,
+        "low": 28.9,
+        "rain": 1,
+        "rainDays": 0.3,
+        "sunHours": null
+      },
+      {
+        "high": 47.4,
+        "low": 32.8,
+        "rain": 3,
+        "rainDays": 1.1,
+        "sunHours": null
+      },
+      {
+        "high": 46.6,
+        "low": 31.5,
+        "rain": 3,
+        "rainDays": 0.9,
+        "sunHours": null
+      },
+      {
+        "high": 42.1,
+        "low": 26.2,
+        "rain": 5,
+        "rainDays": 0.8,
+        "sunHours": null
+      },
+      {
+        "high": 34.1,
+        "low": 18,
+        "rain": 3,
+        "rainDays": 1.1,
+        "sunHours": null
+      },
+      {
+        "high": 25.2,
+        "low": 10.3,
+        "rain": 3,
+        "rainDays": 0.9,
+        "sunHours": null
+      },
+      {
+        "high": 18.7,
+        "low": 5.1,
+        "rain": 7,
+        "rainDays": 1.6,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Death Valley",
+      "location": "Death Valley National Park, California, 1991–2020 normals, extremes 1911–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.01 inch"
+    }
+  },
+  "mount-rainier": {
+    "months": [
+      {
+        "high": 1.4,
+        "low": -4.6,
+        "rain": 437,
+        "rainDays": 21.1,
+        "sunHours": null
+      },
+      {
+        "high": 1.2,
+        "low": -5.2,
+        "rain": 328,
+        "rainDays": 17.8,
+        "sunHours": null
+      },
+      {
+        "high": 2.1,
+        "low": -4.7,
+        "rain": 336,
+        "rainDays": 21.5,
+        "sunHours": null
+      },
+      {
+        "high": 4.4,
+        "low": -3.1,
+        "rain": 212,
+        "rainDays": 18.8,
+        "sunHours": null
+      },
+      {
+        "high": 9,
+        "low": 0.6,
+        "rain": 129,
+        "rainDays": 15.4,
+        "sunHours": null
+      },
+      {
+        "high": 12,
+        "low": 2.7,
+        "rain": 98,
+        "rainDays": 12.8,
+        "sunHours": null
+      },
+      {
+        "high": 16.8,
+        "low": 6.6,
+        "rain": 36,
+        "rainDays": 7.3,
+        "sunHours": null
+      },
+      {
+        "high": 17.6,
+        "low": 7.3,
+        "rain": 42,
+        "rainDays": 6.6,
+        "sunHours": null
+      },
+      {
+        "high": 14.1,
+        "low": 5.1,
+        "rain": 113,
+        "rainDays": 9.6,
+        "sunHours": null
+      },
+      {
+        "high": 8,
+        "low": 0.4,
+        "rain": 286,
+        "rainDays": 15,
+        "sunHours": null
+      },
+      {
+        "high": 2.8,
+        "low": -3.3,
+        "rain": 461,
+        "rainDays": 21.7,
+        "sunHours": null
+      },
+      {
+        "high": 0.3,
+        "low": -5.6,
+        "rain": 481,
+        "rainDays": 21.1,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Paradise, Washington",
+      "location": "Paradise Ranger Station, 1991–2020 normals, extremes 1916–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.01 in"
+    }
+  },
+  "denali": {
+    "months": [
+      {
+        "high": -12.2,
+        "low": -20.9,
+        "rain": 15,
+        "rainDays": 7.6,
+        "sunHours": null
+      },
+      {
+        "high": -6.9,
+        "low": -18.3,
+        "rain": 18,
+        "rainDays": 6,
+        "sunHours": null
+      },
+      {
+        "high": -3.8,
+        "low": -17.8,
+        "rain": 13,
+        "rainDays": 4.9,
+        "sunHours": null
+      },
+      {
+        "high": 4.8,
+        "low": -8.4,
+        "rain": 11,
+        "rainDays": 4,
+        "sunHours": null
+      },
+      {
+        "high": 12.7,
+        "low": -0.5,
+        "rain": 21,
+        "rainDays": 6.5,
+        "sunHours": null
+      },
+      {
+        "high": 18.5,
+        "low": 4.9,
+        "rain": 61,
+        "rainDays": 12.6,
+        "sunHours": null
+      },
+      {
+        "high": 19.1,
+        "low": 6.9,
+        "rain": 79,
+        "rainDays": 15.6,
+        "sunHours": null
+      },
+      {
+        "high": 16.2,
+        "low": 4.9,
+        "rain": 76,
+        "rainDays": 15.6,
+        "sunHours": null
+      },
+      {
+        "high": 10.4,
+        "low": -0.6,
+        "rain": 44,
+        "rainDays": 11.8,
+        "sunHours": null
+      },
+      {
+        "high": 0.9,
+        "low": -9.1,
+        "rain": 21,
+        "rainDays": 9.7,
+        "sunHours": null
+      },
+      {
+        "high": -8,
+        "low": -16.7,
+        "rain": 21,
+        "rainDays": 9.8,
+        "sunHours": null
+      },
+      {
+        "high": -10.1,
+        "low": -19.2,
+        "rain": 21,
+        "rainDays": 9.3,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Denali National Park and Preserve",
+      "location": "McKinley Park, Alaska, 1991–2020 normals, extremes 1923–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.01 in"
+    }
+  },
+  "san-miguel-de-allende": {
+    "months": [
+      {
+        "high": 22.4,
+        "low": 4.6,
+        "rain": 16,
+        "rainDays": 2.4,
+        "sunHours": null
+      },
+      {
+        "high": 24.6,
+        "low": 6.3,
+        "rain": 11,
+        "rainDays": 1.9,
+        "sunHours": null
+      },
+      {
+        "high": 27.9,
+        "low": 8.7,
+        "rain": 13,
+        "rainDays": 2.2,
+        "sunHours": null
+      },
+      {
+        "high": 30,
+        "low": 11.4,
+        "rain": 14,
+        "rainDays": 2.4,
+        "sunHours": null
+      },
+      {
+        "high": 30.8,
+        "low": 13.2,
+        "rain": 40,
+        "rainDays": 5.6,
+        "sunHours": null
+      },
+      {
+        "high": 28.8,
+        "low": 13.4,
+        "rain": 115,
+        "rainDays": 10.7,
+        "sunHours": null
+      },
+      {
+        "high": 27.2,
+        "low": 12.8,
+        "rain": 147,
+        "rainDays": 13.4,
+        "sunHours": null
+      },
+      {
+        "high": 27.3,
+        "low": 12.9,
+        "rain": 99,
+        "rainDays": 9,
+        "sunHours": null
+      },
+      {
+        "high": 26.2,
+        "low": 12.3,
+        "rain": 109,
+        "rainDays": 9.9,
+        "sunHours": null
+      },
+      {
+        "high": 25.3,
+        "low": 10.3,
+        "rain": 43,
+        "rainDays": 5.5,
+        "sunHours": null
+      },
+      {
+        "high": 24.1,
+        "low": 7.7,
+        "rain": 19,
+        "rainDays": 2.7,
+        "sunHours": null
+      },
+      {
+        "high": 23,
+        "low": 5.1,
+        "rain": 6,
+        "rainDays": 1.7,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "San Miguel de Allende",
+      "location": "San Miguel de Allende (1991–2020, extremes 1951-present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.1 mm"
+    }
+  },
+  "isla-mujeres": {
+    "months": [
+      {
+        "high": 28.5,
+        "low": 19.3,
+        "rain": 56,
+        "rainDays": 6.4,
+        "sunHours": 7
+      },
+      {
+        "high": 29.3,
+        "low": 19.6,
+        "rain": 43,
+        "rainDays": 4.4,
+        "sunHours": 7.9
+      },
+      {
+        "high": 30.6,
+        "low": 20.8,
+        "rain": 45,
+        "rainDays": 3.9,
+        "sunHours": 8.2
+      },
+      {
+        "high": 32.1,
+        "low": 22.4,
+        "rain": 37,
+        "rainDays": 3.2,
+        "sunHours": 8.6
+      },
+      {
+        "high": 33.3,
+        "low": 23.9,
+        "rain": 84,
+        "rainDays": 5.9,
+        "sunHours": 8.6
+      },
+      {
+        "high": 33.6,
+        "low": 24.6,
+        "rain": 146,
+        "rainDays": 10.3,
+        "sunHours": 7.4
+      },
+      {
+        "high": 34,
+        "low": 24.5,
+        "rain": 111,
+        "rainDays": 9.8,
+        "sunHours": 8
+      },
+      {
+        "high": 34.2,
+        "low": 24.5,
+        "rain": 115,
+        "rainDays": 9.6,
+        "sunHours": 7.9
+      },
+      {
+        "high": 33.3,
+        "low": 24.1,
+        "rain": 223,
+        "rainDays": 14.3,
+        "sunHours": 6.4
+      },
+      {
+        "high": 31.6,
+        "low": 23.1,
+        "rain": 242,
+        "rainDays": 14.8,
+        "sunHours": 6.2
+      },
+      {
+        "high": 30.1,
+        "low": 21.5,
+        "rain": 113,
+        "rainDays": 8.8,
+        "sunHours": 6.7
+      },
+      {
+        "high": 28.9,
+        "low": 20,
+        "rain": 80,
+        "rainDays": 7.7,
+        "sunHours": 6.3
+      }
+    ],
+    "source": {
+      "page": "Cancún",
+      "location": "Cancún (Airport/Observatorio) 1991–2020 normals, extremes 1951–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.1 mm"
+    }
+  },
+  "clearwater": {
+    "months": [
+      {
+        "high": 21.9,
+        "low": 11.6,
+        "rain": 51,
+        "rainDays": 7,
+        "sunHours": 7
+      },
+      {
+        "high": 21.9,
+        "low": 11.8,
+        "rain": 89,
+        "rainDays": 7,
+        "sunHours": 7
+      },
+      {
+        "high": 24.5,
+        "low": 14.3,
+        "rain": 89,
+        "rainDays": 6,
+        "sunHours": 9
+      },
+      {
+        "high": 27.3,
+        "low": 17.1,
+        "rain": 51,
+        "rainDays": 4,
+        "sunHours": 10
+      },
+      {
+        "high": 30.1,
+        "low": 20.1,
+        "rain": 53,
+        "rainDays": 6,
+        "sunHours": 10
+      },
+      {
+        "high": 31.7,
+        "low": 22.6,
+        "rain": 157,
+        "rainDays": 12,
+        "sunHours": 9
+      },
+      {
+        "high": 32.2,
+        "low": 23.4,
+        "rain": 241,
+        "rainDays": 15,
+        "sunHours": 9
+      },
+      {
+        "high": 32.2,
+        "low": 23.4,
+        "rain": 241,
+        "rainDays": 17,
+        "sunHours": 8
+      },
+      {
+        "high": 31.4,
+        "low": 22.7,
+        "rain": 183,
+        "rainDays": 12,
+        "sunHours": 8
+      },
+      {
+        "high": 28.7,
+        "low": 19.2,
+        "rain": 71,
+        "rainDays": 6,
+        "sunHours": 8
+      },
+      {
+        "high": 24.7,
+        "low": 14.5,
+        "rain": 46,
+        "rainDays": 6,
+        "sunHours": 7
+      },
+      {
+        "high": 22.2,
+        "low": 12.1,
+        "rain": 64,
+        "rainDays": 6,
+        "sunHours": 6
+      }
+    ],
+    "source": {
+      "page": "Clearwater, Florida",
+      "location": "Clearwater",
+      "rain": "wikipedia",
+      "rainDaysUnit": ""
+    }
+  },
+  "sarasota": {
+    "months": [
+      {
+        "high": 22.5,
+        "low": 11.3,
+        "rain": 71,
+        "rainDays": 8.5,
+        "sunHours": null
+      },
+      {
+        "high": 23.8,
+        "low": 12.6,
+        "rain": 49,
+        "rainDays": 6.8,
+        "sunHours": null
+      },
+      {
+        "high": 25.7,
+        "low": 14.5,
+        "rain": 72,
+        "rainDays": 6.4,
+        "sunHours": null
+      },
+      {
+        "high": 28.1,
+        "low": 17.1,
+        "rain": 62,
+        "rainDays": 5.1,
+        "sunHours": null
+      },
+      {
+        "high": 30.8,
+        "low": 20.1,
+        "rain": 66,
+        "rainDays": 6,
+        "sunHours": null
+      },
+      {
+        "high": 32.2,
+        "low": 23.1,
+        "rain": 179,
+        "rainDays": 12.8,
+        "sunHours": null
+      },
+      {
+        "high": 32.8,
+        "low": 24,
+        "rain": 188,
+        "rainDays": 15.6,
+        "sunHours": null
+      },
+      {
+        "high": 33.1,
+        "low": 24.1,
+        "rain": 231,
+        "rainDays": 17.5,
+        "sunHours": null
+      },
+      {
+        "high": 32.3,
+        "low": 23.4,
+        "rain": 152,
+        "rainDays": 13.7,
+        "sunHours": null
+      },
+      {
+        "high": 30.2,
+        "low": 20.2,
+        "rain": 70,
+        "rainDays": 7,
+        "sunHours": null
+      },
+      {
+        "high": 26.7,
+        "low": 15.6,
+        "rain": 46,
+        "rainDays": 5.6,
+        "sunHours": null
+      },
+      {
+        "high": 24,
+        "low": 12.9,
+        "rain": 59,
+        "rainDays": 7.6,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Sarasota, Florida",
+      "location": "Sarasota, Florida (Sarasota–Bradenton International Airport), 1991–2020 normals, extremes 1911–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "0.01 in"
+    }
+  },
+  "easter-island": {
+    "months": [
+      {
+        "high": 26.9,
+        "low": 20,
+        "rain": 81,
+        "rainDays": 10.1,
+        "sunHours": 8.8
+      },
+      {
+        "high": 27.5,
+        "low": 20.6,
+        "rain": 69,
+        "rainDays": 9.6,
+        "sunHours": 9
+      },
+      {
+        "high": 26.9,
+        "low": 20.2,
+        "rain": 87,
+        "rainDays": 10.7,
+        "sunHours": 7.7
+      },
+      {
+        "high": 25.5,
+        "low": 19.4,
+        "rain": 123,
+        "rainDays": 11.6,
+        "sunHours": 6.7
+      },
+      {
+        "high": 23.4,
+        "low": 17.7,
+        "rain": 117,
+        "rainDays": 12,
+        "sunHours": 5.7
+      },
+      {
+        "high": 21.9,
+        "low": 16.7,
+        "rain": 109,
+        "rainDays": 12.3,
+        "sunHours": 4.9
+      },
+      {
+        "high": 21.2,
+        "low": 15.9,
+        "rain": 113,
+        "rainDays": 11.6,
+        "sunHours": 5.2
+      },
+      {
+        "high": 21.2,
+        "low": 15.7,
+        "rain": 97,
+        "rainDays": 10.6,
+        "sunHours": 5.7
+      },
+      {
+        "high": 21.6,
+        "low": 15.7,
+        "rain": 97,
+        "rainDays": 10.2,
+        "sunHours": 6
+      },
+      {
+        "high": 22.5,
+        "low": 16.2,
+        "rain": 91,
+        "rainDays": 9.3,
+        "sunHours": 6.9
+      },
+      {
+        "high": 23.8,
+        "low": 17.5,
+        "rain": 75,
+        "rainDays": 9.4,
+        "sunHours": 7.3
+      },
+      {
+        "high": 25.5,
+        "low": 18.7,
+        "rain": 70,
+        "rainDays": 9,
+        "sunHours": 8.1
+      }
+    ],
+    "source": {
+      "page": "Easter Island",
+      "location": "Easter Island (Mataveri International Airport), 1991–2020, extremes 1912–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "gold-coast": {
+    "months": [
+      {
+        "high": 28.9,
+        "low": 21.9,
+        "rain": 137,
+        "rainDays": 8.8,
+        "sunHours": null
+      },
+      {
+        "high": 28.7,
+        "low": 21.8,
+        "rain": 183,
+        "rainDays": 8.3,
+        "sunHours": null
+      },
+      {
+        "high": 28,
+        "low": 20.9,
+        "rain": 134,
+        "rainDays": 9,
+        "sunHours": null
+      },
+      {
+        "high": 26.1,
+        "low": 18.3,
+        "rain": 119,
+        "rainDays": 8.6,
+        "sunHours": null
+      },
+      {
+        "high": 23.6,
+        "low": 15.4,
+        "rain": 98,
+        "rainDays": 8.1,
+        "sunHours": null
+      },
+      {
+        "high": 21.4,
+        "low": 13.3,
+        "rain": 114,
+        "rainDays": 7.2,
+        "sunHours": null
+      },
+      {
+        "high": 21.3,
+        "low": 12,
+        "rain": 50,
+        "rainDays": 7,
+        "sunHours": null
+      },
+      {
+        "high": 22.1,
+        "low": 12.5,
+        "rain": 55,
+        "rainDays": 6.3,
+        "sunHours": null
+      },
+      {
+        "high": 24,
+        "low": 14.8,
+        "rain": 41,
+        "rainDays": 5.1,
+        "sunHours": null
+      },
+      {
+        "high": 25.4,
+        "low": 16.9,
+        "rain": 87,
+        "rainDays": 6.3,
+        "sunHours": null
+      },
+      {
+        "high": 26.9,
+        "low": 19,
+        "rain": 107,
+        "rainDays": 8,
+        "sunHours": null
+      },
+      {
+        "high": 28,
+        "low": 20.5,
+        "rain": 135,
+        "rainDays": 9.3,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Gold Coast, Queensland",
+      "location": "Gold Coast, Seaway (1992–2020)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1 mm"
+    }
+  },
+  "great-ocean-road": {
+    "months": [
+      {
+        "high": 21.9,
+        "low": 13.9,
+        "rain": 53,
+        "rainDays": 8.6,
+        "sunHours": null
+      },
+      {
+        "high": 21.8,
+        "low": 14.6,
+        "rain": 50,
+        "rainDays": 8.1,
+        "sunHours": null
+      },
+      {
+        "high": 20.1,
+        "low": 12.8,
+        "rain": 68,
+        "rainDays": 10.8,
+        "sunHours": null
+      },
+      {
+        "high": 18,
+        "low": 11.5,
+        "rain": 82,
+        "rainDays": 13.5,
+        "sunHours": null
+      },
+      {
+        "high": 15.7,
+        "low": 9.5,
+        "rain": 100,
+        "rainDays": 16.2,
+        "sunHours": null
+      },
+      {
+        "high": 13.6,
+        "low": 8.3,
+        "rain": 109,
+        "rainDays": 16.3,
+        "sunHours": null
+      },
+      {
+        "high": 13.1,
+        "low": 7.3,
+        "rain": 118,
+        "rainDays": 18,
+        "sunHours": null
+      },
+      {
+        "high": 14,
+        "low": 7.9,
+        "rain": 128,
+        "rainDays": 18.7,
+        "sunHours": null
+      },
+      {
+        "high": 15.8,
+        "low": 8.9,
+        "rain": 110,
+        "rainDays": 16.8,
+        "sunHours": null
+      },
+      {
+        "high": 17.6,
+        "low": 9.5,
+        "rain": 99,
+        "rainDays": 15.2,
+        "sunHours": null
+      },
+      {
+        "high": 19.2,
+        "low": 10.6,
+        "rain": 80,
+        "rainDays": 12.8,
+        "sunHours": null
+      },
+      {
+        "high": 20.6,
+        "low": 12.2,
+        "rain": 64,
+        "rainDays": 10.7,
+        "sunHours": null
+      }
+    ],
+    "source": {
+      "page": "Apollo Bay",
+      "location": "Apollo Bay",
+      "rain": "wikipedia",
+      "rainDaysUnit": ""
+    }
+  },
+  "milford-sound": {
+    "months": [
+      {
+        "high": 20,
+        "low": 9.5,
+        "rain": 165,
+        "rainDays": null,
+        "sunHours": 5.7
+      },
+      {
+        "high": 20.1,
+        "low": 9.1,
+        "rain": 92,
+        "rainDays": null,
+        "sunHours": 5.9
+      },
+      {
+        "high": 18.1,
+        "low": 7.3,
+        "rain": 105,
+        "rainDays": null,
+        "sunHours": 4.6
+      },
+      {
+        "high": 15.1,
+        "low": 5.7,
+        "rain": 80,
+        "rainDays": null,
+        "sunHours": 4.2
+      },
+      {
+        "high": 11.7,
+        "low": 3.5,
+        "rain": 91,
+        "rainDays": null,
+        "sunHours": 2.7
+      },
+      {
+        "high": 8.9,
+        "low": 1.8,
+        "rain": 112,
+        "rainDays": null,
+        "sunHours": 2.1
+      },
+      {
+        "high": 8.4,
+        "low": 1.1,
+        "rain": 83,
+        "rainDays": null,
+        "sunHours": 1.9
+      },
+      {
+        "high": 10.4,
+        "low": 1.6,
+        "rain": 85,
+        "rainDays": null,
+        "sunHours": 3.6
+      },
+      {
+        "high": 13,
+        "low": 3.3,
+        "rain": 73,
+        "rainDays": null,
+        "sunHours": 4.5
+      },
+      {
+        "high": 14.9,
+        "low": 4.5,
+        "rain": 134,
+        "rainDays": null,
+        "sunHours": 5.6
+      },
+      {
+        "high": 17.1,
+        "low": 6.2,
+        "rain": 75,
+        "rainDays": null,
+        "sunHours": 6.1
+      },
+      {
+        "high": 19,
+        "low": 8,
+        "rain": 108,
+        "rainDays": null,
+        "sunHours": 5.5
+      }
+    ],
+    "source": {
+      "page": "Te Anau",
+      "location": "Te Anau, elevation 560 m, (1981–2010)",
+      "rain": "wikipedia",
+      "rainDaysUnit": ""
+    }
+  },
+  "tallinn": {
+    "months": [
+      {
+        "high": -0.7,
+        "low": -5.5,
+        "rain": 56,
+        "rainDays": 12.7,
+        "sunHours": 1
+      },
+      {
+        "high": -1,
+        "low": -6.2,
+        "rain": 40,
+        "rainDays": 10.6,
+        "sunHours": 2.1
+      },
+      {
+        "high": 2.8,
+        "low": -3.7,
+        "rain": 37,
+        "rainDays": 9,
+        "sunHours": 4.8
+      },
+      {
+        "high": 9.5,
+        "low": 0.7,
+        "rain": 35,
+        "rainDays": 7.5,
+        "sunHours": 7.2
+      },
+      {
+        "high": 15.4,
+        "low": 5.2,
+        "rain": 37,
+        "rainDays": 7.3,
+        "sunHours": 9.9
+      },
+      {
+        "high": 19.2,
+        "low": 9.8,
+        "rain": 68,
+        "rainDays": 9.5,
+        "sunHours": 9.8
+      },
+      {
+        "high": 22.2,
+        "low": 13.1,
+        "rain": 82,
+        "rainDays": 9.1,
+        "sunHours": 10.1
+      },
+      {
+        "high": 21,
+        "low": 12.3,
+        "rain": 85,
+        "rainDays": 10.3,
+        "sunHours": 8.2
+      },
+      {
+        "high": 16.1,
+        "low": 8.4,
+        "rain": 58,
+        "rainDays": 10.1,
+        "sunHours": 5.4
+      },
+      {
+        "high": 9.5,
+        "low": 3.7,
+        "rain": 78,
+        "rainDays": 12.9,
+        "sunHours": 2.8
+      },
+      {
+        "high": 4.1,
+        "low": -0.2,
+        "rain": 66,
+        "rainDays": 12.3,
+        "sunHours": 1
+      },
+      {
+        "high": 1.2,
+        "low": -3.1,
+        "rain": 59,
+        "rainDays": 13.1,
+        "sunHours": 0.7
+      }
+    ],
+    "source": {
+      "page": "Tallinn",
+      "location": "Tallinn, Estonia (normals 1991–2020 and extremes 1805–present)",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
+  },
+  "roatan": {
+    "months": [
+      {
+        "high": 27,
+        "low": 18.4,
+        "rain": 90,
+        "rainDays": 11,
+        "sunHours": 5.5
+      },
+      {
+        "high": 27.6,
+        "low": 18.4,
+        "rain": 90,
+        "rainDays": 8,
+        "sunHours": 6.8
+      },
+      {
+        "high": 29,
+        "low": 19.5,
+        "rain": 90,
+        "rainDays": 6,
+        "sunHours": 7
+      },
+      {
+        "high": 30.1,
+        "low": 20.7,
+        "rain": 41,
+        "rainDays": 6,
+        "sunHours": 7.8
+      },
+      {
+        "high": 31.3,
+        "low": 22.2,
+        "rain": 6,
+        "rainDays": 2,
+        "sunHours": 6.9
+      },
+      {
+        "high": 31.3,
+        "low": 22.6,
+        "rain": 155,
+        "rainDays": 10,
+        "sunHours": 6.4
+      },
+      {
+        "high": 30.8,
+        "low": 21.8,
+        "rain": 175,
+        "rainDays": 11,
+        "sunHours": 6.5
+      },
+      {
+        "high": 30.9,
+        "low": 21.8,
+        "rain": 197,
+        "rainDays": 13,
+        "sunHours": 7
+      },
+      {
+        "high": 30.6,
+        "low": 22,
+        "rain": 203,
+        "rainDays": 12,
+        "sunHours": 5.8
+      },
+      {
+        "high": 29.5,
+        "low": 21.2,
+        "rain": 424,
+        "rainDays": 14,
+        "sunHours": 4.9
+      },
+      {
+        "high": 28.2,
+        "low": 20.2,
+        "rain": 101,
+        "rainDays": 13,
+        "sunHours": 4.8
+      },
+      {
+        "high": 27.3,
+        "low": 19.1,
+        "rain": 101,
+        "rainDays": 12,
+        "sunHours": 4.9
+      }
+    ],
+    "source": {
+      "page": "La Ceiba",
+      "location": "La Ceiba, Honduras (Golosón International Airport) 1970–1990, extremes 1965–present",
+      "rain": "wikipedia",
+      "rainDaysUnit": "1.0 mm"
+    }
   }
 }

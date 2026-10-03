@@ -109,7 +109,10 @@
     "slug": "barcelona",
     "name": "Barcelona",
     "country": "Spain",
-    "hub": "Spain",
+    "hub": [
+      "Spain",
+      "Mediterranean"
+    ],
     "region": "Europe",
     "lat": 41.39,
     "lon": 2.17,
@@ -164,7 +167,10 @@
     "slug": "seville",
     "name": "Seville",
     "country": "Spain",
-    "hub": "Spain",
+    "hub": [
+      "Spain",
+      "Andalusia"
+    ],
     "region": "Europe",
     "lat": 37.39,
     "lon": -5.98,
@@ -432,7 +438,10 @@
         "Local cafés and better value"
       ]
     ],
-    "hub": "Central Europe"
+    "hub": [
+      "Central Europe",
+      "Eastern Europe"
+    ]
   },
   {
     "slug": "budapest",
@@ -485,7 +494,10 @@
         "Quiet, historic Buda side"
       ]
     ],
-    "hub": "Central Europe"
+    "hub": [
+      "Central Europe",
+      "Eastern Europe"
+    ]
   },
   {
     "slug": "krakow",
@@ -537,7 +549,10 @@
         "Quieter, across the river"
       ]
     ],
-    "hub": "Central Europe"
+    "hub": [
+      "Central Europe",
+      "Eastern Europe"
+    ]
   },
   {
     "slug": "split",
@@ -545,7 +560,9 @@
     "country": "Croatia",
     "hub": [
       "Croatia",
-      "Balkans"
+      "Balkans",
+      "Mediterranean",
+      "Eastern Europe"
     ],
     "region": "Europe",
     "lat": 43.51,
@@ -645,7 +662,8 @@
         "Vake",
         "Upscale, leafy district"
       ]
-    ]
+    ],
+    "hub": "Eastern Europe"
   },
   {
     "slug": "malta",
@@ -696,13 +714,17 @@
         "St Julian's",
         "Nightlife and restaurants"
       ]
-    ]
+    ],
+    "hub": "Mediterranean"
   },
   {
     "slug": "tenerife",
     "name": "Tenerife",
     "country": "Spain (Canary Islands)",
-    "hub": "Spain",
+    "hub": [
+      "Spain",
+      "Canary Islands"
+    ],
     "region": "Europe",
     "lat": 28.05,
     "lon": -16.57,
@@ -1081,7 +1103,7 @@
   },
   {
     "slug": "da-nang",
-    "name": "Da Nang & Hoi An",
+    "name": "Da Nang",
     "country": "Vietnam",
     "hub": [
       "Vietnam",
@@ -1104,14 +1126,14 @@
       "culture",
       "food"
     ],
-    "tagline": "Long sandy beaches next to lantern-lit Hoi An old town.",
-    "intro": "Da Nang has a modern city beach and mountains on its doorstep, while UNESCO-listed Hoi An, 40 minutes south, is famous for lanterns, tailors and some of Vietnam's best food.",
+    "tagline": "A long city beach with mountains, caves and a mountain pass on its doorstep.",
+    "intro": "Da Nang is central Vietnam's beach city: a 30 km sweep of sand along My Khe, the Marble Mountains and the Son Tra peninsula close by, and the Hai Van Pass to the north. Lantern-lit Hoi An is 40 minutes south.",
     "highlights": [
-      "Hoi An Ancient Town by lantern light",
       "My Khe beach",
-      "Golden Bridge at Ba Na Hills",
-      "Marble Mountains caves",
-      "Hai Van Pass motorbike ride"
+      "The Golden Bridge at Ba Na Hills",
+      "Caves and pagodas in the Marble Mountains",
+      "The Son Tra peninsula and the Lady Buddha statue",
+      "A motorbike ride over the Hai Van Pass"
     ],
     "best": "February–August: the dry season, with sunny beach weather.",
     "avoid": "October–November is typhoon and flood season along the central coast.",
@@ -1139,15 +1161,15 @@
     "stay": [
       [
         "My Khe Beach",
-        "Beachfront hotels in Da Nang"
+        "Beachfront hotels and seafood restaurants"
       ],
       [
-        "Hoi An Ancient Town",
-        "Lantern-lit heritage streets"
+        "Han River (city centre)",
+        "Riverside hotels near the Dragon Bridge and markets"
       ],
       [
-        "An Bang Beach",
-        "Laid-back beach near Hoi An"
+        "Non Nuoc Beach",
+        "Quieter resorts near the Marble Mountains"
       ]
     ]
   },
@@ -1457,7 +1479,8 @@
         "Colombo",
         "Capital for arrivals and food"
       ]
-    ]
+    ],
+    "hub": "Indian Ocean Islands"
   },
   {
     "slug": "kathmandu",
@@ -1781,7 +1804,8 @@
     ],
     "hub": [
       "Tanzania",
-      "East Africa"
+      "East Africa",
+      "Indian Ocean Islands"
     ]
   },
   {
@@ -3467,7 +3491,10 @@
     "slug": "mallorca",
     "name": "Mallorca",
     "country": "Spain",
-    "hub": "Spain",
+    "hub": [
+      "Spain",
+      "Mediterranean"
+    ],
     "region": "Europe",
     "lat": 39.57,
     "lon": 2.65,
@@ -3759,7 +3786,10 @@
     "slug": "amalfi-coast",
     "name": "Amalfi Coast",
     "country": "Italy",
-    "hub": "Italy",
+    "hub": [
+      "Italy",
+      "Mediterranean"
+    ],
     "region": "Europe",
     "lat": 40.63,
     "lon": 14.6,
@@ -3829,7 +3859,10 @@
     "slug": "antalya",
     "name": "Antalya",
     "country": "Türkiye",
-    "hub": "Türkiye",
+    "hub": [
+      "Türkiye",
+      "Mediterranean"
+    ],
     "region": "Europe",
     "lat": 36.9,
     "lon": 30.7,
@@ -4200,7 +4233,8 @@
     "country": "Greece",
     "hub": [
       "Greece",
-      "Greek islands"
+      "Greek islands",
+      "Mediterranean"
     ],
     "region": "Europe",
     "lat": 36.42,
@@ -4278,7 +4312,8 @@
     "country": "Greece",
     "hub": [
       "Greece",
-      "Greek islands"
+      "Greek islands",
+      "Mediterranean"
     ],
     "region": "Europe",
     "lat": 35.34,
@@ -4578,7 +4613,10 @@
     "slug": "sicily",
     "name": "Sicily",
     "country": "Italy",
-    "hub": "Italy",
+    "hub": [
+      "Italy",
+      "Mediterranean"
+    ],
     "region": "Europe",
     "lat": 38.12,
     "lon": 13.36,
@@ -5187,7 +5225,8 @@
         "Hulhumalé",
         "Transit stay near the airport"
       ]
-    ]
+    ],
+    "hub": "Indian Ocean Islands"
   },
   {
     "slug": "mauritius",
@@ -5250,7 +5289,8 @@
         "Belle Mare",
         "Luxury resorts on the east coast"
       ]
-    ]
+    ],
+    "hub": "Indian Ocean Islands"
   },
   {
     "slug": "seychelles",
@@ -5301,7 +5341,8 @@
         "La Digue",
         "Quiet island explored by bike"
       ]
-    ]
+    ],
+    "hub": "Indian Ocean Islands"
   },
   {
     "slug": "palawan",
@@ -6402,7 +6443,9 @@
     "country": "Croatia",
     "hub": [
       "Croatia",
-      "Balkans"
+      "Balkans",
+      "Mediterranean",
+      "Eastern Europe"
     ],
     "region": "Europe",
     "lat": 42.65,
@@ -8868,7 +8911,10 @@
     "slug": "destin",
     "name": "Destin & 30A",
     "country": "United States",
-    "hub": "Florida",
+    "hub": [
+      "Florida",
+      "Florida Gulf Coast"
+    ],
     "region": "North America",
     "lat": 30.39,
     "lon": -86.5,
@@ -10021,7 +10067,10 @@
     "slug": "patagonia",
     "name": "Patagonia (El Calafate & El Chaltén)",
     "country": "Argentina",
-    "hub": "Argentina",
+    "hub": [
+      "Argentina",
+      "Patagonia"
+    ],
     "region": "Central & South America",
     "lat": -50.34,
     "lon": -72.27,
@@ -10166,7 +10215,10 @@
     "slug": "bariloche",
     "name": "Bariloche",
     "country": "Argentina",
-    "hub": "Argentina",
+    "hub": [
+      "Argentina",
+      "Patagonia"
+    ],
     "region": "Central & South America",
     "lat": -41.13,
     "lon": -71.31,
@@ -10371,7 +10423,10 @@
     "slug": "torres-del-paine",
     "name": "Torres del Paine",
     "country": "Chile",
-    "hub": "Chile",
+    "hub": [
+      "Chile",
+      "Patagonia"
+    ],
     "region": "Central & South America",
     "lat": -50.94,
     "lon": -72.98,
@@ -11409,7 +11464,10 @@
     "slug": "french-riviera",
     "name": "Nice & the French Riviera",
     "country": "France",
-    "hub": "France",
+    "hub": [
+      "France",
+      "Mediterranean"
+    ],
     "region": "Europe",
     "lat": 43.7,
     "lon": 7.27,
@@ -12553,7 +12611,11 @@
     "slug": "kotor",
     "name": "Kotor",
     "country": "Montenegro",
-    "hub": "Balkans",
+    "hub": [
+      "Balkans",
+      "Mediterranean",
+      "Eastern Europe"
+    ],
     "region": "Europe",
     "lat": 42.42,
     "lon": 18.77,
@@ -12671,14 +12733,18 @@
     ],
     "hub": [
       "Central Europe",
-      "Alps"
+      "Alps",
+      "Eastern Europe"
     ]
   },
   {
     "slug": "albania",
     "name": "Albania",
     "country": "Albania",
-    "hub": "Balkans",
+    "hub": [
+      "Balkans",
+      "Eastern Europe"
+    ],
     "region": "Europe",
     "lat": 39.87,
     "lon": 20,
@@ -12800,7 +12866,10 @@
     "slug": "ibiza",
     "name": "Ibiza",
     "country": "Spain",
-    "hub": "Spain",
+    "hub": [
+      "Spain",
+      "Mediterranean"
+    ],
     "region": "Europe",
     "lat": 38.91,
     "lon": 1.43,
@@ -12882,7 +12951,8 @@
     "country": "Greece",
     "hub": [
       "Greece",
-      "Greek islands"
+      "Greek islands",
+      "Mediterranean"
     ],
     "region": "Europe",
     "lat": 36.43,
@@ -15334,5 +15404,2740 @@
         "12": "season"
       }
     }
+  },
+  {
+    "slug": "andaman-islands",
+    "name": "Andaman Islands",
+    "country": "India",
+    "hub": [
+      "India",
+      "Indian Ocean Islands"
+    ],
+    "region": "Asia",
+    "lat": 11.67,
+    "lon": 92.74,
+    "iata": "IXZ",
+    "wiki": "Andaman Islands",
+    "climateWiki": [
+      "Port Blair"
+    ],
+    "imageFile": "Radhanagar_Beach_(Swaraj_Dweep),_Andaman_and_Nicobar_Island.jpg",
+    "climate": "tropical",
+    "currency": "INR",
+    "tz": "UTC+5:30",
+    "budget": {
+      "low": 50,
+      "mid": 120
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "adventure"
+    ],
+    "tagline": "White-sand beaches and coral reefs in the Bay of Bengal.",
+    "intro": "India's Andaman Islands sit closer to Myanmar than to the mainland, with jungle-covered islands, turquoise water and some of South Asia's best diving. Most visitors fly to Port Blair and take ferries to Havelock (Swaraj Dweep) and Neil (Shaheed Dweep).",
+    "highlights": [
+      "Radhanagar Beach on Havelock Island",
+      "Scuba diving and snorkelling off Havelock and Neil islands",
+      "Cellular Jail and its light-and-sound show in Port Blair",
+      "Snorkelling at Elephant Beach",
+      "Kayaking through mangroves, with bioluminescence on dark nights"
+    ],
+    "best": "November–April: the dry season, with calm seas and the clearest water for diving; December–March is the sweet spot.",
+    "avoid": "May–September brings the south-west monsoon: heavy rain, rough seas and cancelled ferries.",
+    "adjust": {
+      "5": [
+        -5,
+        "Pre-monsoon storms and rough seas"
+      ],
+      "11": [
+        -5,
+        "Cyclone risk as the monsoon ends"
+      ]
+    },
+    "events": {
+      "1": "Island Tourism Festival in Port Blair, with music and dance from across India (usually January)."
+    },
+    "stay": [
+      [
+        "Havelock Island (Swaraj Dweep)",
+        "The best beaches, dive schools and resorts"
+      ],
+      [
+        "Neil Island (Shaheed Dweep)",
+        "Quieter, slower-paced island with coral reefs"
+      ],
+      [
+        "Port Blair",
+        "Gateway town with the airport, ferry port and Cellular Jail"
+      ]
+    ]
+  },
+  {
+    "slug": "hoi-an",
+    "name": "Hoi An",
+    "country": "Vietnam",
+    "hub": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "region": "Asia",
+    "lat": 15.88,
+    "lon": 108.33,
+    "iata": "DAD",
+    "wiki": "Hội An",
+    "climateWiki": [
+      "Hội An",
+      "Da Nang"
+    ],
+    "imageFile": "Hội_An,_Ancient_Town,_2020-01_CN-06.jpg",
+    "climate": "tropical",
+    "currency": "VND",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 35,
+      "mid": 90
+    },
+    "tags": [
+      "culture",
+      "food",
+      "history",
+      "beach"
+    ],
+    "tagline": "A lantern-lit trading port with tailors, street food and a beach nearby.",
+    "intro": "Hoi An's UNESCO-listed Ancient Town is a beautifully preserved trading port of yellow shophouses, Chinese assembly halls and silk lanterns along the Thu Bon River. It's famous for its tailors and food, with rice paddies and the beach at An Bang a short bike ride away.",
+    "highlights": [
+      "The Ancient Town and the Japanese Covered Bridge",
+      "Lantern-lit evenings and boat rides on the Thu Bon River",
+      "Made-to-measure clothes from the tailors, often within a day or two",
+      "Cao lầu noodles and bánh mì at the market",
+      "Day trip to the My Son temple ruins"
+    ],
+    "best": "February–April: dry, sunny and warm, before the hottest months; May–August is hotter but still mostly dry.",
+    "avoid": "October–November is typhoon and flood season, when the river can flood the old town's streets.",
+    "adjust": {
+      "9": [
+        -5,
+        "Start of the typhoon season"
+      ],
+      "10": [
+        -15,
+        "Typhoon and flood season"
+      ],
+      "11": [
+        -15,
+        "Typhoon and flood season"
+      ],
+      "12": [
+        -5,
+        "Lingering rains and rough seas"
+      ]
+    },
+    "events": {
+      "2": "Lunar New Year (Tết) fills the old town with flowers and lanterns (late January or February).",
+      "9": "Mid-Autumn Festival brings lantern parades and lion dances to the old town (September or early October)."
+    },
+    "stay": [
+      [
+        "Ancient Town",
+        "Walk to everything; busiest in the evening"
+      ],
+      [
+        "An Bang Beach",
+        "Laid-back beach bars and villas, 15 minutes by bike"
+      ],
+      [
+        "Cam Thanh",
+        "Rice paddies and coconut-palm villages between town and the sea"
+      ]
+    ]
+  },
+  {
+    "slug": "koh-phangan",
+    "name": "Koh Phangan & Koh Tao",
+    "country": "Thailand",
+    "hub": [
+      "Thailand",
+      "Southeast Asia"
+    ],
+    "region": "Asia",
+    "lat": 9.75,
+    "lon": 100.03,
+    "iata": "USM",
+    "wiki": "Ko Pha-ngan",
+    "climateWiki": [
+      "Ko Pha-ngan",
+      "Ko Samui",
+      "Surat Thani"
+    ],
+    "imageFile": "Hin_Wong_Bay.jpg",
+    "climate": "tropical",
+    "currency": "THB",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 40,
+      "mid": 100
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nightlife",
+      "adventure"
+    ],
+    "tagline": "Full Moon parties, quiet coves and the cheapest diving courses in Asia.",
+    "intro": "Koh Phangan is known for Haad Rin's Full Moon Party, but most of the island is jungle, yoga retreats and quiet bays. Little Koh Tao, two hours north by ferry, is one of the world's most popular places to learn to dive. Both share Koh Samui's Gulf of Thailand weather.",
+    "highlights": [
+      "The Full Moon Party on Haad Rin beach",
+      "Learning to dive on Koh Tao",
+      "Snorkelling at Koh Nang Yuan's three-island sandbar",
+      "Hiking to Bottle Beach and the Than Sadet waterfalls",
+      "Yoga and wellness retreats around Sri Thanu"
+    ],
+    "best": "February–August: the Gulf of Thailand's long dry spell, when the Andaman coast is in its rainy season.",
+    "avoid": "October–December brings the heaviest rain and rough seas; some ferries are cancelled in November.",
+    "adjust": {},
+    "events": {
+      "4": "Songkran, the Thai New Year, means island-wide water fights (13–15 April)."
+    },
+    "stay": [
+      [
+        "Haad Rin (Koh Phangan)",
+        "Party central and home of the Full Moon Party"
+      ],
+      [
+        "Thong Nai Pan (Koh Phangan)",
+        "Two quiet bays with upscale resorts"
+      ],
+      [
+        "Sairee Beach (Koh Tao)",
+        "Dive schools, sunsets and beach bars"
+      ]
+    ]
+  },
+  {
+    "slug": "mount-fuji",
+    "name": "Mount Fuji & Hakone",
+    "country": "Japan",
+    "hub": "Japan",
+    "region": "Asia",
+    "lat": 35.4,
+    "lon": 138.85,
+    "iata": "HND",
+    "wiki": "Mount Fuji",
+    "climateWiki": [
+      "Fujikawaguchiko, Yamanashi",
+      "Kawaguchiko",
+      "Hakone, Kanagawa"
+    ],
+    "imagePage": [
+      "Chūreitō Pagoda",
+      "Mount Fuji"
+    ],
+    "climate": "temperate",
+    "currency": "JPY",
+    "tz": "UTC+9",
+    "budget": {
+      "low": 90,
+      "mid": 200
+    },
+    "tags": [
+      "nature",
+      "wellness",
+      "culture",
+      "adventure"
+    ],
+    "tagline": "Japan's sacred volcano, mirror lakes and hot-spring inns.",
+    "intro": "The lakes at Fuji's northern foot and the hot-spring resort of Hakone are both an easy trip from Tokyo. The mountain is shy: it's most often clear on cold, dry winter mornings and usually hidden by cloud in the humid summer, when the climbing season opens.",
+    "highlights": [
+      "The classic view of Fuji from Chureito Pagoda",
+      "Climbing Mount Fuji overnight for sunrise (July–early September)",
+      "A night in a Hakone ryokan with its own hot-spring bath",
+      "Lake Ashi by pirate ship and the Hakone Ropeway over Owakudani",
+      "Cycling around Lake Kawaguchiko"
+    ],
+    "best": "April–May and October–November: mild days, with cherry blossoms in April and autumn colours in November. Winter is cold but has the clearest views of Fuji; July–early September is the climbing season.",
+    "avoid": "June–August: the rainy season and humid summer haze usually hide the mountain, and typhoons can arrive from August.",
+    "adjust": {
+      "6": [
+        -10,
+        "Rainy season (tsuyu): Fuji is usually hidden by cloud"
+      ],
+      "7": [
+        -5,
+        "Hazy and humid; Fuji often in cloud, though the climbing season opens"
+      ],
+      "8": [
+        -5,
+        "Hazy and humid, with typhoon risk; peak climbing season"
+      ]
+    },
+    "events": {
+      "4": "Cherry blossoms frame Fuji at Chureito Pagoda and around Lake Kawaguchiko (early to mid-April).",
+      "7": "The official Fuji climbing season opens in early or mid-July and runs to early September.",
+      "11": "Fuji Kawaguchiko Autumn Leaves Festival along the lake’s Momiji Corridor (early to mid-November)."
+    },
+    "foliage": {
+      "where": "the Momiji Corridor at Lake Kawaguchiko and the hills around Hakone's Lake Ashi",
+      "months": {
+        "11": "peak"
+      }
+    },
+    "stay": [
+      [
+        "Lake Kawaguchiko",
+        "The best Fuji views and lakeside hotels"
+      ],
+      [
+        "Hakone-Yumoto",
+        "Onsen town about 90 minutes from Tokyo"
+      ],
+      [
+        "Gora (Hakone)",
+        "Ryokan with private hot-spring baths on the Hakone loop"
+      ]
+    ]
+  },
+  {
+    "slug": "hiroshima",
+    "name": "Hiroshima & Miyajima",
+    "country": "Japan",
+    "hub": "Japan",
+    "region": "Asia",
+    "lat": 34.39,
+    "lon": 132.46,
+    "iata": "HIJ",
+    "wiki": "Hiroshima",
+    "imagePage": [
+      "Itsukushima Shrine",
+      "Miyajima"
+    ],
+    "climate": "temperate",
+    "currency": "JPY",
+    "tz": "UTC+9",
+    "budget": {
+      "low": 80,
+      "mid": 180
+    },
+    "tags": [
+      "history",
+      "culture",
+      "food",
+      "islands"
+    ],
+    "tagline": "A moving peace memorial and a shrine that floats at high tide.",
+    "intro": "Rebuilt after 1945, Hiroshima is a green, friendly city whose Peace Memorial Park and museum are among Japan's most important sights. A short ferry ride away, Miyajima island has the famous 'floating' torii gate of Itsukushima Shrine, tame deer and hikes up Mount Misen.",
+    "highlights": [
+      "Peace Memorial Park, the Atomic Bomb Dome and the museum",
+      "The floating torii of Itsukushima Shrine at high tide",
+      "Hiking or riding the ropeway up Mount Misen",
+      "Hiroshima-style okonomiyaki",
+      "Shukkeien Garden and Hiroshima Castle"
+    ],
+    "best": "March–May and October–November: mild, mostly dry days, with cherry blossoms in early April and red maples on Miyajima in November.",
+    "avoid": "June–July is the rainy season, followed by a hot, humid August with typhoon risk into September.",
+    "adjust": {
+      "9": [
+        -5,
+        "Typhoon season"
+      ]
+    },
+    "events": {
+      "4": "Cherry blossoms in Peace Memorial Park and on Miyajima (late March to early April).",
+      "8": "The Peace Memorial Ceremony and lantern floating on 6 August."
+    },
+    "foliage": {
+      "where": "Momijidani Park on Miyajima and Shukkeien Garden",
+      "months": {
+        "11": "peak"
+      }
+    },
+    "stay": [
+      [
+        "Hiroshima city centre (Hondori)",
+        "Near the Peace Park, trams and restaurants"
+      ],
+      [
+        "Hiroshima Station",
+        "Easy bullet-train connections"
+      ],
+      [
+        "Miyajima",
+        "Stay overnight to see the shrine after the day-trippers leave"
+      ]
+    ]
+  },
+  {
+    "slug": "pokhara",
+    "name": "Pokhara",
+    "country": "Nepal",
+    "hub": "Nepal & Bhutan",
+    "region": "Asia",
+    "lat": 28.21,
+    "lon": 83.99,
+    "iata": "PKR",
+    "wiki": "Pokhara",
+    "imagePage": [
+      "Phewa Lake",
+      "Pokhara"
+    ],
+    "climate": "highland",
+    "currency": "NPR",
+    "tz": "UTC+5:45",
+    "budget": {
+      "low": 30,
+      "mid": 70
+    },
+    "tags": [
+      "nature",
+      "trekking",
+      "adventure"
+    ],
+    "tagline": "A lakeside town beneath the Annapurnas and the gateway to Nepal’s best treks.",
+    "intro": "Pokhara sits on Phewa Lake with the snow peaks of the Annapurna range rising straight behind it. It is the starting point for the Annapurna Circuit, Annapurna Base Camp and Poon Hill treks, and a relaxed place to recover afterwards.",
+    "highlights": [
+      "Sunrise over the Annapurnas from Sarangkot",
+      "Paragliding over Phewa Lake",
+      "Boating to the Tal Barahi island temple",
+      "Trekking to Poon Hill or Annapurna Base Camp",
+      "The World Peace Pagoda above the lake"
+    ],
+    "best": "October–November: clear Himalayan views and dry trails after the monsoon. March–April is the second-best season, with rhododendrons in bloom.",
+    "avoid": "June–September is the monsoon: Pokhara is one of the wettest places in Nepal, with cloud hiding the peaks, leeches on trails and landslides on roads.",
+    "adjust": {},
+    "events": {
+      "10": "Dashain, Nepal’s biggest festival, with kites and family gatherings (late September or October).",
+      "11": "Tihar, the five-day festival of lights (October or November)."
+    },
+    "stay": [
+      [
+        "Lakeside",
+        "Cafés, gear shops and lake views"
+      ],
+      [
+        "Sarangkot",
+        "Mountain-view lodges above the town"
+      ],
+      [
+        "Damside",
+        "Quieter streets with views across Phewa Lake"
+      ]
+    ]
+  },
+  {
+    "slug": "raja-ampat",
+    "name": "Raja Ampat",
+    "country": "Indonesia",
+    "hub": [
+      "Indonesia",
+      "Southeast Asia"
+    ],
+    "region": "Asia",
+    "lat": -0.42,
+    "lon": 130.82,
+    "iata": "SOQ",
+    "wiki": "Raja Ampat Islands",
+    "climateWiki": [
+      "Sorong",
+      "Raja Ampat Islands"
+    ],
+    "imageFile": "Pulau_Piaynemo,_Raja_Ampat.jpg",
+    "climate": "tropical",
+    "currency": "IDR",
+    "tz": "UTC+9",
+    "budget": {
+      "low": 100,
+      "mid": 250
+    },
+    "tags": [
+      "islands",
+      "nature",
+      "wildlife",
+      "adventure"
+    ],
+    "tagline": "The world's richest coral reefs among jungle-covered karst islands.",
+    "intro": "Raja Ampat, off the tip of West Papua, has more species of coral and reef fish than anywhere else on Earth. Getting there takes time — fly to Sorong, then ferry to Waigeo — and most visitors stay in simple homestays, dive resorts or on a liveaboard boat.",
+    "highlights": [
+      "Diving and snorkelling the world’s most biodiverse reefs",
+      "The view over Piaynemo's karst islands",
+      "Wayag’s lagoons by liveaboard",
+      "Birds of paradise displaying at dawn on Waigeo",
+      "Manta rays at Manta Sandy"
+    ],
+    "best": "October–April: calm seas and the main liveaboard season. It is warm and diveable all year, with short tropical showers.",
+    "avoid": "July–August: the windiest months, with rough crossings; many liveaboards leave the area.",
+    "adjust": {
+      "7": [
+        -10,
+        "Windy season with rough seas; fewer liveaboards"
+      ],
+      "8": [
+        -10,
+        "Windy season with rough seas; fewer liveaboards"
+      ]
+    },
+    "events": {},
+    "stay": [
+      [
+        "Waisai (Waigeo)",
+        "Ferry hub with homestays and resorts nearby"
+      ],
+      [
+        "Kri & Gam islands",
+        "Dive resorts next to the best reefs"
+      ],
+      [
+        "Liveaboard",
+        "The best way to reach Misool and Wayag"
+      ]
+    ]
+  },
+  {
+    "slug": "abu-dhabi",
+    "name": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "hub": "Middle East",
+    "region": "Middle East & Africa",
+    "lat": 24.45,
+    "lon": 54.38,
+    "iata": "AUH",
+    "wiki": "Abu Dhabi",
+    "imagePage": [
+      "Sheikh Zayed Grand Mosque",
+      "Abu Dhabi"
+    ],
+    "climate": "temperate",
+    "currency": "AED",
+    "tz": "UTC+4",
+    "budget": {
+      "low": 110,
+      "mid": 250
+    },
+    "tags": [
+      "city",
+      "beach",
+      "culture",
+      "luxury",
+      "family"
+    ],
+    "tagline": "A grand mosque, world-class museums and theme parks on the Gulf.",
+    "intro": "The UAE's capital is calmer and more cultural than Dubai, an hour and a half up the coast. It has the Sheikh Zayed Grand Mosque, the Louvre Abu Dhabi, quiet beaches on Saadiyat Island and the theme parks and Formula 1 circuit on Yas Island.",
+    "highlights": [
+      "Sheikh Zayed Grand Mosque",
+      "Louvre Abu Dhabi",
+      "Ferrari World and Warner Bros. World on Yas Island",
+      "Saadiyat Island beaches",
+      "Desert safari in the Liwa dunes"
+    ],
+    "best": "November–March: warm, sunny days (24–30°C) for the beach, the desert and sightseeing.",
+    "avoid": "June–September: highs above 40°C and humid nights make it too hot to be outside for long.",
+    "adjust": {},
+    "events": {
+      "12": "Formula 1 Abu Dhabi Grand Prix at Yas Marina, the season finale (late November or early December)."
+    },
+    "stay": [
+      [
+        "Corniche",
+        "City beach, parks and skyline hotels"
+      ],
+      [
+        "Saadiyat Island",
+        "Beach resorts next to the Louvre"
+      ],
+      [
+        "Yas Island",
+        "Theme parks, the F1 circuit and family hotels"
+      ]
+    ]
+  },
+  {
+    "slug": "madagascar",
+    "name": "Madagascar",
+    "country": "Madagascar",
+    "hub": "Indian Ocean Islands",
+    "region": "Middle East & Africa",
+    "lat": -18.88,
+    "lon": 47.51,
+    "iata": "TNR",
+    "wiki": "Madagascar",
+    "climateWiki": [
+      "Antananarivo"
+    ],
+    "imagePage": [
+      "Avenue of the Baobabs",
+      "Madagascar"
+    ],
+    "climate": "highland",
+    "currency": "MGA",
+    "tz": "UTC+3",
+    "budget": {
+      "low": 50,
+      "mid": 120
+    },
+    "tags": [
+      "wildlife",
+      "nature",
+      "beach",
+      "adventure"
+    ],
+    "tagline": "Lemurs, baobabs and wildlife found nowhere else on Earth.",
+    "intro": "The world’s fourth-largest island split from Africa 160 million years ago, and most of its wildlife — lemurs, chameleons, baobabs — lives nowhere else. Distances are long and roads rough, so most trips combine the central highlands around Antananarivo with one or two regions by domestic flight. Climate figures here are for Antananarivo, on the central plateau; the coasts are hotter.",
+    "highlights": [
+      "The Avenue of the Baobabs at sunset near Morondava",
+      "Indri lemurs in Andasibe-Mantadia National Park",
+      "The limestone stone forest of Tsingy de Bemaraha (dry season only)",
+      "Beaches and diving around Nosy Be",
+      "Ranomafana's rainforest and Isalo's canyons"
+    ],
+    "best": "April–November: the dry season. September–November is the classic time, with baby lemurs and warm weather before the rains.",
+    "avoid": "January–March: cyclone season and heavy rain, when many roads wash out and some parks close.",
+    "adjust": {
+      "1": [
+        -10,
+        "Cyclone season; roads can be impassable"
+      ],
+      "2": [
+        -15,
+        "Peak cyclone season"
+      ],
+      "3": [
+        -10,
+        "Cyclone season"
+      ]
+    },
+    "events": {
+      "6": "Independence Day celebrations on 26 June.",
+      "8": "Famadihana, the highland \"turning of the bones\" family ceremonies, take place between July and September."
+    },
+    "stay": [
+      [
+        "Antananarivo",
+        "The capital and arrival point, on the central highlands"
+      ],
+      [
+        "Andasibe",
+        "Rainforest lodges for lemur walks, 3–4 hours by road from the capital"
+      ],
+      [
+        "Nosy Be",
+        "Island beach resorts in the north-west"
+      ]
+    ]
+  },
+  {
+    "slug": "rwanda",
+    "name": "Rwanda",
+    "country": "Rwanda",
+    "hub": "East Africa",
+    "region": "Middle East & Africa",
+    "lat": -1.94,
+    "lon": 30.06,
+    "iata": "KGL",
+    "wiki": "Rwanda",
+    "climateWiki": [
+      "Ruhengeri",
+      "Kigali"
+    ],
+    "imageFile": "Mountain_gorilla_(Gorilla_beringei_beringei)_eating.jpg",
+    "climate": "highland",
+    "currency": "RWF",
+    "tz": "UTC+2",
+    "budget": {
+      "low": 150,
+      "mid": 400
+    },
+    "tags": [
+      "wildlife",
+      "nature",
+      "trekking",
+      "adventure"
+    ],
+    "tagline": "Face to face with mountain gorillas in the Virunga volcanoes.",
+    "intro": "Rwanda is the most accessible place to trek to mountain gorillas, a two-hour drive from the clean, safe capital Kigali. Permits cost US$1,500 per person and sell out months ahead in the dry seasons; budgets here exclude them. Climate figures are for Musanze (Ruhengeri), the gateway town at about 1,850 m — the forest above is cooler and wetter.",
+    "highlights": [
+      "Mountain gorilla trekking in Volcanoes National Park",
+      "Golden monkey tracking in the bamboo forest",
+      "Chimpanzees and the canopy walkway in Nyungwe Forest",
+      "Lake Kivu’s shores at Rubavu and Karongi",
+      "The Kigali Genocide Memorial"
+    ],
+    "best": "June–September and December–February: the dry seasons, when forest trails to the gorillas are least muddy.",
+    "avoid": "March–May (long rains) and November (short rains) bring muddy, slippery treks — though permits are easier to get.",
+    "adjust": {
+      "3": [
+        -5,
+        "Long rains: muddy, slippery gorilla treks"
+      ],
+      "4": [
+        -10,
+        "Peak of the long rains"
+      ],
+      "5": [
+        -5,
+        "End of the long rains"
+      ],
+      "10": [
+        -5,
+        "Short rains: muddy trails"
+      ],
+      "11": [
+        -5,
+        "Short rains: muddy trails"
+      ]
+    },
+    "events": {
+      "9": "Kwita Izina, the national baby-gorilla naming ceremony (usually September)."
+    },
+    "stay": [
+      [
+        "Kigali",
+        "Safe, green capital with good restaurants"
+      ],
+      [
+        "Musanze (Ruhengeri)",
+        "Gateway town for gorilla treks"
+      ],
+      [
+        "Lake Kivu (Rubavu)",
+        "Lakeside rest after trekking"
+      ]
+    ]
+  },
+  {
+    "slug": "cape-verde",
+    "name": "Cape Verde",
+    "country": "Cape Verde",
+    "region": "Middle East & Africa",
+    "lat": 16.6,
+    "lon": -22.9,
+    "iata": "SID",
+    "wiki": "Cape Verde",
+    "climateWiki": [
+      "Sal, Cape Verde",
+      "Espargos",
+      "Amílcar Cabral International Airport"
+    ],
+    "imageFile": "20240101_123825_beach_near_Santa_Maria,_Sal,_Cabo_Verde.jpg",
+    "climate": "tropical",
+    "currency": "CVE",
+    "tz": "UTC−1",
+    "budget": {
+      "low": 60,
+      "mid": 140
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature"
+    ],
+    "tagline": "Year-round sunshine, kitesurfing and music off the coast of West Africa.",
+    "intro": "Cape Verde is a chain of volcanic islands in the Atlantic, about four hours’ flight from much of Europe. Flat, desert-like Sal and Boa Vista have the long beaches and resorts; green Santo Antão and volcanic Fogo are for hiking, and Mindelo on São Vicente is the home of morna music. Climate figures are for Sal.",
+    "highlights": [
+      "Santa Maria beach and kitesurfing on Sal",
+      "Hiking the green valleys of Santo Antão",
+      "Climbing the Pico do Fogo volcano",
+      "Live morna music in Mindelo's bars",
+      "Loggerhead turtles nesting on Boa Vista (June–October)"
+    ],
+    "best": "November–June: dry, sunny and breezy, with highs of 25–27°C — reliable winter sun.",
+    "avoid": "August–October is the short rainy season: more humid, with occasional heavy showers.",
+    "adjust": {},
+    "events": {
+      "2": "Carnival in Mindelo, São Vicente, with Brazilian-style parades (February or early March).",
+      "8": "Baía das Gatas music festival on São Vicente, held on the August full moon."
+    },
+    "stay": [
+      [
+        "Santa Maria (Sal)",
+        "Beach resorts, kitesurf schools and bars"
+      ],
+      [
+        "Boa Vista",
+        "Long empty beaches and all-inclusive resorts"
+      ],
+      [
+        "Mindelo (São Vicente)",
+        "Colonial port town with live music"
+      ]
+    ]
+  },
+  {
+    "slug": "samoa",
+    "name": "Samoa",
+    "country": "Samoa",
+    "hub": "South Pacific",
+    "region": "Oceania",
+    "lat": -13.83,
+    "lon": -171.76,
+    "iata": "APW",
+    "wiki": "Samoa",
+    "climateWiki": [
+      "Apia"
+    ],
+    "imageFile": "Beach_fale_at_Falealupo_beach,_Savai'i,_Samoa_-_August_2016.jpg",
+    "climate": "tropical",
+    "currency": "WST",
+    "tz": "UTC+13",
+    "budget": {
+      "low": 70,
+      "mid": 160
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "culture"
+    ],
+    "tagline": "Beach fales, swimming holes and traditional Polynesian village life.",
+    "intro": "Samoa is one of the least commercialised South Pacific destinations: two main islands, Upolu and Savai’i, with traditional villages, lava fields, waterfalls and white-sand beaches where you can sleep in an open-sided beach fale. Fa’a Samoa, the Samoan way of life, is still central to daily life.",
+    "highlights": [
+      "Swimming in the To Sua Ocean Trench",
+      "A night in a beach fale at Lalomanu",
+      "Piula Cave Pool",
+      "The Alofaaga blowholes on Savai'i",
+      "Robert Louis Stevenson’s house and museum near Apia"
+    ],
+    "best": "May–October: the dry season, with lower humidity, calm seas and trade winds.",
+    "avoid": "December–March: the wet and cyclone season, hot and humid with heavy downpours.",
+    "adjust": {
+      "1": [
+        -5,
+        "Cyclone season"
+      ],
+      "2": [
+        -5,
+        "Cyclone season"
+      ],
+      "3": [
+        -5,
+        "Cyclone season"
+      ]
+    },
+    "events": {
+      "6": "Independence celebrations with parades and canoe races (early June).",
+      "9": "Teuila Festival in Apia celebrates Samoan dance, music and food (early September)."
+    },
+    "stay": [
+      [
+        "Apia",
+        "The capital, with markets, cafés and the RLS museum"
+      ],
+      [
+        "Lalomanu (Upolu)",
+        "Beach fales on the white-sand south-east coast"
+      ],
+      [
+        "Savai'i",
+        "Quieter, wilder island with lava fields and blowholes"
+      ]
+    ]
+  },
+  {
+    "slug": "puglia",
+    "name": "Puglia",
+    "country": "Italy",
+    "hub": [
+      "Italy",
+      "Mediterranean"
+    ],
+    "region": "Europe",
+    "lat": 40.99,
+    "lon": 17.22,
+    "iata": "BRI",
+    "wiki": "Apulia",
+    "climateWiki": [
+      "Bari",
+      "Brindisi"
+    ],
+    "imagePage": [
+      "Polignano a Mare",
+      "Alberobello"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 70,
+      "mid": 160
+    },
+    "tags": [
+      "beach",
+      "food",
+      "culture",
+      "history"
+    ],
+    "tagline": "Trulli, whitewashed towns and turquoise coves in Italy's heel.",
+    "intro": "Puglia, the heel of Italy's boot, has hundreds of kilometres of coastline, cone-roofed trulli in the Itria Valley, Baroque Lecce and some of Italy's best-value food and wine. It's hot and sunny from May to October, and much quieter than the Amalfi Coast.",
+    "highlights": [
+      "The trulli of Alberobello",
+      "Polignano a Mare's cliff-top old town",
+      "Baroque churches and piazzas in Lecce",
+      "Salento's beaches, from Torre dell'Orso to Pescoluse",
+      "Matera’s cave dwellings, just over the border in Basilicata"
+    ],
+    "best": "May–June and September: hot sun and warm sea without the August crowds.",
+    "avoid": "August is very hot and packed with Italian holidaymakers; from November to March many beach places close.",
+    "adjust": {
+      "8": [
+        -5,
+        "Ferragosto crowds and peak prices"
+      ]
+    },
+    "events": {
+      "8": "La Notte della Taranta, a month of folk-music concerts across Salento, ends with a huge finale in Melpignano (August)."
+    },
+    "stay": [
+      [
+        "Polignano a Mare & Monopoli",
+        "Clifftop and harbour towns near Bari"
+      ],
+      [
+        "Valle d'Itria",
+        "Trulli and masseria farm stays"
+      ],
+      [
+        "Lecce",
+        "Baroque city and base for Salento's beaches"
+      ]
+    ]
+  },
+  {
+    "slug": "sardinia",
+    "name": "Sardinia",
+    "country": "Italy",
+    "hub": [
+      "Italy",
+      "Mediterranean"
+    ],
+    "region": "Europe",
+    "lat": 39.22,
+    "lon": 9.12,
+    "iata": "CAG",
+    "wiki": "Sardinia",
+    "climateWiki": [
+      "Cagliari",
+      "Olbia"
+    ],
+    "imageFile": "Cala_Goloritzé_3.JPG",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 80,
+      "mid": 180
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "food"
+    ],
+    "tagline": "Caribbean-clear water, granite coves and Bronze Age towers.",
+    "intro": "Sardinia has some of the Mediterranean's clearest water, from the glamorous Costa Smeralda and the La Maddalena islands in the north to the cliffs and coves of the Gulf of Orosei in the east. Inland it's wild and mountainous, dotted with thousands of prehistoric nuraghe towers. Climate figures are for Cagliari, in the south.",
+    "highlights": [
+      "Boat trips around the La Maddalena archipelago",
+      "Cala Goloritzé and the coves of the Gulf of Orosei",
+      "Su Nuraxi, the UNESCO-listed Bronze Age fortress",
+      "The Costa Smeralda’s beaches and Porto Cervo",
+      "Alghero's walled old town"
+    ],
+    "best": "June and September: hot beach weather and the clearest water, without August’s crowds and prices.",
+    "avoid": "August is peak season with high prices and busy beaches; from November to March many resorts close.",
+    "adjust": {
+      "8": [
+        -5,
+        "Peak-season crowds and prices"
+      ]
+    },
+    "events": {
+      "5": "Sant'Efisio, one of Italy's largest religious processions, fills Cagliari with costumes on 1 May.",
+      "7": "S’Ardia, a dramatic horse race in Sedilo (6–7 July)."
+    },
+    "stay": [
+      [
+        "Costa Smeralda (Porto Cervo)",
+        "Glamorous resorts, beaches and yachts"
+      ],
+      [
+        "Cala Gonone",
+        "Base for boat trips along the Gulf of Orosei"
+      ],
+      [
+        "Alghero",
+        "Catalan-flavoured old town with beaches nearby"
+      ]
+    ]
+  },
+  {
+    "slug": "cyprus",
+    "name": "Cyprus",
+    "country": "Cyprus",
+    "hub": "Mediterranean",
+    "region": "Europe",
+    "lat": 34.77,
+    "lon": 32.42,
+    "iata": "PFO",
+    "wiki": "Cyprus",
+    "climateWiki": [
+      "Paphos",
+      "Limassol",
+      "Larnaca"
+    ],
+    "imagePage": [
+      "Petra tou Romiou",
+      "Cape Greco",
+      "Cyprus"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 70,
+      "mid": 150
+    },
+    "tags": [
+      "beach",
+      "history",
+      "islands",
+      "food"
+    ],
+    "tagline": "The Mediterranean's sunniest island, with Roman mosaics and mountain villages.",
+    "intro": "Cyprus has some of the longest summers in Europe, with swimming from May to November and mild, sunny winters. Paphos has UNESCO-listed Roman mosaics, Ayia Napa the best beaches, and the Troodos Mountains painted churches and wine villages. Climate figures are for Paphos.",
+    "highlights": [
+      "Roman mosaics and the Tombs of the Kings in Paphos",
+      "Aphrodite's Rock (Petra tou Romiou)",
+      "Troodos mountain villages and painted churches",
+      "The Blue Lagoon on the Akamas peninsula",
+      "Cape Greco and the beaches of Ayia Napa"
+    ],
+    "best": "April–June and September–October: warm, sunny and dry, with the sea warm enough to swim from June.",
+    "avoid": "July–August is very hot, especially inland (35°C and up); December–February is mild but the rainiest time.",
+    "adjust": {},
+    "events": {
+      "6": "Kataklysmos, the Festival of the Flood, fills Larnaca's seafront around Orthodox Pentecost (late May or June)."
+    },
+    "stay": [
+      [
+        "Paphos",
+        "Archaeological sites, the harbour and resorts"
+      ],
+      [
+        "Limassol",
+        "Lively seafront, marina and old town"
+      ],
+      [
+        "Ayia Napa & Protaras",
+        "The best beaches and nightlife"
+      ]
+    ]
+  },
+  {
+    "slug": "granada",
+    "name": "Granada & Andalusia",
+    "country": "Spain",
+    "hub": [
+      "Spain",
+      "Andalusia"
+    ],
+    "region": "Europe",
+    "lat": 37.18,
+    "lon": -3.6,
+    "iata": "GRX",
+    "wiki": "Granada",
+    "imagePage": [
+      "Alhambra",
+      "Granada"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 60,
+      "mid": 140
+    },
+    "tags": [
+      "culture",
+      "history",
+      "food",
+      "city"
+    ],
+    "tagline": "The Alhambra, free tapas and snow-capped Sierra Nevada views.",
+    "intro": "Granada's Alhambra is one of the world's great palaces, set against the snowy peaks of the Sierra Nevada. The city is a great base for Andalusia's white villages, with Moorish streets in the Albaicín, flamenco in the Sacromonte caves and a free tapa with every drink. In winter you can ski in the morning and walk in the sun in the afternoon.",
+    "highlights": [
+      "The Alhambra palaces and Generalife gardens",
+      "Sunset over the Alhambra from the Mirador de San Nicolás",
+      "A free tapa with every drink",
+      "Skiing in the Sierra Nevada (December–April)",
+      "The white villages of the Alpujarras"
+    ],
+    "best": "March–May and October–November: warm, sunny days for the Alhambra and Andalusia’s white villages.",
+    "avoid": "July–August: Granada and inland Andalusia regularly exceed 35–40°C.",
+    "adjust": {
+      "7": [
+        -10,
+        "Frequent heatwaves above 38°C"
+      ],
+      "8": [
+        -10,
+        "Frequent heatwaves above 38°C"
+      ]
+    },
+    "events": {
+      "4": "Semana Santa (Holy Week) processions wind through the old town (March or April).",
+      "5": "Día de la Cruz on 3 May fills the squares with flower-covered crosses, followed by the Corpus Christi fair (May or June)."
+    },
+    "ski": {
+      "resorts": "Sierra Nevada (Pradollano), 45 minutes from the city",
+      "months": {
+        "1": "peak",
+        "2": "peak",
+        "3": "season",
+        "4": "late",
+        "12": "season"
+      }
+    },
+    "stay": [
+      [
+        "Albaicín",
+        "Moorish quarter with Alhambra views"
+      ],
+      [
+        "Centro (Plaza Nueva)",
+        "Walk to the cathedral and the tapas bars"
+      ],
+      [
+        "Realejo",
+        "The old Jewish quarter: local and lively"
+      ]
+    ]
+  },
+  {
+    "slug": "normandy",
+    "name": "Normandy",
+    "country": "France",
+    "hub": "France",
+    "region": "Europe",
+    "lat": 49.18,
+    "lon": -0.37,
+    "iata": "CFR",
+    "wiki": "Normandy",
+    "climateWiki": [
+      "Caen"
+    ],
+    "imagePage": [
+      "Mont-Saint-Michel",
+      "Étretat"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 80,
+      "mid": 170
+    },
+    "tags": [
+      "history",
+      "culture",
+      "food",
+      "nature"
+    ],
+    "tagline": "Mont-Saint-Michel, the D-Day beaches and chalk cliffs on the Channel.",
+    "intro": "Normandy, two hours west of Paris, combines Mont-Saint-Michel, the D-Day landing beaches and Monet's garden at Giverny with chalk cliffs, half-timbered towns, cider and Camembert. The weather is mild and changeable all year, like southern England's.",
+    "highlights": [
+      "Mont-Saint-Michel and its tidal bay",
+      "The D-Day beaches and the American Cemetery at Colleville",
+      "Étretat's chalk cliffs and sea arches",
+      "Monet's house and garden at Giverny (April–October)",
+      "The Bayeux Tapestry"
+    ],
+    "best": "May–September: the warmest and driest months, with long days for the coast and Mont-Saint-Michel.",
+    "avoid": "November–February: cold, grey and wet, with short days; some attractions shorten their hours.",
+    "adjust": {},
+    "events": {
+      "6": "D-Day commemorations, parachute drops and parades on and around 6 June."
+    },
+    "stay": [
+      [
+        "Bayeux",
+        "Base for the D-Day beaches and the Tapestry"
+      ],
+      [
+        "Honfleur",
+        "Picturesque harbour town on the Seine estuary"
+      ],
+      [
+        "Mont-Saint-Michel",
+        "Stay on or near the mount to see it without day-trippers"
+      ]
+    ]
+  },
+  {
+    "slug": "bergen",
+    "name": "Bergen & the fjords",
+    "country": "Norway",
+    "hub": [
+      "Norway",
+      "Scandinavia"
+    ],
+    "region": "Europe",
+    "lat": 60.39,
+    "lon": 5.32,
+    "iata": "BGO",
+    "wiki": "Bergen",
+    "imagePage": [
+      "Bryggen",
+      "Nærøyfjord"
+    ],
+    "climate": "temperate",
+    "currency": "NOK",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 250
+    },
+    "tags": [
+      "nature",
+      "city",
+      "adventure"
+    ],
+    "tagline": "A colourful Hanseatic port and the gateway to the western fjords.",
+    "intro": "Bergen, between seven mountains, is the starting point for Norway's most famous fjords: the Nærøyfjord, Sognefjord and Hardangerfjord, plus the Flåm Railway. It's also one of Europe's rainiest cities, so pack a waterproof in any month.",
+    "highlights": [
+      "Bryggen's Hanseatic wharf (UNESCO)",
+      "The Fløibanen funicular up Mount Fløyen",
+      "Norway in a Nutshell: the Flåm Railway and a Nærøyfjord cruise",
+      "Orchards and waterfalls along the Hardangerfjord",
+      "The Trolltunga hike (mid-June to mid-September)"
+    ],
+    "best": "May–September: long days, fjord cruises and mountain railways in full swing, and the best chance of dry weather.",
+    "avoid": "October–January: very wet and dark, with about six hours of daylight in December.",
+    "adjust": {},
+    "events": {
+      "5": "Bergen International Festival of music, theatre and dance (late May to early June).",
+      "12": "Christmas market and Pepperkakebyen, the world’s largest gingerbread town."
+    },
+    "stay": [
+      [
+        "Bryggen & the harbour",
+        "The historic wharf, fish market and restaurants"
+      ],
+      [
+        "Nordnes",
+        "Quiet old lanes near the aquarium"
+      ],
+      [
+        "Flåm or Balestrand",
+        "Stay a night in the fjords"
+      ]
+    ]
+  },
+  {
+    "slug": "tallinn",
+    "name": "Tallinn",
+    "country": "Estonia",
+    "hub": "Eastern Europe",
+    "region": "Europe",
+    "lat": 59.44,
+    "lon": 24.75,
+    "iata": "TLL",
+    "wiki": "Tallinn",
+    "imagePage": [
+      "Tallinn Old Town",
+      "Tallinn"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 60,
+      "mid": 130
+    },
+    "tags": [
+      "city",
+      "history",
+      "culture",
+      "food"
+    ],
+    "tagline": "Europe's best-preserved medieval old town, on the Baltic.",
+    "intro": "Tallinn's walled Old Town of spires, towers and cobbled lanes is one of the best preserved in Europe. Around it is a modern, digital capital with creative quarters, good restaurants and seaside parks — two hours from Helsinki by ferry.",
+    "highlights": [
+      "The medieval Old Town and Town Hall Square (UNESCO)",
+      "Viewpoints over the rooftops from Toompea Hill",
+      "Telliskivi Creative City",
+      "Kadriorg Palace and park",
+      "Day trip to Lahemaa National Park"
+    ],
+    "best": "May–September: long, mild days for the Old Town and the coast, with White Nights around midsummer.",
+    "avoid": "November–February: cold and dark, with about six hours of daylight in December — though the Christmas market is magical.",
+    "adjust": {},
+    "events": {
+      "6": "Midsummer (Jaanipäev) bonfires and celebrations on 23–24 June.",
+      "12": "Christmas market in Town Hall Square (late November to early January)."
+    },
+    "stay": [
+      [
+        "Old Town",
+        "Cobbled streets inside the medieval walls"
+      ],
+      [
+        "Kalamaja",
+        "Wooden houses, cafés and Telliskivi"
+      ],
+      [
+        "Rotermann Quarter",
+        "Modern design between the Old Town and the port"
+      ]
+    ]
+  },
+  {
+    "slug": "cornwall",
+    "name": "Cornwall",
+    "country": "United Kingdom",
+    "hub": "United Kingdom",
+    "region": "Europe",
+    "lat": 50.27,
+    "lon": -5.05,
+    "iata": "NQY",
+    "wiki": "Cornwall",
+    "climateWiki": [
+      "Camborne",
+      "Newquay",
+      "Falmouth, Cornwall"
+    ],
+    "imagePage": [
+      "St Michael's Mount",
+      "Porthcurno",
+      "Cornwall"
+    ],
+    "climate": "temperate",
+    "currency": "GBP",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 190
+    },
+    "tags": [
+      "beach",
+      "nature",
+      "food"
+    ],
+    "tagline": "Britain's sunniest coast: surf beaches, fishing villages and clifftop walks.",
+    "intro": "Cornwall, England's south-western tip, has golden surf beaches, turquoise coves, fishing harbours and hundreds of miles of coast path. It's the mildest corner of Britain, though summers are warm rather than hot and the weather can change quickly.",
+    "highlights": [
+      "St Ives' beaches, harbour and Tate gallery",
+      "The Minack Theatre above Porthcurno",
+      "Surfing at Newquay's Fistral Beach",
+      "The Eden Project",
+      "St Michael's Mount and Land's End"
+    ],
+    "best": "May–September: the warmest weather and sea, with June and September quieter than the school holidays.",
+    "avoid": "November–February: mild but wet and windy, and many attractions and cafés close.",
+    "adjust": {
+      "8": [
+        -5,
+        "School-holiday crowds and traffic"
+      ]
+    },
+    "events": {
+      "5": "'Obby 'Oss Day, Padstow's ancient May Day celebration (1 May).",
+      "8": "Boardmasters surf and music festival in Newquay (early August)."
+    },
+    "stay": [
+      [
+        "St Ives",
+        "Art, beaches and harbour cafés"
+      ],
+      [
+        "Newquay",
+        "Surf beaches and lively nightlife"
+      ],
+      [
+        "Falmouth",
+        "Maritime town with sheltered beaches"
+      ]
+    ]
+  },
+  {
+    "slug": "gran-canaria",
+    "name": "Gran Canaria",
+    "country": "Spain (Canary Islands)",
+    "hub": [
+      "Spain",
+      "Canary Islands"
+    ],
+    "region": "Europe",
+    "lat": 27.76,
+    "lon": -15.57,
+    "iata": "LPA",
+    "wiki": "Gran Canaria",
+    "climateWiki": [
+      "Gran Canaria Airport",
+      "Las Palmas"
+    ],
+    "imagePage": [
+      "Maspalomas Dunes",
+      "Roque Nublo",
+      "Gran Canaria"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 70,
+      "mid": 150
+    },
+    "tags": [
+      "beach",
+      "nature",
+      "islands",
+      "nightlife"
+    ],
+    "tagline": "Sand dunes, mountain villages and winter sun all year round.",
+    "intro": "Gran Canaria is often called a 'continent in miniature': the sunny south has the Maspalomas dunes and the big resorts, the mountainous centre has pine forests and the volcanic Roque Nublo, and Las Palmas is a real city with a long urban beach. Highs stay between 21°C and 28°C all year.",
+    "highlights": [
+      "The Maspalomas sand dunes",
+      "Hiking to Roque Nublo",
+      "Las Canteras, the city beach in Las Palmas",
+      "Puerto de Mogán's canals and harbour",
+      "Stargazing from the island’s summit"
+    ],
+    "best": "Any month; October–April is the classic winter-sun season, and the south coast is the sunniest.",
+    "avoid": "Rarely bad. Summer can bring hot calima winds carrying Saharan dust; the north is cloudier in winter.",
+    "adjust": {},
+    "events": {
+      "2": "Las Palmas Carnival, with its famous Drag Queen Gala (February or March)."
+    },
+    "stay": [
+      [
+        "Maspalomas & Playa del Inglés",
+        "Dunes, resorts and nightlife in the sunny south"
+      ],
+      [
+        "Puerto de Mogán",
+        "Pretty harbour village in the south-west"
+      ],
+      [
+        "Las Palmas",
+        "A real city with a long urban beach"
+      ]
+    ]
+  },
+  {
+    "slug": "lanzarote",
+    "name": "Lanzarote",
+    "country": "Spain (Canary Islands)",
+    "hub": [
+      "Spain",
+      "Canary Islands"
+    ],
+    "region": "Europe",
+    "lat": 28.96,
+    "lon": -13.55,
+    "iata": "ACE",
+    "wiki": "Lanzarote",
+    "climateWiki": [
+      "Lanzarote Airport",
+      "Arrecife"
+    ],
+    "imagePage": [
+      "Timanfaya National Park",
+      "Lanzarote"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 70,
+      "mid": 150
+    },
+    "tags": [
+      "beach",
+      "nature",
+      "islands"
+    ],
+    "tagline": "Volcanic landscapes, black-ash vineyards and golden beaches.",
+    "intro": "Lanzarote is the driest of the Canary Islands, shaped by 18th-century eruptions into a landscape of lava fields and craters. The artist César Manrique helped keep it low-rise, and his houses, gardens and viewpoints are among its best sights.",
+    "highlights": [
+      "Timanfaya National Park's volcanic landscape",
+      "César Manrique’s Jameos del Agua and Mirador del Río",
+      "The Papagayo beaches",
+      "La Geria’s vineyards in black volcanic ash",
+      "Surfing at Famara"
+    ],
+    "best": "Any month; October–April is the winter-sun season and summer is hot, dry and breezy.",
+    "avoid": "Rarely bad — it is often windy, especially from June to August.",
+    "adjust": {},
+    "events": {
+      "2": "Carnival in Arrecife and Puerto del Carmen (February or March)."
+    },
+    "stay": [
+      [
+        "Playa Blanca",
+        "Quiet resort near the Papagayo beaches"
+      ],
+      [
+        "Puerto del Carmen",
+        "Long beach and lively promenade"
+      ],
+      [
+        "Costa Teguise",
+        "Windsurfing and family resorts"
+      ]
+    ]
+  },
+  {
+    "slug": "austin",
+    "name": "Austin",
+    "country": "United States",
+    "hub": "Texas",
+    "region": "North America",
+    "lat": 30.27,
+    "lon": -97.74,
+    "iata": "AUS",
+    "wiki": "Austin, Texas",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−6 (−5 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 250
+    },
+    "tags": [
+      "city",
+      "food",
+      "nightlife",
+      "culture"
+    ],
+    "tagline": "Live music, barbecue and spring-fed swimming holes in the Texas capital.",
+    "intro": "The self-styled 'Live Music Capital of the World' has hundreds of venues, legendary barbecue and food trucks, and big festivals in spring and autumn. In the long, hot summer, locals cool off in Barton Springs and the Hill Country's swimming holes.",
+    "highlights": [
+      "Live music on Sixth Street, Red River and Rainey Street",
+      "Swimming in spring-fed Barton Springs Pool",
+      "Texas barbecue, from Franklin to la Barbecue",
+      "The Congress Avenue Bridge bats at dusk (March–October)",
+      "Hill Country wineries and swimming holes"
+    ],
+    "best": "March–May and October–November: warm, sunny days, wildflowers in spring and festival season in both.",
+    "avoid": "July–August: highs around 36°C with humid nights.",
+    "adjust": {},
+    "events": {
+      "3": "SXSW music, film and tech festival (March).",
+      "8": "Peak bat season: up to 1.5 million bats leave the Congress Avenue Bridge at dusk (August).",
+      "10": "Austin City Limits Music Festival (two October weekends) and the Formula 1 US Grand Prix."
+    },
+    "stay": [
+      [
+        "Downtown",
+        "Walk to Sixth Street, Rainey Street and the river"
+      ],
+      [
+        "South Congress (SoCo)",
+        "Boutiques, food trucks and skyline views"
+      ],
+      [
+        "East Austin",
+        "Breweries, barbecue and nightlife"
+      ]
+    ]
+  },
+  {
+    "slug": "san-antonio",
+    "name": "San Antonio",
+    "country": "United States",
+    "hub": "Texas",
+    "region": "North America",
+    "lat": 29.42,
+    "lon": -98.49,
+    "iata": "SAT",
+    "wiki": "San Antonio",
+    "imageFile": "Casa_Rio_in_San_Antonio.jpg",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−6 (−5 in summer)",
+    "budget": {
+      "low": 100,
+      "mid": 210
+    },
+    "tags": [
+      "city",
+      "culture",
+      "history",
+      "food",
+      "family"
+    ],
+    "tagline": "The River Walk, the Alamo and Spanish missions in Texas’s most historic city.",
+    "intro": "San Antonio mixes Texas and Mexican heritage: the Alamo, four UNESCO-listed Spanish missions, Tex-Mex food and a River Walk lined with cafés, a level below the downtown streets. It is a good-value, family-friendly city break.",
+    "highlights": [
+      "Strolling or taking a boat along the River Walk",
+      "The Alamo",
+      "San Antonio Missions National Historical Park (UNESCO)",
+      "Food halls and markets in the Pearl District",
+      "Six Flags Fiesta Texas and SeaWorld"
+    ],
+    "best": "March–May and October–November: warm, pleasant days for the River Walk and the missions.",
+    "avoid": "June–September: hot and humid, often above 35°C.",
+    "adjust": {},
+    "events": {
+      "4": "Fiesta San Antonio, ten days of parades and parties (April).",
+      "12": "Holiday lights along the River Walk (late November to early January)."
+    },
+    "stay": [
+      [
+        "River Walk & Downtown",
+        "Riverside hotels near the Alamo"
+      ],
+      [
+        "Pearl District",
+        "Restaurants, markets and boutique hotels"
+      ],
+      [
+        "King William",
+        "Historic mansions, B&Bs and Southtown cafés"
+      ]
+    ]
+  },
+  {
+    "slug": "philadelphia",
+    "name": "Philadelphia",
+    "country": "United States",
+    "region": "North America",
+    "lat": 39.95,
+    "lon": -75.17,
+    "iata": "PHL",
+    "wiki": "Philadelphia",
+    "imagePage": [
+      "Independence Hall",
+      "Philadelphia"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 250
+    },
+    "tags": [
+      "city",
+      "history",
+      "food",
+      "culture"
+    ],
+    "tagline": "The birthplace of American independence, with great museums and food.",
+    "intro": "Philadelphia is where the Declaration of Independence and the Constitution were signed. Beyond Independence Hall and the Liberty Bell it has world-class art museums, Reading Terminal Market, lively neighbourhoods and a big food scene — and it's cheaper than New York, 90 minutes away.",
+    "highlights": [
+      "Independence Hall and the Liberty Bell",
+      "The Philadelphia Museum of Art and the \"Rocky Steps\"",
+      "Reading Terminal Market and a cheesesteak",
+      "The Barnes Foundation",
+      "Eastern State Penitentiary"
+    ],
+    "best": "May–June and September–October: warm, comfortable days for walking the historic district.",
+    "avoid": "January–February is cold, often below freezing; July can be hot and humid.",
+    "adjust": {},
+    "events": {
+      "1": "The Mummers Parade on New Year’s Day.",
+      "3": "The Philadelphia Flower Show, the oldest in the world (March).",
+      "7": "Wawa Welcome America: Fourth of July celebrations where independence was declared."
+    },
+    "stay": [
+      [
+        "Old City",
+        "Historic sites and cobbled lanes"
+      ],
+      [
+        "Center City & Rittenhouse",
+        "Restaurants, shopping and parks"
+      ],
+      [
+        "Fishtown",
+        "Bars, breweries and live music"
+      ]
+    ]
+  },
+  {
+    "slug": "hilton-head",
+    "name": "Hilton Head Island",
+    "country": "United States",
+    "region": "North America",
+    "lat": 32.19,
+    "lon": -80.74,
+    "iata": "SAV",
+    "wiki": "Hilton Head Island, South Carolina",
+    "climateWiki": [
+      "Hilton Head Island, South Carolina",
+      "Savannah, Georgia"
+    ],
+    "imageFile": "Harbour_Town_July_2007.jpg",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 140,
+      "mid": 280
+    },
+    "tags": [
+      "beach",
+      "family",
+      "nature"
+    ],
+    "tagline": "Wide beaches, bike paths and golf on South Carolina’s Lowcountry coast.",
+    "intro": "Hilton Head is a low-rise resort island with 12 miles of wide, hard-packed beaches, more than 60 miles of bike paths, championship golf and salt marshes full of dolphins and birds. Savannah is 45 minutes away and Charleston two hours.",
+    "highlights": [
+      "Coligny Beach and 12 miles of Atlantic beaches",
+      "Cycling the island’s bike paths and beaches at low tide",
+      "Harbour Town Lighthouse",
+      "Golf at Harbour Town Golf Links",
+      "Kayaking and dolphin-watching in the salt marshes"
+    ],
+    "best": "April–May and September–October: warm beach days with fewer crowds and lower prices than summer.",
+    "avoid": "August–October is hurricane season (peaking in September); winter is too cool to swim.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "4": "The RBC Heritage PGA Tour golf tournament at Harbour Town (April)."
+    },
+    "stay": [
+      [
+        "South Forest Beach & Coligny",
+        "Walk to the beach, shops and restaurants"
+      ],
+      [
+        "Sea Pines",
+        "Gated resort with golf and Harbour Town"
+      ],
+      [
+        "Palmetto Dunes",
+        "Oceanfront villas, tennis and golf"
+      ]
+    ]
+  },
+  {
+    "slug": "st-augustine",
+    "name": "St. Augustine",
+    "country": "United States",
+    "hub": "Florida",
+    "region": "North America",
+    "lat": 29.89,
+    "lon": -81.31,
+    "iata": "JAX",
+    "wiki": "St. Augustine, Florida",
+    "climateWiki": [
+      "St. Augustine, Florida",
+      "Jacksonville, Florida"
+    ],
+    "imagePage": [
+      "Castillo de San Marcos",
+      "St. Augustine, Florida"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 230
+    },
+    "tags": [
+      "history",
+      "beach",
+      "culture",
+      "family"
+    ],
+    "tagline": "America's oldest city, with a Spanish fort and Atlantic beaches.",
+    "intro": "Founded by the Spanish in 1565, St. Augustine is the oldest continuously inhabited European-founded city in the United States. Its narrow streets, Spanish fort and Gilded Age hotels sit a few minutes from wide Atlantic beaches.",
+    "highlights": [
+      "Castillo de San Marcos",
+      "The narrow streets of the historic district",
+      "The St. Augustine Lighthouse",
+      "Flagler College, the former Ponce de León Hotel",
+      "St. Augustine Beach and Anastasia State Park"
+    ],
+    "best": "March–May and October–November: warm, sunny and less humid, ideal for the old town and the beaches.",
+    "avoid": "June–September: hot and humid, with daily thunderstorms and hurricane risk from August.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "12": "Nights of Lights: millions of white lights across the old city (mid-November to January)."
+    },
+    "stay": [
+      [
+        "Historic district",
+        "Inns and B&Bs within walking distance of everything"
+      ],
+      [
+        "St. Augustine Beach",
+        "Beach hotels on Anastasia Island"
+      ],
+      [
+        "Vilano Beach",
+        "Quiet beach just north of the old town"
+      ]
+    ]
+  },
+  {
+    "slug": "big-sur",
+    "name": "Big Sur",
+    "country": "United States",
+    "hub": "California",
+    "region": "North America",
+    "lat": 36.27,
+    "lon": -121.81,
+    "iata": "MRY",
+    "wiki": "Big Sur",
+    "climateWiki": [
+      "Big Sur",
+      "Monterey, California"
+    ],
+    "imagePage": [
+      "Bixby Creek Bridge",
+      "McWay Falls",
+      "Big Sur"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−8 (−7 in summer)",
+    "budget": {
+      "low": 150,
+      "mid": 320
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "wellness"
+    ],
+    "tagline": "Redwoods and sea cliffs on the most dramatic stretch of Highway 1.",
+    "intro": "Big Sur is the 90-mile stretch of California coast between Carmel and San Simeon, where the Santa Lucia Mountains drop straight into the Pacific. It is best explored on a slow drive down Highway 1, with stops for redwood hikes, waterfalls and viewpoints.",
+    "highlights": [
+      "Bixby Creek Bridge",
+      "McWay Falls in Julia Pfeiffer Burns State Park",
+      "Pfeiffer Beach's purple sand and Keyhole Arch",
+      "Point Lobos State Natural Reserve",
+      "Redwood hikes in Pfeiffer Big Sur State Park"
+    ],
+    "best": "April–May and September–October: clear days, wildflowers in spring and the sunniest, least foggy weather in autumn.",
+    "avoid": "June–August often brings coastal fog; winter storms can close Highway 1 with landslides.",
+    "adjust": {
+      "1": [
+        -5,
+        "Winter storms can close Highway 1"
+      ],
+      "2": [
+        -5,
+        "Winter storms can close Highway 1"
+      ],
+      "6": [
+        -5,
+        "Frequent coastal fog (\"June gloom\")"
+      ],
+      "7": [
+        -5,
+        "Frequent coastal fog"
+      ]
+    },
+    "events": {
+      "4": "The Big Sur International Marathon runs along Highway 1 (late April)."
+    },
+    "stay": [
+      [
+        "Big Sur Village",
+        "Lodges and cabins among the redwoods"
+      ],
+      [
+        "Carmel-by-the-Sea",
+        "Charming base at the northern end"
+      ],
+      [
+        "Cambria",
+        "Seaside town near Hearst Castle in the south"
+      ]
+    ]
+  },
+  {
+    "slug": "death-valley",
+    "name": "Death Valley National Park",
+    "country": "United States",
+    "hub": [
+      "US National Parks",
+      "California"
+    ],
+    "region": "North America",
+    "lat": 36.46,
+    "lon": -116.87,
+    "iata": "LAS",
+    "wiki": "Death Valley National Park",
+    "climateWiki": [
+      "Death Valley",
+      "Furnace Creek, California",
+      "Death Valley National Park"
+    ],
+    "imagePage": [
+      "Zabriskie Point",
+      "Badwater Basin",
+      "Death Valley"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−8 (−7 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 250
+    },
+    "tags": [
+      "nature",
+      "adventure"
+    ],
+    "tagline": "Salt flats, sand dunes and the hottest place on Earth.",
+    "intro": "Death Valley, two hours from Las Vegas, is the hottest, driest and lowest national park in the US, with salt flats 86 m below sea level, colourful badlands and some of the darkest night skies in the country. Winter is the season to visit; summer heat is dangerous.",
+    "highlights": [
+      "Badwater Basin, the lowest point in North America",
+      "Sunrise at Zabriskie Point",
+      "Mesquite Flat Sand Dunes",
+      "The Artists Drive and Artists Palette",
+      "Stargazing in an International Dark Sky Park"
+    ],
+    "best": "November–March: mild, sunny days (18–25°C) for hiking; in wet years, wildflowers bloom in late February and March.",
+    "avoid": "June–September: often above 45°C — hiking is dangerous after mid-morning and breakdowns can be life-threatening.",
+    "adjust": {},
+    "events": {
+      "3": "In wet years, a \"superbloom\" of wildflowers carpets the desert floor (late February–March)."
+    },
+    "stay": [
+      [
+        "Furnace Creek",
+        "Inn, ranch and visitor centre in the heart of the park"
+      ],
+      [
+        "Stovepipe Wells",
+        "Motel and campground near the sand dunes"
+      ],
+      [
+        "Beatty (Nevada)",
+        "Cheaper motels just outside the park"
+      ]
+    ]
+  },
+  {
+    "slug": "mount-rainier",
+    "name": "Mount Rainier National Park",
+    "country": "United States",
+    "hub": [
+      "US National Parks",
+      "Pacific Northwest"
+    ],
+    "region": "North America",
+    "lat": 46.79,
+    "lon": -121.74,
+    "iata": "SEA",
+    "wiki": "Mount Rainier National Park",
+    "climateWiki": [
+      "Paradise, Washington",
+      "Mount Rainier National Park",
+      "Longmire, Washington"
+    ],
+    "imagePage": [
+      "Reflection Lakes",
+      "Mount Rainier"
+    ],
+    "climate": "highland",
+    "currency": "USD",
+    "tz": "UTC−8 (−7 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 240
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "trekking"
+    ],
+    "tagline": "Glacier-capped volcano and wildflower meadows two hours from Seattle.",
+    "intro": "Mount Rainier, a 4,392 m glaciated volcano, rises above old-growth forests and alpine meadows that burst into flower for a few short weeks each summer. Paradise, where these climate figures come from, is one of the snowiest places on Earth, so the hiking season is short.",
+    "highlights": [
+      "The Skyline Trail and wildflower meadows at Paradise",
+      "Sunrise, the highest point you can drive to",
+      "Mount Rainier reflected in Reflection Lakes",
+      "Old-growth trees in the Grove of the Patriarchs",
+      "Snowshoeing at Paradise in winter"
+    ],
+    "best": "Late July–mid-September: snow-free trails and wildflowers at Paradise and Sunrise.",
+    "avoid": "November–May: deep snow (Paradise gets about 16 m a year); the Sunrise road and most other park roads are closed.",
+    "adjust": {
+      "1": [
+        -10,
+        "Most park roads closed for winter"
+      ],
+      "2": [
+        -10,
+        "Most park roads closed for winter"
+      ],
+      "3": [
+        -10,
+        "Most park roads closed for winter"
+      ],
+      "4": [
+        -10,
+        "Most park roads closed for winter"
+      ],
+      "5": [
+        -5,
+        "Trails still under snow; Sunrise road closed"
+      ],
+      "6": [
+        -5,
+        "High trails still snowy; Sunrise opens late June or July"
+      ],
+      "11": [
+        -10,
+        "Most park roads closed for winter"
+      ],
+      "12": [
+        -10,
+        "Most park roads closed for winter"
+      ]
+    },
+    "events": {
+      "8": "Peak wildflowers in the Paradise and Sunrise meadows (late July to mid-August)."
+    },
+    "stay": [
+      [
+        "Ashford",
+        "Cabins and lodges near the Nisqually entrance"
+      ],
+      [
+        "Paradise Inn",
+        "Historic lodge inside the park (May–October)"
+      ],
+      [
+        "Packwood",
+        "Quiet base for the south-east side"
+      ]
+    ]
+  },
+  {
+    "slug": "denali",
+    "name": "Denali National Park",
+    "country": "United States",
+    "hub": "US National Parks",
+    "region": "North America",
+    "lat": 63.73,
+    "lon": -148.91,
+    "iata": "FAI",
+    "wiki": "Denali National Park and Preserve",
+    "climateWiki": [
+      "Denali National Park and Preserve",
+      "Healy, Alaska"
+    ],
+    "imagePage": [
+      "Denali"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−9 (−8 in summer)",
+    "budget": {
+      "low": 150,
+      "mid": 320
+    },
+    "tags": [
+      "nature",
+      "wildlife",
+      "adventure"
+    ],
+    "tagline": "Grizzlies, caribou and North America's highest peak.",
+    "intro": "Denali is six million acres of tundra, rivers and mountains around 6,190 m Denali, North America's highest peak. A single road leads into the park, mostly by park bus, with good chances of seeing grizzly bears, moose, caribou and Dall sheep. The mountain itself is clear only about a third of summer days.",
+    "highlights": [
+      "A park bus along the Denali Park Road for wildlife",
+      "Views of Denali on a clear day",
+      "Flightseeing and glacier landings from Talkeetna",
+      "The park’s sled-dog kennels",
+      "Hiking around Savage River and Horseshoe Lake"
+    ],
+    "best": "Mid-June–mid-August: the park buses run, wildlife is active and days are almost endless.",
+    "avoid": "October–April: bitterly cold and dark; park buses and most lodges are closed.",
+    "adjust": {
+      "1": [
+        -10,
+        "Park buses and most lodges closed"
+      ],
+      "2": [
+        -10,
+        "Park buses and most lodges closed"
+      ],
+      "3": [
+        -10,
+        "Park buses and most lodges closed"
+      ],
+      "4": [
+        -10,
+        "Park buses and most lodges closed"
+      ],
+      "5": [
+        -5,
+        "Park buses start running in late May"
+      ],
+      "9": [
+        -5,
+        "Buses stop in mid-September; first snow"
+      ],
+      "10": [
+        -10,
+        "Park buses and most lodges closed"
+      ],
+      "11": [
+        -10,
+        "Park buses and most lodges closed"
+      ],
+      "12": [
+        -10,
+        "Park buses and most lodges closed"
+      ]
+    },
+    "events": {
+      "6": "Around the summer solstice the park has nearly 20 hours of daylight."
+    },
+    "stay": [
+      [
+        "Park entrance (Nenana Canyon)",
+        "Lodges and cabins by the park entrance"
+      ],
+      [
+        "Healy",
+        "Quieter, cheaper base 15 minutes north"
+      ],
+      [
+        "Talkeetna",
+        "Quirky town for flightseeing and Denali views"
+      ]
+    ]
+  },
+  {
+    "slug": "san-miguel-de-allende",
+    "name": "San Miguel de Allende",
+    "country": "Mexico",
+    "hub": "Mexico",
+    "region": "North America",
+    "lat": 20.91,
+    "lon": -100.74,
+    "iata": "BJX",
+    "wiki": "San Miguel de Allende",
+    "climateWiki": [
+      "San Miguel de Allende",
+      "Guanajuato City"
+    ],
+    "imageFile": "Good_Morning_San_Miguel.jpg",
+    "climate": "highland",
+    "currency": "MXN",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 60,
+      "mid": 140
+    },
+    "tags": [
+      "culture",
+      "food",
+      "history",
+      "city"
+    ],
+    "tagline": "A colourful colonial town in the highlands, famous for art and food.",
+    "intro": "San Miguel de Allende, at 1,900 m in Mexico's central highlands, is a UNESCO-listed colonial town of cobbled streets, ochre houses and the pink spires of its parish church. It's sunny for most of the year, with warm days and cool nights, and has a big arts and restaurant scene.",
+    "highlights": [
+      "The pink Gothic spires of the Parroquia de San Miguel Arcángel",
+      "The UNESCO-listed historic centre",
+      "Rooftop bars and a thriving food scene",
+      "Hot springs at La Gruta",
+      "Day trip to Guanajuato"
+    ],
+    "best": "October–May: dry and sunny, with highs of 23–28°C and cool nights.",
+    "avoid": "June–September is the rainy season, with afternoon thunderstorms — mornings are usually fine.",
+    "adjust": {},
+    "events": {
+      "4": "Semana Santa processions through the old town (March or April).",
+      "9": "Fiestas Patrias and the Alborada fireworks for the town’s patron saint (September).",
+      "11": "Día de los Muertos altars and the La Calaca festival (late October to 2 November)."
+    },
+    "stay": [
+      [
+        "Centro",
+        "Walk to the Parroquia, galleries and restaurants"
+      ],
+      [
+        "Guadiana",
+        "Quiet residential streets near the centre"
+      ],
+      [
+        "Atascadero",
+        "Hillside views over the town"
+      ]
+    ]
+  },
+  {
+    "slug": "isla-mujeres",
+    "name": "Isla Mujeres",
+    "country": "Mexico",
+    "hub": "Mexico",
+    "region": "North America",
+    "lat": 21.23,
+    "lon": -86.73,
+    "iata": "CUN",
+    "wiki": "Isla Mujeres",
+    "climateWiki": [
+      "Isla Mujeres",
+      "Cancún"
+    ],
+    "imageFile": "Mexico-12-06-07_057.jpg",
+    "climate": "tropical",
+    "currency": "MXN",
+    "tz": "UTC−5",
+    "budget": {
+      "low": 70,
+      "mid": 160
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "family"
+    ],
+    "tagline": "A laid-back island of golf carts and turquoise water off Cancún.",
+    "intro": "Isla Mujeres is a small, relaxed island a 20-minute ferry ride from Cancún. Playa Norte has calm, shallow, turquoise water, and from June to September boats head out to swim with whale sharks.",
+    "highlights": [
+      "Playa Norte, one of Mexico’s best beaches",
+      "Swimming with whale sharks (June–September)",
+      "Punta Sur's cliffs and sculpture garden",
+      "Snorkelling the MUSA underwater museum",
+      "Exploring the island by golf cart"
+    ],
+    "best": "December–April: dry, sunny and breezy, with calm turquoise water.",
+    "avoid": "September–October: peak hurricane season and the most rain; sargassum seaweed can wash up from May to August.",
+    "adjust": {
+      "6": [
+        -5,
+        "Hurricane season begins; sargassum likely"
+      ],
+      "7": [
+        -5,
+        "Hurricane season; sargassum likely"
+      ],
+      "8": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "11": [
+        -5,
+        "End of hurricane season"
+      ]
+    },
+    "events": {
+      "7": "Whale shark season peaks in July and August (June–September)."
+    },
+    "stay": [
+      [
+        "Centro & Playa Norte",
+        "Walk to the beach, ferry and restaurants"
+      ],
+      [
+        "Punta Sur",
+        "Quiet boutique hotels on the southern tip"
+      ],
+      [
+        "Sac Bajo",
+        "Calm west-side resorts with sunset views"
+      ]
+    ]
+  },
+  {
+    "slug": "roatan",
+    "name": "Roatán",
+    "country": "Honduras",
+    "hub": "Central America",
+    "region": "Central & South America",
+    "lat": 16.33,
+    "lon": -86.53,
+    "iata": "RTB",
+    "wiki": "Roatán",
+    "climateWiki": [
+      "Roatán",
+      "La Ceiba"
+    ],
+    "climate": "tropical",
+    "currency": "HNL",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 70,
+      "mid": 160
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "adventure",
+      "nature"
+    ],
+    "tagline": "Easy, affordable diving on the Mesoamerican Barrier Reef.",
+    "intro": "Roatán, the largest of Honduras's Bay Islands, sits on the Mesoamerican Barrier Reef, the second-largest in the world. It's one of the cheapest places in the Caribbean to learn to dive, with reef just offshore from West Bay's white-sand beach. Climate figures are for La Ceiba, on the mainland coast 60 km south; the island is a little drier.",
+    "highlights": [
+      "Diving and snorkelling the Mesoamerican Barrier Reef",
+      "West Bay Beach",
+      "Whale sharks off nearby Utila (best March–April)",
+      "Gumbalimba Park’s monkeys and macaws",
+      "Garifuna culture at Punta Gorda"
+    ],
+    "best": "March–August: the dry season, with calm, clear water for diving.",
+    "avoid": "October–January is the rainy season, with northers and the risk of hurricanes (peaking September–October).",
+    "adjust": {
+      "9": [
+        -5,
+        "Hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak rainy and hurricane season"
+      ],
+      "11": [
+        -5,
+        "Rainy season"
+      ]
+    },
+    "events": {
+      "4": "Garifuna Settlement Day celebrations at Punta Gorda (12 April)."
+    },
+    "stay": [
+      [
+        "West Bay",
+        "The best beach, resorts and snorkelling from shore"
+      ],
+      [
+        "West End",
+        "Dive shops, bars and budget stays"
+      ],
+      [
+        "Sandy Bay",
+        "Quieter, between West End and the airport"
+      ]
+    ]
+  },
+  {
+    "slug": "clearwater",
+    "name": "Clearwater & St. Pete Beach",
+    "country": "United States",
+    "hub": [
+      "Florida",
+      "Florida Gulf Coast"
+    ],
+    "region": "North America",
+    "lat": 27.98,
+    "lon": -82.83,
+    "iata": "TPA",
+    "wiki": "Clearwater, Florida",
+    "climateWiki": [
+      "Clearwater, Florida",
+      "St. Petersburg, Florida",
+      "Tampa, Florida"
+    ],
+    "imagePage": [
+      "Clearwater Beach, Florida",
+      "Clearwater, Florida"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 250
+    },
+    "tags": [
+      "beach",
+      "family",
+      "food"
+    ],
+    "tagline": "White sand, calm Gulf water and sunset festivals near Tampa.",
+    "intro": "Clearwater Beach and St. Pete Beach, 30 minutes from Tampa airport, have soft white sand, calm, shallow Gulf water and big sunsets. St. Petersburg next door adds the Dalí Museum and a lively waterfront downtown.",
+    "highlights": [
+      "Clearwater Beach's white sand and the sunset festival at Pier 60",
+      "Clearwater Marine Aquarium",
+      "Caladesi Island and Honeymoon Island state parks",
+      "The Dalí Museum in St. Petersburg",
+      "Fort De Soto Park"
+    ],
+    "best": "March–May: warm, dry and sunny, with the Gulf warming up before summer’s heat and storms.",
+    "avoid": "August–October is peak hurricane season, and summer afternoons bring daily thunderstorms.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "3": "Spring training: the Philadelphia Phillies play in Clearwater and the Toronto Blue Jays in Dunedin (February–March)."
+    },
+    "stay": [
+      [
+        "Clearwater Beach",
+        "Beach resorts and the nightly sunset festival at Pier 60"
+      ],
+      [
+        "St. Pete Beach",
+        "Relaxed beach town with the historic Don CeSar"
+      ],
+      [
+        "Downtown St. Petersburg",
+        "Museums, waterfront and restaurants"
+      ]
+    ]
+  },
+  {
+    "slug": "sarasota",
+    "name": "Sarasota & Siesta Key",
+    "country": "United States",
+    "hub": [
+      "Florida",
+      "Florida Gulf Coast"
+    ],
+    "region": "North America",
+    "lat": 27.27,
+    "lon": -82.55,
+    "iata": "SRQ",
+    "wiki": "Sarasota, Florida",
+    "imagePage": [
+      "Siesta Key, Florida",
+      "Sarasota, Florida"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 260
+    },
+    "tags": [
+      "beach",
+      "culture",
+      "family"
+    ],
+    "tagline": "Powder-soft quartz sand and a cultured small city on the Gulf.",
+    "intro": "Siesta Key's beach is made of almost pure quartz sand that stays cool underfoot, and it regularly tops lists of America's best beaches. Sarasota itself has the Ringling museums, theatres and good restaurants, with quieter beaches on Lido and Longboat keys.",
+    "highlights": [
+      "Siesta Beach's powder-soft quartz sand",
+      "The Ringling museums and Ca’ d’Zan mansion",
+      "St. Armands Circle",
+      "Lido Key and Longboat Key beaches",
+      "Alligators and airboats in Myakka River State Park"
+    ],
+    "best": "February–May: dry, sunny and warm, with calm, clear Gulf water.",
+    "avoid": "August–October is hurricane season; summer is hot and humid with afternoon storms.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {},
+    "stay": [
+      [
+        "Siesta Key Village",
+        "Beach bars and condos by Siesta Beach"
+      ],
+      [
+        "Downtown Sarasota",
+        "Restaurants, galleries and theatres"
+      ],
+      [
+        "Lido Key",
+        "Quiet beaches next to St. Armands Circle"
+      ]
+    ]
+  },
+  {
+    "slug": "easter-island",
+    "name": "Easter Island",
+    "country": "Chile",
+    "hub": "Chile",
+    "region": "Central & South America",
+    "lat": -27.15,
+    "lon": -109.43,
+    "iata": "IPC",
+    "wiki": "Easter Island",
+    "climateWiki": [
+      "Easter Island",
+      "Hanga Roa"
+    ],
+    "imagePage": [
+      "Ahu Tongariki",
+      "Moai"
+    ],
+    "climate": "temperate",
+    "currency": "CLP",
+    "tz": "UTC−6 (−5 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 260
+    },
+    "tags": [
+      "history",
+      "culture",
+      "islands",
+      "nature"
+    ],
+    "tagline": "The giant moai statues on the world’s most remote inhabited island.",
+    "intro": "Rapa Nui lies 3,700 km off the coast of Chile, a five-hour flight from Santiago. Nearly 1,000 moai statues stand around the island, carved by the Rapa Nui people centuries ago. Visitors need a national-park ticket, and most sites must be visited with a licensed local guide.",
+    "highlights": [
+      "Sunrise at Ahu Tongariki's 15 moai",
+      "Rano Raraku, the quarry where the moai were carved",
+      "Anakena’s white-sand beach and palm grove",
+      "Orongo ceremonial village on the rim of Rano Kau",
+      "Diving in some of the clearest water in the Pacific"
+    ],
+    "best": "January–March: warm, sunny summer weather and the Tapati festival; October–April is generally the best time.",
+    "avoid": "June–August: cooler, windier and the wettest months.",
+    "adjust": {},
+    "events": {
+      "2": "Tapati Rapa Nui, two weeks of traditional sports, music and dance (late January to February)."
+    },
+    "stay": [
+      [
+        "Hanga Roa centre",
+        "The only town: walk to restaurants and the harbour"
+      ],
+      [
+        "Tahai",
+        "Sunsets behind the moai at the edge of town"
+      ],
+      [
+        "Outskirts of Hanga Roa",
+        "Eco-lodges with ocean views"
+      ]
+    ]
+  },
+  {
+    "slug": "gold-coast",
+    "name": "Gold Coast",
+    "country": "Australia",
+    "hub": "Australia",
+    "region": "Oceania",
+    "lat": -28,
+    "lon": 153.43,
+    "iata": "OOL",
+    "wiki": "Gold Coast, Queensland",
+    "imagePage": [
+      "Surfers Paradise, Queensland",
+      "Burleigh Heads, Queensland"
+    ],
+    "climate": "temperate",
+    "currency": "AUD",
+    "tz": "UTC+10",
+    "budget": {
+      "low": 100,
+      "mid": 220
+    },
+    "tags": [
+      "beach",
+      "family",
+      "nightlife",
+      "nature"
+    ],
+    "tagline": "Surf beaches, theme parks and rainforest on Australia's sunshine coast.",
+    "intro": "Queensland's Gold Coast has more than 50 km of surf beaches backed by high-rises, Australia's biggest theme parks and World Heritage rainforest in the hinterland, an hour inland. It gets around 300 sunny days a year.",
+    "highlights": [
+      "Surfers Paradise and Burleigh Heads beaches",
+      "Dreamworld, Movie World and Sea World",
+      "Rainforest walks in Springbrook and Lamington national parks",
+      "Whale watching (June–November)",
+      "The view from SkyPoint, 230 m up"
+    ],
+    "best": "April–May and September–November: warm, sunny days with lower humidity and fewer crowds.",
+    "avoid": "January–March is hot, humid and the wettest time, with occasional cyclone-driven storms; Christmas and January are also peak holiday season.",
+    "adjust": {},
+    "events": {
+      "7": "The Gold Coast Marathon (early July), in the middle of whale-watching season."
+    },
+    "stay": [
+      [
+        "Surfers Paradise",
+        "High-rises, nightlife and the beach"
+      ],
+      [
+        "Broadbeach",
+        "Restaurants, the casino and a calmer beach"
+      ],
+      [
+        "Burleigh Heads",
+        "Cafés, surf and a national-park headland"
+      ]
+    ]
+  },
+  {
+    "slug": "great-ocean-road",
+    "name": "Great Ocean Road",
+    "country": "Australia",
+    "hub": "Australia",
+    "region": "Oceania",
+    "lat": -38.76,
+    "lon": 143.67,
+    "iata": "MEL",
+    "wiki": "Great Ocean Road",
+    "climateWiki": [
+      "Apollo Bay",
+      "Cape Otway",
+      "Lorne, Victoria"
+    ],
+    "imagePage": [
+      "Twelve Apostles (Victoria)",
+      "Great Ocean Road"
+    ],
+    "climate": "temperate",
+    "currency": "AUD",
+    "tz": "UTC+10 (+11 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 230
+    },
+    "tags": [
+      "nature",
+      "beach",
+      "adventure"
+    ],
+    "tagline": "Australia’s great coastal drive, past surf beaches to the Twelve Apostles.",
+    "intro": "The Great Ocean Road winds 240 km along Victoria's south-west coast from Torquay, past surf beaches, rainforest and koala-filled forests, to the limestone stacks of the Twelve Apostles. It's best done over two or three days from Melbourne. Climate figures are for Apollo Bay, halfway along.",
+    "highlights": [
+      "The Twelve Apostles at sunset",
+      "Loch Ard Gorge",
+      "Koalas in the trees at Kennett River",
+      "Surfing at Bells Beach near Torquay",
+      "Waterfalls and rainforest in Great Otway National Park"
+    ],
+    "best": "December–March: warm summer days and long evenings for the drive and the beaches.",
+    "avoid": "June–August is cold, wet and windy — though the coast is dramatic and very quiet.",
+    "adjust": {},
+    "events": {
+      "4": "The Rip Curl Pro surfing contest at Bells Beach (Easter, March or April)."
+    },
+    "stay": [
+      [
+        "Lorne",
+        "Beach town with cafés and waterfalls"
+      ],
+      [
+        "Apollo Bay",
+        "Halfway stop near the Otways"
+      ],
+      [
+        "Port Campbell",
+        "Closest base to the Twelve Apostles"
+      ]
+    ]
+  },
+  {
+    "slug": "milford-sound",
+    "name": "Milford Sound & Fiordland",
+    "country": "New Zealand",
+    "hub": "New Zealand",
+    "region": "Oceania",
+    "lat": -45.41,
+    "lon": 167.72,
+    "iata": "ZQN",
+    "wiki": "Milford Sound",
+    "climateWiki": [
+      "Te Anau",
+      "Milford Sound"
+    ],
+    "imageFile": "00_1371_New_Zealand_-_Milford_Sound.jpg",
+    "climate": "temperate",
+    "currency": "NZD",
+    "tz": "UTC+12 (+13 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 240
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "trekking"
+    ],
+    "tagline": "Sheer fjord walls, waterfalls and New Zealand’s great walks.",
+    "intro": "Fiordland National Park covers the wild south-west corner of New Zealand’s South Island. Milford Sound, with Mitre Peak rising from the water, is reached by a spectacular road from Te Anau or by scenic flight from Queenstown. Climate figures are for Te Anau, the base town; Milford itself gets several times as much rain, which feeds hundreds of temporary waterfalls.",
+    "highlights": [
+      "Cruising or kayaking Milford Sound beneath Mitre Peak",
+      "The Milford Road and the Homer Tunnel",
+      "An overnight cruise on remote Doubtful Sound",
+      "Glowworm caves at Te Anau",
+      "The Milford, Kepler and Routeburn great walks"
+    ],
+    "best": "December–March: the warmest, longest days; it rains often, but the waterfalls are at their best after rain.",
+    "avoid": "June–August: cold, with snow and avalanche closures on the Milford Road. The Milford Track only runs from late October to April.",
+    "adjust": {
+      "6": [
+        -5,
+        "Snow and avalanche closures on the Milford Road"
+      ],
+      "7": [
+        -5,
+        "Snow and avalanche closures on the Milford Road"
+      ],
+      "8": [
+        -5,
+        "Snow and avalanche closures on the Milford Road"
+      ]
+    },
+    "events": {
+      "10": "The Great Walks season, including the Milford Track, opens in late October."
+    },
+    "stay": [
+      [
+        "Te Anau",
+        "Lakeside base town, two hours from Milford"
+      ],
+      [
+        "Milford Sound Lodge",
+        "The only place to stay at the sound itself"
+      ],
+      [
+        "Queenstown",
+        "Day trips by coach or scenic flight"
+      ]
+    ]
   }
 ]

@@ -1692,5 +1692,285 @@
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Boracay_paraw_sailboats_015.jpg"
+  },
+  "andaman-islands": {
+    "file": "Radhanagar_Beach_(Swaraj_Dweep),_Andaman_and_Nicobar_Island.jpg",
+    "author": "Travelira",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Radhanagar_Beach_(Swaraj_Dweep)%2C_Andaman_and_Nicobar_Island.jpg"
+  },
+  "koh-phangan": {
+    "file": "Hin_Wong_Bay.jpg",
+    "author": "Mmarkin",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Hin_Wong_Bay.jpg"
+  },
+  "mount-fuji": {
+    "file": "View_of_Mount_Fuji_from_Ōwakudani_20211202.jpg",
+    "author": "Suicasmo",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg"
+  },
+  "hiroshima": {
+    "file": "Itsukushima_Shrine_Torii_Gate_(13890465459).jpg",
+    "author": "redlegsfan21",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Itsukushima_Shrine_Torii_Gate_(13890465459).jpg"
+  },
+  "pokhara": {
+    "file": "Phewa_lake,_Pokhara.jpg",
+    "author": "Jmhullot",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Phewa_lake%2C_Pokhara.jpg"
+  },
+  "abu-dhabi": {
+    "file": "Abu_dhabi_skylines_2014.jpg",
+    "author": "Wadiia",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Abu_dhabi_skylines_2014.jpg"
+  },
+  "madagascar": {
+    "file": "Adansonia_grandidieri_Pat_Hooper.jpg",
+    "author": "Pat Hooper from Chicago, IL, USA",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Adansonia_grandidieri_Pat_Hooper.jpg"
+  },
+  "rwanda": {
+    "file": "Mountain_gorilla_(Gorilla_beringei_beringei)_eating.jpg",
+    "author": "Charles J Sharp",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mountain_gorilla_(Gorilla_beringei_beringei)_eating.jpg"
+  },
+  "cape-verde": {
+    "file": "20240101_123825_beach_near_Santa_Maria,_Sal,_Cabo_Verde.jpg",
+    "author": "Tbo47",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:20240101_123825_beach_near_Santa_Maria%2C_Sal%2C_Cabo_Verde.jpg"
+  },
+  "puglia": {
+    "file": "70044_Polignano_A_Mare_BA,_Italy_-_panoramio_(4).jpg",
+    "author": "Luca Margheriti",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:70044_Polignano_A_Mare_BA%2C_Italy_-_panoramio_(4).jpg"
+  },
+  "cyprus": {
+    "file": "Roca_de_Afrodita,_Chipre,_2021-12-10,_DD_65.jpg",
+    "author": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Roca_de_Afrodita%2C_Chipre%2C_2021-12-10%2C_DD_65.jpg"
+  },
+  "granada": {
+    "file": "Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg",
+    "author": "Jebulon",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg"
+  },
+  "normandy": {
+    "file": "Mont-Saint-Michel_vu_du_ciel.jpg",
+    "author": "Amaustan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mont-Saint-Michel_vu_du_ciel.jpg"
+  },
+  "bergen": {
+    "file": "Bryggen,_Bergen,_Noruega,_2019-09-08,_DD_115-117_PAN.jpg",
+    "author": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Bryggen%2C_Bergen%2C_Noruega%2C_2019-09-08%2C_DD_115-117_PAN.jpg"
+  },
+  "tallinn": {
+    "file": "Old_Town_of_Tallinn,_Tallinn,_Estonia_-_panoramio_(58).jpg",
+    "author": "Ben Bender",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Old_Town_of_Tallinn%2C_Tallinn%2C_Estonia_-_panoramio_(58).jpg"
+  },
+  "cornwall": {
+    "file": "St_Michael's_Mount_View.jpg",
+    "author": "Werner Wilmes",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:St_Michael's_Mount_View.jpg"
+  },
+  "gran-canaria": {
+    "file": "Dunas_de_Maspalomas.jpg",
+    "author": "Himarerme",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Dunas_de_Maspalomas.jpg"
+  },
+  "lanzarote": {
+    "file": "Timanfaya_National_Park_landscape.jpg",
+    "author": "MiljenkoSuljic",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Timanfaya_National_Park_landscape.jpg"
+  },
+  "austin": {
+    "file": "Skyline_of_Austin,_Texas_(cropped).jpg",
+    "author": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Austin%2C_Texas_(cropped).jpg"
+  },
+  "san-antonio": {
+    "file": "Casa_Rio_in_San_Antonio.jpg",
+    "author": "Daniel J Simanek",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Casa_Rio_in_San_Antonio.jpg"
+  },
+  "philadelphia": {
+    "file": "Independence_Hall.jpg",
+    "author": "Rdsmith4",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source": "https://commons.wikimedia.org/wiki/File:Independence_Hall.jpg"
+  },
+  "st-augustine": {
+    "file": "Aerial_view_of_the_Castillo_de_San_Marcos,_St._Augustine,_FL_2025-05-20.jpg",
+    "author": "Schwerdf",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Castillo_de_San_Marcos%2C_St._Augustine%2C_FL_2025-05-20.jpg"
+  },
+  "big-sur": {
+    "file": "Bixby_Creek_Bridge,_California,_USA_-_May_2013.jpg",
+    "author": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Bixby_Creek_Bridge%2C_California%2C_USA_-_May_2013.jpg"
+  },
+  "death-valley": {
+    "file": "Badwater_Basin_from_Dante's_View_Overlook.JPG",
+    "author": "HappyJake",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Badwater_Basin_from_Dante's_View_Overlook.JPG"
+  },
+  "mount-rainier": {
+    "file": "Rainier20200906.jpg",
+    "author": "Caleb Riston",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Rainier20200906.jpg"
+  },
+  "denali": {
+    "file": "Wonder_Lake_and_Denali.jpg",
+    "author": "Denali National Park and Preserve",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Wonder_Lake_and_Denali.jpg"
+  },
+  "san-miguel-de-allende": {
+    "file": "Good_Morning_San_Miguel.jpg",
+    "author": "Paola Lopez",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Good_Morning_San_Miguel.jpg"
+  },
+  "isla-mujeres": {
+    "file": "Mexico-12-06-07_057.jpg",
+    "author": "Tbachner",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Mexico-12-06-07_057.jpg"
+  },
+  "roatan": {
+    "file": "Westbay2106.jpg",
+    "author": "Westbrowncanada",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Westbay2106.jpg"
+  },
+  "clearwater": {
+    "file": "Clearwater_Beach_(54357452307).jpg",
+    "author": "ajay_suresh",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Clearwater_Beach_(54357452307).jpg"
+  },
+  "sarasota": {
+    "file": "Red_Lifeguard_Stand_at_Siesta_Key_Beach.jpg",
+    "author": "Mickey Luigi Logitmark",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Red_Lifeguard_Stand_at_Siesta_Key_Beach.jpg"
+  },
+  "easter-island": {
+    "file": "Ahu-Tongariki-from-south-west-2013.jpg",
+    "author": "Bjørn Christian Tørrissen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Ahu-Tongariki-from-south-west-2013.jpg"
+  },
+  "gold-coast": {
+    "file": "Surfers_Paradise,_QLD_skyline.jpg",
+    "author": "chillmimi",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Surfers_Paradise%2C_QLD_skyline.jpg"
+  },
+  "great-ocean-road": {
+    "file": "The_Twelve_Apostles_2011.jpg",
+    "author": "Michael J Fromholtz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Twelve_Apostles_2011.jpg"
+  },
+  "milford-sound": {
+    "file": "00_1371_New_Zealand_-_Milford_Sound.jpg",
+    "author": "W. Bulach",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:00_1371_New_Zealand_-_Milford_Sound.jpg"
+  },
+  "hoi-an": {
+    "file": "Hội_An,_Ancient_Town,_2020-01_CN-06.jpg",
+    "author": "Carschten",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:H%E1%BB%99i_An%2C_Ancient_Town%2C_2020-01_CN-06.jpg"
+  },
+  "raja-ampat": {
+    "file": "Pulau_Piaynemo,_Raja_Ampat.jpg",
+    "author": "Rizalubun",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Pulau_Piaynemo%2C_Raja_Ampat.jpg"
+  },
+  "samoa": {
+    "file": "Beach_fale_at_Falealupo_beach,_Savai'i,_Samoa_-_August_2016.jpg",
+    "author": "Rickard Törnblad",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Beach_fale_at_Falealupo_beach%2C_Savai'i%2C_Samoa_-_August_2016.jpg"
+  },
+  "sardinia": {
+    "file": "Cala_Goloritzé_3.JPG",
+    "author": "Mentnafunangann",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cala_Goloritz%C3%A9_3.JPG"
+  },
+  "hilton-head": {
+    "file": "Harbour_Town_July_2007.jpg",
+    "author": "MoodyGroove of English Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Harbour_Town_July_2007.jpg"
   }
 }

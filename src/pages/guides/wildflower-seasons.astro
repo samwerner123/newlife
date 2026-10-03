@@ -1,0 +1,88 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg, MONTHS } from '../../lib/data';
+
+// Typical flowering windows; they shift with each year's rain and temperatures.
+const spots: { slug: string; place: string; flowers: string; when: string; m: number }[] = [
+  { slug: 'death-valley', place: 'Death Valley & the California deserts', flowers: 'Desert gold, poppies and verbena — a "superbloom" only after a wet winter', when: 'Late February – April', m: 2 },
+  { slug: 'joshua-tree', place: 'Joshua Tree & Anza-Borrego', flowers: 'Desert wildflowers and blooming cacti', when: 'March – April', m: 2 },
+  { slug: 'crete', place: 'Crete', flowers: 'Wild orchids, anemones and poppies on the hillsides', when: 'March – April', m: 3 },
+  { slug: 'austin', place: 'Texas Hill Country', flowers: 'Bluebonnets and Indian paintbrush along the roadsides', when: 'Late March – mid-April', m: 3 },
+  { slug: 'amsterdam', place: 'The Netherlands', flowers: 'Tulip fields around Lisse and Keukenhof gardens', when: 'Mid-April – early May', m: 3 },
+  { slug: 'kyoto', place: 'Japan', flowers: 'Cherry blossoms, then azaleas and wisteria', when: 'Late March – May', m: 3 },
+  { slug: 'provence', place: 'Provence', flowers: 'Lavender fields on the Valensole plateau and around Sénanque Abbey', when: 'Late June – late July', m: 6 },
+  { slug: 'hokkaido', place: 'Hokkaido (Furano)', flowers: 'Lavender and patchwork flower fields', when: 'July', m: 6 },
+  { slug: 'switzerland', place: 'The Swiss Alps', flowers: 'Alpine meadows of gentians, edelweiss and alpenrose', when: 'June – August', m: 6 },
+  { slug: 'dolomites', place: 'The Dolomites', flowers: 'High meadows on the Alpe di Siusi and Seceda', when: 'Late June – July', m: 6 },
+  { slug: 'glacier-national-park', place: 'Glacier National Park', flowers: 'Beargrass, glacier lilies and paintbrush along Going-to-the-Sun Road', when: 'Late June – August', m: 6 },
+  { slug: 'mount-rainier', place: 'Mount Rainier', flowers: 'Lupine, paintbrush and avalanche lilies in the Paradise meadows', when: 'Late July – mid-August', m: 7 },
+  { slug: 'cape-town', place: 'Namaqualand & the West Coast (from Cape Town)', flowers: 'Orange and white daisies carpeting the semi-desert', when: 'Mid-August – September', m: 7 },
+  { slug: 'perth', place: 'Western Australia', flowers: 'Kangaroo paw, everlastings and orchids — over 12,000 species', when: 'August – October', m: 8 },
+];
+const rows = spots.map((s) => ({ ...s, d: bySlug.get(s.slug)! }));
+const byMonth = MONTHS.map((name, m) => ({ name, items: rows.filter((r) => r.m === m) })).filter((x) => x.items.length);
+---
+
+<Guide slug="wildflower-seasons" photo="provence">
+  <p>
+    Wildflower displays follow the rain. In deserts, a wet winter can trigger a spectacular <strong>superbloom</strong> in early
+    spring; in the mountains, flowers burst out as the snow melts in early summer; and in Mediterranean climates, hillsides are
+    covered in colour from March to May before the summer drought. Here's when and where to go, with the weather to expect.
+  </p>
+
+  <h2>Wildflower calendar</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Where</th><th scope="col" class="left">What blooms</th><th scope="col" class="left">When</th><th scope="col">Weather then</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d.url}>{r.place}</a></th>
+              <td class="left">{r.flowers}</td>
+              <td class="left">{r.when}</td>
+              <td><a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)} / {deg(r.d.months[r.m].low)}</a></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Average daily high / low in the peak month, from official climate normals.</p>
+
+  <h2>Month by month</h2>
+  <ul>
+    {byMonth.map(({ name, items }) => <li><b>{name}:</b> {items.map((r) => r.place).join(', ')}</li>)}
+  </ul>
+
+  <h2>Desert superblooms</h2>
+  <p>
+    In the deserts of California and the American Southwest, mass blooms only happen after a wet autumn and winter, and only
+    every few years. When they do, Death Valley, Anza-Borrego and the Antelope Valley poppy reserve fill with colour from late
+    February (low deserts) into April (higher areas). Park websites post bloom reports each spring. Go early in the morning,
+    stay on trails and never pick flowers. See <a href="/destinations/death-valley/">Death Valley</a> and
+    <a href="/destinations/joshua-tree/">Joshua Tree</a>.
+  </p>
+
+  <h2>Alpine meadows</h2>
+  <p>
+    In the Alps and the Rockies, the flower season starts in the valleys in late May and climbs with the snowline, peaking in
+    high meadows in July. It's also the best time for hiking, with mountain huts and cable cars open. See
+    <a href="/best-time-to-visit-alps/">the Alps</a> and <a href="/best-time-to-visit-rocky-mountains/">the Rocky Mountains</a>.
+  </p>
+
+  <h2>Namaqualand and Western Australia</h2>
+  <p>
+    The southern hemisphere's spring brings two of the world's great flower shows. In South Africa, Namaqualand — a 5–6 hour
+    drive north of Cape Town, with the West Coast National Park closer at about 90 minutes — is carpeted in daisies from
+    mid-August to September. Flowers open in sunshine, so visit between about 10 a.m. and 4 p.m. In Western Australia, the
+    wildflower season moves south from the outback in July to Perth and the south-west in September and October.
+  </p>
+
+  <h2>Tips</h2>
+  <ul>
+    <li><b>Check bloom reports:</b> timing moves by weeks from year to year.</li>
+    <li><b>Go midweek</b> — popular fields (tulips, lavender, superblooms) get very busy at weekends.</li>
+    <li>For trees rather than flowers, see <a href="/guides/cherry-blossom-season/">cherry blossom season</a> and the <a href="/guides/fall-foliage/">fall foliage guide</a>.</li>
+  </ul>
+</Guide>

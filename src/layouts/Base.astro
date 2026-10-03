@@ -99,6 +99,7 @@ const ogImage = new URL(image ?? '/og-default.png', Astro.site).toString();
           if (/°C|mm\b/.test(t.data)) t.data = conv(t.data);
         }
         for (const n of el.querySelectorAll<HTMLElement>('[data-tip],[aria-label],[title]')) {
+          if (n.closest('[data-no-units]')) continue;
           for (const a of ['data-tip', 'aria-label', 'title']) {
             const v = n.getAttribute(a);
             if (v && /°C|mm\b/.test(v)) n.setAttribute(a, conv(v));

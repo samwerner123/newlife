@@ -1,0 +1,86 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+type Spot = { slug: string; name: string; m: number; what: string };
+const HALLOWEEN: Spot[] = [
+  { slug: 'new-york', name: 'New York City', m: 9, what: "The Village Halloween Parade on Sixth Avenue on 31 October — the world's biggest, open to anyone in costume." },
+  { slug: 'new-orleans', name: 'New Orleans', m: 9, what: 'Ghost and voodoo tours, the Krewe of Boo parade and costume parties all over the French Quarter.' },
+  { slug: 'orlando', name: 'Orlando', m: 9, what: 'Halloween Horror Nights at Universal and Mickey’s Not-So-Scary Halloween Party at Magic Kingdom, on selected nights from late summer.' },
+  { slug: 'los-angeles', name: 'Los Angeles', m: 9, what: 'West Hollywood’s Halloween Carnaval street party, plus haunted attractions at the theme parks.' },
+  { slug: 'ireland', name: 'Ireland', m: 9, what: 'Halloween began here as the Celtic festival of Samhain; Derry~Londonderry, just across the border, hosts one of Europe’s biggest Halloween festivals.' },
+  { slug: 'edinburgh', name: 'Edinburgh', m: 9, what: 'The Samhuinn Fire Festival marks the Celtic new year with fire, drums and costumed performers.' },
+];
+const MUERTOS: Spot[] = [
+  { slug: 'oaxaca', name: 'Oaxaca', m: 10, what: 'The most traditional celebrations: candlelit cemetery vigils, elaborate altars, sand tapestries and street parades (comparsas) from 31 October to 2 November.' },
+  { slug: 'mexico-city', name: 'Mexico City', m: 10, what: 'A huge Día de Muertos parade along Reforma, a giant altar in the Zócalo and candlelit cemeteries in Mixquic.' },
+  { slug: 'san-miguel-de-allende', name: 'San Miguel de Allende', m: 10, what: 'Altars across the old town, Catrina parades and the La Calaca arts festival.' },
+  { slug: 'cancun', name: 'Cancún & Riviera Maya', m: 10, what: 'Xcaret park’s Festival of Life and Death Traditions, with music, altars and food from across Mexico.' },
+  { slug: 'antigua-guatemala', name: 'Antigua, Guatemala', m: 10, what: 'On 1 November, nearby Sumpango and Santiago Sacatepéquez fly giant kites to carry messages to the dead.' },
+];
+const rows = (list: Spot[]) => list.map((s) => ({ ...s, d: bySlug.get(s.slug)! }));
+---
+
+<Guide slug="halloween-dia-de-muertos" photo="oaxaca">
+  <p>
+    The end of October brings two very different celebrations. <strong>Halloween</strong> on 31 October — born in Ireland as
+    the Celtic festival of Samhain and turned into a costume party in the United States — is about ghosts, scares and
+    trick-or-treating. <strong>Día de los Muertos</strong>, the Day of the Dead, on 1–2 November, is Mexico's joyful festival
+    of remembrance, when families welcome back the spirits of their loved ones with altars, marigolds and candlelit vigils.
+  </p>
+
+  <h2>Where to celebrate Halloween</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Where</th><th scope="col" class="left">What happens</th><th scope="col">October weather</th></tr></thead>
+      <tbody>
+        {
+          rows(HALLOWEEN).map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d.url}>{r.name}</a></th>
+              <td class="left">{r.what}</td>
+              <td><a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} /></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Where to celebrate Día de los Muertos</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Where</th><th scope="col" class="left">What happens</th><th scope="col">November weather</th></tr></thead>
+      <tbody>
+        {
+          rows(MUERTOS).map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d.url}>{r.name}</a></th>
+              <td class="left">{r.what}</td>
+              <td><a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} /></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Average daily highs from official climate normals.</p>
+
+  <h2>Día de los Muertos: what to know</h2>
+  <ul>
+    <li><b>Dates:</b> 1 November honours children who have died (Día de los Angelitos) and 2 November adults, but celebrations start in late October.</li>
+    <li><b>Altars (ofrendas)</b> are decorated with marigolds, candles, sugar skulls, pan de muerto and the favourite foods of the dead.</li>
+    <li><b>Cemetery vigils</b> are family occasions. Visitors are often welcome, but ask before taking photos and keep a respectful distance.</li>
+    <li><b>Michoacán:</b> the candlelit night vigil on the island of Janitzio in Lake Pátzcuaro is one of the most moving celebrations, if you can travel further.</li>
+    <li><b>Book early:</b> Oaxaca and San Miguel de Allende fill up months in advance.</li>
+  </ul>
+
+  <h2>Weather and packing</h2>
+  <p>
+    Late October and early November are dry and sunny in Mexico's highlands, with warm days and cool nights — bring a jacket
+    for cemetery vigils. On the Caribbean coast the rainy season is ending. In New York, Ireland and Edinburgh, expect cool,
+    changeable autumn weather. See <a href="/where-to-go-in-october/">where to go in October</a> and
+    <a href="/where-to-go-in-november/">where to go in November</a>.
+  </p>
+</Guide>

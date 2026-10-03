@@ -1,0 +1,66 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, destMonthUrl, MONTHS } from '../../lib/data';
+
+const ALL = MONTHS.map((_, i) => i);
+const rows = [
+  { slug: 'cabo-san-lucas', label: 'Cabo San Lucas' },
+  { slug: 'puerto-vallarta', label: 'Puerto Vallarta' },
+  { slug: 'mexico-city', label: 'Mexico City' },
+  { slug: 'san-miguel-de-allende', label: 'San Miguel de Allende' },
+  { slug: 'oaxaca', label: 'Oaxaca' },
+  { slug: 'cancun', label: 'Cancún & Riviera Maya' },
+  { slug: 'belize', label: 'Belize' },
+  { slug: 'roatan', label: 'Roatán' },
+  { slug: 'antigua-guatemala', label: 'Antigua, Guatemala' },
+  { slug: 'guanacaste', label: 'Guanacaste' },
+  { slug: 'puerto-viejo', label: 'Puerto Viejo (Caribbean)' },
+  { slug: 'panama', label: 'Panama City' },
+];
+// The driest destination in each rainy-season month.
+const driest = [5, 6, 7, 8, 9].map((m) => {
+  const d = rows.map((r) => bySlug.get(r.slug)!).sort((a, b) => a.months[m].rain - b.months[m].rain)[0];
+  return { m, d };
+});
+---
+
+<Guide slug="rainy-season-mexico-central-america" photo="antigua-guatemala">
+  <p>
+    Across most of Mexico and Central America, the <strong>rainy season runs from May or June to October</strong>, and the dry
+    season from November or December to April. But "rainy" rarely means all-day rain: the typical pattern is a sunny morning
+    and a heavy afternoon or evening downpour. The bigger risk is the <strong>Atlantic and Pacific hurricane season</strong>
+    (June–November), which peaks from August to October.
+  </p>
+
+  <h2>Rainfall by month</h2>
+  <GuideTable caption="Average monthly rainfall in Mexico and Central America" months={ALL} show="rain" rows={rows} />
+  <p class="small muted">Average monthly rainfall from national climate normals.</p>
+
+  <h2>Weather rating by month</h2>
+  <GuideTable caption="Weather rating in Mexico and Central America by month" months={ALL} rows={rows} />
+
+  <h2>Where it's driest in the rainy season</h2>
+  <ul>
+    {driest.map(({ m, d }) => <li><b>{MONTHS[m]}:</b> <a href={destMonthUrl(d, m)}>{d.name}</a> ({d.months[m].rain} mm)</li>)}
+  </ul>
+
+  <h2>Region by region</h2>
+  <ul>
+    <li><b>Baja California (Cabo San Lucas):</b> desert-dry nearly all year; the little rain comes with late-summer storms in August–October, when hurricanes are also possible.</li>
+    <li><b>Pacific Mexico (Puerto Vallarta):</b> a sharp wet season from June to October, very hot and humid, with the heaviest rain in July–September.</li>
+    <li><b>Central highlands (Mexico City, San Miguel, Oaxaca):</b> afternoon thunderstorms from June to September, but mornings are usually sunny and temperatures mild at altitude.</li>
+    <li><b>Yucatán and the Caribbean (Cancún, Belize, Roatán):</b> showers from June, with the most rain and hurricane risk in September–October. Belize and Roatán's wettest months run into November–January, when cold fronts arrive.</li>
+    <li><b>Guatemala and Costa Rica's Pacific side:</b> classic green season from May to November, wettest in September–October, with a drier spell (the <i>canícula</i> or <i>veranillo</i>) in July–August.</li>
+    <li><b>Caribbean Costa Rica and Panama:</b> wet most of the year, but often drier in September–October, when the Pacific side is at its wettest.</li>
+  </ul>
+
+  <h2>Is the rainy season worth it?</h2>
+  <p>
+    Often, yes. Prices drop, the landscapes are green and the crowds are gone, and on most days you'll still have a sunny
+    morning. Plan outdoor activities early, keep afternoons flexible and buy travel insurance that covers hurricanes. Avoid
+    September–October on the Caribbean coast and in the Yucatán if you can, and check our guides to
+    <a href="/guides/hurricane-season/">hurricane season</a>, <a href="/guides/sargassum-season/">sargassum seaweed</a> and the
+    <a href="/guides/costa-rica-green-season/">Costa Rica green season</a>.
+  </p>
+</Guide>

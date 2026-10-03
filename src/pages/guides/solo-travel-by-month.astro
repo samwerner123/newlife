@@ -1,0 +1,65 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { destinations, rankForMonth, destMonthUrl, deg, MONTHS } from '../../lib/data';
+
+// Well-travelled places that are easy on your own: good public transport, plenty of hostels and group tours,
+// and generally low crime against visitors.
+const SOLO = [
+  'tokyo', 'kyoto', 'osaka', 'seoul', 'taiwan', 'singapore', 'chiang-mai', 'bali', 'hoi-an', 'luang-prabang',
+  'lisbon', 'porto', 'madeira', 'copenhagen', 'stockholm', 'vienna', 'prague', 'tallinn', 'lake-bled', 'edinburgh',
+  'ireland', 'iceland', 'malta', 'vancouver', 'queenstown', 'melbourne', 'sydney', 'manuel-antonio', 'oman', 'jordan',
+];
+const pool = destinations.filter((d) => SOLO.includes(d.slug));
+const byMonth = MONTHS.map((_, m) => rankForMonth(m, pool).filter((d) => d.months[m].score >= 65).slice(0, 5));
+---
+
+<Guide slug="solo-travel-by-month" photo="kyoto">
+  <p>
+    Travelling alone is easiest in places with good public transport, lots of hostels and group tours, and a reputation for
+    being safe for visitors. We picked {pool.length} destinations that tick those boxes — from Japan and Taiwan to Portugal,
+    Scandinavia and New Zealand — and ranked them for each month with our weather scores.
+  </p>
+
+  {
+    byMonth.map((items, m) => (
+      <>
+        <h2>Solo travel in {MONTHS[m]}</h2>
+        <ul class="picks">
+          {items.map((d) => (
+            <li>
+              <a href={destMonthUrl(d, m)}>{d.name}</a> <RatingBadge score={d.months[m].score} rating={d.months[m].rating} />
+              <span class="muted small">{deg(d.months[m].high)} · {d.tagline}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))
+  }
+
+  <h2>Tips for travelling alone</h2>
+  <ul>
+    <li><b>Meet people easily:</b> free walking tours, cooking classes, day trips and social hostels are the quickest way to find company.</li>
+    <li><b>Arrive in daylight</b> on your first day, and have your first night's accommodation and transfer booked.</li>
+    <li><b>Share your plans:</b> leave your itinerary with someone at home and keep a copy of your passport in your email.</li>
+    <li><b>Watch the solo supplement:</b> hostels with private rooms, guesthouses and apartment rentals are often better value than hotels priced for two.</li>
+    <li><b>Get insured:</b> on your own there's nobody to help if you fall ill — see our <a href="/guides/travel-insurance/">travel insurance guide</a> and stay connected with a <a href="/guides/esim-travel/">travel eSIM</a>.</li>
+    <li><b>Check current advice:</b> read your government's travel advice before you book, as situations can change.</li>
+  </ul>
+</Guide>
+
+<style>
+  .picks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 6px;
+    display: grid;
+    gap: 6px;
+  }
+  .picks li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+</style>

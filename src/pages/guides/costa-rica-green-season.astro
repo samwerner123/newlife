@@ -1,0 +1,70 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+const GREEN = [4, 5, 6, 7, 8, 9, 10];
+const rows = [
+  { slug: 'guanacaste', label: 'Guanacaste (north Pacific)' },
+  { slug: 'manuel-antonio', label: 'Manuel Antonio (central Pacific)' },
+  { slug: 'san-jose-costa-rica', label: 'San José & Central Valley' },
+  { slug: 'puerto-viejo', label: 'Puerto Viejo (Caribbean)' },
+];
+const pv = bySlug.get('puerto-viejo')!;
+const ma = bySlug.get('manuel-antonio')!;
+const gu = bySlug.get('guanacaste')!;
+---
+
+<Guide slug="costa-rica-green-season" photo="manuel-antonio">
+  <p>
+    Costa Rica's <strong>green season</strong> — the tourism industry's name for the rainy season — runs from
+    <strong>May to November</strong>. It's when the forests are at their lushest, prices drop and the crowds thin out. It's also
+    when you can count on rain most afternoons. Is it worth it? For most travellers, yes, as long as you plan around three
+    things: the time of day, the region and the month.
+  </p>
+
+  <h2>What the green season is really like</h2>
+  <p>
+    On the Pacific side, a typical green-season day starts sunny and clear, clouds build by lunchtime and a heavy shower or
+    thunderstorm arrives in the afternoon, often clearing by evening. Plan hikes, wildlife tours and beach time for the morning.
+    It is warm all year — highs of {deg(ma.months[6].high)} in Manuel Antonio and {deg(gu.months[6].high)} in Guanacaste in
+    July — so rain is rarely cold.
+  </p>
+
+  <h2>Green-season weather by region</h2>
+  <GuideTable caption="Weather rating in Costa Rica's green season, May to November" months={GREEN} rows={rows} />
+  <h3>Rainfall</h3>
+  <GuideTable caption="Average rainfall in Costa Rica's green season" months={GREEN} show="rain" rows={rows} />
+  <p class="small muted">Ratings combine average temperature and rainfall from national climate normals.</p>
+
+  <h2>Month by month</h2>
+  <ul>
+    <li><b>May–June:</b> the rains begin. Showers are usually short and the countryside turns green fast. Good value and quiet.</li>
+    <li><b>July–August:</b> the <i>veranillo</i> ("little summer"), a drier spell on the Pacific side that usually lasts a few weeks. Northern-hemisphere school holidays make it a busier green-season window.</li>
+    <li><b>September–October:</b> the wettest months on the Pacific coast, with some lodges closing and rough dirt roads. This is exactly when the <a href={destMonthUrl(pv, 8)}>Caribbean coast</a> has its driest, sunniest weather.</li>
+    <li><b>November:</b> the rains taper off; by late November the Pacific is drying out ahead of the December high season.</li>
+  </ul>
+
+  <h2>Why go in the green season</h2>
+  <ul>
+    <li><b>Lower prices:</b> hotels and tours are noticeably cheaper than in the December–April high season, and easier to book at short notice.</li>
+    <li><b>Wildlife:</b> green and leatherback turtles nest at Tortuguero from July to October, and humpback whales visit Marino Ballena National Park near Uvita from about July to October (and again from December to April).</li>
+    <li><b>Waterfalls and rivers</b> are at their fullest, which makes for better rafting and more dramatic falls.</li>
+    <li><b>Fewer people</b> on trails and in national parks like Manuel Antonio, which limits daily visitors.</li>
+  </ul>
+
+  <h2>Downsides</h2>
+  <ul>
+    <li>Afternoon storms can cancel boat trips, zip-lining and volcano views (Arenal is often cloud-covered).</li>
+    <li>Dirt roads on the Nicoya and Osa peninsulas become muddy and some river crossings impassable in September–October; rent a 4x4.</li>
+    <li>Corcovado and a few remote lodges have limited access or close for part of October.</li>
+  </ul>
+
+  <h2>Verdict</h2>
+  <p>
+    Go in <b>May–August</b> for the best balance of green landscapes, prices and weather, or in <b>September–October</b> if you
+    head to the Caribbean coast. Avoid September–October if your trip is all about the Pacific beaches. For the dry season, see
+    the <a href="/best-time-to-visit-costa-rica/">best time to visit Costa Rica</a>, and for the wider region, the
+    <a href="/guides/rainy-season-mexico-central-america/">rainy season in Mexico and Central America</a>.
+  </p>
+</Guide>

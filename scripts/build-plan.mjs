@@ -87,7 +87,8 @@ add(done(collectionsSrc.includes("key: 'foliage'")), 'Where to see fall foliage 
 add = section('C. Country, state & region hubs', '"Best time to visit Thailand", "Thailand in December", "best time to visit the Caribbean"…');
 for (const h of hubs) add(DONE, `Best time to visit ${h} — hub page with seasons, month table, heatmap, FAQ`);
 for (const h of hubs) for (const m of MONTHS) add(DONE, `${h} in ${m}`);
-for (const h of ['the Mediterranean', 'the Canary Islands', 'Eastern Europe', 'Patagonia (Argentina & Chile)', 'the Indian Ocean islands', 'the Florida Gulf Coast']) {
+// Next hub ideas; each needs at least two destinations before its page is built.
+for (const h of ['the Baltic states', 'Alaska', 'the Lowcountry (Charleston, Savannah, Hilton Head)', 'Sri Lanka & the Maldives', 'Southern Africa']) {
   add(PLAN, `Hub: best time to visit ${h} (needs 2+ destinations)`);
 }
 
@@ -227,6 +228,12 @@ const backlog = [
   ['Tasmania', 'tasmania'], ['Uluru', 'uluru'], ['Perth', 'perth'], ['Whitsundays', 'whitsundays'], ['Rotorua', 'rotorua'], ['Cook Islands', 'cook-islands'], ['Tahiti & Moorea', 'tahiti'],
   // Next up.
   ['Andaman Islands', 'andaman-islands'], ['Samoa', 'samoa'], ['Hoi An', 'hoi-an'], ['Koh Phangan & Koh Tao', 'koh-phangan'], ['Mount Fuji & Hakone', 'mount-fuji'], ['Hiroshima & Miyajima', 'hiroshima'], ['Pokhara', 'pokhara'], ['Raja Ampat', 'raja-ampat'], ['Madagascar', 'madagascar'], ['Rwanda (gorillas)', 'rwanda'], ['Abu Dhabi', 'abu-dhabi'], ['Cape Verde', 'cape-verde'], ['Puglia', 'puglia'], ['Sardinia', 'sardinia'], ['Cyprus', 'cyprus'], ['Granada & Andalusia', 'granada'], ['Normandy', 'normandy'], ['Bergen & the fjords', 'bergen'], ['Tallinn', 'tallinn'], ['Cornwall', 'cornwall'], ['Austin', 'austin'], ['San Antonio', 'san-antonio'], ['Philadelphia', 'philadelphia'], ['Hilton Head', 'hilton-head'], ['St. Augustine', 'st-augustine'], ['Big Sur', 'big-sur'], ['Death Valley', 'death-valley'], ['Mount Rainier', 'mount-rainier'], ['Denali', 'denali'], ['San Miguel de Allende', 'san-miguel-de-allende'], ['Isla Mujeres', 'isla-mujeres'], ['Roatán', 'roatan'], ['Easter Island', 'easter-island'], ['Gold Coast', 'gold-coast'], ['Great Ocean Road', 'great-ocean-road'], ['Milford Sound', 'milford-sound'],
+  // Next up (round 3).
+  ['Málaga & Costa del Sol', 'malaga'], ['Naples & Pompeii', 'naples'], ['Lake Garda', 'lake-garda'], ['Loire Valley', 'loire-valley'], ['Bordeaux', 'bordeaux'], ['Riga', 'riga'],
+  ['Montreal', 'montreal'], ['Toronto', 'toronto'], ['Asheville', 'asheville'], ['Santa Fe', 'santa-fe'], ['Scottsdale & Phoenix', 'scottsdale'], ['Palm Springs', 'palm-springs'],
+  ['Havana & Cuba', 'havana'], ['Antigua & Barbuda', 'antigua'], ['Grenada', 'grenada'], ['Bonaire', 'bonaire'], ['British Virgin Islands', 'british-virgin-islands'], ['Santa Marta & Tayrona', 'santa-marta'],
+  ['Ushuaia', 'ushuaia'], ['Florianópolis', 'florianopolis'], ['Nha Trang', 'nha-trang'], ['Sapa', 'sapa'], ['Chiang Rai', 'chiang-rai'], ['Koh Lanta', 'koh-lanta'],
+  ['Agra & the Taj Mahal', 'agra'], ['Varanasi', 'varanasi'], ['Vanuatu', 'vanuatu'], ['New Caledonia', 'new-caledonia'], ['Jasper', 'jasper'], ['Hallstatt & the Salzkammergut', 'hallstatt'],
 ];
 add = section('P. New destinations backlog (demand-ordered)', 'Next destinations to add — each brings 13 pages.');
 for (const [label, slug] of backlog) add(done(slugs.has(slug)), `Add destination: ${label} (guide + 12 monthly pages)`);

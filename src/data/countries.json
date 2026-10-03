@@ -92,5 +92,12 @@
   "Laos": { "language": "Lao", "plugs": "A, B, C, E, F (230 V)", "tipping": "Not expected; small tips are appreciated" },
   "Bhutan": { "language": "Dzongkha (English widely spoken)", "plugs": "C, D, F, G (230 V)", "tipping": "Tip guides and drivers at the end of a tour" },
   "Uzbekistan": { "language": "Uzbek, Russian", "plugs": "C, F (220 V)", "tipping": "5–10%; a service charge is often included" },
-  "Cook Islands": { "language": "Cook Islands Māori, English", "plugs": "I (240 V)", "tipping": "Not customary" }
+  "Cook Islands": { "language": "Cook Islands Māori, English", "plugs": "I (240 V)", "tipping": "Not customary" },
+  "Cape Verde": { "language": "Portuguese, Cape Verdean Creole", "plugs": "C, F (220 V)", "tipping": "Not expected; 5–10% for good service is appreciated" },
+  "Cyprus": { "language": "Greek, Turkish (English widely spoken)", "plugs": "G (240 V)", "tipping": "10% if service is not included" },
+  "Estonia": { "language": "Estonian (English widely spoken)", "plugs": "C, F (230 V)", "tipping": "Not expected; round up or leave 5–10% for good service" },
+  "Honduras": { "language": "Spanish (English widely spoken on Roatán)", "plugs": "A, B (120 V)", "tipping": "10% in restaurants, if not already added" },
+  "Madagascar": { "language": "Malagasy, French", "plugs": "C, E (220 V)", "tipping": "Appreciated: 5–10% in restaurants; tip guides and drivers" },
+  "Rwanda": { "language": "Kinyarwanda, English, French", "plugs": "C, J (230 V)", "tipping": "Not expected but appreciated; tip guides, trackers and porters on gorilla treks" },
+  "Samoa": { "language": "Samoan, English", "plugs": "I (230 V)", "tipping": "Not customary" }
 }

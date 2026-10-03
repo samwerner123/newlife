@@ -1,0 +1,101 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { bySlug, destMonthUrl, deg, MONTHS } from '../../lib/data';
+
+type Trip = { route: string; slug: string; m: number; text: string };
+const SEASONS: { name: string; months: string; trips: Trip[] }[] = [
+  {
+    name: 'Spring',
+    months: 'March–May',
+    trips: [
+      { route: 'Utah’s Mighty Five', slug: 'arches-bryce', m: 4, text: 'Arches, Canyonlands, Capitol Reef, Bryce Canyon and Zion before the summer heat; snow can linger at Bryce until April.' },
+      { route: 'Andalusia’s white villages', slug: 'granada', m: 3, text: 'Seville, Ronda, the white hill towns and Granada, with orange blossom and Holy Week processions.' },
+      { route: 'Big Sur and Highway 1', slug: 'big-sur', m: 4, text: 'Wildflowers on the cliffs and fewer fog days than summer, from Carmel to Hearst Castle.' },
+      { route: 'Puglia', slug: 'puglia', m: 4, text: 'Trulli, olive groves and whitewashed coastal towns, warm enough for a swim by late May.' },
+    ],
+  },
+  {
+    name: 'Summer',
+    months: 'June–August',
+    trips: [
+      { route: 'Iceland’s Ring Road', slug: 'iceland', m: 6, text: 'Waterfalls, glaciers and black-sand beaches under the midnight sun; all highland roads are open by July.' },
+      { route: 'The North Coast 500', slug: 'scottish-highlands', m: 6, text: 'Scotland’s 500-mile loop around the far north of the Highlands, with long evenings and white beaches.' },
+      { route: 'The Icefields Parkway', slug: 'banff', m: 7, text: 'Lake Louise to Jasper past glaciers and turquoise lakes; snow-free and fully open in summer.' },
+      { route: 'Norway’s fjords', slug: 'bergen', m: 6, text: 'Ferries, hairpin roads and waterfalls between Bergen, the Sognefjord and Geiranger.' },
+      { route: 'The Dolomites passes', slug: 'dolomites', m: 6, text: 'The Great Dolomites Road and the Sella Ronda passes, with mountain huts and cable cars open.' },
+    ],
+  },
+  {
+    name: 'Autumn',
+    months: 'September–November',
+    trips: [
+      { route: 'New England fall foliage', slug: 'vermont', m: 9, text: 'Vermont’s Route 100, the Kancamagus Highway and the Berkshires at peak colour.' },
+      { route: 'The Blue Ridge Parkway', slug: 'great-smoky-mountains', m: 9, text: 'From Shenandoah to the Great Smoky Mountains as the ridges turn red and gold in October.' },
+      { route: 'The Amalfi Coast', slug: 'amalfi-coast', m: 8, text: 'The famous cliff road with warm seas and fewer summer crowds in September and October.' },
+      { route: 'Route 66 and the Southwest', slug: 'grand-canyon', m: 9, text: 'Desert drives to the Grand Canyon and Monument Valley in comfortable temperatures.' },
+    ],
+  },
+  {
+    name: 'Winter',
+    months: 'December–February',
+    trips: [
+      { route: 'The Great Ocean Road', slug: 'great-ocean-road', m: 0, text: 'Surf beaches, koalas and the Twelve Apostles in the Australian summer.' },
+      { route: 'New Zealand’s South Island', slug: 'milford-sound', m: 1, text: 'Queenstown, Fiordland and the Milford Road at the height of the southern summer.' },
+      { route: 'The Florida Keys', slug: 'key-west', m: 1, text: 'The Overseas Highway’s 42 bridges from Miami to Key West in dry, sunny winter weather.' },
+      { route: 'Rajasthan', slug: 'rajasthan', m: 0, text: 'Jaipur, Jodhpur, Udaipur and the desert forts in warm, dry winter days.' },
+      { route: 'Patagonia’s Ruta 40', slug: 'patagonia', m: 0, text: 'El Calafate, El Chaltén and Torres del Paine in the long southern summer days — expect wind.' },
+    ],
+  },
+];
+const seasons = SEASONS.map((s) => ({ ...s, trips: s.trips.map((t) => ({ ...t, d: bySlug.get(t.slug)! })) }));
+---
+
+<Guide slug="road-trips-by-season" photo="great-ocean-road">
+  <p>
+    A road trip lives or dies by the weather: mountain passes close in winter, deserts are dangerous in summer and coastal
+    roads disappear in fog. These are the world's great drives, grouped by the season when they're at their best, with the
+    weather to expect on the way.
+  </p>
+
+  {
+    seasons.map((s) => (
+      <>
+        <h2>{s.name} road trips ({s.months})</h2>
+        <ul class="trips">
+          {s.trips.map((t) => (
+            <li>
+              <p>
+                <b>{t.route}</b> — {t.text}
+              </p>
+              <p class="small">
+                <a href={destMonthUrl(t.d, t.m)}>{t.d.name} in {MONTHS[t.m]}</a>: {deg(t.d.months[t.m].high)} by day{' '}
+                <RatingBadge score={t.d.months[t.m].score} rating={t.d.months[t.m].rating} />
+              </p>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))
+  }
+
+  <h2>Road-trip tips</h2>
+  <ul>
+    <li><b>Check road openings:</b> high passes in the Alps, the Rockies and Iceland's highlands open only from about June to September.</li>
+    <li><b>Book cars early</b> for summer in Iceland, Norway and the US national parks, where rental fleets sell out.</li>
+    <li><b>Watch the daylight:</b> winter days are short in the north — see our <a href="/guides/daylight-hours/">daylight hours guide</a>.</li>
+    <li>For Iceland, read our guide to <a href="/guides/iceland-ring-road/">driving the Ring Road</a>; for autumn colours, the <a href="/guides/fall-foliage/">fall foliage guide</a>.</li>
+  </ul>
+</Guide>
+
+<style>
+  .trips {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .trips p {
+    margin: 0;
+  }
+</style>

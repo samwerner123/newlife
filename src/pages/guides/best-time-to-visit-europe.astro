@@ -1,0 +1,101 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { destinations, rankForMonth, destMonthUrl, deg, MONTHS } from '../../lib/data';
+import { collectionByKey } from '../../lib/collections';
+
+const europe = destinations.filter((d) => d.region === 'Europe');
+const europeMonth = collectionByKey.get('europe')!;
+const warmest = collectionByKey.get('europe-warm')!;
+const top = MONTHS.map((_, m) => rankForMonth(m, europe).slice(0, 5));
+const greatCount = MONTHS.map((_, m) => europe.filter((d) => d.months[m].score >= 80).length);
+
+// One line of editorial context per month.
+const NOTES = [
+  'Cold and dark in the north, but the cheapest month to fly. Winter sun means the Canary Islands, Madeira and Malta; snow means the Alps and Lapland.',
+  'Still winter almost everywhere. Ski season peaks, Carnival brings Venice and the Canaries to life, and southern Spain starts to warm up.',
+  'Spring arrives in the south: Seville, the Algarve and Sicily are mild and green, while the Alps still have good snow.',
+  'Blossom, Easter and long, mild days around the Mediterranean; northern cities are fresh but brightening fast.',
+  'One of the best months for almost anywhere: warm in the south, pleasant in the north, and ahead of the summer crowds and prices.',
+  'Beach season starts, the Greek islands and Croatia are hot but not yet packed, and Scandinavia has endless daylight.',
+  'Peak summer: hot and crowded on the Mediterranean, with heatwaves inland. The best time for Scandinavia, Scotland, Iceland and the Alps.',
+  "Europe's busiest holiday month — Italians and French head for the coast. Go north or high into the mountains for comfortable temperatures.",
+  'Arguably the best month of all: the sea is at its warmest, the crowds thin out and city breaks are pleasant again.',
+  'Warm autumn days in the south and wine harvests everywhere; the north turns cool and colourful.',
+  'Quiet, cheap and often grey. The far south (Canaries, Cyprus, Malta) still has sunshine; Christmas markets open at the end of the month.',
+  'Christmas markets in Central Europe, skiing from mid-month and the shortest days of the year. Winter sun is limited to the Canaries and Madeira.',
+];
+---
+
+<Guide slug="best-time-to-visit-europe" photo="cinque-terre">
+  <p>
+    The short answer: <strong>May, June and September</strong> are the best months to visit most of Europe. They combine warm
+    weather with longer days, thinner crowds and lower prices than July and August. But Europe stretches from the Arctic to
+    North Africa, so the best time depends on where you go. Below, we rank all {europe.length} European destinations we cover
+    for every month, using average temperatures and rainfall from official climate normals.
+  </p>
+
+  <h2>Europe by season at a glance</h2>
+  <ul>
+    <li><b>Spring (March–May):</b> best for the Mediterranean, Spain, Portugal and Italy before the heat; tulips in the Netherlands in April; still skiing in the Alps until about Easter.</li>
+    <li><b>Summer (June–August):</b> best for Scandinavia, the UK and Ireland, Iceland and the Alps. Very hot and busy in the south, especially in July and August.</li>
+    <li><b>Autumn (September–November):</b> September and October are ideal for beaches and city breaks in the south; colours and harvests everywhere; November is quiet and grey.</li>
+    <li><b>Winter (December–February):</b> Christmas markets, skiing and the Northern Lights in the north; mild winter sun only in the Canary Islands, Madeira, Cyprus and Malta.</li>
+  </ul>
+
+  <h2>Europe month by month</h2>
+  {
+    top.map((items, m) => (
+      <>
+        <h3>{MONTHS[m]}</h3>
+        <p>{NOTES[m]} <span class="muted">{greatCount[m]} of {europe.length} destinations rate great.</span></p>
+        <ul class="picks">
+          {items.map((d) => (
+            <li>
+              <a href={destMonthUrl(d, m)}>{d.name}</a> <RatingBadge score={d.months[m].score} rating={d.months[m].rating} />
+              <span class="muted small">{deg(d.months[m].high)} · {d.months[m].rain} mm</span>
+            </li>
+          ))}
+        </ul>
+        <p class="small">
+          More: <a href={europeMonth.path(m)}>best places to visit in Europe in {MONTHS[m]}</a> ·{' '}
+          <a href={warmest.path(m)}>warmest places in Europe in {MONTHS[m]}</a>
+        </p>
+      </>
+    ))
+  }
+
+  <h2>By region</h2>
+  <ul>
+    <li><b>The Mediterranean</b> (Spain, Italy, Greece, Croatia, Cyprus): May–June and September–October. See <a href="/best-time-to-visit-mediterranean/">the best time to visit the Mediterranean</a>.</li>
+    <li><b>Northern Europe and Scandinavia:</b> June–August, when days are longest and warmest. See <a href="/best-time-to-visit-scandinavia/">Scandinavia</a>.</li>
+    <li><b>Central and Eastern Europe</b> (Prague, Vienna, Budapest, Kraków): May–June and September, plus December for Christmas markets. See <a href="/best-time-to-visit-central-europe/">Central Europe</a> and <a href="/best-time-to-visit-eastern-europe/">Eastern Europe</a>.</li>
+    <li><b>The Alps:</b> late June–September for hiking, December–April for skiing. See <a href="/best-time-to-visit-alps/">the Alps</a>.</li>
+    <li><b>The Canary Islands and Madeira:</b> all year, and Europe's best bet for winter sun. See <a href="/best-time-to-visit-canary-islands/">the Canary Islands</a>.</li>
+  </ul>
+
+  <h2>Crowds and prices</h2>
+  <p>
+    July and August are Europe's peak months: flights, hotels and big sights are at their most expensive, and many locals take
+    their own holidays, so some city restaurants close while coasts fill up. Shoulder months — April–May and September–October —
+    usually offer the best balance; see our <a href="/guides/shoulder-season/">shoulder-season guide</a>. January to March,
+    outside school holidays and ski resorts, is the cheapest time to go, and the
+    <a href="/guides/cheapest-months-to-fly-to-europe/">cheapest time to fly to Europe from the US</a>.
+  </p>
+</Guide>
+
+<style>
+  .picks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 6px;
+    display: grid;
+    gap: 6px;
+  }
+  .picks li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+</style>

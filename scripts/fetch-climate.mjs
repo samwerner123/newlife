@@ -71,12 +71,19 @@ function weatherBoxes(text) {
   let m;
   while ((m = re.exec(text))) {
     let depth = 0;
+    let closed = false;
     for (let i = m.index; i < text.length - 1; i++) {
       if (text[i] === '{' && text[i + 1] === '{') { depth++; i++; }
       else if (text[i] === '}' && text[i + 1] === '}') {
         depth--; i++;
-        if (depth === 0) { boxes.push(text.slice(m.index + 2, i - 1)); break; }
+        if (depth === 0) { boxes.push(text.slice(m.index + 2, i - 1)); closed = true; break; }
       }
+    }
+    // Stray braces inside the box (e.g. "}}}" in a table cell) can throw the count off; fall back to the
+    // first line that is just "}}", which is how weather boxes are normally closed.
+    if (!closed) {
+      const end = text.indexOf('\n}}', m.index);
+      if (end > 0) boxes.push(text.slice(m.index + 2, end));
     }
   }
   return boxes;

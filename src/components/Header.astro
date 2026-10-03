@@ -24,7 +24,7 @@ const current = (href: string) => href !== '/#months' && path.startsWith(href);
       <ul>
         {links.map((l) => <li class:list={{ 'menu-only': l.menuOnly }}><a href={l.href} aria-current={current(l.href) ? 'page' : undefined}>{l.label}</a></li>)}
         <li class="menu-units">
-          <button type="button" class="units wide" data-units-toggle>
+          <button type="button" class="units wide" data-units-toggle data-no-units>
             Units: <span data-unit-c>°C</span><span class="sep">/</span><span data-unit-f>°F</span>
           </button>
         </li>
@@ -43,7 +43,7 @@ const current = (href: string) => href !== '/#months' && path.startsWith(href);
       <button type="button" class="icon-btn theme" data-theme-toggle aria-label="Switch light or dark theme" title="Light / dark theme">
         <span class="t-dark"><Icon name="moon" size={20} /></span><span class="t-light"><Icon name="sun" size={20} /></span>
       </button>
-      <button type="button" class="units" data-units-toggle aria-label="Switch temperature units" title="Switch °C / °F">
+      <button type="button" class="units" data-units-toggle data-no-units aria-label="Switch temperature units" title="Switch °C / °F">
         <span data-unit-c>°C</span><span class="sep">/</span><span data-unit-f>°F</span>
       </button>
       <button type="button" class="menu" aria-controls="main-nav" aria-expanded="false" data-menu-toggle>

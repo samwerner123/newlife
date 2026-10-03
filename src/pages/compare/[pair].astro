@@ -26,9 +26,12 @@ const related = [...comparisonsFor(a.id), ...comparisonsFor(b.id)].filter((x) =>
 const warmer = v.hiA > v.hiB ? a : b;
 const cheaper = a.budget.low <= b.budget.low ? a : b;
 const other = (e: typeof a) => (e === a ? b : a);
-const lead = `${warmer.name} is the warmer of the two (${deg(Math.max(v.hiA, v.hiB))} vs ${deg(
-  Math.min(v.hiA, v.hiB),
-)} average high across the year), and ${cheaper.name} is ${
+const sameHeat = Math.round(v.hiA) === Math.round(v.hiB);
+const lead = `${
+  sameHeat
+    ? `Both average highs of about ${deg(v.hiA)} across the year`
+    : `${warmer.name} is the warmer of the two (${deg(Math.max(v.hiA, v.hiB))} vs ${deg(Math.min(v.hiA, v.hiB))} average high across the year)`
+}, and ${cheaper.name} is ${
   a.budget.low === b.budget.low ? 'about as' : 'the more'
 } affordable (from ${usd(cheaper.budget.low)}/day). ${bestIn(a.name, a.bestMonths)}; ${bestIn(b.name, b.bestMonths)}.`;
 const crumbs = [
@@ -43,7 +46,9 @@ const faq = [
   },
   {
     q: `Which is warmer, ${a.name} or ${b.name}?`,
-    a: `${warmer.name} is warmer on average: ${deg(Math.max(v.hiA, v.hiB))} vs ${deg(Math.min(v.hiA, v.hiB))} average daytime highs across the year.`,
+    a: sameHeat
+      ? `They are about the same: both average daytime highs of around ${deg(v.hiA)} across the year, so the month you travel matters more.`
+      : `${warmer.name} is warmer on average: ${deg(Math.max(v.hiA, v.hiB))} vs ${deg(Math.min(v.hiA, v.hiB))} average daytime highs across the year.`,
   },
   {
     q: `Which is cheaper, ${a.name} or ${b.name}?`,

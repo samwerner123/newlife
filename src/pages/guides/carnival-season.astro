@@ -1,0 +1,68 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+// Carnival ends on Shrove Tuesday (Mardi Gras), the day before Ash Wednesday — 9 February in 2027 (Easter is 28 March).
+const parties: { slug: string; name: string; dates: string; what: string; m: number }[] = [
+  { slug: 'rio-de-janeiro', name: 'Rio de Janeiro', dates: '5–10 February 2027', what: "Samba-school parades in the Sambadrome and hundreds of free street parties (blocos) — the world's biggest carnival.", m: 1 },
+  { slug: 'salvador-brazil', name: 'Salvador, Brazil', dates: '4–10 February 2027', what: 'Six days of street carnival led by trios elétricos, trucks carrying live bands through the old city and along the seafront.', m: 1 },
+  { slug: 'venice', name: 'Venice', dates: 'About 30 January – 9 February 2027', what: 'Masked balls, elaborate costumes in St Mark’s Square and a water parade on the Grand Canal.', m: 1 },
+  { slug: 'new-orleans', name: 'New Orleans (Mardi Gras)', dates: 'Parades from late January; Mardi Gras day 9 February 2027', what: 'Krewe parades with floats, beads and brass bands, building to Fat Tuesday in the French Quarter.', m: 1 },
+  { slug: 'tenerife', name: 'Santa Cruz de Tenerife', dates: 'February 2027', what: 'One of the largest carnivals in Europe, with a carnival-queen gala and street parties that last all night.', m: 1 },
+  { slug: 'gran-canaria', name: 'Las Palmas de Gran Canaria', dates: 'February–March 2027', what: 'Weeks of parades, concerts and the famous Drag Queen Gala.', m: 1 },
+  { slug: 'cartagena', name: 'Barranquilla, Colombia (from Cartagena)', dates: '6–9 February 2027', what: 'UNESCO-listed carnival of Afro-Caribbean music and dance, two hours from Cartagena.', m: 1 },
+  { slug: 'cape-verde', name: 'Mindelo, Cape Verde', dates: 'Parade on 9 February 2027', what: 'Brazilian-style samba parades and costumes on São Vicente.', m: 1 },
+  { slug: 'switzerland', name: 'Basel Fasnacht, Switzerland', dates: '15–17 February 2027', what: 'Starts with the Morgestraich at 4 a.m. on the Monday after Ash Wednesday: lanterns, fifes and drums through the dark old town.', m: 1 },
+];
+const rows = parties.map((p) => ({ ...p, d: bySlug.get(p.slug)! }));
+---
+
+<Guide slug="carnival-season" photo="rio-de-janeiro">
+  <p>
+    Carnival is the last big party before Lent. It always ends on <strong>Shrove Tuesday</strong> — Mardi Gras — the day before
+    Ash Wednesday, so its dates move with Easter. In 2027, Easter falls on 28 March, which puts <strong>Carnival Tuesday on
+    9 February 2027</strong>. Here are the world's best carnivals, their 2027 dates and the weather to expect.
+  </p>
+
+  <h2>Carnival dates 2027</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Carnival</th><th scope="col" class="left">2027 dates</th><th scope="col">February weather</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d.url}>{r.name}</a></th>
+              <td class="left">{r.dates}</td>
+              <td>
+                <a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)}</a> <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} />
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Dates follow each carnival's usual pattern; organisers confirm exact programmes each winter. Weather is the February average from official climate normals.</p>
+
+  <h2>The big carnivals</h2>
+  <ul>{rows.map((r) => <li><b>{r.name}:</b> {r.what}</li>)}</ul>
+
+  <h2>Trinidad and the Caribbean</h2>
+  <p>
+    Trinidad's carnival — J'ouvert in the early hours of Carnival Monday and the Parade of the Bands on Tuesday (8–9 February
+    2027) — is the mother of Caribbean carnivals. Many islands hold theirs in summer instead: Barbados's Crop Over ends with
+    Grand Kadooment on the first Monday in August, and London's Notting Hill Carnival, Europe's biggest street festival, takes
+    place over the August bank holiday weekend.
+  </p>
+
+  <h2>Tips for carnival</h2>
+  <ul>
+    <li><b>Book early:</b> hotels in Rio, Venice, New Orleans and Salvador fill up months ahead and charge minimum stays.</li>
+    <li><b>Carry little:</b> crowds attract pickpockets — take a copy of your passport, a little cash and a phone on a lanyard.</li>
+    <li><b>Expect closures:</b> in Brazil, banks and many businesses close from Carnival Monday until Ash Wednesday lunchtime.</li>
+    <li><b>Dress for the weather:</b> it's peak summer in Rio and Salvador (hot, humid, with downpours) but winter in Venice and Basel.</li>
+  </ul>
+  <p>More events: our <a href="/guides/festival-calendar/">festival calendar</a> and <a href="/where-to-go-in-february/">where to go in February</a>.</p>
+</Guide>

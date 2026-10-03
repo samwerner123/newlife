@@ -1,0 +1,85 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, MONTHS, MONTH_SHORT } from '../../lib/data';
+
+const ALL = MONTHS.map((_, i) => i);
+const andaman = ['phuket', 'krabi'].map((s) => bySlug.get(s)!);
+const gulf = ['koh-samui', 'koh-phangan'].map((s) => bySlug.get(s)!);
+const avg = (ds: typeof andaman, m: number) => ds.reduce((a, d) => a + d.months[m].score, 0) / ds.length;
+// Which coast has the better weather each month (by the average of our scores).
+const label = { andaman: 'Andaman coast', gulf: 'Gulf of Thailand', both: 'Both are similar' } as const;
+const better = ALL.map((m) => {
+  const a = avg(andaman, m);
+  const g = avg(gulf, m);
+  const side: keyof typeof label = Math.abs(a - g) < 5 ? 'both' : a > g ? 'andaman' : 'gulf';
+  return { m, side };
+});
+---
+
+<Guide slug="thailand-islands-andaman-vs-gulf" photo="krabi">
+  <p>
+    Thailand has two island coasts with opposite rainy seasons. The <strong>Andaman coast</strong> on the west — Phuket, Krabi,
+    Koh Phi Phi, Koh Lanta and Koh Lipe — is best from <strong>November to April</strong> and gets the south-west monsoon from
+    May to October. The <strong>Gulf of Thailand</strong> on the east — Koh Samui, Koh Phangan and Koh Tao — is driest from
+    <strong>February to August</strong> and wettest from October to December. So whatever month you travel, one coast is
+    usually in good shape.
+  </p>
+
+  <h2>Weather rating by month</h2>
+  <GuideTable caption="Weather rating for Thailand's Andaman and Gulf islands by month" months={ALL} rows={[
+    { slug: 'phuket', label: 'Phuket (Andaman)' },
+    { slug: 'krabi', label: 'Krabi & Phi Phi (Andaman)' },
+    { slug: 'koh-samui', label: 'Koh Samui (Gulf)' },
+    { slug: 'koh-phangan', label: 'Koh Phangan & Koh Tao (Gulf)' },
+  ]} />
+  <p class="small muted">Our ratings combine average temperature and rainfall from Thai Meteorological Department normals.</p>
+
+  <h2>Rainfall by month</h2>
+  <GuideTable caption="Average monthly rainfall on Thailand's islands" months={ALL} show="rain" rows={[
+    { slug: 'phuket', label: 'Phuket (Andaman)' },
+    { slug: 'koh-samui', label: 'Koh Samui (Gulf)' },
+  ]} />
+
+  <h2>Which coast for which month?</h2>
+  <ul class="cols">
+    {better.map(({ m, side }) => <li><b>{MONTH_SHORT[m]}:</b> {label[side]}</li>)}
+  </ul>
+
+  <h2>The Andaman coast (November–April)</h2>
+  <p>
+    From November the north-east monsoon brings dry, sunny weather and calm, clear water to the west coast. December to March is
+    the high season, with the best diving around the Similan Islands, which close to boats from mid-May to mid-October. From May,
+    the south-west monsoon brings heavy showers, rough seas and strong currents on west-facing beaches — red flags are common, and
+    some smaller islands such as Koh Lipe and Koh Phi Phi have fewer boats. Prices drop sharply, though, and many days still have
+    long sunny spells. See <a href="/destinations/phuket/">Phuket</a> and <a href="/destinations/krabi/">Krabi</a>.
+  </p>
+
+  <h2>The Gulf of Thailand (February–August)</h2>
+  <p>
+    The Gulf islands are sheltered from the south-west monsoon, so they stay mostly dry through the summer, when the Andaman
+    coast is wet. That makes Koh Samui, Koh Phangan and Koh Tao Thailand's best beach choice from June to August. Their rainy
+    season comes later, from October to December, peaking in November, when ferries to Koh Tao can be cancelled. See
+    <a href="/destinations/koh-samui/">Koh Samui</a> and <a href="/destinations/koh-phangan/">Koh Phangan &amp; Koh Tao</a>.
+  </p>
+
+  <h2>Tips</h2>
+  <ul>
+    <li><b>January–April</b> is the only stretch when both coasts are usually good — perfect for combining them, with a flight or a bus and ferry across the peninsula.</li>
+    <li><b>Songkran</b>, the Thai New Year water festival (13–15 April), is celebrated on every island.</li>
+    <li>The Full Moon Party on Koh Phangan happens every month, rain or shine.</li>
+    <li>For the rest of the country, see the <a href="/best-time-to-visit-thailand/">best time to visit Thailand</a> and the <a href="/guides/monsoon-season-asia/">monsoon guide</a>.</li>
+  </ul>
+</Guide>
+
+<style>
+  .cols {
+    columns: 2;
+    column-gap: 24px;
+  }
+  @media (min-width: 640px) {
+    .cols {
+      columns: 3;
+    }
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, monthRanges, MONTHS } from '../../lib/data';
+
+const spots: { slug: string; place: string; why: string }[] = [
+  { slug: 'atacama', place: 'Atacama Desert, Chile', why: "The driest non-polar desert on Earth, high and cloudless, home to some of the world's biggest telescopes. Astronomy tours run nightly from San Pedro de Atacama." },
+  { slug: 'namibia', place: 'NamibRand, Namibia', why: "Africa's first International Dark Sky Reserve, with desert lodges built for stargazing." },
+  { slug: 'big-island', place: 'Mauna Kea, Hawaii', why: 'A 4,207 m summit above most of the clouds, with world-class observatories; stargazing tours set up telescopes lower down the mountain.' },
+  { slug: 'tenerife', place: 'Teide National Park, Tenerife', why: 'A Starlight Reserve high above the cloud layer, with observatory visits and guided night tours.' },
+  { slug: 'uluru', place: 'Uluru, Australia', why: 'Outback skies with almost no light pollution and the Milky Way overhead in the southern winter.' },
+  { slug: 'death-valley', place: 'Death Valley, California', why: "A Gold-tier International Dark Sky Park — one of the darkest places in the US, two hours from Las Vegas's lights." },
+  { slug: 'arches-bryce', place: 'Bryce Canyon & Arches, Utah', why: 'Both are International Dark Sky Parks, and Bryce runs ranger-led astronomy programmes in summer.' },
+  { slug: 'grand-canyon', place: 'Grand Canyon, Arizona', why: 'An International Dark Sky Park that holds an annual Star Party with free telescope viewing each June.' },
+  { slug: 'ladakh', place: 'Hanle, Ladakh', why: "India's first Dark Sky Reserve, on the high, dry Tibetan plateau at about 4,500 m." },
+  { slug: 'jordan', place: 'Wadi Rum, Jordan', why: 'Desert camps among red sandstone mountains, far from any city.' },
+  { slug: 'easter-island', place: 'Easter Island', why: 'One of the most remote inhabited places on Earth, with little artificial light.' },
+  { slug: 'queenstown', place: 'Aoraki Mackenzie, New Zealand', why: 'A huge International Dark Sky Reserve around Lake Tekapo, about three hours north of Queenstown.' },
+];
+// Clearest months: the months with the least rain, as a proxy for clear skies.
+const rows = spots.map((s) => {
+  const d = bySlug.get(s.slug)!;
+  const dry = [...d.months].sort((a, b) => a.rain - b.rain).slice(0, 4).map((m) => m.index);
+  return { ...s, d, dry: monthRanges(dry) };
+});
+---
+
+<Guide slug="stargazing-dark-skies" photo="atacama">
+  <p>
+    The best stargazing needs three things: <strong>dark skies</strong> far from city lights, <strong>clear, dry air</strong>
+    — ideally at altitude — and <strong>no moon</strong>. Here are the world's best places to see the Milky Way, with their
+    driest months from our climate data.
+  </p>
+
+  <h2>The best dark-sky destinations</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Where</th><th scope="col" class="left">Why go</th><th scope="col" class="left">Driest months</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d.url}>{r.place}</a></th>
+              <td class="left">{r.why}</td>
+              <td class="left">{r.dry}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Driest months are the four with the least rainfall in official climate normals — a good proxy for clear nights.</p>
+
+  <h2>When to see the Milky Way</h2>
+  <ul>
+    <li><b>Northern hemisphere:</b> the bright core of the Milky Way is visible from about February to October, and highest in the sky around midnight in {MONTHS[5]}–{MONTHS[7]}.</li>
+    <li><b>Southern hemisphere:</b> the core passes almost overhead from about {MONTHS[3]} to {MONTHS[8]}, which makes the Atacama, Uluru, Namibia and New Zealand spectacular in the southern winter.</li>
+    <li><b>Moon:</b> plan around the new moon. A bright moon washes out all but the brightest stars for about a week either side of the full moon.</li>
+  </ul>
+
+  <h2>Tips for better stargazing</h2>
+  <ul>
+    <li>Give your eyes 20–30 minutes to adapt to the dark, and use a red torch instead of a phone screen.</li>
+    <li>Deserts and mountains get cold at night, even in summer: bring warm layers.</li>
+    <li>Book an astronomy tour for telescope views and a guide to the constellations — especially in the southern hemisphere, where the sky looks unfamiliar.</li>
+    <li>For the Northern Lights, see our <a href="/guides/northern-lights/">aurora guide</a>; for the opposite, the <a href="/guides/midnight-sun/">midnight sun</a>.</li>
+  </ul>
+</Guide>
