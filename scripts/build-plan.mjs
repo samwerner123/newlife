@@ -113,7 +113,12 @@ for (const [k, label] of [['flights', 'flights (e.g. Aviasales)'], ['hotels', 'h
   add(filled.includes(k) ? DONE : OWNER, `Join a Travelpayouts ${label} programme and paste the link into affiliates.json`);
 }
 for (const t of ['Car rental programme link', 'Bus, train & ferry tickets programme link', 'Cruise programme link (Caribbean, Alaska, Greek islands)']) add(OWNER, t);
-for (const d of dests.slice(0, 40)) add(OWNER, `Destination-specific hotel search link for ${d.name} (overrides.${d.slug}.hotels)`);
+// Highest-demand destinations first (autocomplete research).
+const DEMAND = ['oahu', 'maui', 'kauai', 'big-island', 'iceland', 'guanacaste', 'manuel-antonio', 'miami', 'orlando', 'key-west', 'puerto-rico', 'bahamas', 'aruba', 'turks-and-caicos', 'jamaica', 'punta-cana', 'cancun', 'cabo-san-lucas', 'puerto-vallarta', 'bali', 'phuket', 'krabi', 'koh-samui', 'bangkok', 'tokyo', 'kyoto', 'santorini', 'crete', 'mykonos', 'amalfi-coast', 'rome', 'venice', 'florence', 'lisbon', 'algarve', 'madeira', 'mallorca', 'barcelona', 'dubai', 'maldives'];
+for (const slug of DEMAND) {
+  const d = dests.find((x) => x.slug === slug);
+  if (d) add(OWNER, `Destination-specific hotel search link for ${d.name} (overrides.${d.slug}.hotels)`);
+}
 for (const t of ['A/B test booking-box position and wording', 'Price widgets (cheapest flights by month) once an API token is added as a build secret', 'Newsletter with seasonal deals', 'Display ads once traffic qualifies (e.g. Ezoic, Mediavine)', 'Sponsored content policy and rate card']) add(PLAN, t);
 
 // ---------------------------------------------------------------------------
