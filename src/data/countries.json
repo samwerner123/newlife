@@ -107,5 +107,14 @@
   "Grenada": { "language": "English", "plugs": "G (230 V)", "tipping": "A 10% service charge is often added" },
   "Latvia": { "language": "Latvian (English widely spoken)", "plugs": "C, F (230 V)", "tipping": "10% in restaurants if service is good" },
   "New Caledonia": { "language": "French (and Kanak languages)", "plugs": "C, F (220 V)", "tipping": "Not expected" },
-  "Vanuatu": { "language": "Bislama, English, French", "plugs": "I (230 V)", "tipping": "Not expected" }
+  "Vanuatu": { "language": "Bislama, English, French", "plugs": "I (230 V)", "tipping": "Not expected" },
+  "Bosnia and Herzegovina": { "language": "Bosnian, Croatian, Serbian", "plugs": "C, F (230 V)", "tipping": "Round up or leave around 10% in restaurants" },
+  "Dominica": { "language": "English (French Creole widely spoken)", "plugs": "D, G (230 V)", "tipping": "10% if service is not included" },
+  "Guadeloupe": { "language": "French, Creole", "plugs": "C, D, E (230 V)", "tipping": "Service is usually included; round up for good service" },
+  "Lithuania": { "language": "Lithuanian (English widely spoken)", "plugs": "C, F (230 V)", "tipping": "Around 10% in restaurants" },
+  "Martinique": { "language": "French, Creole", "plugs": "C, D, E (230 V)", "tipping": "Service is usually included; round up for good service" },
+  "Mozambique": { "language": "Portuguese", "plugs": "C, F, M (220 V)", "tipping": "10% in restaurants; tip guides and dive crews" },
+  "Réunion": { "language": "French, Réunion Creole", "plugs": "C, E (230 V)", "tipping": "Not expected; round up for good service" },
+  "Trinidad and Tobago": { "language": "English", "plugs": "A, B (115 V)", "tipping": "10–15% if service is not included" },
+  "Tunisia": { "language": "Arabic, French", "plugs": "C, E (230 V)", "tipping": "About 10% in restaurants; small tips for guides and porters" }
 }

@@ -1,0 +1,81 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+type Season = 'Winter' | 'Spring & autumn' | 'Summer' | 'All year';
+// m: the month we show the weather for (the heart of the best season, northern or southern).
+const spots: { slug: string; place: string; springs: string; when: string; season: Season; m: number }[] = [
+  { slug: 'hokkaido', place: 'Hokkaido, Japan', springs: 'Noboribetsu and Jozankei — open-air baths (rotenburo) in deep snow', when: 'December–February', season: 'Winter', m: 1 },
+  { slug: 'hakuba', place: 'Hakuba & Nagano, Japan', springs: 'Onsen after skiing; the snow monkeys of Jigokudani bathe nearby', when: 'December–March', season: 'Winter', m: 0 },
+  { slug: 'banff', place: 'Banff, Canada', springs: 'Banff Upper Hot Springs, open all year, with mountain views', when: 'December–March', season: 'Winter', m: 1 },
+  { slug: 'colorado', place: 'Colorado, USA', springs: 'Glenwood Springs’ huge hot-spring pool and Strawberry Park near Steamboat', when: 'December–March', season: 'Winter', m: 0 },
+  { slug: 'budapest', place: 'Budapest, Hungary', springs: 'Széchenyi, Gellért and Rudas — steaming outdoor pools on frosty days', when: 'November–March', season: 'Winter', m: 0 },
+  { slug: 'palm-springs', place: 'Palm Springs, USA', springs: 'Mineral-water spas in Desert Hot Springs', when: 'November–April', season: 'Winter', m: 1 },
+  { slug: 'taiwan', place: 'Taiwan', springs: 'Beitou in Taipei and Jiaoxi on the north-east coast', when: 'November–March', season: 'Winter', m: 0 },
+  { slug: 'guanacaste', place: 'Guanacaste, Costa Rica', springs: 'Volcanic hot springs and mud baths at Rincón de la Vieja', when: 'December–April', season: 'Winter', m: 1 },
+  { slug: 'mount-fuji', place: 'Hakone & Mount Fuji, Japan', springs: 'Ryokan onsen, some with views of Fuji', when: 'October–November, March–April', season: 'Spring & autumn', m: 10 },
+  { slug: 'tbilisi', place: 'Tbilisi, Georgia', springs: 'The domed sulphur baths of Abanotubani, rented as private rooms', when: 'April–June, September–October', season: 'Spring & autumn', m: 4 },
+  { slug: 'lake-balaton', place: 'Hévíz, Lake Balaton, Hungary', springs: 'Europe’s largest swimmable thermal lake, warm enough to swim in all year', when: 'April–October', season: 'Spring & autumn', m: 8 },
+  { slug: 'jasper', place: 'Jasper, Canada', springs: 'Miette Hot Springs, the hottest in the Canadian Rockies', when: 'Open about May–October', season: 'Summer', m: 6 },
+  { slug: 'azores', place: 'Azores, Portugal', springs: 'Furnas: the iron-rich pool at Terra Nostra and Poça da Dona Beija', when: 'May–October', season: 'Summer', m: 6 },
+  { slug: 'arequipa', place: 'Colca Canyon, Peru', springs: 'La Calera hot springs at Chivay, on the way to the condor viewpoint', when: 'May–November', season: 'Summer', m: 6 },
+  { slug: 'uyuni', place: 'Uyuni, Bolivia', springs: 'The Polques hot springs at dawn, on the salt-flat tour', when: 'May–October', season: 'Summer', m: 7 },
+  { slug: 'iceland', place: 'Iceland', springs: 'Sky Lagoon, the Blue Lagoon, Mývatn Nature Baths and wild hot rivers', when: 'All year: winter for the northern lights, summer for highland pools', season: 'All year', m: 1 },
+  { slug: 'rotorua', place: 'Rotorua, New Zealand', springs: 'The Polynesian Spa, geothermal parks and natural hot streams', when: 'All year, best for soaking in June–August', season: 'All year', m: 6 },
+  { slug: 'atacama', place: 'Atacama, Chile', springs: 'The Puritama hot springs and the El Tatio geyser field at dawn', when: 'All year (cold nights)', season: 'All year', m: 10 },
+];
+const rows = spots.map((s) => ({ ...s, d: bySlug.get(s.slug)! }));
+const SEASONS: Season[] = ['Winter', 'Spring & autumn', 'Summer', 'All year'];
+---
+
+<Guide slug="hot-springs-onsen" photo="hokkaido">
+  <p>
+    A hot spring is best when the air is cold: <strong>winter</strong> is the classic season for Japan’s open-air onsen,
+    Budapest’s steaming outdoor baths and the pools of the Canadian Rockies, ideally with snow falling. In <strong>spring and
+    autumn</strong>, an onsen comes with cherry blossoms or red maples. And in <strong>summer</strong>, head for cool, high places
+    — Iceland, the Andes, the Rockies — where some springs are only open in the warmer months.
+  </p>
+
+  <h2>Hot springs by season</h2>
+  {
+    SEASONS.map((season) => (
+      <>
+        <h3>{season}</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="visually-hidden">Hot springs to visit: {season.toLowerCase()}</caption>
+            <thead><tr><th scope="col">Where</th><th scope="col" class="left">Springs</th><th scope="col" class="left">Best time</th><th scope="col">Weather then</th></tr></thead>
+            <tbody>
+              {rows.filter((r) => r.season === season).map((r) => (
+                <tr>
+                  <th scope="row"><a href={r.d.url}>{r.place}</a></th>
+                  <td class="left">{r.springs}</td>
+                  <td class="left">{r.when}</td>
+                  <td><a href={destMonthUrl(r.d, r.m)}>{deg(r.d.months[r.m].high)} / {deg(r.d.months[r.m].low)}</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    ))
+  }
+  <p class="small muted">Weather: average daily high / low in a typical month of the season, from official climate normals.</p>
+
+  <h2>Japan: onsen through the year</h2>
+  <ul>
+    <li><b>Winter (December–February):</b> snow-covered rotenburo in Hokkaido, Nagano and Tohoku; the snow monkeys at Jigokudani are most photogenic in January and February. See <a href="/guides/ski-season/">ski season</a>.</li>
+    <li><b>Spring (late March–April):</b> onsen towns with cherry blossoms. See <a href="/guides/cherry-blossom-season/">cherry blossom season</a>.</li>
+    <li><b>Autumn (October–November):</b> maple colours around Hakone, Nikko and Kyoto’s mountains. See <a href="/guides/fall-foliage/">fall foliage</a>.</li>
+    <li><b>Summer:</b> hot and humid in the lowlands — choose highland onsen in Hokkaido or the Japanese Alps. See <a href="/guides/best-time-to-visit-japan/">the best time to visit Japan</a>.</li>
+  </ul>
+
+  <h2>Hot spring etiquette</h2>
+  <ul>
+    <li><b>Japan:</b> wash and rinse thoroughly at the showers before getting in; bathing is naked and usually single-sex; keep your small towel out of the water. Many onsen still refuse visitors with tattoos — look for “tattoo-friendly” baths or book a private bath (kashikiri).</li>
+    <li><b>Iceland:</b> showering without a swimsuit before entering public pools is required, and attendants check.</li>
+    <li><b>Budapest and Tbilisi:</b> bring a swimsuit and flip-flops; Tbilisi’s private rooms can be booked by the hour.</li>
+    <li><b>Safety:</b> drink water, limit soaks to 10–15 minutes at a time, and skip very hot pools if you are pregnant or have heart problems. Never bathe in unmarked natural pools in geothermal areas — some are scalding or acidic.</li>
+  </ul>
+  <p>See also: <a href="/guides/northern-lights/">the northern lights</a> and <a href="/guides/iceland-ring-road/">Iceland’s Ring Road</a>.</p>
+</Guide>

@@ -1,0 +1,81 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, destMonthUrl, deg, MONTHS, monthRanges } from '../../lib/data';
+
+// Typical nesting and hatching windows; they vary from beach to beach and year to year.
+// nest: months (0-based) when females come ashore to lay; m: the month we show the sea temperature for.
+const spots: { slug: string; href?: string; place: string; species: string; nest: number[]; hatch: string; m: number }[] = [
+  { slug: 'mozambique', place: 'Southern Mozambique (Ponta do Ouro, Bazaruto)', species: 'Loggerhead, leatherback', nest: [10, 11, 0, 1, 2], hatch: 'January–April', m: 11 },
+  { slug: 'whitsundays', href: '/guides/great-barrier-reef/', place: 'Southern Great Barrier Reef (Mon Repos, Heron Island)', species: 'Loggerhead, green', nest: [10, 11, 0, 1, 2], hatch: 'January–April', m: 11 },
+  { slug: 'galapagos', place: 'Galápagos', species: 'Green', nest: [11, 0, 1, 2, 3, 4], hatch: 'March–July', m: 1 },
+  { slug: 'fernando-de-noronha', place: 'Fernando de Noronha', species: 'Green', nest: [0, 1, 2, 3, 4, 5], hatch: 'March–August', m: 1 },
+  { slug: 'salvador-brazil', place: 'Bahia (Praia do Forte)', species: 'Loggerhead, hawksbill, olive ridley', nest: [8, 9, 10, 11, 0, 1, 2], hatch: 'November–April', m: 11 },
+  { slug: 'seychelles', place: 'Seychelles', species: 'Hawksbill (by day), green', nest: [9, 10, 11, 0, 1], hatch: 'December–April', m: 11 },
+  { slug: 'tobago', place: 'Tobago (Turtle Beach, Grafton)', species: 'Leatherback, hawksbill', nest: [2, 3, 4, 5, 6, 7], hatch: 'May–September', m: 4 },
+  { slug: 'puerto-viejo', place: 'Caribbean Costa Rica (Tortuguero, Gandoca)', species: 'Leatherback (March–May), green (July–October)', nest: [2, 3, 4, 6, 7, 8, 9], hatch: 'May–November', m: 7 },
+  { slug: 'guanacaste', place: 'Ostional (Pacific Costa Rica)', species: 'Olive ridley mass nestings (arribadas)', nest: [6, 7, 8, 9, 10, 11], hatch: 'August–January', m: 8 },
+  { slug: 'puerto-vallarta', place: 'Mexico’s Pacific coast', species: 'Olive ridley', nest: [5, 6, 7, 8, 9, 10, 11], hatch: 'August–December', m: 8 },
+  { slug: 'tulum', place: 'Riviera Maya (Akumal, Xcacel)', species: 'Loggerhead, green', nest: [4, 5, 6, 7, 8, 9], hatch: 'July–November', m: 6 },
+  { slug: 'sarasota', place: 'Florida', species: 'Loggerhead, green, leatherback', nest: [2, 3, 4, 5, 6, 7, 8, 9], hatch: 'July–October', m: 6 },
+  { slug: 'outer-banks', place: 'The Carolinas (Outer Banks, Hilton Head)', species: 'Loggerhead', nest: [4, 5, 6, 7], hatch: 'July–October', m: 6 },
+  { slug: 'cape-verde', place: 'Cape Verde (Boa Vista, Sal)', species: 'Loggerhead', nest: [5, 6, 7, 8, 9], hatch: 'August–December', m: 7 },
+  { slug: 'crete', place: 'Crete', species: 'Loggerhead', nest: [4, 5, 6, 7], hatch: 'July–October', m: 6 },
+  { slug: 'antalya', place: 'Turkish Riviera (Patara, Belek)', species: 'Loggerhead, green', nest: [4, 5, 6, 7], hatch: 'July–October', m: 6 },
+  { slug: 'cyprus', place: 'Cyprus (Lara Bay)', species: 'Green, loggerhead', nest: [5, 6, 7], hatch: 'August–September', m: 6 },
+  { slug: 'oman', place: 'Oman (Ras al Jinz)', species: 'Green — all year', nest: [5, 6, 7, 8], hatch: 'all year, peaking August–November', m: 7 },
+  { slug: 'con-dao', place: 'Côn Đảo', species: 'Green', nest: [4, 5, 6, 7, 8, 9], hatch: 'July–December', m: 6 },
+  { slug: 'borneo', place: 'Borneo (Turtle Islands, Sabah)', species: 'Green, hawksbill — all year', nest: [6, 7, 8, 9], hatch: 'all year', m: 7 },
+  { slug: 'sri-lanka', place: 'Sri Lanka’s south coast (Rekawa)', species: 'Green, olive ridley, leatherback — all year', nest: [0, 1, 2, 3, 4, 5, 6], hatch: 'all year', m: 1 },
+];
+const rows = spots.map((s) => ({ ...s, d: bySlug.get(s.slug)! }));
+const byMonth = MONTHS.map((name, m) => ({ name, items: rows.filter((r) => r.nest.includes(m)) }));
+---
+
+<Guide slug="turtle-nesting-seasons" photo="tobago">
+  <p>
+    Watching a sea turtle haul herself up a beach at night to lay her eggs — and, about two months later, seeing the hatchlings
+    scramble for the sea — is one of the great wildlife encounters. Nesting follows the warm season: in the northern hemisphere
+    it runs from about <strong>May to October</strong> (Florida, the Mediterranean, the Mexican Caribbean, Cape Verde), and in
+    the southern hemisphere from about <strong>November to March</strong> (Australia, Mozambique, Brazil). A few places, like
+    Oman, Borneo and Sri Lanka, see turtles nesting all year.
+  </p>
+
+  <h2>Turtle nesting calendar</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Where</th><th scope="col" class="left">Species</th><th scope="col" class="left">Peak nesting</th><th scope="col" class="left">Hatchlings</th><th scope="col">Sea then</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.href ?? r.d.url}>{r.place}</a></th>
+              <td class="left">{r.species}</td>
+              <td class="left">{monthRanges(r.nest)}</td>
+              <td class="left">{r.hatch}</td>
+              <td><a href={destMonthUrl(r.d, r.m)}>{r.d.months[r.m].sea !== null ? deg(r.d.months[r.m].sea!) : deg(r.d.months[r.m].high)}</a></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Typical windows; they shift from beach to beach and year to year. Last column: average sea-surface temperature in a nesting month.</p>
+
+  <h2>Where turtles are nesting each month</h2>
+  <ul>
+    {byMonth.map(({ name, items }) => <li><b>{name}:</b> {items.map((r) => r.place.replace(/ \(.*\)$/, '')).join(', ')}</li>)}
+  </ul>
+
+  <h2>How to see turtles responsibly</h2>
+  <ul>
+    <li><b>Go with a guide.</b> In many places — Tortuguero, Ras al Jinz, Mon Repos, Florida's permitted turtle walks — beaches are closed at night except on ranger-led tours, which is the only legal way to watch.</li>
+    <li><b>No lights, no flash.</b> Torches and phone screens disorient nesting females and hatchlings, which find the sea by its glow. Guides use dim red light.</li>
+    <li><b>Keep your distance</b> and never touch turtles or hatchlings; stay behind the female while she lays.</li>
+    <li><b>Be wary of "hatchling releases"</b> that let tourists handle baby turtles or hold them until a convenient time — reputable conservation projects release them at dusk and let them crawl to the sea themselves.</li>
+    <li><b>On the beach by day:</b> fill in holes, take down sandcastles and leave no furniture out at night during nesting season.</li>
+  </ul>
+  <p>
+    See also: <a href="/guides/whale-watching/">whale watching</a>, the <a href="/guides/great-barrier-reef/">Great Barrier
+    Reef</a> and <a href="/guides/galapagos-month-by-month/">the Galápagos month by month</a>.
+  </p>
+</Guide>

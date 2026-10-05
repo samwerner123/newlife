@@ -1,0 +1,54 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { MONTHS } from '../../lib/data';
+
+const ALL = MONTHS.map((_, i) => i);
+const rows = [
+  { slug: 'ladakh', label: 'Ladakh (Himalaya)' },
+  { slug: 'darjeeling', label: 'Darjeeling (Himalayan foothills)' },
+  { slug: 'agra', label: 'Agra & the Taj Mahal' },
+  { slug: 'rajasthan', label: 'Rajasthan' },
+  { slug: 'varanasi', label: 'Varanasi' },
+  { slug: 'goa', label: 'Goa' },
+  { slug: 'hampi', label: 'Hampi' },
+  { slug: 'kerala', label: 'Kerala' },
+  { slug: 'andaman-islands', label: 'Andaman Islands' },
+];
+---
+
+<Guide slug="best-time-to-visit-india-by-region" photo="rajasthan">
+  <p>
+    For most of India, the best time to visit is the cool, dry winter from <strong>October to March</strong>: the Golden
+    Triangle (Delhi, Agra, Jaipur), Rajasthan, Goa, Kerala and Varanasi are all at their best. April to June is the hot season,
+    with temperatures above 40°C on the plains, and the monsoon sweeps across the country from June to September. The big
+    exception is the <strong>Himalaya</strong>: Ladakh is only accessible in summer, from about June to September.
+  </p>
+
+  <h2>Weather rating by region and month</h2>
+  <GuideTable caption="Weather rating in India by region and month" months={ALL} rows={rows} />
+  <h3>Rainfall</h3>
+  <GuideTable caption="Average monthly rainfall in India by region" months={ALL} show="rain" rows={rows} />
+  <p class="small muted">Ratings combine average temperature and rainfall from India Meteorological Department normals, with points off for extreme heat and monsoon closures.</p>
+
+  <h2>Region by region</h2>
+  <ul>
+    <li><b>The north and the Golden Triangle (Delhi, Agra, Jaipur, Varanasi):</b> October–March, with cold, often foggy mornings in December–January. Avoid April–June, when it's 40°C+. See <a href="/destinations/agra/">Agra</a> and <a href="/destinations/varanasi/">Varanasi</a>.</li>
+    <li><b>Rajasthan:</b> October–March, with the Pushkar camel fair in October or November and desert festivals in winter. See <a href="/destinations/rajasthan/">Rajasthan</a>.</li>
+    <li><b>Goa and the west coast:</b> November–March for beach season; the monsoon (June–September) closes most beach shacks. See <a href="/destinations/goa/">Goa</a>.</li>
+    <li><b>Kerala and the south:</b> October–March is dry and warm; Kerala gets the monsoon first, from early June, but it's lush and good for Ayurveda treatments. See <a href="/destinations/kerala/">Kerala</a> and <a href="/destinations/hampi/">Hampi</a>.</li>
+    <li><b>The Himalaya:</b> Ladakh from June to September (roads are snowbound in winter); Darjeeling and Sikkim in March–May and October–November for clear mountain views. See <a href="/destinations/ladakh/">Ladakh</a> and <a href="/destinations/darjeeling/">Darjeeling</a>.</li>
+    <li><b>The Andaman Islands:</b> November–April for calm seas and diving. See <a href="/destinations/andaman-islands/">the Andaman Islands</a>.</li>
+  </ul>
+
+  <h2>Festivals</h2>
+  <ul>
+    <li><b>Diwali</b>, the festival of lights, falls in October or November.</li>
+    <li><b>Holi</b>, the festival of colours, is in March.</li>
+    <li><b>Dev Deepawali</b> lights up the ghats of Varanasi in November.</li>
+  </ul>
+  <p>
+    See also: <a href="/best-time-to-visit-india/">the best time to visit India</a> month by month and{' '}
+    <a href="/guides/india-monsoon/">India's monsoon</a>.
+  </p>
+</Guide>

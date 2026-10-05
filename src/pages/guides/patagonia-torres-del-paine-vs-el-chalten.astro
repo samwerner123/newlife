@@ -1,0 +1,84 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, destMonthUrl, deg, MONTHS, monthDaylight } from '../../lib/data';
+import { crowdLevel, SEASON_SHORT } from '../../lib/seasonality';
+
+const ALL = MONTHS.map((_, i) => i);
+const tdp = bySlug.get('torres-del-paine')!;
+const chalten = bySlug.get('patagonia')!;
+const rows = [
+  { slug: 'torres-del-paine', label: 'Torres del Paine (Chile)' },
+  { slug: 'patagonia', label: 'El Calafate & El Chaltén (Argentina)' },
+  { slug: 'ushuaia', label: 'Ushuaia (Tierra del Fuego)' },
+  { slug: 'bariloche', label: 'Bariloche (northern Patagonia)' },
+];
+const parks = [
+  { d: tdp, label: 'Torres del Paine' },
+  { d: chalten, label: 'El Chaltén' },
+];
+const decDaylight = Math.round(monthDaylight(tdp.lat, 11));
+const junDaylight = Math.round(monthDaylight(tdp.lat, 5));
+---
+
+<Guide slug="patagonia-torres-del-paine-vs-el-chalten" photo="patagonia">
+  <p>
+    Torres del Paine in Chile and El Chaltén in Argentina are Patagonia’s two great hiking bases, about 200 km apart as the
+    condor flies. Both are best from <strong>November to March</strong>, the southern summer, with the most settled weather in{' '}
+    <strong>late February and March</strong>, when the summer crowds and the strongest winds ease. Autumn (April) brings red
+    and gold beech forests; winter is cold and quiet, but Torres del Paine stays open.
+  </p>
+
+  <h2>Weather and seasons side by side</h2>
+  <GuideTable caption="Weather rating in Patagonia by month" months={ALL} rows={rows} />
+  <GuideTable caption="Average high and low in Patagonia by month" months={ALL} show="temp" rows={rows} />
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Estimated travel season in Torres del Paine and El Chaltén by month">
+    <table class="data-table">
+      <caption class="visually-hidden">Estimated travel season in Torres del Paine and El Chaltén by month</caption>
+      <thead><tr><th scope="col">Season</th>{ALL.map((m) => <th scope="col">{MONTHS[m].slice(0, 3)}</th>)}</tr></thead>
+      <tbody>
+        {parks.map(({ d, label }) => (
+          <tr>
+            <th scope="row">{label}</th>
+            {ALL.map((m) => <td class="season" data-season={crowdLevel(d, m)}>{SEASON_SHORT[crowdLevel(d, m)]}</td>)}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">
+    Climate normals for Puerto Natales (the gateway to Torres del Paine) and El Calafate. El Calafate lies in the rain shadow
+    of the Andes; El Chaltén, right under Fitz Roy, is wetter and windier. Seasons are our estimate
+    (<a href="/about/#seasons">how we estimate them</a>).
+  </p>
+
+  <h2>Season by season</h2>
+  <ul>
+    <li><b>Spring (October–November):</b> long days, fewer hikers and lower prices, but changeable weather, late snow on high passes and fierce winds. The O Circuit in Torres del Paine usually opens in October or November.</li>
+    <li><b>Summer (December–February):</b> peak season, with up to {decDaylight} hours of daylight and highs around <a href={destMonthUrl(tdp, 0)}>{deg(tdp.months[0].high)}</a> in January. It’s also the windiest time — gusts over 100 km/h are common — and trails and refugios are at their busiest.</li>
+    <li><b>Autumn (March–April):</b> calmer winds, fewer people and the lenga forests turning red in April. Days shorten fast and nights drop towards freezing; many services in El Chaltén close by late April.</li>
+    <li><b>Winter (May–September):</b> snow, short days (about {junDaylight} hours in June) and highs of around <a href={destMonthUrl(tdp, 6)}>{deg(tdp.months[6].high)}</a>. Torres del Paine runs guided winter treks on the W; El Chaltén is very quiet, with many hotels and restaurants shut. The Perito Moreno Glacier can be visited all year.</li>
+  </ul>
+
+  <h2>Torres del Paine or El Chaltén?</h2>
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Torres del Paine and El Chaltén compared">
+    <table class="data-table">
+      <thead><tr><th scope="col">&nbsp;</th><th scope="col" class="left">Torres del Paine</th><th scope="col" class="left">El Chaltén</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Classic hikes</th><td class="left">The W Trek (4–5 days) or the full O Circuit (7–9 days)</td><td class="left">Day hikes to Laguna de los Tres (Fitz Roy) and Laguna Torre</td></tr>
+        <tr><th scope="row">Booking</th><td class="left">Park ticket and campsites or refugios must be booked ahead — months ahead for December–February</td><td class="left">Free trails, no permits; stay in town and hike out each day</td></tr>
+        <tr><th scope="row">Cost</th><td class="left">Higher: refugios, park fees and transfers add up</td><td class="left">Lower: cheaper rooms and free trails</td></tr>
+        <tr><th scope="row">Weather risk</th><td class="left">Multi-day treks commit you to the forecast</td><td class="left">Easy to wait for a clear day to see Fitz Roy</td></tr>
+        <tr><th scope="row">Nearby</th><td class="left">Puerto Natales; fjord boat trips</td><td class="left">El Calafate and the Perito Moreno Glacier (3 hours)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Many travellers do both: buses link Puerto Natales and El Calafate in about 5–6 hours via the border. Allow at least
+    10 days for both parks, and keep a spare day in each for bad weather.
+  </p>
+  <p>
+    See also: <a href="/best-time-to-visit-patagonia/">the best time to visit Patagonia</a>,{' '}
+    <a href="/destinations/ushuaia/">Ushuaia</a> and <a href="/guides/best-time-to-visit-south-america/">the best time to visit South America</a>.
+  </p>
+</Guide>

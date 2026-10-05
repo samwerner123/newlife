@@ -1,0 +1,52 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, destMonthUrl, deg, MONTHS } from '../../lib/data';
+import { crowdLevel, SEASON_SHORT } from '../../lib/seasonality';
+
+const ALL = MONTHS.map((_, i) => i);
+const luxor = bySlug.get('luxor')!;
+---
+
+<Guide slug="nile-cruise" photo="luxor">
+  <p>
+    The best time for a Nile cruise is <strong>October to April</strong>, when days in Upper Egypt are warm and sunny rather
+    than scorching. Most cruises sail between <strong>Luxor and Aswan</strong> in three to four nights, stopping at the temples
+    of Edfu and Kom Ombo; longer itineraries add Lake Nasser and Abu Simbel. From May to September, temperatures in Luxor and
+    Aswan regularly pass 40°C, though prices are much lower.
+  </p>
+
+  <h2>Luxor weather and season by month</h2>
+  <GuideTable caption="Luxor: average high and low by month" months={ALL} show="temp" rows={[{ slug: 'luxor', label: 'Luxor (high / low)' }, { slug: 'cairo', label: 'Cairo (high / low)' }]} />
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Estimated travel season in Luxor by month">
+    <table class="data-table">
+      <caption class="visually-hidden">Estimated travel season in Luxor by month</caption>
+      <thead><tr><th scope="col">Luxor</th>{ALL.map((m) => <th scope="col">{MONTHS[m].slice(0, 3)}</th>)}</tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row">Season</th>
+          {ALL.map((m) => <td class="season" data-season={crowdLevel(luxor, m)}>{SEASON_SHORT[crowdLevel(luxor, m)]}</td>)}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Temperatures from official climate normals; seasons are our estimate (<a href="/about/#seasons">how we estimate them</a>).</p>
+
+  <h2>Month by month</h2>
+  <ul>
+    <li><b>October–November:</b> warm (around {deg(luxor.months[10].high)} in Luxor in November), sunny and before the Christmas peak — arguably the best time.</li>
+    <li><b>December–February:</b> peak season, with pleasant days (around {deg(luxor.months[0].high)} in January) but cool nights on deck and the highest prices, especially at Christmas and New Year.</li>
+    <li><b>March–April:</b> warming up fast; good value after Easter, with occasional hot, dusty khamsin winds.</li>
+    <li><b>May–September:</b> very hot ({deg(luxor.months[6].high)} average highs in July). Sightseeing has to be done at dawn, but boats are quiet and cheap.</li>
+  </ul>
+
+  <h2>Planning tips</h2>
+  <ul>
+    <li><b>Abu Simbel's sun festival:</b> on about 22 February and 22 October, the rising sun lights up the statues in the temple's inner sanctuary — book well ahead for those dates.</li>
+    <li><b>Luxor or Aswan first?</b> Cruises run in both directions; many people fly into Luxor, spend a day or two on the West Bank (Valley of the Kings), then sail south.</li>
+    <li><b>Dahabiya or cruise ship:</b> traditional sailing dahabiyas carry only a dozen or so passengers and stop at quieter sites; big cruise boats are cheaper and have pools.</li>
+    <li><b>Ramadan:</b> sites stay open, but hours can be shorter. See <a href="/guides/ramadan-travel/">travelling during Ramadan</a>.</li>
+    <li>Combine with the Red Sea for diving and beaches: see <a href="/destinations/hurghada/">Hurghada &amp; the Red Sea</a> and the <a href="/best-time-to-visit-egypt/">best time to visit Egypt</a>.</li>
+  </ul>
+  <p>Details for each month: <a href={destMonthUrl(luxor, 10)}>Luxor in November</a>, <a href={destMonthUrl(luxor, 0)}>Luxor in January</a>, <a href={destMonthUrl(luxor, 6)}>Luxor in July</a>.</p>
+</Guide>

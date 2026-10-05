@@ -1,0 +1,82 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, deg, MONTH_SHORT, monthDaylight } from '../../lib/data';
+
+const SEASON = [8, 9, 10, 11, 0, 1, 2, 3]; // September–April
+const rows = [
+  { slug: 'tromso', label: 'Tromsø (Norway)' },
+  { slug: 'lofoten', label: 'Lofoten (Norway)' },
+  { slug: 'lapland', label: 'Rovaniemi (Finnish Lapland)' },
+  { slug: 'iceland', label: 'Reykjavík (Iceland)' },
+];
+const tromso = bySlug.get('tromso')!;
+const lapland = bySlug.get('lapland')!;
+const iceland = bySlug.get('iceland')!;
+const places = rows.map((r) => ({ ...r, d: bySlug.get(r.slug)! }));
+const hours = (h: number) => (h < 0.5 ? '0' : h > 23.5 ? '24' : String(Math.round(h)));
+---
+
+<Guide slug="northern-lights-norway-finland-iceland" photo="lapland">
+  <p>
+    Northern Norway, Finnish Lapland and Iceland all sit close to the auroral oval, and all three offer a good chance of seeing
+    the northern lights from <strong>September to March</strong>. The difference is the weather. <strong>Norway’s</strong> Arctic
+    coast is mild but often cloudy; <strong>Finnish Lapland</strong>, far inland, is much colder but has drier, more settled
+    skies; and <strong>Iceland</strong> is mild and very changeable, with fast-moving Atlantic weather.
+  </p>
+
+  <h2>At a glance</h2>
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Northern Norway, Finnish Lapland and Iceland compared">
+    <table class="data-table">
+      <thead><tr><th scope="col">&nbsp;</th><th scope="col" class="left">Northern Norway</th><th scope="col" class="left">Finnish Lapland</th><th scope="col" class="left">Iceland</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Main bases</th><td class="left">Tromsø, Lofoten, Alta</td><td class="left">Rovaniemi, Levi, Saariselkä, Inari</td><td class="left">Reykjavík, the south coast, Akureyri</td></tr>
+        <tr><th scope="row">January high / low</th><td class="left">{deg(tromso.months[0].high)} / {deg(tromso.months[0].low)} (Tromsø)</td><td class="left">{deg(lapland.months[0].high)} / {deg(lapland.months[0].low)} (Rovaniemi), below −25°C on the coldest nights</td><td class="left">{deg(iceland.months[0].high)} / {deg(iceland.months[0].low)} (Reykjavík)</td></tr>
+        <tr><th scope="row">Clear skies</th><td class="left">Coastal cloud is common; tours drive inland towards Finland to find gaps</td><td class="left">The most settled skies of the three, especially in late winter</td><td class="left">Changeable; clear spells come and go quickly</td></tr>
+        <tr><th scope="row">Daylight in December</th><td class="left">Polar night: no sunrise from late November to mid-January</td><td class="left">About {hours(monthDaylight(lapland.lat, 11))} hours in Rovaniemi; none further north</td><td class="left">About {hours(monthDaylight(iceland.lat, 11))} hours</td></tr>
+        <tr><th scope="row">Best for</th><td class="left">Fjords, whale watching (November–January), Arctic city life</td><td class="left">Snow, glass igloos, husky and reindeer safaris, Santa Claus Village</td><td class="left">A self-drive trip with waterfalls, glaciers and hot springs</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Temperatures through the aurora season</h2>
+  <GuideTable caption="Average high and low from September to April" months={SEASON} show="temp" rows={rows} />
+  <h3>Hours of daylight</h3>
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Average hours of daylight from September to April">
+    <table class="data-table">
+      <caption class="visually-hidden">Average hours of daylight from September to April</caption>
+      <thead><tr><th scope="col">Destination</th>{SEASON.map((m) => <th scope="col">{MONTH_SHORT[m]}</th>)}</tr></thead>
+      <tbody>
+        {places.map((p) => (
+          <tr>
+            <th scope="row">{p.label}</th>
+            {SEASON.map((m) => <td>{hours(monthDaylight(p.d.lat, m))}</td>)}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Temperatures from official climate normals; daylight is sunrise to sunset, computed from the latitude.</p>
+
+  <h2>Which months?</h2>
+  <ul>
+    <li><b>September–October:</b> the nights are dark again, lakes and fjords aren’t frozen (beautiful reflections) and it’s still mild. Displays around the September equinox are often strong. Little or no snow yet.</li>
+    <li><b>November–January:</b> the longest nights, so the most hours to watch — but also the cloudiest months on the Norwegian coast and the coldest inland. Christmas and New Year are the busiest and most expensive weeks in Lapland.</li>
+    <li><b>February–March:</b> often the best compromise: deep snow, more settled weather, daylight for activities and dark nights for the aurora. Another equinox peak in activity comes in March.</li>
+    <li><b>April–August:</b> too light. North of the Arctic Circle the midnight sun takes over — see <a href="/guides/midnight-sun/">the midnight sun</a>.</li>
+  </ul>
+
+  <h2>Tips for seeing the aurora</h2>
+  <ul>
+    <li><b>Stay at least three nights</b>, ideally five or more; cloud is the main reason people miss out.</li>
+    <li><b>Get away from city lights</b> and watch between about 9 pm and 2 am.</li>
+    <li><b>Check two forecasts:</b> the cloud forecast matters more than the aurora (Kp) forecast. In Norway, a chase tour that drives to clear skies greatly improves your chances.</li>
+    <li><b>The solar cycle:</b> the Sun passed the peak of its 11-year cycle around 2024–2025, and strong displays stay more frequent for a few years afterwards.</li>
+    <li>Pack for extreme cold — see the <a href="/packing-list-generator/">packing list generator</a>.</li>
+  </ul>
+  <p>
+    See also: <a href="/guides/northern-lights/">where to see the northern lights</a>,{' '}
+    <a href="/destinations/tromso/">Tromsø</a>, <a href="/destinations/lapland/">Finnish Lapland</a> and{' '}
+    <a href="/destinations/iceland/">Iceland</a>.
+  </p>
+</Guide>

@@ -1,0 +1,82 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, destinations, destMonthUrl, deg, rankForMonth } from '../../lib/data';
+
+const SUMMER = [5, 6, 7];
+const hot = [
+  { slug: 'seville', label: 'Seville' },
+  { slug: 'athens', label: 'Athens' },
+  { slug: 'rome', label: 'Rome' },
+  { slug: 'florence', label: 'Florence' },
+];
+const cool = [
+  { slug: 'edinburgh', label: 'Edinburgh' },
+  { slug: 'ireland', label: 'Ireland' },
+  { slug: 'bergen', label: 'Bergen & the fjords' },
+  { slug: 'copenhagen', label: 'Copenhagen' },
+  { slug: 'tallinn', label: 'Tallinn' },
+  { slug: 'normandy', label: 'Normandy' },
+  { slug: 'azores', label: 'Azores' },
+  { slug: 'dolomites', label: 'Dolomites' },
+  { slug: 'chamonix', label: 'Chamonix' },
+];
+// Europe's coolest well-rated places in July: average high of 24°C or less.
+const pool = destinations.filter((d) => d.region === 'Europe' && d.months[6].high <= 24);
+const best = rankForMonth(6, pool).slice(0, 12);
+const d = (slug: string) => bySlug.get(slug)!;
+const seville = d('seville');
+const athens = d('athens');
+const cornwall = d('cornwall');
+const azores = d('azores');
+---
+
+<Guide slug="cool-summer-escapes-europe" photo="faroe-islands">
+  <p>
+    In July and August, southern Europe is increasingly hot: Seville averages <a href={destMonthUrl(seville, 6)}>{deg(seville.months[6].high)}</a>
+    by day in July and Athens <a href={destMonthUrl(athens, 6)}>{deg(athens.months[6].high)}</a>, and heatwaves push
+    temperatures well past 40°C. To beat the heat, head <strong>north</strong> (the British Isles, Scandinavia and the Baltics),{' '}
+    <strong>up</strong> (the Alps and the Dolomites) or <strong>out into the Atlantic</strong> (the Azores), where summer
+    highs stay in the high teens to low twenties.
+  </p>
+
+  <h2>Hot vs cool: average daily highs in summer</h2>
+  <GuideTable caption="Average daily high in June, July and August: southern Europe" months={SUMMER} show="high" rows={hot} />
+  <GuideTable caption="Average daily high in June, July and August: cooler escapes" months={SUMMER} show="high" rows={cool} />
+  <p class="small muted">Averages from official climate normals; heatwaves can add 5–10°C for days at a time.</p>
+
+  <h2>Europe’s best cool destinations in July</h2>
+  <p>Places with an average July high of 24°C or less, ranked by our weather score:</p>
+  <ul class="cols">
+    {best.map((x) => <li><a href={destMonthUrl(x, 6)}>{x.name}</a> — {deg(x.months[6].high)}</li>)}
+  </ul>
+
+  <h2>Where to go</h2>
+  <ul>
+    <li><b>The British Isles:</b> long, light evenings and highs around 19–20°C. Edinburgh hosts its festivals in August; the Scottish Highlands, the Lake District, Northern Ireland's Causeway Coast and Ireland's west coast are at their greenest. See <a href="/destinations/edinburgh/">Edinburgh</a>, <a href="/destinations/scottish-highlands/">the Scottish Highlands</a> and <a href="/destinations/ireland/">Ireland</a>.</li>
+    <li><b>Scandinavia and the Baltics:</b> summer is the high season, with near-endless daylight, swimming in lakes and the Baltic, and highs in the low 20s. See <a href="/destinations/copenhagen/">Copenhagen</a>, <a href="/destinations/stockholm/">Stockholm</a>, <a href="/destinations/bergen/">Bergen</a>, <a href="/destinations/tallinn/">Tallinn</a> and <a href="/guides/midnight-sun/">the midnight sun</a>.</li>
+    <li><b>The far north:</b> Iceland, the Faroe Islands, Lofoten and Tromsø rarely pass 15–17°C — ideal for hiking under the midnight sun. See <a href="/guides/iceland-ring-road/">Iceland's Ring Road</a>.</li>
+    <li><b>The mountains:</b> every 100 m of altitude takes about 0.6°C off the temperature. The Dolomites, Chamonix and the Swiss Alps have warm days, cool nights and wildflower meadows — but expect afternoon thunderstorms. See <a href="/destinations/dolomites/">the Dolomites</a> and <a href="/destinations/switzerland/">Switzerland</a>.</li>
+    <li><b>The Atlantic coast and islands:</b> Normandy, Cornwall and Porto stay mild, and the Azores average {deg(azores.months[6].high)} in July. The sea is bracing, though: about {deg(cornwall.months[7].sea!)} in Cornwall in August.</li>
+  </ul>
+
+  <h2>If you’re going south anyway</h2>
+  <ul>
+    <li><b>Go in June or September</b> instead: the sea is still warm and temperatures are 3–6°C lower. See <a href="/guides/shoulder-season/">shoulder season</a>.</li>
+    <li><b>Pick the coast or the islands</b> over inland cities: sea breezes keep the Canaries, the Algarve and the Greek islands cooler than Seville, Florence or Athens.</li>
+    <li><b>Live like a local:</b> sightsee early, rest through the afternoon and go out after dark. Book rooms with air-conditioning.</li>
+  </ul>
+  <p>See also: <a href="/guides/best-time-to-visit-europe/">the best time to visit Europe</a> and <a href="/guides/best-beaches-europe-by-month/">the best beaches in Europe by month</a>.</p>
+</Guide>
+
+<style>
+  .cols {
+    columns: 1;
+  }
+  @media (min-width: 640px) {
+    .cols {
+      columns: 2;
+      column-gap: 24px;
+    }
+  }
+</style>

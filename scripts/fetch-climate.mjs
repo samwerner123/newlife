@@ -71,7 +71,7 @@ async function wikitext(title) {
 // Returns the bodies of every {{Weather box ...}} in the text, braces balanced.
 function weatherBoxes(text) {
   const boxes = [];
-  const re = /\{\{\s*weather ?box\s*\n?\|/gi;
+  const re = /\{\{\s*weather ?box\s*(?:<!--[\s\S]*?-->\s*)?\|/gi; // a comment may follow the name
   let m;
   while ((m = re.exec(text))) {
     let depth = 0;
@@ -174,7 +174,7 @@ function parseBox(body) {
 
 const complete = (box) => box.months.every((m) => m.high !== null && m.low !== null);
 
-async function findBox(title) {
+async function findBox(title, match) {
   const tried = [];
   const queue = [title];
   while (queue.length && tried.length < 6) {
@@ -183,7 +183,8 @@ async function findBox(title) {
     tried.push(t);
     const page = await wikitext(t);
     if (!page) continue;
-    const good = weatherBoxes(page.text).map(parseBox).find(complete);
+    // climateLocation picks one box on pages with several (e.g. "Climate of Norway").
+    const good = weatherBoxes(page.text).map(parseBox).find((b) => complete(b) && (!match || b.location.toLowerCase().includes(match.toLowerCase())));
     if (good) return { ...good, page: page.title };
     // Follow transcluded weather templates ({{Tokyo weatherbox}}) and climate sub-articles.
     const prefix = page.title.match(/^[a-z]{2,3}:/)?.[0] ?? '';
@@ -222,7 +223,7 @@ for (const dest of destinations) {
   const errors = [];
   for (const title of [].concat(dest.climateWiki || dest.wiki)) {
     try {
-      box = await findBox(title);
+      box = await findBox(title, dest.climateLocation);
       break;
     } catch (e) {
       errors.push(e.message);

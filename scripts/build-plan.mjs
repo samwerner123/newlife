@@ -88,7 +88,7 @@ add = section('C. Country, state & region hubs', '"Best time to visit Thailand",
 for (const h of hubs) add(DONE, `Best time to visit ${h} — hub page with seasons, month table, heatmap, FAQ`);
 for (const h of hubs) for (const m of MONTHS) add(DONE, `${h} in ${m}`);
 // Next hub ideas; each needs at least two destinations before its page is built.
-for (const h of ['the French Caribbean (Guadeloupe & Martinique)', 'the Yucatán Peninsula', 'Sri Lanka & the Maldives', 'the Adriatic coast', 'New Mexico & the Southwest']) {
+for (const h of ['the Scottish islands', 'the Pacific coast of Central America', 'the Japanese Alps', 'northern Vietnam', 'the Dolomites & South Tyrol', 'the Ionian islands']) {
   add(PLAN, `Hub: best time to visit ${h} (needs 2+ destinations)`);
 }
 
@@ -111,7 +111,8 @@ add = section('F. Seasonal & evergreen guides', 'Long-form content that earns li
 for (const g of guides) add(done(exists(`src/pages/guides/${g.slug}.astro`)), `Guide: ${g.title}`);
 // Next guide ideas (each becomes ✅ once it is in src/lib/guides.ts and has a page).
 for (const g of ['Best time to visit Southeast Asia, country by country', 'Best time to visit Japan: seasons, crowds and festivals', 'Mediterranean sea temperatures by month', 'Lunar New Year 2027: where to celebrate and what closes', 'Oktoberfest and Europe’s autumn beer and wine festivals', 'The cheapest Caribbean islands, season by season', 'Rainy seasons in Africa: East vs Southern Africa', 'High-altitude destinations: when to go and how to avoid altitude sickness', 'Best beaches in Europe by month', 'Best time to visit the US national parks, park by park',
-  'Best time to visit South America, country by country', 'Best time to visit Mexico, region by region', 'Best time to visit India, region by region', 'Best time to visit Australia: north vs south', 'Best time for a Nile cruise', 'Turtle nesting seasons around the world', 'Cool summer escapes: Europe without the heatwaves', 'Hot springs and onsen by season', 'Patagonia: Torres del Paine vs El Chaltén by season', 'Best time to see the Northern Lights in Norway, Finland and Iceland compared']) {
+  'Best time to visit South America, country by country', 'Best time to visit Mexico, region by region', 'Best time to visit India, region by region', 'Best time to visit Australia: north vs south', 'Best time for a Nile cruise', 'Turtle nesting seasons around the world', 'Cool summer escapes: Europe without the heatwaves', 'Hot springs and onsen by season', 'Patagonia: Torres del Paine vs El Chaltén by season', 'Best time to see the Northern Lights in Norway, Finland and Iceland compared',
+  'Best time to visit Greece: islands vs mainland', 'Best time to visit Italy, region by region', 'Best time to visit Spain, region by region', 'Best time to visit Canada, region by region', 'Best time to visit Vietnam: north, centre and south', 'Best time to visit China, region by region', 'Maldives, Seychelles or Mauritius? Indian Ocean islands by season', 'Caribbean sea temperatures by month', 'The Great Migration month by month', 'Bioluminescent bays and beaches: where and when']) {
   // Ideas that already have a page are listed above with the other guides.
   const norm = (t) => t.toLowerCase().replace(/’/g, "'");
   if (!guides.some((x) => norm(x.title) === norm(g))) add(PLAN, `Guide: ${g}`);
@@ -242,11 +243,17 @@ const backlog = [
   ['Ushuaia', 'ushuaia'], ['Florianópolis', 'florianopolis'], ['Nha Trang', 'nha-trang'], ['Sapa', 'sapa'], ['Chiang Rai', 'chiang-rai'], ['Koh Lanta', 'koh-lanta'],
   ['Agra & the Taj Mahal', 'agra'], ['Varanasi', 'varanasi'], ['Vanuatu', 'vanuatu'], ['New Caledonia', 'new-caledonia'], ['Jasper', 'jasper'], ['Hallstatt & the Salzkammergut', 'hallstatt'],
   // Next up (round 4).
-  ['La Digue (Seychelles)', 'la-digue'], ['Mozambique', 'mozambique'], ['Tunisia', 'tunisia'], ['Taormina', 'taormina'], ['Bavarian Alps', 'bavarian-alps'], ['Vilnius', 'vilnius'],
-  ['Sarajevo & Mostar', 'sarajevo'], ['Lake District', 'lake-district'], ['Northern Ireland', 'northern-ireland'], ['Hamburg', 'hamburg'], ['Lake Balaton', 'lake-balaton'], ['Budva & the Montenegrin coast', 'budva'],
+  ['Réunion', 'reunion'], ['Mozambique', 'mozambique'], ['Tunisia', 'tunisia'], ['Bologna & Emilia-Romagna', 'bologna'], ['Bavarian Alps', 'bavarian-alps'], ['Vilnius', 'vilnius'],
+  ['Sarajevo & Mostar', 'sarajevo'], ['Lake District', 'lake-district'], ['Belfast & the Causeway Coast', 'northern-ireland'], ['Hamburg', 'hamburg'], ['Lake Balaton', 'lake-balaton'], ['Budva & the Montenegrin coast', 'budva'],
   ['Outer Hebrides', 'outer-hebrides'], ['Mérida & the Yucatán', 'merida'], ['Guadeloupe', 'guadeloupe'], ['Martinique', 'martinique'], ['Dominica', 'dominica'], ['Tobago', 'tobago'],
-  ['Sacred Valley (Peru)', 'sacred-valley'], ['Paraty', 'paraty'], ['Fernando de Noronha', 'fernando-de-noronha'], ['Uco Valley', 'uco-valley'], ['Paracas & the Ballestas Islands', 'paracas'], ['Charlevoix', 'charlevoix'],
-  ['Côn Đảo Islands', 'con-dao'], ['Kerala backwaters (Alleppey)', 'alleppey'], ['Hampi', 'hampi'], ['Bagan', 'bagan'], ['Lijiang', 'lijiang'], ['Hakuba', 'hakuba'],
+  ['Arequipa & Colca Canyon', 'arequipa'], ['Paraty & Ilha Grande', 'paraty'], ['Fernando de Noronha', 'fernando-de-noronha'], ['Salta & Jujuy', 'salta'], ['Paracas & the Ballestas Islands', 'paracas'], ['Charlevoix', 'charlevoix'],
+  ['Côn Đảo Islands', 'con-dao'], ['Darjeeling', 'darjeeling'], ['Hampi', 'hampi'], ['Ninh Binh', 'ninh-binh'], ['Guilin & Yangshuo', 'guilin'], ['Hakuba', 'hakuba'],
+  // Next up (round 5). Several complete hub ideas from section C (Scottish islands, Japanese Alps, northern Vietnam, Ionian islands).
+  ['Valencia', 'valencia'], ['San Sebastián & the Basque Country', 'san-sebastian'], ['Corsica', 'corsica'], ['Zakynthos', 'zakynthos'], ['Kefalonia', 'kefalonia'], ['Zadar & Plitvice', 'zadar'],
+  ['Gdańsk', 'gdansk'], ['Isle of Skye', 'isle-of-skye'], ['Orkney', 'orkney'], ['Zermatt', 'zermatt'], ['Merano & South Tyrol', 'merano'], ['Lake Atitlán', 'lake-atitlan'],
+  ["Colombia's Coffee Region (Salento)", 'salento-colombia'], ['Cape Cod', 'cape-cod'], ['Nova Scotia', 'nova-scotia'], ['San Juan Islands', 'san-juan-islands'], ['Puerto Escondido', 'puerto-escondido'], ['Uganda (gorillas & chimps)', 'uganda'],
+  ['Garden Route', 'garden-route'], ['Chefchaouen', 'chefchaouen'], ['Merzouga & the Sahara', 'merzouga'], ['Takayama & Shirakawa-go', 'takayama'], ['Ha Giang', 'ha-giang'], ['Da Lat', 'da-lat'],
+  ['Perhentian Islands', 'perhentian'], ['Khao Lak', 'khao-lak'], ['Mongolia', 'mongolia'], ['Byron Bay', 'byron-bay'], ['Ningaloo Reef', 'ningaloo'], ['Tonga', 'tonga'],
 ];
 add = section('P. New destinations backlog (demand-ordered)', 'Next destinations to add — each brings 13 pages.');
 for (const [label, slug] of backlog) add(done(slugs.has(slug)), `Add destination: ${label} (guide + 12 monthly pages)`);

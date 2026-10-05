@@ -1,0 +1,52 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { MONTHS } from '../../lib/data';
+
+const ALL = MONTHS.map((_, i) => i);
+const rows = [
+  { slug: 'cabo-san-lucas', label: 'Cabo San Lucas (Baja)' },
+  { slug: 'puerto-vallarta', label: 'Puerto Vallarta (Pacific)' },
+  { slug: 'mexico-city', label: 'Mexico City' },
+  { slug: 'san-miguel-de-allende', label: 'San Miguel de Allende' },
+  { slug: 'oaxaca', label: 'Oaxaca' },
+  { slug: 'merida', label: 'Mérida (Yucatán)' },
+  { slug: 'cancun', label: 'Cancún' },
+  { slug: 'tulum', label: 'Tulum' },
+  { slug: 'cozumel', label: 'Cozumel' },
+];
+---
+
+<Guide slug="best-time-to-visit-mexico-by-region" photo="oaxaca">
+  <p>
+    The best time to visit most of Mexico is the dry season, from <strong>November to April</strong>: sunny beach days on both
+    coasts and mild, clear weather in the highlands. From June to October the rainy season brings afternoon storms, and the
+    Caribbean and Pacific coasts face hurricane risk, peaking in September. But Mexico's regions differ a lot — Baja is
+    desert-dry, the Yucatán is hottest in spring, and the highlands are never too hot.
+  </p>
+
+  <h2>Weather rating by region and month</h2>
+  <GuideTable caption="Weather rating in Mexico by region and month" months={ALL} rows={rows} />
+  <h3>Rainfall</h3>
+  <GuideTable caption="Average monthly rainfall in Mexico by region" months={ALL} show="rain" rows={rows} />
+  <p class="small muted">Ratings combine average temperature and rainfall from national climate normals, with points off in hurricane season.</p>
+
+  <h2>Region by region</h2>
+  <ul>
+    <li><b>Baja California (Cabo San Lucas, La Paz):</b> sunny almost all year; December–April for whale watching (grey whales and humpbacks) and pleasant heat. Late summer is very hot, with a risk of Pacific hurricanes in September. See <a href="/destinations/cabo-san-lucas/">Cabo San Lucas</a>.</li>
+    <li><b>Pacific coast (Puerto Vallarta, Oaxaca coast):</b> November–April is dry and sunny; June–October is hot, humid and wet. Humpback whales visit Banderas Bay from December to March. See <a href="/destinations/puerto-vallarta/">Puerto Vallarta</a>.</li>
+    <li><b>Central highlands (Mexico City, San Miguel de Allende, Oaxaca city):</b> October–May is dry, sunny and mild; summer afternoons bring thunderstorms but mornings stay clear. Late October–early November is Día de los Muertos. See <a href="/guides/halloween-dia-de-muertos/">Día de los Muertos</a>.</li>
+    <li><b>Yucatán and the Caribbean (Cancún, Tulum, Cozumel, Mérida):</b> December–April for beaches; April–May is very hot inland, sargassum can arrive from May to August, and September–October is the peak of hurricane season. See <a href="/best-time-to-visit-yucatan-peninsula/">the Yucatán Peninsula</a> and <a href="/guides/sargassum-season/">sargassum season</a>.</li>
+  </ul>
+
+  <h2>Crowds and holidays</h2>
+  <ul>
+    <li><b>Christmas–New Year</b> and <b>spring break</b> (March) are the busiest and priciest weeks in the beach resorts.</li>
+    <li><b>Semana Santa</b> (Holy Week, March or April) is a national holiday — Mexican families fill beaches and colonial towns.</li>
+    <li><b>Late April–June</b> and <b>November</b> are good-value shoulder months with mostly dry weather.</li>
+  </ul>
+  <p>
+    See also: <a href="/best-time-to-visit-mexico/">the best time to visit Mexico</a> month by month and our guide to the{' '}
+    <a href="/guides/rainy-season-mexico-central-america/">rainy season in Mexico and Central America</a>.
+  </p>
+</Guide>

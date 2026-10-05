@@ -496,7 +496,8 @@
     ],
     "hub": [
       "Central Europe",
-      "Eastern Europe"
+      "Eastern Europe",
+      "Hungary"
     ]
   },
   {
@@ -562,7 +563,8 @@
       "Croatia",
       "Balkans",
       "Mediterranean",
-      "Eastern Europe"
+      "Eastern Europe",
+      "Adriatic"
     ],
     "region": "Europe",
     "lat": 43.51,
@@ -1480,7 +1482,10 @@
         "Capital for arrivals and food"
       ]
     ],
-    "hub": "Indian Ocean Islands"
+    "hub": [
+      "Indian Ocean Islands",
+      "Sri Lanka & the Maldives"
+    ]
   },
   {
     "slug": "kathmandu",
@@ -1886,7 +1891,10 @@
     "slug": "cancun",
     "name": "Cancún & Riviera Maya",
     "country": "Mexico",
-    "hub": "Mexico",
+    "hub": [
+      "Mexico",
+      "Yucatán Peninsula"
+    ],
     "region": "North America",
     "lat": 21.16,
     "lon": -86.85,
@@ -4509,7 +4517,10 @@
     "slug": "venice",
     "name": "Venice",
     "country": "Italy",
-    "hub": "Italy",
+    "hub": [
+      "Italy",
+      "Adriatic"
+    ],
     "region": "Europe",
     "lat": 45.44,
     "lon": 12.32,
@@ -5232,7 +5243,10 @@
         "Transit stay near the airport"
       ]
     ],
-    "hub": "Indian Ocean Islands"
+    "hub": [
+      "Indian Ocean Islands",
+      "Sri Lanka & the Maldives"
+    ]
   },
   {
     "slug": "mauritius",
@@ -5583,7 +5597,8 @@
         "Off-Strip resorts",
         "Quieter pools and better value"
       ]
-    ]
+    ],
+    "hub": "American Southwest"
   },
   {
     "slug": "san-diego",
@@ -5843,7 +5858,8 @@
     "country": "United States",
     "hub": [
       "US National Parks",
-      "Utah"
+      "Utah",
+      "American Southwest"
     ],
     "region": "North America",
     "lat": 37.3,
@@ -5968,7 +5984,8 @@
     "country": "United States",
     "hub": [
       "US National Parks",
-      "Arizona"
+      "Arizona",
+      "American Southwest"
     ],
     "region": "North America",
     "lat": 36.05,
@@ -6455,7 +6472,8 @@
       "Croatia",
       "Balkans",
       "Mediterranean",
-      "Eastern Europe"
+      "Eastern Europe",
+      "Adriatic"
     ],
     "region": "Europe",
     "lat": 42.65,
@@ -6843,10 +6861,9 @@
     "iata": "TOS",
     "wiki": "Tromsø",
     "climateWiki": [
-      "Tromsø",
-      "Tromsø Airport",
       "Climate of Norway"
     ],
+    "climateLocation": "Tromsø",
     "climate": "temperate",
     "currency": "NOK",
     "tz": "UTC+1 (+2 in summer)",
@@ -8295,7 +8312,10 @@
         "Cabins by the creek"
       ]
     ],
-    "hub": "Arizona"
+    "hub": [
+      "Arizona",
+      "American Southwest"
+    ]
   },
   {
     "slug": "glacier-national-park",
@@ -8513,7 +8533,8 @@
     "country": "United States",
     "hub": [
       "US National Parks",
-      "Utah"
+      "Utah",
+      "American Southwest"
     ],
     "region": "North America",
     "lat": 38.57,
@@ -9081,7 +9102,10 @@
     "slug": "tulum",
     "name": "Tulum",
     "country": "Mexico",
-    "hub": "Mexico",
+    "hub": [
+      "Mexico",
+      "Yucatán Peninsula"
+    ],
     "region": "North America",
     "lat": 20.21,
     "lon": -87.46,
@@ -9168,7 +9192,10 @@
     "slug": "cozumel",
     "name": "Cozumel",
     "country": "Mexico",
-    "hub": "Mexico",
+    "hub": [
+      "Mexico",
+      "Yucatán Peninsula"
+    ],
     "region": "North America",
     "lat": 20.51,
     "lon": -86.95,
@@ -12640,7 +12667,8 @@
     "hub": [
       "Balkans",
       "Mediterranean",
-      "Eastern Europe"
+      "Eastern Europe",
+      "Adriatic"
     ],
     "region": "Europe",
     "lat": 42.42,
@@ -16264,7 +16292,8 @@
     "country": "Italy",
     "hub": [
       "Italy",
-      "Mediterranean"
+      "Mediterranean",
+      "Adriatic"
     ],
     "region": "Europe",
     "lat": 40.99,
@@ -17629,7 +17658,10 @@
     "slug": "isla-mujeres",
     "name": "Isla Mujeres",
     "country": "Mexico",
-    "hub": "Mexico",
+    "hub": [
+      "Mexico",
+      "Yucatán Peninsula"
+    ],
     "region": "North America",
     "lat": 21.23,
     "lon": -86.73,
@@ -18836,13 +18868,17 @@
         "Railyard District",
         "Farmers market and local restaurants"
       ]
-    ]
+    ],
+    "hub": "American Southwest"
   },
   {
     "slug": "scottsdale",
     "name": "Scottsdale & Phoenix",
     "country": "United States",
-    "hub": "Arizona",
+    "hub": [
+      "Arizona",
+      "American Southwest"
+    ],
     "region": "North America",
     "lat": 33.49,
     "lon": -111.93,
@@ -20098,6 +20134,1974 @@
       [
         "Bourail",
         "West-coast dunes, turtles and surf"
+      ]
+    ]
+  },
+  {
+    "slug": "bologna",
+    "name": "Bologna & Emilia-Romagna",
+    "country": "Italy",
+    "hub": "Italy",
+    "region": "Europe",
+    "lat": 44.49,
+    "lon": 11.34,
+    "iata": "BLQ",
+    "wiki": "Bologna",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 70,
+      "mid": 150
+    },
+    "tags": [
+      "city",
+      "food",
+      "culture",
+      "history"
+    ],
+    "tagline": "Italy's food capital: porticoes, towers, Parmigiano and Parma ham.",
+    "intro": "Bologna is a lively university city of red-brick porticoes and medieval towers, and the capital of Emilia-Romagna, the region that gave the world Parmigiano Reggiano, Parma ham, balsamic vinegar and tortellini. Modena, Parma and Ravenna are all short train rides away, and it's far less crowded than Florence or Venice.",
+    "highlights": [
+      "The UNESCO-listed porticoes and Piazza Maggiore",
+      "Food markets of the Quadrilatero and a cooking class",
+      "The Asinelli Tower and the view over the rooftops",
+      "Parmesan dairies and balsamic vinegar cellars near Modena and Parma",
+      "Ravenna's Byzantine mosaics"
+    ],
+    "best": "April–June and September–October: warm, pleasant days for walking the porticoes and touring food producers.",
+    "avoid": "July–August is hot and humid in the Po Valley, and many restaurants close for the August holidays; winter is foggy and cold.",
+    "adjust": {
+      "8": [
+        -5,
+        "Many restaurants and shops close for the August holidays"
+      ]
+    },
+    "events": {
+      "10": "Truffle and food fairs across Emilia-Romagna, plus the harvest of Lambrusco grapes (October)."
+    },
+    "stay": [
+      [
+        "Centro Storico",
+        "Porticoes, piazzas and food markets"
+      ],
+      [
+        "Santo Stefano",
+        "Quieter streets near the seven churches"
+      ],
+      [
+        "Modena",
+        "Smaller food town 20 minutes by train"
+      ]
+    ]
+  },
+  {
+    "slug": "bavarian-alps",
+    "name": "Bavarian Alps",
+    "country": "Germany",
+    "hub": [
+      "Germany",
+      "Alps"
+    ],
+    "region": "Europe",
+    "lat": 47.49,
+    "lon": 11.1,
+    "iata": "MUC",
+    "wiki": "Garmisch-Partenkirchen",
+    "climateWiki": [
+      "Garmisch-Partenkirchen",
+      "Berchtesgaden",
+      "Oberstdorf"
+    ],
+    "imagePage": [
+      "Neuschwanstein Castle",
+      "Eibsee"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 190
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "culture",
+      "family"
+    ],
+    "tagline": "Fairytale castles, Alpine lakes and Germany’s highest peak.",
+    "intro": "Germany's Alpine fringe, an hour or two south of Munich, has Neuschwanstein Castle, the Zugspitze (Germany's highest mountain) above Garmisch-Partenkirchen, the clear Eibsee and Königssee lakes and painted villages like Oberammergau. It's a summer hiking and lakes destination and a winter ski area.",
+    "highlights": [
+      "Neuschwanstein and Hohenschwangau castles",
+      "The Zugspitze cable car and the Eibsee",
+      "A boat trip on the Königssee near Berchtesgaden",
+      "Oberammergau's painted houses",
+      "The Partnach Gorge"
+    ],
+    "best": "June–September for hiking, lakes and mountain huts; December–March for skiing and snowy villages.",
+    "avoid": "November and April are grey in-between months, when some cable cars and huts close for maintenance.",
+    "adjust": {
+      "4": [
+        -5,
+        "In-between season: some cable cars and huts closed"
+      ],
+      "11": [
+        -5,
+        "Some cable cars and huts close for maintenance"
+      ]
+    },
+    "events": {
+      "12": "Christmas markets in Garmisch, Berchtesgaden and Mittenwald (late November–December)."
+    },
+    "ski": {
+      "resorts": "Garmisch-Classic and the Zugspitze glacier",
+      "months": {
+        "1": "peak",
+        "2": "peak",
+        "3": "season",
+        "4": "late",
+        "12": "season"
+      }
+    },
+    "stay": [
+      [
+        "Garmisch-Partenkirchen",
+        "Base for the Zugspitze and hiking"
+      ],
+      [
+        "Füssen",
+        "Old town next to the royal castles"
+      ],
+      [
+        "Berchtesgaden",
+        "Königssee and the Eagle’s Nest"
+      ]
+    ]
+  },
+  {
+    "slug": "hamburg",
+    "name": "Hamburg",
+    "country": "Germany",
+    "hub": "Germany",
+    "region": "Europe",
+    "lat": 53.55,
+    "lon": 9.99,
+    "iata": "HAM",
+    "wiki": "Hamburg",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 80,
+      "mid": 170
+    },
+    "tags": [
+      "city",
+      "culture",
+      "nightlife",
+      "food"
+    ],
+    "tagline": "A great port city of canals, warehouses and the Elbphilharmonie.",
+    "intro": "Germany's second city is built around water: the Elbe harbour, more canals than Venice and Amsterdam combined, and two lakes in the middle of town. The red-brick Speicherstadt warehouse district, the Elbphilharmonie concert hall and the nightlife of St. Pauli make it one of Germany's most interesting cities.",
+    "highlights": [
+      "The Speicherstadt warehouse district (UNESCO)",
+      "The Elbphilharmonie and its free viewing plaza",
+      "A harbour boat tour",
+      "Miniatur Wunderland",
+      "St. Pauli, the Reeperbahn and the Sunday fish market"
+    ],
+    "best": "May–September: long days for the harbour, lakes and beach bars along the Elbe.",
+    "avoid": "November–February: grey, damp and dark — though the Christmas markets are lively.",
+    "adjust": {},
+    "events": {
+      "5": "Hafengeburtstag, the harbour’s birthday, with tall ships and fireworks (May).",
+      "12": "Christmas markets, including the one in front of the town hall (late November–December)."
+    },
+    "stay": [
+      [
+        "Altstadt & HafenCity",
+        "Near the town hall, harbour and Elbphilharmonie"
+      ],
+      [
+        "St. Pauli",
+        "Nightlife, music clubs and the fish market"
+      ],
+      [
+        "Sternschanze",
+        "Cafés, bars and street art"
+      ]
+    ]
+  },
+  {
+    "slug": "vilnius",
+    "name": "Vilnius",
+    "country": "Lithuania",
+    "hub": [
+      "Baltic States",
+      "Eastern Europe"
+    ],
+    "region": "Europe",
+    "lat": 54.69,
+    "lon": 25.28,
+    "iata": "VNO",
+    "wiki": "Vilnius",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 55,
+      "mid": 120
+    },
+    "tags": [
+      "city",
+      "history",
+      "culture",
+      "food"
+    ],
+    "tagline": "A baroque old town, an artists’ republic and the castle at Trakai.",
+    "intro": "Lithuania's capital has one of the largest surviving medieval old towns in Northern Europe, full of baroque churches and courtyards, plus Užupis, a bohemian district that declared itself an independent republic. It's good value and green, and the island castle of Trakai is half an hour away.",
+    "highlights": [
+      "The baroque Old Town (UNESCO)",
+      "The self-declared Republic of Užupis",
+      "Gediminas Tower and the view over the city",
+      "Trakai Island Castle",
+      "The Gate of Dawn"
+    ],
+    "best": "May–September: mild, long days for the old town and Trakai’s lakes.",
+    "avoid": "November–March: cold and dark, often below freezing.",
+    "adjust": {},
+    "events": {
+      "3": "Kaziukas Fair, a huge crafts fair in the Old Town (early March).",
+      "6": "Midsummer (Joninės) celebrations on 23–24 June."
+    },
+    "stay": [
+      [
+        "Old Town",
+        "Baroque churches, courtyards and restaurants"
+      ],
+      [
+        "Užupis",
+        "Bohemian riverside neighbourhood"
+      ],
+      [
+        "Naujamiestis",
+        "Modern hotels near the station"
+      ]
+    ]
+  },
+  {
+    "slug": "sarajevo",
+    "name": "Sarajevo & Mostar",
+    "country": "Bosnia and Herzegovina",
+    "hub": [
+      "Balkans",
+      "Eastern Europe"
+    ],
+    "region": "Europe",
+    "lat": 43.86,
+    "lon": 18.41,
+    "iata": "SJJ",
+    "wiki": "Sarajevo",
+    "imagePage": [
+      "Stari Most",
+      "Sarajevo"
+    ],
+    "climate": "temperate",
+    "currency": "BAM",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 45,
+      "mid": 100
+    },
+    "tags": [
+      "city",
+      "history",
+      "culture",
+      "food"
+    ],
+    "tagline": "Ottoman bazaars, a rebuilt old bridge and recent history up close.",
+    "intro": "Sarajevo, ringed by mountains, mixes an Ottoman bazaar, Austro-Hungarian avenues and moving memorials to the siege of the 1990s. Mostar, two hours south by a scenic train, is famous for its rebuilt 16th-century bridge, from which divers leap into the Neretva. It is one of Europe's best-value destinations.",
+    "highlights": [
+      "Baščaršija, the old bazaar, and Bosnian coffee",
+      "The Tunnel Museum and the War Childhood Museum",
+      "Mostar's Stari Most bridge and its divers",
+      "The Kravice waterfalls",
+      "The cable car up Mount Trebević"
+    ],
+    "best": "May–June and September–October: warm, sunny days without the summer heat in Mostar.",
+    "avoid": "July–August: Mostar is one of the hottest towns in Europe (often 35°C+); winter is cold and smoggy in Sarajevo.",
+    "adjust": {},
+    "events": {
+      "8": "Sarajevo Film Festival (August) and the Red Bull cliff-diving event at Mostar some summers."
+    },
+    "stay": [
+      [
+        "Baščaršija",
+        "The old bazaar in the heart of Sarajevo"
+      ],
+      [
+        "Marijin Dvor",
+        "Austro-Hungarian centre with bigger hotels"
+      ],
+      [
+        "Mostar Old Town",
+        "Stay overnight near the bridge"
+      ]
+    ]
+  },
+  {
+    "slug": "lake-balaton",
+    "name": "Lake Balaton",
+    "country": "Hungary",
+    "hub": [
+      "Hungary",
+      "Eastern Europe"
+    ],
+    "region": "Europe",
+    "lat": 46.83,
+    "lon": 17.73,
+    "iata": "BUD",
+    "wiki": "Lake Balaton",
+    "climateWiki": [
+      "Siófok",
+      "Keszthely",
+      "Lake Balaton"
+    ],
+    "imageFile": "Tihany_(22).jpg",
+    "climate": "temperate",
+    "currency": "HUF",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 55,
+      "mid": 120
+    },
+    "tags": [
+      "nature",
+      "family",
+      "wine",
+      "beach"
+    ],
+    "tagline": "Central Europe's largest lake: warm shallow water, vineyards and spas.",
+    "intro": "Lake Balaton, 90 minutes from Budapest, is Hungary's summer playground: a shallow lake that warms up to swimming temperatures by June, lively resorts like Siófok on the south shore and vineyards, volcanic hills and the Tihany peninsula on the north. Hévíz, at the western end, has a warm thermal lake you can bathe in all year.",
+    "highlights": [
+      "Tihany peninsula and its abbey",
+      "Swimming at the south shore's sandy, shallow beaches",
+      "Wine tasting in the Badacsony hills",
+      "Bathing in the thermal lake at Hévíz",
+      "Cycling the lake’s 200 km bike path"
+    ],
+    "best": "June–August for swimming, festivals and long days; May and September are quieter and good for cycling and wine.",
+    "avoid": "November–March: cold and very quiet; many lakeside hotels and restaurants close.",
+    "adjust": {
+      "1": [
+        -5,
+        "Many lakeside hotels and restaurants close"
+      ],
+      "2": [
+        -5,
+        "Many lakeside hotels and restaurants close"
+      ],
+      "11": [
+        -5,
+        "Many lakeside hotels and restaurants close"
+      ],
+      "12": [
+        -5,
+        "Many lakeside hotels and restaurants close"
+      ]
+    },
+    "events": {
+      "7": "Summer festivals around the lake, including the Balaton Sound music festival (July)."
+    },
+    "stay": [
+      [
+        "Balatonfüred",
+        "Elegant spa town on the north shore"
+      ],
+      [
+        "Siófok",
+        "Lively resort with beaches and nightlife"
+      ],
+      [
+        "Keszthely & Hévíz",
+        "Palace town and thermal lake at the western end"
+      ]
+    ]
+  },
+  {
+    "slug": "budva",
+    "name": "Budva & the Montenegrin coast",
+    "country": "Montenegro",
+    "hub": [
+      "Balkans",
+      "Adriatic",
+      "Mediterranean"
+    ],
+    "region": "Europe",
+    "lat": 42.29,
+    "lon": 18.84,
+    "iata": "TIV",
+    "wiki": "Budva",
+    "climateWiki": [
+      "Budva",
+      "Bar, Montenegro",
+      "Herceg Novi"
+    ],
+    "imagePage": [
+      "Sveti Stefan",
+      "Budva"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 55,
+      "mid": 130
+    },
+    "tags": [
+      "beach",
+      "nightlife",
+      "history"
+    ],
+    "tagline": "Walled old towns, island villages and beaches on the Adriatic.",
+    "intro": "The Budva Riviera is Montenegro's beach coast, just south of the Bay of Kotor: a walled old town, the island village of Sveti Stefan, and sand and pebble beaches backed by steep mountains. It's lively and busy in July and August, and much quieter — and cheaper — in June and September.",
+    "highlights": [
+      "Budva's walled old town",
+      "The view of Sveti Stefan",
+      "Beaches from Mogren to Petrovac",
+      "A day trip around the Bay of Kotor",
+      "Lake Skadar National Park"
+    ],
+    "best": "June and September: hot sun and warm sea, without the peak-season crowds.",
+    "avoid": "November–March: rainy, and many beach hotels close; July–August is very busy.",
+    "adjust": {
+      "8": [
+        -5,
+        "Peak-season crowds and traffic"
+      ]
+    },
+    "events": {
+      "7": "Summer music and theatre festivals in Budva’s old town (July–August)."
+    },
+    "stay": [
+      [
+        "Budva Old Town",
+        "Inside the walls, close to the beaches"
+      ],
+      [
+        "Bečići",
+        "Long sandy beach with resorts"
+      ],
+      [
+        "Petrovac",
+        "Smaller, calmer town to the south"
+      ]
+    ]
+  },
+  {
+    "slug": "lake-district",
+    "name": "Lake District",
+    "country": "United Kingdom",
+    "hub": "United Kingdom",
+    "region": "Europe",
+    "lat": 54.43,
+    "lon": -3.03,
+    "iata": "MAN",
+    "wiki": "Lake District",
+    "climateWiki": [
+      "Keswick, Cumbria",
+      "Ambleside",
+      "Lake District",
+      "Penrith, Cumbria"
+    ],
+    "imageFile": "Buttermere_-_2025.jpg",
+    "climate": "temperate",
+    "currency": "GBP",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 190
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "family"
+    ],
+    "tagline": "England's most beautiful mountains and lakes, beloved by Wordsworth.",
+    "intro": "The Lake District National Park in north-west England is a UNESCO World Heritage landscape of lakes, fells and stone villages, and the home of England's highest mountain, Scafell Pike. It's superb walking country — and one of the wettest places in England, so bring waterproofs in any season.",
+    "highlights": [
+      "Hiking Catbells, Helvellyn or Scafell Pike",
+      "Lake cruises on Windermere and Ullswater",
+      "Wordsworth's Dove Cottage in Grasmere",
+      "Beatrix Potter's Hill Top farmhouse",
+      "Cosy pubs in Keswick and Ambleside"
+    ],
+    "best": "May–September: the longest days and the best chance of dry weather for the fells; May and June are often the sunniest.",
+    "avoid": "November–February: wet, windy and dark, with snow on the high fells.",
+    "adjust": {
+      "8": [
+        -5,
+        "School-holiday crowds and traffic"
+      ]
+    },
+    "events": {
+      "8": "The Grasmere Lakeland Sports and Show (late August)."
+    },
+    "stay": [
+      [
+        "Keswick",
+        "Market town on Derwentwater, great for walkers"
+      ],
+      [
+        "Ambleside & Grasmere",
+        "Central villages between the lakes"
+      ],
+      [
+        "Windermere & Bowness",
+        "Lake cruises and family attractions"
+      ]
+    ]
+  },
+  {
+    "slug": "northern-ireland",
+    "name": "Belfast & the Causeway Coast",
+    "country": "United Kingdom",
+    "hub": "United Kingdom",
+    "region": "Europe",
+    "lat": 54.6,
+    "lon": -5.93,
+    "iata": "BFS",
+    "wiki": "Belfast",
+    "imagePage": [
+      "Giant's Causeway",
+      "Belfast"
+    ],
+    "climate": "temperate",
+    "currency": "GBP",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 80,
+      "mid": 170
+    },
+    "tags": [
+      "city",
+      "history",
+      "nature",
+      "culture"
+    ],
+    "tagline": "The Titanic's birthplace and the basalt columns of the Giant's Causeway.",
+    "intro": "Belfast has reinvented itself, with the Titanic Belfast museum, lively pubs in the Cathedral Quarter and political murals that tell the story of the Troubles. The Causeway Coastal Route north of the city passes the Giant's Causeway, the Carrick-a-Rede rope bridge and Game of Thrones filming locations.",
+    "highlights": [
+      "Titanic Belfast",
+      "The Giant's Causeway",
+      "Carrick-a-Rede rope bridge",
+      "The Dark Hedges and other Game of Thrones locations",
+      "Black-taxi mural tours"
+    ],
+    "best": "May–September: the mildest, longest days for the coastal drive.",
+    "avoid": "November–February: short, wet and windy days.",
+    "adjust": {},
+    "events": {
+      "3": "St Patrick's Day celebrations on 17 March."
+    },
+    "stay": [
+      [
+        "Cathedral Quarter",
+        "Pubs, live music and restaurants"
+      ],
+      [
+        "Titanic Quarter",
+        "Near the museum and the waterfront"
+      ],
+      [
+        "Portrush",
+        "Seaside town on the Causeway Coast"
+      ]
+    ]
+  },
+  {
+    "slug": "outer-hebrides",
+    "name": "Outer Hebrides",
+    "country": "United Kingdom",
+    "hub": [
+      "Scotland",
+      "United Kingdom"
+    ],
+    "region": "Europe",
+    "lat": 58.21,
+    "lon": -6.39,
+    "iata": "SYY",
+    "wiki": "Outer Hebrides",
+    "climateWiki": [
+      "Stornoway",
+      "Outer Hebrides"
+    ],
+    "imagePage": [
+      "Luskentyre",
+      "Isle of Harris"
+    ],
+    "climate": "temperate",
+    "currency": "GBP",
+    "tz": "UTC+0 (+1 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 180
+    },
+    "tags": [
+      "nature",
+      "beach",
+      "islands",
+      "history"
+    ],
+    "tagline": "White-sand beaches, standing stones and Gaelic culture on the edge of the Atlantic.",
+    "intro": "The Outer Hebrides, a chain of islands off Scotland's west coast, have some of Britain's most beautiful beaches — white sand and turquoise water, if rarely warm — plus the Callanish Standing Stones, Harris Tweed weavers and a strong Gaelic culture. Ferries and flights connect them to the mainland; book early in summer.",
+    "highlights": [
+      "Luskentyre and Seilebost beaches on Harris",
+      "The Callanish Standing Stones on Lewis",
+      "Harris Tweed weavers",
+      "The Gearrannan blackhouse village",
+      "Puffins and seabirds, and landing on the beach airport at Barra"
+    ],
+    "best": "May–August: long days, wildflowers on the machair and the best chance of calm, sunny weather.",
+    "avoid": "October–March: frequent gales, short days and ferry cancellations.",
+    "adjust": {},
+    "events": {
+      "7": "The Hebridean Celtic Festival in Stornoway (July)."
+    },
+    "stay": [
+      [
+        "Stornoway (Lewis)",
+        "The main town, with ferries and restaurants"
+      ],
+      [
+        "Harris",
+        "Beaches, mountains and tweed"
+      ],
+      [
+        "The Uists & Barra",
+        "Quiet islands further south"
+      ]
+    ]
+  },
+  {
+    "slug": "tunisia",
+    "name": "Tunisia",
+    "country": "Tunisia",
+    "hub": "Mediterranean",
+    "region": "Middle East & Africa",
+    "lat": 36.4,
+    "lon": 10.6,
+    "iata": "TUN",
+    "wiki": "Tunisia",
+    "climateWiki": [
+      "Monastir",
+      "Sousse",
+      "Tunis"
+    ],
+    "imagePage": [
+      "Sidi Bou Said",
+      "Tunisia"
+    ],
+    "climate": "temperate",
+    "currency": "TND",
+    "tz": "UTC+1",
+    "budget": {
+      "low": 45,
+      "mid": 100
+    },
+    "tags": [
+      "beach",
+      "history",
+      "culture"
+    ],
+    "tagline": "Roman ruins, blue-and-white villages and long Mediterranean beaches.",
+    "intro": "Tunisia packs a lot into a small country: Carthage and the blue-and-white village of Sidi Bou Said near Tunis, one of the best-preserved Roman amphitheatres in the world at El Jem, the medinas of Tunis and Sousse, Saharan dunes in the south and resort beaches at Hammamet and Djerba. Climate figures are for Sousse, on the central coast.",
+    "highlights": [
+      "Sidi Bou Said and the ruins of Carthage",
+      "The Roman amphitheatre at El Jem",
+      "The medinas of Tunis and Sousse",
+      "Star Wars sets and Saharan dunes around Tozeur and Douz",
+      "Beaches at Hammamet and on Djerba"
+    ],
+    "best": "April–June and September–October: warm, sunny weather for beaches and sightseeing.",
+    "avoid": "July–August is hot inland and busy on the coast; December–February is mild but too cool for swimming.",
+    "adjust": {},
+    "events": {
+      "12": "The International Festival of the Sahara in Douz (December)."
+    },
+    "stay": [
+      [
+        "Sidi Bou Said & Gammarth",
+        "Near Tunis, Carthage and the coast"
+      ],
+      [
+        "Hammamet",
+        "Beach resorts and an old medina"
+      ],
+      [
+        "Djerba",
+        "Island beaches and the old town of Houmt Souk"
+      ]
+    ]
+  },
+  {
+    "slug": "mozambique",
+    "name": "Mozambique",
+    "country": "Mozambique",
+    "hub": [
+      "Southern Africa",
+      "Indian Ocean Islands"
+    ],
+    "region": "Middle East & Africa",
+    "lat": -23.87,
+    "lon": 35.38,
+    "iata": "INH",
+    "wiki": "Mozambique",
+    "climateWiki": [
+      "Inhambane",
+      "Vilankulo",
+      "Maputo"
+    ],
+    "imageFile": "Portuguese_Islands.jpg",
+    "climate": "tropical",
+    "currency": "MZN",
+    "tz": "UTC+2",
+    "budget": {
+      "low": 60,
+      "mid": 150
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "wildlife",
+      "adventure"
+    ],
+    "tagline": "Whale sharks, dhow sailing and empty beaches on the Indian Ocean.",
+    "intro": "Southern Mozambique has some of Africa's most beautiful coast: Tofo, famous for diving with whale sharks and manta rays, and the islands of the Bazaruto Archipelago off Vilankulo. Travel takes time, but the beaches are uncrowded. The far north (Cabo Delgado) has been affected by an insurgency, so check current travel advice; the southern coast described here is the usual tourist area. Climate figures are for Inhambane, near Tofo.",
+    "highlights": [
+      "Snorkelling with whale sharks off Tofo",
+      "Diving with manta rays",
+      "Dhow sailing in the Bazaruto Archipelago",
+      "Humpback whales from July to October",
+      "Maputo's markets and colonial architecture"
+    ],
+    "best": "May–November: the dry season, warm and sunny with calm seas; humpback whales from July to October.",
+    "avoid": "January–March: hot, humid and the cyclone season.",
+    "adjust": {
+      "1": [
+        -5,
+        "Cyclone season"
+      ],
+      "2": [
+        -10,
+        "Peak cyclone season"
+      ],
+      "3": [
+        -5,
+        "Cyclone season"
+      ]
+    },
+    "events": {
+      "8": "Humpback whales pass along the coast (July–October)."
+    },
+    "stay": [
+      [
+        "Tofo",
+        "Laid-back beach town and diving base"
+      ],
+      [
+        "Vilankulo",
+        "Gateway to the Bazaruto islands"
+      ],
+      [
+        "Bazaruto Archipelago",
+        "Barefoot-luxury island lodges"
+      ]
+    ]
+  },
+  {
+    "slug": "reunion",
+    "name": "Réunion",
+    "country": "Réunion",
+    "hub": "Indian Ocean Islands",
+    "region": "Middle East & Africa",
+    "lat": -21.11,
+    "lon": 55.53,
+    "iata": "RUN",
+    "wiki": "Réunion",
+    "climateWiki": [
+      "Saint-Denis, Réunion",
+      "Réunion"
+    ],
+    "imageFile": "14-07-2011_Grand_Bénare_(26)_Mafate_(version_améliorée).jpg",
+    "climate": "tropical",
+    "currency": "EUR",
+    "tz": "UTC+4",
+    "budget": {
+      "low": 90,
+      "mid": 190
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "trekking",
+      "beach"
+    ],
+    "tagline": "A French island of volcanoes, cirques and world-class hiking.",
+    "intro": "Réunion, a French overseas department east of Madagascar, is a hiker's paradise: three huge volcanic cirques, one of the world's most active volcanoes and trails through rainforest and over ridges, with a few lagoon beaches on the west coast. It uses the euro and is an EU region. Climate figures are for Saint-Denis on the coast; the mountains are much cooler and wetter.",
+    "highlights": [
+      "Hiking into the car-free Cirque de Mafate",
+      "The Piton de la Fournaise volcano",
+      "Sunrise from Piton des Neiges, the highest peak",
+      "Canyoning and paragliding over the west coast",
+      "The lagoon beaches of L'Hermitage"
+    ],
+    "best": "May–November: the dry, cooler season, best for hiking; September–November is warm and dry.",
+    "avoid": "January–March: the hot, rainy cyclone season, when trails can close.",
+    "adjust": {
+      "1": [
+        -5,
+        "Cyclone season; some trails close"
+      ],
+      "2": [
+        -10,
+        "Peak cyclone season; some trails close"
+      ],
+      "3": [
+        -5,
+        "Cyclone season"
+      ]
+    },
+    "events": {
+      "10": "The Grand Raid, an ultra-trail across the island (October)."
+    },
+    "stay": [
+      [
+        "Saint-Gilles-les-Bains & L'Hermitage",
+        "Beaches and the lagoon on the west coast"
+      ],
+      [
+        "Cilaos",
+        "Mountain village in a cirque, base for hikes"
+      ],
+      [
+        "Saint-Pierre",
+        "Lively southern town near the volcano"
+      ]
+    ]
+  },
+  {
+    "slug": "merida",
+    "name": "Mérida & the Yucatán",
+    "country": "Mexico",
+    "hub": [
+      "Mexico",
+      "Yucatán Peninsula"
+    ],
+    "region": "North America",
+    "lat": 20.97,
+    "lon": -89.62,
+    "iata": "MID",
+    "wiki": "Mérida, Yucatán",
+    "imageFile": "Casona_Peón_de_Regil,_Paseo_de_Montejo,_Mérida._-_panoramio.jpg",
+    "climate": "tropical",
+    "currency": "MXN",
+    "tz": "UTC−6",
+    "budget": {
+      "low": 50,
+      "mid": 120
+    },
+    "tags": [
+      "culture",
+      "history",
+      "food",
+      "nature"
+    ],
+    "tagline": "A colonial city of colourful mansions, Mayan ruins and swimming cenotes.",
+    "intro": "Mérida, the capital of Yucatán state, is a safe, colourful colonial city with grand boulevards, lively plazas and its own Yucatecan cuisine. It's the best base for the Mayan cities of Uxmal and Chichén Itzá, swimming in cenotes and the pink lagoons and flamingos of the north coast — a cultural counterpoint to the Cancún beaches.",
+    "highlights": [
+      "Chichén Itzá and Uxmal",
+      "Swimming in cenotes around Homún and Cuzamá",
+      "Flamingos at Celestún and the pink lakes of Las Coloradas",
+      "The colonial mansions of Paseo de Montejo",
+      "Cochinita pibil and the markets"
+    ],
+    "best": "November–March: warm, dry and sunny, before the intense heat of April and May.",
+    "avoid": "April–May is extremely hot (often 38°C+); June–October is the rainy and hurricane season.",
+    "adjust": {
+      "5": [
+        -10,
+        "Extreme heat, often above 38°C"
+      ],
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "3": "Spring equinox at Chichén Itzá, when a serpent of shadow appears on El Castillo (around 21 March).",
+      "11": "Hanal Pixán, the Yucatecan Day of the Dead (late October–early November)."
+    },
+    "stay": [
+      [
+        "Centro Histórico",
+        "Colonial hotels near the main plaza"
+      ],
+      [
+        "Paseo de Montejo",
+        "Boulevard of mansions, museums and restaurants"
+      ],
+      [
+        "Valladolid",
+        "Small colonial town close to Chichén Itzá"
+      ]
+    ]
+  },
+  {
+    "slug": "guadeloupe",
+    "name": "Guadeloupe",
+    "country": "Guadeloupe",
+    "hub": [
+      "Caribbean",
+      "French Caribbean"
+    ],
+    "region": "Caribbean",
+    "lat": 16.24,
+    "lon": -61.53,
+    "iata": "PTP",
+    "wiki": "Guadeloupe",
+    "climateWiki": [
+      "Pointe-à-Pitre",
+      "Guadeloupe"
+    ],
+    "imageFile": "Beach_in_Sainte-Anne,_Guadeloupe.jpg",
+    "climate": "tropical",
+    "currency": "EUR",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 90,
+      "mid": 190
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "food"
+    ],
+    "tagline": "A butterfly-shaped French island of beaches, rainforest and a volcano.",
+    "intro": "Guadeloupe, a French overseas department, is shaped like a butterfly: Grande-Terre has the white-sand beaches and resorts, Basse-Terre has rainforest, waterfalls and La Soufrière volcano. Smaller islands like Marie-Galante and Les Saintes are a ferry ride away. It uses the euro and has a lively Creole food scene.",
+    "highlights": [
+      "Beaches at Sainte-Anne and Saint-François",
+      "Hiking La Soufrière volcano",
+      "The Carbet waterfalls in the rainforest",
+      "Snorkelling at the Cousteau Reserve",
+      "Day trips to Les Saintes and Marie-Galante"
+    ],
+    "best": "December–April: the dry season (carême), sunny and breezy.",
+    "avoid": "August–October: the wettest months and peak hurricane season.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "2": "Carnival, with weeks of parades ending on Ash Wednesday (February or March)."
+    },
+    "stay": [
+      [
+        "Sainte-Anne",
+        "Beach town on Grande-Terre"
+      ],
+      [
+        "Deshaies",
+        "Fishing village and beaches on Basse-Terre"
+      ],
+      [
+        "Terre-de-Haut (Les Saintes)",
+        "Small island with a beautiful bay"
+      ]
+    ]
+  },
+  {
+    "slug": "martinique",
+    "name": "Martinique",
+    "country": "Martinique",
+    "hub": [
+      "Caribbean",
+      "French Caribbean"
+    ],
+    "region": "Caribbean",
+    "lat": 14.6,
+    "lon": -61.07,
+    "iata": "FDF",
+    "wiki": "Martinique",
+    "climateWiki": [
+      "Fort-de-France",
+      "Martinique"
+    ],
+    "imageFile": "Anse_d'Arlets.jpg",
+    "climate": "tropical",
+    "currency": "EUR",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 90,
+      "mid": 190
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "food",
+      "nature"
+    ],
+    "tagline": "Rum distilleries, rainforest and a slice of France in the Caribbean.",
+    "intro": "Martinique, a French overseas department, combines French food and culture with Creole traditions, rum distilleries and dramatic scenery — from the white beaches of the south to the rainforest and Mount Pelée volcano in the north. It uses the euro.",
+    "highlights": [
+      "Les Salines and the beaches of the south",
+      "Rum distilleries on the Route des Rhums",
+      "Hiking Mount Pelée",
+      "The ruins of Saint-Pierre, destroyed by the 1902 eruption",
+      "Snorkelling with turtles at Anse Dufour"
+    ],
+    "best": "December–April: dry, sunny and breezy.",
+    "avoid": "August–October: peak hurricane season and the most rain.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "2": "Carnival, ending with the burning of King Vaval on Ash Wednesday (February or March)."
+    },
+    "stay": [
+      [
+        "Sainte-Anne",
+        "Beaches and a laid-back village in the south"
+      ],
+      [
+        "Les Trois-Îlets",
+        "Resorts across the bay from Fort-de-France"
+      ],
+      [
+        "Le Carbet",
+        "Black-sand beaches near Saint-Pierre"
+      ]
+    ]
+  },
+  {
+    "slug": "dominica",
+    "name": "Dominica",
+    "country": "Dominica",
+    "hub": "Caribbean",
+    "region": "Caribbean",
+    "lat": 15.3,
+    "lon": -61.39,
+    "iata": "DOM",
+    "wiki": "Dominica",
+    "climateWiki": [
+      "Roseau",
+      "Douglas–Charles Airport",
+      "Dominica"
+    ],
+    "imagePage": [
+      "Trafalgar Falls",
+      "Dominica"
+    ],
+    "climate": "tropical",
+    "currency": "XCD",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 80,
+      "mid": 180
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "wildlife",
+      "islands"
+    ],
+    "tagline": "The Caribbean’s nature island: rainforest, waterfalls and sperm whales.",
+    "intro": "Dominica is the Caribbean's wild side: volcanic mountains covered in rainforest, hundreds of rivers and waterfalls, hot springs, the steaming Boiling Lake and a resident population of sperm whales offshore. There are few sandy beaches, but the hiking and diving are superb.",
+    "highlights": [
+      "The day hike to the Boiling Lake",
+      "Trafalgar Falls and the Emerald Pool",
+      "Whale watching for resident sperm whales",
+      "Snorkelling in the volcanic bubbles at Champagne Reef",
+      "The Waitukubuli National Trail"
+    ],
+    "best": "February–May: the driest months, best for hiking.",
+    "avoid": "August–October: the wettest months and peak hurricane season (Hurricane Maria devastated the island in 2017).",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "10": "World Creole Music Festival and Independence celebrations (late October–early November)."
+    },
+    "stay": [
+      [
+        "Roseau",
+        "The capital, near Trafalgar Falls and the south-west dive sites"
+      ],
+      [
+        "Portsmouth",
+        "North-west bay and the Indian River"
+      ],
+      [
+        "Rainforest eco-lodges",
+        "Lodges in the hills of the interior"
+      ]
+    ]
+  },
+  {
+    "slug": "tobago",
+    "name": "Tobago",
+    "country": "Trinidad and Tobago",
+    "hub": "Caribbean",
+    "region": "Caribbean",
+    "lat": 11.25,
+    "lon": -60.67,
+    "iata": "TAB",
+    "wiki": "Tobago",
+    "climateWiki": [
+      "Tobago",
+      "A.N.R. Robinson International Airport",
+      "Scarborough, Tobago"
+    ],
+    "imagePage": [
+      "Pigeon Point, Tobago",
+      "Tobago"
+    ],
+    "climate": "tropical",
+    "currency": "TTD",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 80,
+      "mid": 170
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "wildlife"
+    ],
+    "tagline": "Palm-fringed beaches, reefs and rainforest, south of the hurricane belt.",
+    "intro": "Tobago is the quiet half of Trinidad and Tobago: unspoilt beaches, reefs, fishing villages and the oldest protected rainforest in the Western Hemisphere. It lies near the southern edge of the hurricane belt, so storms are rarer than further north. Trinidad's Carnival is a short flight or ferry away.",
+    "highlights": [
+      "Pigeon Point beach",
+      "Snorkelling Buccoo Reef and the Nylon Pool",
+      "Birdwatching in the Main Ridge Forest Reserve",
+      "Englishman's Bay",
+      "Diving with manta rays off Speyside"
+    ],
+    "best": "January–May: the dry season, sunny and breezy.",
+    "avoid": "June–December is the rainy season, with the most rain from August to November.",
+    "adjust": {},
+    "events": {
+      "2": "Trinidad's Carnival, a short hop away (Monday and Tuesday before Ash Wednesday)."
+    },
+    "stay": [
+      [
+        "Crown Point",
+        "Near the airport, Pigeon Point and resorts"
+      ],
+      [
+        "Castara",
+        "Fishing village on the quiet north coast"
+      ],
+      [
+        "Speyside",
+        "Diving base in the north-east"
+      ]
+    ]
+  },
+  {
+    "slug": "arequipa",
+    "name": "Arequipa & Colca Canyon",
+    "country": "Peru",
+    "hub": "Peru",
+    "region": "Central & South America",
+    "lat": -16.4,
+    "lon": -71.54,
+    "iata": "AQP",
+    "wiki": "Arequipa",
+    "imagePage": [
+      "Basilica Cathedral of Arequipa",
+      "Arequipa"
+    ],
+    "climate": "highland",
+    "currency": "PEN",
+    "tz": "UTC−5",
+    "budget": {
+      "low": 40,
+      "mid": 100
+    },
+    "tags": [
+      "culture",
+      "history",
+      "nature",
+      "trekking"
+    ],
+    "tagline": "Peru's 'White City' of volcanic stone, beneath three volcanoes.",
+    "intro": "Arequipa, at 2,300 m, is built from white volcanic stone and overlooked by the snowy cone of El Misti. It has a beautiful colonial centre, the vast Santa Catalina Monastery and great food, and it's the gateway to the Colca Canyon, one of the world's deepest, where Andean condors soar. It's sunny almost all year.",
+    "highlights": [
+      "The Plaza de Armas and cathedral",
+      "Santa Catalina Monastery",
+      "Andean condors at the Cruz del Cóndor in the Colca Canyon",
+      "The museum of 'Juanita', the Inca ice maiden",
+      "Picanterías serving rocoto relleno"
+    ],
+    "best": "April–November: dry, sunny days and cold, clear nights.",
+    "avoid": "January–March brings some rain and cloud, especially in the Colca Canyon.",
+    "adjust": {},
+    "events": {
+      "8": "Arequipa's founding anniversary festivities, culminating on 15 August."
+    },
+    "stay": [
+      [
+        "Historic centre",
+        "Colonial hotels near the Plaza de Armas"
+      ],
+      [
+        "San Lázaro",
+        "The oldest quarter, with quiet lanes"
+      ],
+      [
+        "Chivay (Colca Canyon)",
+        "Base for the canyon and hot springs"
+      ]
+    ]
+  },
+  {
+    "slug": "paraty",
+    "name": "Paraty & Ilha Grande",
+    "country": "Brazil",
+    "hub": "Brazil",
+    "region": "Central & South America",
+    "lat": -23.22,
+    "lon": -44.71,
+    "iata": "GIG",
+    "wiki": "Paraty",
+    "climateWiki": [
+      "Paraty",
+      "Angra dos Reis",
+      "Ubatuba"
+    ],
+    "imagePage": [
+      "Paraty",
+      "Ilha Grande"
+    ],
+    "climate": "tropical",
+    "currency": "BRL",
+    "tz": "UTC−3",
+    "budget": {
+      "low": 55,
+      "mid": 130
+    },
+    "tags": [
+      "beach",
+      "history",
+      "nature",
+      "islands"
+    ],
+    "tagline": "A cobbled colonial port, jungle-backed bays and car-free island beaches.",
+    "intro": "Paraty, halfway between Rio and São Paulo, is a beautifully preserved colonial town of whitewashed houses and cobbled streets, surrounded by Atlantic rainforest, waterfalls and dozens of islands. Nearby Ilha Grande has no cars, only trails and beaches such as Lopes Mendes. Climate figures are for Angra dos Reis, about an hour up the coast.",
+    "highlights": [
+      "Paraty's historic centre (UNESCO)",
+      "Schooner trips to islands and beaches",
+      "Lopes Mendes beach on Ilha Grande",
+      "Waterfalls and cachaça distilleries in the hills",
+      "The natural pools of Trindade"
+    ],
+    "best": "April–October: drier and less humid, with fewer crowds (cooler water from June to August).",
+    "avoid": "December–March is hot, humid and the wettest time; Carnival and New Year are very busy.",
+    "adjust": {},
+    "events": {
+      "7": "FLIP, the International Literary Festival of Paraty (usually July or August)."
+    },
+    "stay": [
+      [
+        "Paraty historic centre",
+        "Pousadas on cobbled streets"
+      ],
+      [
+        "Trindade",
+        "Laid-back beach village"
+      ],
+      [
+        "Abraão (Ilha Grande)",
+        "The island’s only village, by ferry"
+      ]
+    ]
+  },
+  {
+    "slug": "fernando-de-noronha",
+    "name": "Fernando de Noronha",
+    "country": "Brazil",
+    "hub": "Brazil",
+    "region": "Central & South America",
+    "lat": -3.85,
+    "lon": -32.42,
+    "iata": "FEN",
+    "wiki": "Fernando de Noronha",
+    "climate": "tropical",
+    "currency": "BRL",
+    "tz": "UTC−2",
+    "budget": {
+      "low": 150,
+      "mid": 320
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "wildlife",
+      "nature"
+    ],
+    "tagline": "Brazil's protected island paradise of spinner dolphins and turtles.",
+    "intro": "Fernando de Noronha, an archipelago 350 km off Brazil’s north-east coast, is a UNESCO-listed marine park with some of the country’s most beautiful beaches, spinner dolphins, turtles and excellent diving. Visitor numbers are limited and everyone pays a daily environmental fee plus a national-park ticket, so it is expensive.",
+    "highlights": [
+      "Baía do Sancho, often voted one of the world’s best beaches",
+      "Spinner dolphins in the Baía dos Golfinhos",
+      "Snorkelling at the Baía do Sueste with turtles",
+      "Diving in clear water (visibility up to 40 m)",
+      "Sunset at the Forte dos Remédios"
+    ],
+    "best": "August–January: the dry season, with the calmest, clearest water from September.",
+    "avoid": "April–June is the rainiest period; December–March brings big swells on the north-facing beaches (good for surfers).",
+    "adjust": {},
+    "events": {
+      "1": "Turtle hatching season on the island’s beaches (January–June)."
+    },
+    "stay": [
+      [
+        "Vila dos Remédios",
+        "The main village, with restaurants"
+      ],
+      [
+        "Floresta Nova & Floresta Velha",
+        "Pousadas between the beaches"
+      ],
+      [
+        "Near Praia do Sueste",
+        "Quieter south side"
+      ]
+    ]
+  },
+  {
+    "slug": "salta",
+    "name": "Salta & Jujuy",
+    "country": "Argentina",
+    "hub": "Argentina",
+    "region": "Central & South America",
+    "lat": -24.79,
+    "lon": -65.41,
+    "iata": "SLA",
+    "wiki": "Salta",
+    "imagePage": [
+      "Quebrada de Humahuaca",
+      "Salta"
+    ],
+    "climate": "highland",
+    "currency": "ARS",
+    "tz": "UTC−3",
+    "budget": {
+      "low": 45,
+      "mid": 110
+    },
+    "tags": [
+      "nature",
+      "culture",
+      "wine",
+      "adventure"
+    ],
+    "tagline": "Rainbow mountains, colonial towns and the world’s highest vineyards.",
+    "intro": "Argentina's north-west is a land of red canyons and multicoloured mountains. Salta, a handsome colonial city, is the base for road trips up the Quebrada de Humahuaca (UNESCO) to the Hill of Seven Colours, across salt flats and south to Cafayate's high-altitude vineyards, famous for Torrontés.",
+    "highlights": [
+      "The Hill of Seven Colours at Purmamarca",
+      "The Quebrada de Humahuaca",
+      "Cafayate's vineyards and the Quebrada de las Conchas",
+      "The Salinas Grandes salt flats",
+      "Salta's colonial centre and peñas folk-music clubs"
+    ],
+    "best": "April–November: the dry season, with sunny days and cold nights.",
+    "avoid": "December–March is the rainy season, when landslides can close mountain roads.",
+    "adjust": {},
+    "events": {
+      "2": "Carnival in the Quebrada de Humahuaca, one of Argentina's most traditional (February or March)."
+    },
+    "stay": [
+      [
+        "Salta city centre",
+        "Colonial hotels around Plaza 9 de Julio"
+      ],
+      [
+        "Purmamarca & Tilcara",
+        "Adobe villages in the Quebrada de Humahuaca"
+      ],
+      [
+        "Cafayate",
+        "Wine town with vineyard lodges"
+      ]
+    ]
+  },
+  {
+    "slug": "paracas",
+    "name": "Paracas & the Ballestas Islands",
+    "country": "Peru",
+    "hub": "Peru",
+    "region": "Central & South America",
+    "lat": -13.83,
+    "lon": -76.25,
+    "iata": "LIM",
+    "wiki": "Paracas",
+    "climateWiki": [
+      "Pisco, Peru",
+      "Paracas",
+      "Ica, Peru"
+    ],
+    "imageFile": "Paracas_National_Reserve._Ica,_Peru.jpg",
+    "climate": "temperate",
+    "currency": "PEN",
+    "tz": "UTC−5",
+    "budget": {
+      "low": 45,
+      "mid": 110
+    },
+    "tags": [
+      "wildlife",
+      "nature",
+      "beach",
+      "adventure"
+    ],
+    "tagline": "Sea lions, penguins and desert cliffs on Peru's southern coast.",
+    "intro": "Paracas, about four hours south of Lima, is a desert coast where boat trips visit the Ballestas Islands, packed with sea lions, Humboldt penguins and seabirds. The Paracas National Reserve has red-sand beaches and dramatic cliffs, and the dunes of Huacachina and the Nazca Lines are within reach. It almost never rains.",
+    "highlights": [
+      "Boat trips to the Ballestas Islands",
+      "The Paracas National Reserve",
+      "Sandboarding in the Huacachina dunes",
+      "Flights over the Nazca Lines",
+      "Pisco tasting in the Ica valley"
+    ],
+    "best": "December–April: the sunny summer, when the coast is warm and clear.",
+    "avoid": "June–September: grey and cool under the coastal fog (garúa), though it stays dry.",
+    "adjust": {},
+    "events": {
+      "3": "Grape harvest festival (Vendimia) in Ica (March)."
+    },
+    "stay": [
+      [
+        "Paracas bay",
+        "Resorts and hotels on the waterfront"
+      ],
+      [
+        "El Chaco",
+        "The small town where Ballestas boats leave"
+      ],
+      [
+        "Huacachina",
+        "Desert oasis near Ica"
+      ]
+    ]
+  },
+  {
+    "slug": "charlevoix",
+    "name": "Charlevoix",
+    "country": "Canada",
+    "hub": "Canada",
+    "region": "North America",
+    "lat": 47.44,
+    "lon": -70.5,
+    "iata": "YQB",
+    "wiki": "Charlevoix",
+    "climateWiki": [
+      "Baie-Saint-Paul",
+      "La Malbaie",
+      "Quebec City"
+    ],
+    "climate": "temperate",
+    "currency": "CAD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 230
+    },
+    "tags": [
+      "nature",
+      "food",
+      "wildlife",
+      "culture"
+    ],
+    "tagline": "Rolling hills on the St. Lawrence, whale watching and farm-to-table food.",
+    "intro": "Charlevoix, an hour or two east of Quebec City, is a UNESCO biosphere reserve of rolling hills sweeping down to the St. Lawrence River, with artists' villages, cheese and cider makers and some of Quebec's best fall colours. Further east, Tadoussac is one of the world's best places to watch whales.",
+    "highlights": [
+      "Whale watching from Tadoussac (June–October)",
+      "The Hautes-Gorges-de-la-Rivière-Malbaie national park",
+      "Baie-Saint-Paul's galleries and restaurants",
+      "The Flavour Trail of cheese, cider and farm producers",
+      "Skiing at Le Massif above the river"
+    ],
+    "best": "June–September for whale watching and hiking; late September–early October for fall colours; January–March for skiing.",
+    "avoid": "November and April: grey in-between months, when many businesses close.",
+    "adjust": {
+      "4": [
+        -5,
+        "Mud season: many businesses close"
+      ],
+      "11": [
+        -5,
+        "Quiet season: many businesses close"
+      ]
+    },
+    "events": {
+      "9": "Peak fall colours in the hills and the Hautes-Gorges valley (late September–early October)."
+    },
+    "ski": {
+      "resorts": "Le Massif de Charlevoix",
+      "months": {
+        "1": "peak",
+        "2": "peak",
+        "3": "season",
+        "4": "late",
+        "12": "season"
+      }
+    },
+    "foliage": {
+      "where": "the Hautes-Gorges-de-la-Rivière-Malbaie and the hills above the St. Lawrence",
+      "months": {
+        "9": "early",
+        "10": "peak"
+      }
+    },
+    "stay": [
+      [
+        "Baie-Saint-Paul",
+        "Artists’ village and food scene"
+      ],
+      [
+        "La Malbaie",
+        "Riverside resort town with the Manoir Richelieu"
+      ],
+      [
+        "Tadoussac",
+        "Whale-watching base at the Saguenay fjord"
+      ]
+    ]
+  },
+  {
+    "slug": "ninh-binh",
+    "name": "Ninh Binh",
+    "country": "Vietnam",
+    "hub": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "region": "Asia",
+    "lat": 20.25,
+    "lon": 105.97,
+    "iata": "HAN",
+    "wiki": "Ninh Bình",
+    "climateWiki": [
+      "Ninh Bình",
+      "vi:Ninh Bình (thành phố)",
+      "vi:Ninh Bình",
+      "Hanoi"
+    ],
+    "imagePage": [
+      "Tràng An",
+      "Tam Cốc-Bích Động"
+    ],
+    "climate": "tropical",
+    "currency": "VND",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 30,
+      "mid": 80
+    },
+    "tags": [
+      "nature",
+      "culture",
+      "adventure"
+    ],
+    "tagline": "'Ha Long Bay on land': limestone karsts, rice paddies and river caves.",
+    "intro": "Ninh Binh, two hours south of Hanoi, is a landscape of limestone towers rising from rice paddies and rivers. Rowing boats take you through caves at Tràng An (UNESCO) and Tam Cốc, and you can cycle between pagodas, ancient capitals and viewpoints. It's an easy add-on to Hanoi and Ha Long Bay. Climate figures are for Nam Định, about 30 km away.",
+    "highlights": [
+      "Boat trips through the caves of Tràng An",
+      "Tam Cốc by rowing boat, with golden rice in late May–June",
+      "The viewpoint at Hang Múa",
+      "Bái Đính pagoda and the ancient capital of Hoa Lư",
+      "Cycling between the karsts"
+    ],
+    "best": "March–May and September–November: warm and mostly dry; the rice turns gold in late May and early June.",
+    "avoid": "June–August is hot and wet, with the risk of storms; January–February can be cool and drizzly.",
+    "adjust": {},
+    "events": {
+      "2": "Bái Đính pagoda festival after Lunar New Year draws huge crowds (February)."
+    },
+    "stay": [
+      [
+        "Tam Cốc",
+        "Homestays and lodges among the karsts"
+      ],
+      [
+        "Tràng An",
+        "Eco-resorts near the boat piers"
+      ],
+      [
+        "Ninh Binh city",
+        "Cheaper hotels near the station"
+      ]
+    ]
+  },
+  {
+    "slug": "con-dao",
+    "name": "Côn Đảo Islands",
+    "country": "Vietnam",
+    "hub": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "region": "Asia",
+    "lat": 8.69,
+    "lon": 106.61,
+    "iata": "VCS",
+    "wiki": "Côn Đảo",
+    "climateWiki": [
+      "Côn Đảo",
+      "Côn Sơn Island",
+      "vi:Côn Đảo"
+    ],
+    "imageFile": "Wanderly_Nest.jpg",
+    "climate": "tropical",
+    "currency": "VND",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 50,
+      "mid": 130
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "history"
+    ],
+    "tagline": "Quiet beaches, nesting turtles and a sobering prison history.",
+    "intro": "The Côn Đảo archipelago, a short flight from Ho Chi Minh City, is one of Vietnam's most unspoilt island groups: a national park of forest, coral reefs and beaches where green turtles nest. Its colonial-era prisons, now museums, are a moving reminder of the island's past.",
+    "highlights": [
+      "Snorkelling and diving the national park reefs",
+      "Turtle nesting on Bảy Cạnh island (May–October)",
+      "The prison museums and the Tiger Cages",
+      "Đầm Trầu beach",
+      "Hiking through the forest to hidden coves"
+    ],
+    "best": "March–June: calm seas and sunny weather; turtle season starts in May.",
+    "avoid": "September–November: the wettest months, with rough seas and occasional storms.",
+    "adjust": {},
+    "events": {
+      "7": "Green turtle nesting season (May–October), with hatchlings from about July."
+    },
+    "stay": [
+      [
+        "Côn Sơn town",
+        "Guesthouses and seafood restaurants"
+      ],
+      [
+        "Đất Dốc",
+        "Upscale beach resorts"
+      ],
+      [
+        "Bảy Cạnh island",
+        "Overnight ranger-station stays to watch turtles"
+      ]
+    ]
+  },
+  {
+    "slug": "guilin",
+    "name": "Guilin & Yangshuo",
+    "country": "China",
+    "hub": "China",
+    "region": "Asia",
+    "lat": 25.27,
+    "lon": 110.29,
+    "iata": "KWL",
+    "wiki": "Guilin",
+    "imagePage": [
+      "Li River",
+      "Yangshuo County"
+    ],
+    "climate": "tropical",
+    "currency": "CNY",
+    "tz": "UTC+8",
+    "budget": {
+      "low": 45,
+      "mid": 110
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "culture"
+    ],
+    "tagline": "The karst peaks of the Li River, as seen on the 20-yuan note.",
+    "intro": "Guilin's limestone peaks, reflected in the Li River, are one of China's most famous landscapes. Most visitors cruise or raft down the river to Yangshuo, a base for cycling, rock climbing and bamboo rafting, and visit the Longji rice terraces a couple of hours north. The area is hot and very wet in late spring and early summer.",
+    "highlights": [
+      "A Li River cruise from Guilin to Yangshuo",
+      "Bamboo rafting on the Yulong River",
+      "The Longji rice terraces",
+      "Cycling and rock climbing around Yangshuo",
+      "Reed Flute Cave"
+    ],
+    "best": "September–November: warm, dry and clear; April and early May are also good.",
+    "avoid": "May–August is the rainy season, with heavy downpours and floods; January–February is cool and damp.",
+    "adjust": {},
+    "events": {
+      "10": "China's National Day holiday (1–7 October) brings big domestic crowds."
+    },
+    "stay": [
+      [
+        "Yangshuo",
+        "Riverside guesthouses among the peaks"
+      ],
+      [
+        "Guilin city",
+        "Near the airport and Elephant Trunk Hill"
+      ],
+      [
+        "Longji rice terraces",
+        "Village inns among the terraces"
+      ]
+    ]
+  },
+  {
+    "slug": "hakuba",
+    "name": "Hakuba & the Japanese Alps",
+    "country": "Japan",
+    "hub": "Japan",
+    "region": "Asia",
+    "lat": 36.7,
+    "lon": 137.86,
+    "iata": "HND",
+    "wiki": "Hakuba, Nagano",
+    "climateWiki": [
+      "Hakuba, Nagano",
+      "Hakuba",
+      "Nagano"
+    ],
+    "climate": "temperate",
+    "currency": "JPY",
+    "tz": "UTC+9",
+    "budget": {
+      "low": 100,
+      "mid": 220
+    },
+    "tags": [
+      "adventure",
+      "nature",
+      "wellness"
+    ],
+    "tagline": "Deep powder snow, Alpine hiking and the snow monkeys' hot springs.",
+    "intro": "Hakuba, in the Northern Japanese Alps of Nagano, was home to the 1998 Winter Olympics and has some of Japan's best skiing, with deep, light powder from December to March. In summer it's a hiking and mountain-biking base, and the snow monkeys of Jigokudani, which bathe in hot springs in winter, are a day trip away.",
+    "highlights": [
+      "Powder skiing at Happo-One and the other Hakuba Valley resorts",
+      "The Jigokudani snow monkeys",
+      "Onsen hot springs",
+      "Summer hiking to Happo-ike pond",
+      "The Tateyama Kurobe Alpine Route (mid-April–November)"
+    ],
+    "best": "January–February for deep powder; July–September for hiking; mid-October for autumn colours.",
+    "avoid": "Late March–April and November: in-between seasons, with slushy snow or bare slopes.",
+    "adjust": {},
+    "events": {
+      "2": "Peak powder season; Japan’s Lunar New Year and Chinese holidays add crowds (late January–February)."
+    },
+    "ski": {
+      "resorts": "Happo-One, Hakuba 47, Goryu and Cortina in the Hakuba Valley",
+      "months": {
+        "1": "peak",
+        "2": "peak",
+        "3": "season",
+        "4": "late",
+        "12": "season"
+      }
+    },
+    "foliage": {
+      "where": "the Happo-One gondola and the slopes of the Northern Alps",
+      "months": {
+        "10": "peak"
+      }
+    },
+    "stay": [
+      [
+        "Echoland",
+        "Restaurants, bars and ski shops"
+      ],
+      [
+        "Happo village",
+        "Walk to the Happo-One lifts"
+      ],
+      [
+        "Nagano city",
+        "Base for the snow monkeys and Zenko-ji temple"
+      ]
+    ]
+  },
+  {
+    "slug": "hampi",
+    "name": "Hampi",
+    "country": "India",
+    "hub": "India",
+    "region": "Asia",
+    "lat": 15.33,
+    "lon": 76.46,
+    "iata": "GOI",
+    "wiki": "Hampi",
+    "climateWiki": [
+      "Hampi",
+      "Hosapete",
+      "Bellary"
+    ],
+    "imagePage": [
+      "Vittala Temple",
+      "Hampi"
+    ],
+    "climate": "tropical",
+    "currency": "INR",
+    "tz": "UTC+5:30",
+    "budget": {
+      "low": 25,
+      "mid": 70
+    },
+    "tags": [
+      "history",
+      "culture",
+      "adventure"
+    ],
+    "tagline": "The ruins of a vanished empire among giant boulders.",
+    "intro": "Hampi was the capital of the Vijayanagara Empire, one of the largest cities in the world in the 16th century. Today its temples, palaces and bazaars lie scattered across a surreal landscape of granite boulders and banana plantations along the Tungabhadra River — a UNESCO site and a famous bouldering destination. It's an overnight train or bus ride from Goa or Bangalore. Climate figures are for Ballari (Bellary), about 60 km away.",
+    "highlights": [
+      "The stone chariot at the Vittala Temple",
+      "The Virupaksha Temple and Hampi Bazaar",
+      "Sunrise from Matanga Hill",
+      "The Lotus Mahal and Elephant Stables",
+      "Coracle rides and bouldering by the river"
+    ],
+    "best": "November–February: warm, dry days and cooler nights for exploring the ruins.",
+    "avoid": "March–May is scorching (often 38°C+); June–September is the monsoon.",
+    "adjust": {
+      "4": [
+        -5,
+        "Very hot, often above 38°C"
+      ],
+      "5": [
+        -5,
+        "Very hot, often above 38°C"
+      ]
+    },
+    "events": {
+      "11": "The Hampi Utsav festival of music and dance (dates vary, often November–January)."
+    },
+    "stay": [
+      [
+        "Hampi Bazaar",
+        "Guesthouses next to the main temple"
+      ],
+      [
+        "Hampi Island (Virupapur Gaddi)",
+        "Laid-back guesthouses across the river"
+      ],
+      [
+        "Hosapete",
+        "Larger hotels and the railway station"
+      ]
+    ]
+  },
+  {
+    "slug": "darjeeling",
+    "name": "Darjeeling",
+    "country": "India",
+    "hub": "India",
+    "region": "Asia",
+    "lat": 27.04,
+    "lon": 88.26,
+    "iata": "IXB",
+    "wiki": "Darjeeling",
+    "imagePage": [
+      "Darjeeling Himalayan Railway",
+      "Darjeeling"
+    ],
+    "climate": "highland",
+    "currency": "INR",
+    "tz": "UTC+5:30",
+    "budget": {
+      "low": 30,
+      "mid": 80
+    },
+    "tags": [
+      "nature",
+      "culture",
+      "trekking"
+    ],
+    "tagline": "Tea gardens, a toy train and sunrise over Kangchenjunga.",
+    "intro": "Darjeeling, at about 2,000 m in the Himalayan foothills of West Bengal, is famous for its tea estates, colonial hill-station atmosphere and the UNESCO-listed Darjeeling Himalayan Railway. On clear mornings, Kangchenjunga, the world's third-highest mountain, fills the horizon.",
+    "highlights": [
+      "Sunrise over Kangchenjunga from Tiger Hill",
+      "A ride on the Darjeeling Himalayan Railway (toy train)",
+      "Tea-estate tours and tastings",
+      "Buddhist monasteries such as Ghoom",
+      "The Himalayan Mountaineering Institute"
+    ],
+    "best": "March–May and October–November: clear mountain views and mild days; October and November have the clearest skies.",
+    "avoid": "June–September is the monsoon, with landslides and the mountains hidden by cloud; December–February is cold.",
+    "adjust": {},
+    "events": {
+      "4": "The first flush tea harvest (March–April) produces Darjeeling’s most prized teas."
+    },
+    "stay": [
+      [
+        "Chowrasta & the Mall",
+        "Central, walkable and close to viewpoints"
+      ],
+      [
+        "Tea-estate bungalows",
+        "Colonial-era stays among the tea gardens"
+      ],
+      [
+        "Ghoom",
+        "Quieter, near Tiger Hill"
       ]
     ]
   }

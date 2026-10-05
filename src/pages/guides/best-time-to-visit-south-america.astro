@@ -1,0 +1,78 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { destinations, rankForMonth, destMonthUrl, MONTHS, MONTH_SHORT } from '../../lib/data';
+
+const ALL = MONTHS.map((_, i) => i);
+const SA = ['Argentina', 'Bolivia', 'Brazil', 'Chile', 'Colombia', 'Ecuador', 'Peru', 'Uruguay'];
+const pool = destinations.filter((d) => SA.includes(d.country));
+const rows = [
+  { slug: 'cartagena', label: 'Cartagena (Colombia)' },
+  { slug: 'medellin', label: 'Medellín (Colombia)' },
+  { slug: 'galapagos', label: 'Galápagos (Ecuador)' },
+  { slug: 'amazon', label: 'Amazon (Brazil)' },
+  { slug: 'cusco', label: 'Cusco & Machu Picchu (Peru)' },
+  { slug: 'uyuni', label: 'Uyuni (Bolivia)' },
+  { slug: 'rio-de-janeiro', label: 'Rio de Janeiro (Brazil)' },
+  { slug: 'iguazu-falls', label: 'Iguazu Falls' },
+  { slug: 'atacama', label: 'Atacama (Chile)' },
+  { slug: 'buenos-aires', label: 'Buenos Aires (Argentina)' },
+  { slug: 'mendoza', label: 'Mendoza (Argentina)' },
+  { slug: 'patagonia', label: 'Patagonia (Argentina)' },
+  { slug: 'torres-del-paine', label: 'Torres del Paine (Chile)' },
+];
+const best = ALL.map((m) => rankForMonth(m, pool).slice(0, 3));
+---
+
+<Guide slug="best-time-to-visit-south-america" photo="torres-del-paine">
+  <p>
+    South America stretches from the Caribbean to the sub-Antarctic, so there's always somewhere with great weather. The big
+    divide is between the <strong>Andes</strong>, which have a dry season from <strong>May to September</strong> (perfect for
+    Machu Picchu and Bolivia's salt flats), and the <strong>far south</strong>, where Patagonia is only really open from{' '}
+    <strong>November to March</strong>. The tropical north and the Amazon are warm all year, with local rainy seasons.
+  </p>
+
+  <h2>Weather rating by month</h2>
+  <GuideTable caption="Weather rating across South America by month" months={ALL} rows={rows} />
+  <p class="small muted">Ratings combine average temperature and rainfall from national climate normals, with points off for seasonal closures in Patagonia.</p>
+
+  <h2>Country by country</h2>
+  <ul>
+    <li><b>Colombia:</b> December–March and July–August are the driest months; Cartagena and the Caribbean coast are hot all year, Medellín mild ("the city of eternal spring"). See <a href="/best-time-to-visit-colombia/">Colombia</a>.</li>
+    <li><b>Ecuador and the Galápagos:</b> the Andes are driest from June to September; the Galápagos have a warm season (December–May, calmer seas) and a cooler, wildlife-rich garúa season (June–November). See <a href="/guides/galapagos-month-by-month/">the Galápagos month by month</a>.</li>
+    <li><b>Peru:</b> May–September for Cusco, Machu Picchu and the Inca Trail (closed in February); December–April for sunny Lima and the coast. See <a href="/guides/machu-picchu/">Machu Picchu</a>.</li>
+    <li><b>Bolivia:</b> May–October for clear skies over Uyuni and the Lípez lagoons; January–March for the famous mirror effect on the flooded salt flat.</li>
+    <li><b>Brazil:</b> Rio is best from April to June and in September–October (hot and stormy in summer); the north-east coast from September to March; the Pantanal in the dry season (July–October). See <a href="/best-time-to-visit-brazil/">Brazil</a>.</li>
+    <li><b>Argentina:</b> spring (October–November) and autumn (March–May) for Buenos Aires and Mendoza; November–March for Patagonia; July–September for skiing in Bariloche. See <a href="/best-time-to-visit-argentina/">Argentina</a>.</li>
+    <li><b>Chile:</b> the Atacama is dry all year; Santiago and the wine valleys are best in spring and autumn; Torres del Paine and Patagonia from November to March. See <a href="/best-time-to-visit-chile/">Chile</a>.</li>
+    <li><b>Uruguay:</b> December–March for the beaches of Punta del Este and José Ignacio; spring and autumn for Montevideo and Colonia.</li>
+  </ul>
+
+  <h2>The best places each month</h2>
+  <ul class="cols">
+    {best.map((items, m) => (
+      <li>
+        <b>{MONTH_SHORT[m]}:</b> {items.map((d, i) => <>{i > 0 && ', '}<a href={destMonthUrl(d, m)}>{d.name}</a></>)}
+      </li>
+    ))}
+  </ul>
+
+  <h2>Planning a big trip</h2>
+  <ul>
+    <li><b>Andes and Patagonia in one trip?</b> October–November and March–April are the best compromise: the Andes are mostly dry and Patagonia is open, with fewer crowds.</li>
+    <li><b>Carnival</b> (February or March) is the busiest time in Brazil, Bolivia and parts of Argentina — book early. See <a href="/guides/carnival-season/">carnival season</a>.</li>
+    <li><b>Altitude:</b> Cusco, La Paz, Uyuni and Quito are all high up; see <a href="/guides/high-altitude-destinations/">high-altitude destinations</a>.</li>
+  </ul>
+</Guide>
+
+<style>
+  .cols {
+    columns: 1;
+  }
+  @media (min-width: 640px) {
+    .cols {
+      columns: 2;
+      column-gap: 24px;
+    }
+  }
+</style>

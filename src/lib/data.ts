@@ -53,6 +53,8 @@ interface RawDestination {
   iata: string;
   wiki: string;
   climateWiki?: string | string[];
+  /** Picks the weather box whose location contains this text, on pages with several. */
+  climateLocation?: string;
   /** Country/state/region hub(s); the first one is the destination's home hub (breadcrumbs). */
   hub?: string | string[];
   climate: ClimateType;

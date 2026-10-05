@@ -175,7 +175,7 @@ for (const d of destinations) {
     await fs.writeFile(path.join(OUT_DIR, `${d.slug}.jpg`), img);
     credits[d.slug] = {
       file: file.name,
-      author: findAuthor(raw) ?? (await commonsArtist(file.name)) ?? 'Unknown author',
+      author: (findAuthor(raw) ?? (await commonsArtist(file.name)) ?? 'Unknown author').replace(/^User:/i, ''),
       license: license[0],
       licenseUrl: license[1],
       source: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.name)}`,

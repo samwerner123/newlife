@@ -883,7 +883,7 @@
   },
   "olympic-national-park": {
     "file": "BIG_LEAF_MAPLES_HOH.jpg",
-    "author": "User:Doug Dolde",
+    "author": "Doug Dolde",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:BIG_LEAF_MAPLES_HOH.jpg"
@@ -1275,7 +1275,7 @@
   },
   "kotor": {
     "file": "20090719_Crkva_Gospa_od_Zdravlja_Kotor_Bay_Montenegro.jpg",
-    "author": "User:Ggia",
+    "author": "Ggia",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:20090719_Crkva_Gospa_od_Zdravlja_Kotor_Bay_Montenegro.jpg"
@@ -2182,5 +2182,215 @@
     "license": "CC BY-SA 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Crystal_Clear_waters_of_Bonaire_(13256547653).jpg"
+  },
+  "bologna": {
+    "file": "Torri_di_Bologna,_Bologna.jpg",
+    "author": "Fabio Ciminelli",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Torri_di_Bologna%2C_Bologna.jpg"
+  },
+  "bavarian-alps": {
+    "file": "Schloss_Neuschwanstein_2013.jpg",
+    "author": "Thomas Wolf, www.foto-tw.de",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Schloss_Neuschwanstein_2013.jpg"
+  },
+  "hamburg": {
+    "file": "Hamburg,_Landungsbrücken_--_2016_--_3131-7.jpg",
+    "author": "XRay",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Hamburg%2C_Landungsbr%C3%BCcken_--_2016_--_3131-7.jpg"
+  },
+  "vilnius": {
+    "file": "Vilnius_old_town_by_Augustas_Didzgalvis.jpg",
+    "author": "BigHead",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Vilnius_old_town_by_Augustas_Didzgalvis.jpg"
+  },
+  "sarajevo": {
+    "file": "Mostar_Old_Town_Panorama_2007.jpg",
+    "author": "Ramirez",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "lake-balaton": {
+    "file": "Tihany_(22).jpg",
+    "author": "Elekes Andor",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Tihany_(22).jpg"
+  },
+  "budva": {
+    "file": "Sveti_Stefan_(06).jpg",
+    "author": "Marcin Konsek",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Sveti_Stefan_(06).jpg"
+  },
+  "lake-district": {
+    "file": "Buttermere_-_2025.jpg",
+    "author": "Dmitry Djouce",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Buttermere_-_2025.jpg"
+  },
+  "northern-ireland": {
+    "file": "Causeway-code_poet-4.jpg",
+    "author": "code poet on flickr.",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Causeway-code_poet-4.jpg"
+  },
+  "outer-hebrides": {
+    "file": "Luskentyre_Beach,_Lewis_and_Harris,_The_Outer_Hebrides,_Scotland_(2).jpg",
+    "author": "Thomas Andy Branson",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Luskentyre_Beach%2C_Lewis_and_Harris%2C_The_Outer_Hebrides%2C_Scotland_(2).jpg"
+  },
+  "tunisia": {
+    "file": "Sidi_Chebaan.jpg",
+    "author": "Mohamed Moslem Mosbah",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Sidi_Chebaan.jpg"
+  },
+  "mozambique": {
+    "file": "Portuguese_Islands.jpg",
+    "author": "SkyPixels",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Portuguese_Islands.jpg"
+  },
+  "reunion": {
+    "file": "14-07-2011_Grand_Bénare_(26)_Mafate_(version_améliorée).jpg",
+    "author": "Mamphi",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:14-07-2011_Grand_B%C3%A9nare_(26)_Mafate_(version_am%C3%A9lior%C3%A9e).jpg"
+  },
+  "merida": {
+    "file": "Casona_Peón_de_Regil,_Paseo_de_Montejo,_Mérida._-_panoramio.jpg",
+    "author": "holachetumal",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Casona_Pe%C3%B3n_de_Regil%2C_Paseo_de_Montejo%2C_M%C3%A9rida._-_panoramio.jpg"
+  },
+  "martinique": {
+    "file": "Anse_d'Arlets.jpg",
+    "author": "Mickaël BRUNO",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Anse_d'Arlets.jpg"
+  },
+  "dominica": {
+    "file": "Trafalgar_Falls_at_Morne_Trois_Pitons_National_Park.jpg",
+    "author": "Nelro (talk)",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Trafalgar_Falls_at_Morne_Trois_Pitons_National_Park.jpg"
+  },
+  "tobago": {
+    "file": "Pigeon_Point_beach.jpg",
+    "author": "Kp93",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Pigeon_Point_beach.jpg"
+  },
+  "arequipa": {
+    "file": "Catedral_Arequipa,_Peru.jpg",
+    "author": "DocSlyper",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Catedral_Arequipa%2C_Peru.jpg"
+  },
+  "paraty": {
+    "file": "Paraty_05.JPG",
+    "author": "Vani Ribeiro",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Paraty_05.JPG"
+  },
+  "fernando-de-noronha": {
+    "file": "EDUARDO_MURUCI_-_BAIA_DOS_PORCOS-(recorte).jpg",
+    "author": "Eduardo Muruci",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:EDUARDO_MURUCI_-_BAIA_DOS_PORCOS-(recorte).jpg"
+  },
+  "salta": {
+    "file": "AR378-Quebrada_de_Humahuaca.jpg",
+    "author": "Bernard Gagnon",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:AR378-Quebrada_de_Humahuaca.jpg"
+  },
+  "paracas": {
+    "file": "Paracas_National_Reserve._Ica,_Peru.jpg",
+    "author": "masT3rOD",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Paracas_National_Reserve._Ica%2C_Peru.jpg"
+  },
+  "charlevoix": {
+    "file": "Baie_Saint-Paul_vu_du_nord.jpg",
+    "author": "OnionneRing",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Baie_Saint-Paul_vu_du_nord.jpg"
+  },
+  "ninh-binh": {
+    "file": "Muaxuantamcoc.jpg",
+    "author": "Kien1980v (thảo luận)",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Muaxuantamcoc.jpg"
+  },
+  "con-dao": {
+    "file": "Wanderly_Nest.jpg",
+    "author": "WanderlyNest",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Wanderly_Nest.jpg"
+  },
+  "guilin": {
+    "file": "87318-Li-River.jpg",
+    "author": "xiquinhosilva",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:87318-Li-River.jpg"
+  },
+  "hakuba": {
+    "file": "Hakuba_Happo-one_Winter_Resort.JPG",
+    "author": "Ski Mania",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Hakuba_Happo-one_Winter_Resort.JPG"
+  },
+  "hampi": {
+    "file": "Wide_angle_of_Galigopuram_of_Virupaksha_Temple,_Hampi_(04)_(cropped).jpg",
+    "author": "iMahesh",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_(04)_(cropped).jpg"
+  },
+  "darjeeling": {
+    "file": "DarjeelingTrainFruitshop_(2).jpg",
+    "author": "Arne Hückelheim",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:DarjeelingTrainFruitshop_(2).jpg"
+  },
+  "guadeloupe": {
+    "file": "Beach_in_Sainte-Anne,_Guadeloupe.jpg",
+    "author": "ROLLAND POMARET",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Beach_in_Sainte-Anne%2C_Guadeloupe.jpg"
   }
 }

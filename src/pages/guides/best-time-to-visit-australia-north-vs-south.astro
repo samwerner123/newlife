@@ -1,0 +1,61 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { bySlug, destMonthUrl, deg, MONTHS } from '../../lib/data';
+
+const ALL = MONTHS.map((_, i) => i);
+const rows = [
+  { slug: 'cairns', label: 'Cairns & the Great Barrier Reef (tropical north)' },
+  { slug: 'whitsundays', label: 'Whitsundays (tropical north)' },
+  { slug: 'uluru', label: 'Uluru (Red Centre)' },
+  { slug: 'gold-coast', label: 'Gold Coast (subtropical east)' },
+  { slug: 'sydney', label: 'Sydney (temperate south-east)' },
+  { slug: 'perth', label: 'Perth (Mediterranean west)' },
+  { slug: 'melbourne', label: 'Melbourne (temperate south)' },
+  { slug: 'great-ocean-road', label: 'Great Ocean Road (temperate south)' },
+  { slug: 'tasmania', label: 'Tasmania (cool south)' },
+];
+const cairns = bySlug.get('cairns')!;
+const melbourne = bySlug.get('melbourne')!;
+---
+
+<Guide slug="best-time-to-visit-australia-north-vs-south" photo="whitsundays">
+  <p>
+    Australia is so big that its seasons run in opposite directions. The <strong>tropical north</strong> — Cairns, the Great
+    Barrier Reef, the Whitsundays and Darwin — is best in the dry winter, from <strong>May to October</strong>, and hot, humid
+    and stormy in the summer wet season (December–March). The <strong>south</strong> — Sydney, Melbourne, Tasmania and Perth
+    — is best in summer and the shoulder seasons, from <strong>October to April</strong>, and cool in winter. The Red Centre is
+    best in between, in autumn, winter and spring.
+  </p>
+
+  <h2>Weather rating by month</h2>
+  <GuideTable caption="Weather rating across Australia by month" months={ALL} rows={rows} />
+  <p class="small muted">Ratings combine average temperature and rainfall from Bureau of Meteorology normals.</p>
+
+  <h2>North vs south</h2>
+  <ul>
+    <li>
+      <b>Tropical north (May–October):</b> dry, sunny and warm — in July, Cairns averages <a href={destMonthUrl(cairns, 6)}>{deg(cairns.months[6].high)}</a> by day. The wet season (December–March) brings monsoon rain, cyclone risk and marine stingers in the sea, but also green landscapes, waterfalls and lower prices. See the <a href="/guides/great-barrier-reef/">Great Barrier Reef guide</a>.
+    </li>
+    <li>
+      <b>Temperate south (October–April):</b> warm summer days for beaches, coastal drives and festivals; Melbourne averages <a href={destMonthUrl(melbourne, 0)}>{deg(melbourne.months[0].high)}</a> in January, but only <a href={destMonthUrl(melbourne, 6)}>{deg(melbourne.months[6].high)}</a> in July. March–May brings autumn colours in Tasmania and the Victorian high country.
+    </li>
+    <li>
+      <b>Red Centre (April–September):</b> Uluru and the outback are pleasant in the cooler months — sunny days, cold nights — and extremely hot from November to February.
+    </li>
+    <li>
+      <b>The west:</b> Perth has a Mediterranean climate with hot, dry summers; August–October is wildflower season in Western Australia. See <a href="/guides/wildflower-seasons/">wildflower seasons</a>.
+    </li>
+  </ul>
+
+  <h2>One trip, both halves</h2>
+  <p>
+    To see both the reef and the south in one trip, aim for <b>April–May</b> or <b>September–November</b>: the north is drying
+    out or still dry, and the south is mild and pleasant. December–January are the summer school holidays, when beaches, flights
+    and hotels are busiest and most expensive.
+  </p>
+  <p>
+    See also: <a href="/best-time-to-visit-australia/">the best time to visit Australia</a> month by month and{' '}
+    <a href="/guides/whale-watching/">whale watching</a> (humpbacks migrate along the east coast from June to November).
+  </p>
+</Guide>
