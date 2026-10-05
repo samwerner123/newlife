@@ -1741,7 +1741,10 @@
         "Beachfront with mountain views"
       ]
     ],
-    "hub": "South Africa"
+    "hub": [
+      "South Africa",
+      "Southern Africa"
+    ]
   },
   {
     "slug": "zanzibar",
@@ -5701,6 +5704,7 @@
     "slug": "alaska",
     "name": "Alaska (Anchorage)",
     "country": "United States",
+    "hub": "Alaska",
     "region": "North America",
     "lat": 61.22,
     "lon": -149.9,
@@ -8089,6 +8093,7 @@
     "slug": "charleston",
     "name": "Charleston",
     "country": "United States",
+    "hub": "Lowcountry",
     "region": "North America",
     "lat": 32.78,
     "lon": -79.93,
@@ -8163,6 +8168,7 @@
     "slug": "savannah",
     "name": "Savannah",
     "country": "United States",
+    "hub": "Lowcountry",
     "region": "North America",
     "lat": 32.08,
     "lon": -81.09,
@@ -10741,7 +10747,10 @@
     "slug": "kruger",
     "name": "Kruger National Park",
     "country": "South Africa",
-    "hub": "South Africa",
+    "hub": [
+      "South Africa",
+      "Southern Africa"
+    ],
     "region": "Middle East & Africa",
     "lat": -24,
     "lon": 31.5,
@@ -11073,6 +11082,7 @@
     "slug": "namibia",
     "name": "Namibia",
     "country": "Namibia",
+    "hub": "Southern Africa",
     "region": "Middle East & Africa",
     "lat": -22.56,
     "lon": 17.08,
@@ -11128,6 +11138,7 @@
     "slug": "okavango",
     "name": "Okavango Delta",
     "country": "Botswana",
+    "hub": "Southern Africa",
     "region": "Middle East & Africa",
     "lat": -19.28,
     "lon": 22.85,
@@ -11185,6 +11196,7 @@
     "slug": "victoria-falls",
     "name": "Victoria Falls",
     "country": "Zimbabwe",
+    "hub": "Southern Africa",
     "region": "Middle East & Africa",
     "lat": -17.93,
     "lon": 25.84,
@@ -17075,6 +17087,7 @@
     "slug": "hilton-head",
     "name": "Hilton Head Island",
     "country": "United States",
+    "hub": "Lowcountry",
     "region": "North America",
     "lat": 32.19,
     "lon": -80.74,
@@ -17457,7 +17470,10 @@
     "slug": "denali",
     "name": "Denali National Park",
     "country": "United States",
-    "hub": "US National Parks",
+    "hub": [
+      "US National Parks",
+      "Alaska"
+    ],
     "region": "North America",
     "lat": 63.73,
     "lon": -148.91,

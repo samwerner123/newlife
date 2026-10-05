@@ -4,64 +4,46 @@
 **«Прочитай docs/HANDOFF.md и продолжай с раздела „Что делать дальше“»**.
 
 - Ветка: `claude/jolly-einstein-u25rz2` (все изменения закоммичены и отправлены).
-- Состояние на 2026-10-03: `npm run check` даёт 0 ошибок; `npm run build` собирает **5557 страниц**; `npm run check:site` не находит проблем (битых ссылок 0 из 570 тыс., ошибок в 7358 блоках JSON-LD тоже 0).
-- План (`npm run plan`): 2301 задача, выполнено 2133, ждут владельца 70, запланировано 98.
+- Состояние на 2026-10-05: `npm run check` даёт 0 ошибок; `npm run build` собирает **6116 страниц**; `npm run check:site` не находит проблем (битых ссылок 0 из 629 тыс., ошибок в 8056 блоках JSON-LD тоже 0, склеенных слов тоже нет).
+- План (`npm run plan`): 2500 задач, выполнено 2332, ждут владельца 70, запланировано 98.
 
 ## Пожелания владельца (соблюдать)
 
 - **Маркетингом не заниматься** (папка `marketing/` остаётся как есть, новых материалов не делать).
 - **Без подписей под фото.** Авторы и лицензии — только на `/photo-credits/` (ссылка в футере каждой страницы). Совсем убирать авторство нельзя: этого требуют лицензии CC BY и CC BY-SA.
 
-## Что сделано в последней сессии
+## Что сделано в последних сессиях
 
-**Фото**
-- Заменены 18 слабых фото (спутниковые снимки, коллажи, случайные здания) — список был в прошлой версии этого файла; у `jamaica` больше нет «Unknown author».
-- Подписи под главными фото убраны; на `/photo-credits/` добавлено, что фото уменьшены и обрезаны.
-- `scripts/fetch-images.mjs` понимает `cc-by-sa-all` внутри `{{self|…}}`, а если шаблон лицензии не распознан (например, `{{Korea.net}}`), берёт лицензию из метаданных Commons.
+**Сессия 2026-10-05**
+- **Направления 282 → 312** — вся очередь «round 3»: Málaga, Naples, Lake Garda, Loire Valley, Bordeaux, Riga, Hallstatt, Montreal, Toronto, Asheville, Santa Fe, Scottsdale, Palm Springs, Jasper, Havana, Antigua, Grenada, Bonaire, British Virgin Islands, Santa Marta, Ushuaia, Florianópolis, Nha Trang, Sapa, Chiang Rai, Koh Lanta, Agra, Varanasi, Vanuatu, New Caledonia. Фото проверены глазами; лыжные сезоны у Santa Fe, Jasper, Ushuaia; осенние краски у Montreal и Asheville.
+- **Регионы 68 → 74:** Arizona, Baltic States, ABC Islands, Alaska, Lowcountry, Southern Africa.
+- **Сравнения 432 → 483.**
+- **Гиды 49 → 59:** Southeast Asia country by country, Japan by season, Mediterranean sea temperatures, Lunar New Year 2027, Oktoberfest & autumn festivals, cheapest Caribbean islands, Africa rainy seasons, high-altitude destinations, best beaches in Europe by month, US national parks park by park. В плане — 10 новых идей гидов.
+- `scripts/fetch-climate.mjs` умеет брать таблицу климата из другой языковой Википедии: `"climateWiki": ["vi:Sa Pa (thị xã)"]` (так получены Sapa и Nha Trang); таблица климата на сайте ссылается на эту версию и называет язык.
+- Сезоны: летний «каникулярный» прирост больше не включается там, где погода плохая (Финикс, Палм-Спрингс, муссоны), кроме семейных мест вроде Орландо.
+- **Исправлена системная ошибка вёрстки:** Astro выбрасывает перенос строки между текстом и следующим за ним тегом или выражением, поэтому в 47 местах слова склеивались («See<a…>», «every one of our312 destinations»). Теперь такие строки заканчиваются `{' '}`, а `npm run check:site` ловит новые случаи.
 
-**Аудит**
-- Повторный прогон Lighthouse и axe на 14 страницах — результаты в `docs/AUDIT.md`: доступность, best practices и SEO — 100 везде, производительность 99–100, axe — 0 нарушений в светлой и тёмной темах.
-- Главным фото добавлена ширина 800 px (на телефоне фото в рамке 4:3 требует ~810 px): фото Vienna 162 → 113 КБ.
-- Скрипт аудита — `scripts/audit.mjs` (`npm run audit`).
-
-**Подборки по месяцам** (`src/lib/collections.ts`)
-- Новые: Middle East, Central America, Oceania, Romantic getaways, Best national parks, **Where to see fall foliage** (новое поле `foliage` у 36 направлений; страницы только для месяцев, где есть хотя бы 3 места).
-- Лыжная подборка и осенние краски работают через общий интерфейс `season` в `Collection`; `hasPage(c, m)` решает, есть ли страница у месяца, — используйте его в ссылках.
-
-**Направления: 242 → 282**
-- Весь бэклог P (36 направлений) плюс Gran Canaria, Lanzarote, Clearwater и Sarasota. У всех есть климат, проверенное глазами фото, районы, практическая информация; у прибрежных — температура моря.
-- `da-nang` теперь просто «Da Nang» (раньше «Da Nang & Hoi An»), у Hoi An своя страница.
-- Новые регионы (hubs): Mediterranean, Canary Islands, Eastern Europe, Patagonia, Indian Ocean Islands, Florida Gulf Coast, Texas, Andalusia — всего 68.
-- +51 сравнение (всего 432), найдены `scripts/find-comparisons.mjs` и отобраны вручную (футбольные пары вроде «Cape Verde vs Argentina» отброшены).
-- В плане появилась очередь направлений «round 3» (30 шт.) и идеи новых регионов.
-
-**Гиды: 37 → 49** — все 12 из раздела F: Europe month by month, Thailand Andaman vs Gulf, Costa Rica green season, cheapest months to fly to Europe, wildflowers, carnival 2027, Easter 2027, stargazing, rainy season in Mexico & Central America, road trips by season, solo travel, Halloween & Día de los Muertos.
-
-**Инструменты**
-- **Сезоны** (высокий / межсезонье / низкий) для каждого месяца каждого направления — `src/lib/seasonality.ts`. Это оценка, а не данные бронирований; метод описан на `/about/#seasons`. Показано в вердикте, таблице климата и на страницах месяцев.
-- **Генератор списка вещей** `/packing-list-generator/` (данные — `/api/packing.json`). Ссылка есть на каждой странице «направление × месяц», в футере и в гиде по упаковке.
-- **Подсказка к оценке погоды** на каждой плашке `RatingBadge` (с сезонной пометкой месяца, если она есть).
-
-**Исправленные ошибки**
-- В режиме °F разницы температур («6°C cooler») переводились как абсолютные значения (43°F) — теперь ×9/5.
-- Переключатель единиц больше не переводит сам себя («°F/°F»): атрибут `data-no-units`.
-- Сравнения не называют одно место «теплее», если температуры после округления совпадают.
-- `scripts/fetch-climate.mjs` справляется с лишними фигурными скобками внутри таблицы климата (так не читался Tallinn).
+**Сессия 2026-10-03** (кратко)
+- Заменены 18 слабых фото, подписи под фото убраны; повторный аудит Lighthouse/axe (`docs/AUDIT.md`, `npm run audit`).
+- Подборки: Middle East, Central America, Oceania, Romantic getaways, National parks, Fall foliage (поле `foliage`, `hasPage(c, m)`).
+- Направления 242 → 282, регионы 60 → 68, гиды 37 → 49.
+- Инструменты: сезоны (`src/lib/seasonality.ts`, `/about/#seasons`), генератор списка вещей `/packing-list-generator/`, подсказки к оценке погоды.
+- Исправлены: перевод разниц температур в °F, переключатель единиц, сравнения при равной температуре.
 
 ## Что делать дальше (по порядку)
 
-1. **Направления «round 3»** (раздел P плана, 30 шт.: Málaga, Naples, Lake Garda, Loire Valley, Montreal, Asheville, Havana, Nha Trang, Agra и др.). Порядок:
+1. **Направления «round 4»** (раздел P плана, 30 шт.: La Digue, Mozambique, Tunisia, Taormina, Bavarian Alps, Vilnius, Sarajevo, Lake District, Northern Ireland, Hamburg, Lake Balaton, Budva, Outer Hebrides, Mérida, Guadeloupe, Martinique, Dominica, Tobago, Sacred Valley, Paraty, Fernando de Noronha, Uco Valley, Paracas, Charlevoix, Côn Đảo, Alleppey, Hampi, Bagan, Lijiang, Hakuba). Порядок:
    - запись в `src/data/destinations.json` (формат как у соседей; `hub` — строка или список, первый элемент — «домашний» регион);
-   - `npm run climate <slug>` (если таблицы нет — укажите `climateWiki`: список статей с таблицей «Climate data»);
+   - `npm run climate <slug>`; если таблицы нет — `climateWiki` со списком статей, в том числе из других Википедий (`"fr:…"`, `"vi:…"`); если в тексте используется климат соседнего города, оговорите это в `intro`;
    - `npm run images <slug>` и **обязательно посмотреть фото глазами** (см. «Как подбирать фото»);
    - `npm run sea <slug>`; новые страны — в `src/data/countries.json`;
-   - `node scripts/find-comparisons.mjs <slug> …` → отобрать осмысленные пары в `src/data/comparisons.json`.
-2. **Новые гиды** — 10 идей в разделе F плана (Southeast Asia country by country, Japan, Mediterranean sea temperatures, Lunar New Year 2027, Oktoberfest, cheapest Caribbean islands, rainy seasons in Africa, high-altitude destinations, best beaches in Europe by month, US national parks park by park). Гид = файл в `src/pages/guides/` + запись в `src/lib/guides.ts` (в заголовках — типографские апострофы ’, иначе генератор плана не разберёт строку).
-3. **Новые регионы** из плана (Baltic states, Alaska, Lowcountry, Sri Lanka & the Maldives, Southern Africa): каждому нужно 2+ направления и текст в `src/data/hubs.json`.
-4. **Фотогалереи по месяцам** (G 1925) — единственный оставшийся инструмент; потребуются дополнительные свободные фото на направление.
+   - `node scripts/find-comparisons.mjs <slug> …` → отобрать осмысленные пары в `src/data/comparisons.json` (выбрасывать футбольные «Страна vs Страна» и путаницу вроде Granada/Grenada).
+2. **Новые гиды** — 10 идей в разделе F плана (South America, Mexico, India, Australia, Nile cruise, turtle nesting, cool summer escapes, hot springs, Torres del Paine vs El Chaltén, Northern Lights compared). Гид = файл в `src/pages/guides/` + запись в `src/lib/guides.ts` (рубрика `kicker` — только из списка в `src/pages/guides/index.astro`; в заголовках — типографские апострофы ’).
+3. **Новые регионы** из плана (French Caribbean, Yucatán, Sri Lanka & the Maldives, Adriatic coast, New Mexico & the Southwest): каждому нужно 2+ направления и текст в `src/data/hubs.json`.
+4. **Фотогалереи по месяцам** (раздел G) — единственный оставшийся инструмент; нужны дополнительные свободные фото на направление.
 5. **Локализация** (раздел N) — самый большой оставшийся блок: es, de, fr, pt, it; затем hreflang (I).
-6. Слабые места данных, которые стоит улучшить, когда найдутся источники:
-   - `hoi-an` использует климат Da Nang, `koh-phangan` — Ko Samui, `isla-mujeres` — Cancún, `roatan` — La Ceiba (материк; оговорено в тексте);
+6. Слабые места данных:
+   - климат соседнего города: `hoi-an` — Da Nang, `koh-phangan` — Ko Samui, `isla-mujeres` — Cancún, `roatan` — La Ceiba, `british-virgin-islands` — St Thomas, `scottsdale` — Phoenix (оговорено в тексте там, где разница заметна);
    - `rwanda` — Ruhengeri (Musanze), `madagascar` — Antananarivo (оговорено в тексте).
 
 ## Что может сделать только владелец сайта (🟡)
@@ -87,6 +69,8 @@
 - **Стили динамических элементов** (созданных в браузере скриптом) пишите через `<style is:global>` или `:global(...)`: скоупинг Astro на них не действует.
 - **Перевод единиц** (`src/layouts/Base.astro`) понимает «21°C», диапазоны «24–30°C», «-5 to -20°C», типографский минус «−» и разницы «3°C warmer/cooler». Элементы, которые переводить нельзя, помечайте `data-no-units`. Для текста, созданного скриптом, вызывайте `window.__convertUnits(el)`.
 - **Подборки:** при выводе ссылок на подборки по месяцам фильтруйте через `hasPage(c, m)` — у осенних красок страниц не 12.
+- **Пробелы в шаблонах Astro:** если строка текста заканчивается словом, а следующая начинается с тега (`<a>`, `<strong>`, `<b>`) или выражения `{…}`, Astro склеит их без пробела. Заканчивайте такую строку `{' '}` (или держите тег на той же строке). `npm run check:site` сообщает о таких местах.
+- **Таблицы без ссылок** в `.table-wrap`, которые прокручиваются на телефоне, должны иметь `tabindex="0" role="region" aria-label="…"` — иначе axe выдаёт `scrollable-region-focusable`.
 - **Проверки:**
   - `npm run check` и `npm run build`;
   - `npm run check:site` (после сборки);

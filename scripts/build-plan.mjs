@@ -88,7 +88,7 @@ add = section('C. Country, state & region hubs', '"Best time to visit Thailand",
 for (const h of hubs) add(DONE, `Best time to visit ${h} — hub page with seasons, month table, heatmap, FAQ`);
 for (const h of hubs) for (const m of MONTHS) add(DONE, `${h} in ${m}`);
 // Next hub ideas; each needs at least two destinations before its page is built.
-for (const h of ['Alaska', 'the Lowcountry (Charleston, Savannah, Hilton Head)', 'Southern Africa', 'the French Caribbean (Guadeloupe & Martinique)', 'the Swiss & Bavarian Alps']) {
+for (const h of ['the French Caribbean (Guadeloupe & Martinique)', 'the Yucatán Peninsula', 'Sri Lanka & the Maldives', 'the Adriatic coast', 'New Mexico & the Southwest']) {
   add(PLAN, `Hub: best time to visit ${h} (needs 2+ destinations)`);
 }
 
