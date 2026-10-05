@@ -14,6 +14,13 @@ const hasDays = dest.months.every((m) => m.rainDays !== null);
 const sourcePage = dest.climateSource.page.startsWith('Template:')
   ? ([] as string[]).concat(dest.climateWiki ?? dest.wiki)[0]
   : dest.climateSource.page;
+// Pages from other language editions are stored as "vi:Title".
+const wikiUrl = (page: string) => {
+  const [, lang = 'en', title] = page.match(/^(?:([a-z]{2,3}):)?(.+)$/)!;
+  return `https://${lang}.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, '_'))}`;
+};
+const LANGS: Record<string, string> = { vi: 'Vietnamese', fr: 'French', de: 'German', es: 'Spanish', it: 'Italian', pt: 'Portuguese' };
+const sourceLang = LANGS[sourcePage.match(/^([a-z]{2,3}):/)?.[1] ?? ''];
 const hasSun = dest.months.every((m) => m.sunHours !== null);
 const hasSea = dest.months.every((m) => m.sea !== null);
 const hm = (h: number) => (h >= 24 ? '24 h' : h <= 0 ? '0 h' : `${h.toFixed(1)} h`);
@@ -59,11 +66,11 @@ const hm = (h: number) => (h >= 24 ? '24 h' : h <= 0 ? '0 h' : `${h.toFixed(1)} 
 <p class="disclosure source">
   Season is our estimate of crowds and prices, from the weather, holidays and events (<a href="/about/#seasons">how we estimate it</a>).
   Source: {dest.climateSource.location} — via the{' '}
-  <a href={`https://en.wikipedia.org/wiki/${encodeURIComponent(sourcePage.replace(/ /g, '_'))}`} rel="noopener">{sourcePage}</a>{' '}
-  article on Wikipedia (CC BY-SA){dest.climateSource.rain === 'nasa-power' ? '; rainfall from NASA POWER' : ''}.
-  {hasDays && dest.climateSource.rainDaysUnit && ` Rainy days count days with at least ${dest.climateSource.rainDaysUnit.replace(/&nbsp;/g, ' ')} of rain.`}
-  Daylight is the average time from sunrise to sunset, calculated from the latitude.
-  {hasSea && ' Sea temperatures are average sea-surface temperatures for 2023–2025 from the Open-Meteo Marine API.'}
+  <a href={wikiUrl(sourcePage)} rel="noopener">{sourcePage.replace(/^[a-z]{2,3}:/, '')}</a>{' '}
+  article on {sourceLang ? `the ${sourceLang} ` : ''}Wikipedia (CC BY-SA){dest.climateSource.rain === 'nasa-power' ? '; rainfall from NASA POWER' : ''}.{' '}
+  {hasDays && dest.climateSource.rainDaysUnit && `Rainy days count days with at least ${dest.climateSource.rainDaysUnit.replace(/&nbsp;/g, ' ')} of rain. `}
+  Daylight is the average time from sunrise to sunset, calculated from the latitude.{' '}
+  {hasSea && 'Sea temperatures are average sea-surface temperatures for 2023–2025 from the Open-Meteo Marine API.'}
 </p>
 
 <style>

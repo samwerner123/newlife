@@ -1972,5 +1972,215 @@
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Harbour_Town_July_2007.jpg"
+  },
+  "malaga": {
+    "file": "Da_Gibralfaro_(cropped)2.jpg",
+    "author": "Kiban",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Da_Gibralfaro_(cropped)2.jpg"
+  },
+  "naples": {
+    "file": "Napoli_-_Maschio_Angioino_-_202209302342_3.jpg",
+    "author": "Richard Nevell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Napoli_-_Maschio_Angioino_-_202209302342_3.jpg"
+  },
+  "lake-garda": {
+    "file": "La_Rocca_di_Manerba_del_Garda_con_l'isola_dei_Conigli.jpg",
+    "author": "Photo by Guido Adler. Upload by Moroder",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:La_Rocca_di_Manerba_del_Garda_con_l'isola_dei_Conigli.jpg"
+  },
+  "loire-valley": {
+    "file": "Aerial_image_of_Château_de_Chambord_(view_from_the_southeast).jpg",
+    "author": "Carsten Steger",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Ch%C3%A2teau_de_Chambord_(view_from_the_southeast).jpg"
+  },
+  "bordeaux": {
+    "file": "Bordeaux_Place_de_la_Bourse_de_nuit.jpg",
+    "author": "Mariette",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Bordeaux_Place_de_la_Bourse_de_nuit.jpg"
+  },
+  "riga": {
+    "file": "Riga_(33844464828).jpg",
+    "author": "Jorge Franganillo from Barcelona, Spain",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Riga_(33844464828).jpg"
+  },
+  "hallstatt": {
+    "file": "Hallstatt_-_Zentrum_.JPG",
+    "author": "C.Stadler/Bwag",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Hallstatt_-_Zentrum_.JPG"
+  },
+  "montreal": {
+    "file": "Montreal,_Quebec_skyline.jpg",
+    "author": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Montreal%2C_Quebec_skyline.jpg"
+  },
+  "toronto": {
+    "file": "Toronto_Skyline_from_Snake_Island,_September_11_2026_(01).jpg",
+    "author": "Dillan Payne",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Toronto_Skyline_from_Snake_Island%2C_September_11_2026_(01).jpg"
+  },
+  "asheville": {
+    "file": "Asheville,_North_Carolina.jpg",
+    "author": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Asheville%2C_North_Carolina.jpg"
+  },
+  "santa-fe": {
+    "file": "Palace_of_the_Governors.jpg",
+    "author": "Tony Hisgett from Birmingham, UK",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Palace_of_the_Governors.jpg"
+  },
+  "scottsdale": {
+    "file": "Scottsdale,_Arizona_(cropped).jpg",
+    "author": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Scottsdale%2C_Arizona_(cropped).jpg"
+  },
+  "palm-springs": {
+    "file": "Palm_Springs_from_the_Museum_Trail.jpg",
+    "author": "Visitor7",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Palm_Springs_from_the_Museum_Trail.jpg"
+  },
+  "jasper": {
+    "file": "MaligneLakeBaldHills.JPG",
+    "author": "Erik Lizee - Free to All",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:MaligneLakeBaldHills.JPG"
+  },
+  "havana": {
+    "file": "DJI_0197_crp_wiki.jpg",
+    "author": "RenaatPeeters",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:DJI_0197_crp_wiki.jpg"
+  },
+  "antigua": {
+    "file": "Antigua_beach_view.jpg",
+    "author": "Z_dead from London, UK",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Antigua_beach_view.jpg"
+  },
+  "british-virgin-islands": {
+    "file": "TheBaths_VirginGorda_BVI.jpg",
+    "author": "Jaro Nemčok",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:TheBaths_VirginGorda_BVI.jpg"
+  },
+  "santa-marta": {
+    "file": "Arrecifes.jpg",
+    "author": "Ben Bowes",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Arrecifes.jpg"
+  },
+  "ushuaia": {
+    "file": "Ushuaia_aerial_panorama.jpg",
+    "author": "Deensel",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Ushuaia_aerial_panorama.jpg"
+  },
+  "florianopolis": {
+    "file": "Morro_da_Cruz,_Florianópolis_-_SC,_Brazil_-_panoramio_(cropped).jpg",
+    "author": "oscar fava",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Morro_da_Cruz%2C_Florian%C3%B3polis_-_SC%2C_Brazil_-_panoramio_(cropped).jpg"
+  },
+  "nha-trang": {
+    "file": "Nha_Trang_,_Vietnam_-_panoramio_(35).jpg",
+    "author": "Kaz Ish",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Nha_Trang_%2C_Vietnam_-_panoramio_(35).jpg"
+  },
+  "sapa": {
+    "file": "Sa_Pa.jpg",
+    "author": "Bùi Thụy Đào Nguyên",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Sa_Pa.jpg"
+  },
+  "chiang-rai": {
+    "file": "Wat_Rong_Khun_-_Chiang_Rai.jpg",
+    "author": "JJ Harrison (https://www.jjharrison.com.au/)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Wat_Rong_Khun_-_Chiang_Rai.jpg"
+  },
+  "koh-lanta": {
+    "file": "Ko_Lanta_Beach.jpg",
+    "author": "Jens-Petter Salvesen",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Ko_Lanta_Beach.jpg"
+  },
+  "agra": {
+    "file": "Taj_Mahal_(Edited).jpeg",
+    "author": "Yann; edited by Jim Carter",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Taj_Mahal_(Edited).jpeg"
+  },
+  "varanasi": {
+    "file": "Varanasi,_India,_Ghats,_Cremation_ceremony_in_progress.jpg",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Varanasi%2C_India%2C_Ghats%2C_Cremation_ceremony_in_progress.jpg"
+  },
+  "vanuatu": {
+    "file": "Mount_Yasur_eruption_2006,_Tanna_Island,_Vanuatu,_VAN_0516.jpg",
+    "author": "Rolf Cosar",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mount_Yasur_eruption_2006%2C_Tanna_Island%2C_Vanuatu%2C_VAN_0516.jpg"
+  },
+  "new-caledonia": {
+    "file": "Ilôt_Devert_Kaala-Gomen_NOUVELLE-CALEDONIE.jpg",
+    "author": "Lency410",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Il%C3%B4t_Devert_Kaala-Gomen_NOUVELLE-CALEDONIE.jpg"
+  },
+  "grenada": {
+    "file": "Caribs_-_panoramio_(24).jpg",
+    "author": "Андрей Бобровский",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Caribs_-_panoramio_(24).jpg"
+  },
+  "bonaire": {
+    "file": "Crystal_Clear_waters_of_Bonaire_(13256547653).jpg",
+    "author": "Chris Favero from USA",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Crystal_Clear_waters_of_Bonaire_(13256547653).jpg"
   }
 }

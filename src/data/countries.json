@@ -99,5 +99,13 @@
   "Honduras": { "language": "Spanish (English widely spoken on Roatán)", "plugs": "A, B (120 V)", "tipping": "10% in restaurants, if not already added" },
   "Madagascar": { "language": "Malagasy, French", "plugs": "C, E (220 V)", "tipping": "Appreciated: 5–10% in restaurants; tip guides and drivers" },
   "Rwanda": { "language": "Kinyarwanda, English, French", "plugs": "C, J (230 V)", "tipping": "Not expected but appreciated; tip guides, trackers and porters on gorilla treks" },
-  "Samoa": { "language": "Samoan, English", "plugs": "I (230 V)", "tipping": "Not customary" }
+  "Samoa": { "language": "Samoan, English", "plugs": "I (230 V)", "tipping": "Not customary" },
+  "Antigua and Barbuda": { "language": "English", "plugs": "A, B (230 V; some hotels 110 V)", "tipping": "10% service charge is often added; otherwise 10–15%" },
+  "Bonaire": { "language": "Dutch, Papiamentu (English and Spanish widely spoken)", "plugs": "A, B (127 V)", "tipping": "10–15% if service is not included" },
+  "British Virgin Islands": { "language": "English", "plugs": "A, B (110 V)", "tipping": "10–15%; often added to restaurant bills" },
+  "Cuba": { "language": "Spanish", "plugs": "A, B, C, L (110 V and 220 V)", "tipping": "10% in restaurants; tip guides and drivers in cash" },
+  "Grenada": { "language": "English", "plugs": "G (230 V)", "tipping": "A 10% service charge is often added" },
+  "Latvia": { "language": "Latvian (English widely spoken)", "plugs": "C, F (230 V)", "tipping": "10% in restaurants if service is good" },
+  "New Caledonia": { "language": "French (and Kanak languages)", "plugs": "C, F (220 V)", "tipping": "Not expected" },
+  "Vanuatu": { "language": "Bislama, English, French", "plugs": "I (230 V)", "tipping": "Not expected" }
 }

@@ -3095,7 +3095,10 @@
         "Colourful capital with harbour views"
       ]
     ],
-    "hub": "Caribbean"
+    "hub": [
+      "Caribbean",
+      "ABC Islands"
+    ]
   },
   {
     "slug": "turks-and-caicos",
@@ -5959,7 +5962,10 @@
     "slug": "grand-canyon",
     "name": "Grand Canyon",
     "country": "United States",
-    "hub": "US National Parks",
+    "hub": [
+      "US National Parks",
+      "Arizona"
+    ],
     "region": "North America",
     "lat": 36.05,
     "lon": -112.14,
@@ -8282,7 +8288,8 @@
         "Oak Creek Canyon",
         "Cabins by the creek"
       ]
-    ]
+    ],
+    "hub": "Arizona"
   },
   {
     "slug": "glacier-national-park",
@@ -9646,7 +9653,10 @@
     "slug": "curacao",
     "name": "Curaçao",
     "country": "Curaçao",
-    "hub": "Caribbean",
+    "hub": [
+      "Caribbean",
+      "ABC Islands"
+    ],
     "region": "Caribbean",
     "lat": 12.12,
     "lon": -68.93,
@@ -16639,7 +16649,10 @@
     "slug": "tallinn",
     "name": "Tallinn",
     "country": "Estonia",
-    "hub": "Eastern Europe",
+    "hub": [
+      "Eastern Europe",
+      "Baltic States"
+    ],
     "region": "Europe",
     "lat": 59.44,
     "lon": 24.75,
@@ -18141,6 +18154,1934 @@
       [
         "Queenstown",
         "Day trips by coach or scenic flight"
+      ]
+    ]
+  },
+  {
+    "slug": "malaga",
+    "name": "Málaga & Costa del Sol",
+    "country": "Spain",
+    "hub": [
+      "Spain",
+      "Andalusia",
+      "Mediterranean"
+    ],
+    "region": "Europe",
+    "lat": 36.72,
+    "lon": -4.42,
+    "iata": "AGP",
+    "wiki": "Málaga",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 65,
+      "mid": 150
+    },
+    "tags": [
+      "beach",
+      "city",
+      "food",
+      "culture"
+    ],
+    "tagline": "Picasso's sunny home town and the beaches of the Costa del Sol.",
+    "intro": "Málaga has reinvented itself as one of Spain's best city breaks, with the Picasso Museum, a Moorish fortress and tapas bars a few minutes from the city beach. Along the Costa del Sol, resorts from Torremolinos to Marbella and Nerja have more than 300 days of sunshine a year.",
+    "highlights": [
+      "The Picasso Museum and the house where he was born",
+      "The Alcazaba and Gibralfaro castle",
+      "Beaches from La Malagueta to the coves of Nerja",
+      "The Caminito del Rey cliff walkway",
+      "Day trips to Ronda and the white villages"
+    ],
+    "best": "April–June and September–October: warm and sunny for the beach and the city, without the August crowds.",
+    "avoid": "July–August is hot and the beaches are packed; winter is mild and sunny but too cool for swimming.",
+    "adjust": {},
+    "events": {
+      "4": "Semana Santa, with huge floats carried through the city centre (March or April).",
+      "8": "Feria de Málaga, a week of flamenco, music and street parties (mid-August)."
+    },
+    "stay": [
+      [
+        "Centro Histórico",
+        "Walk to the museums, cathedral and tapas bars"
+      ],
+      [
+        "La Malagueta",
+        "City beach a short walk from the centre"
+      ],
+      [
+        "Nerja",
+        "Whitewashed resort town with coves and caves"
+      ]
+    ]
+  },
+  {
+    "slug": "naples",
+    "name": "Naples & Pompeii",
+    "country": "Italy",
+    "hub": [
+      "Italy",
+      "Mediterranean"
+    ],
+    "region": "Europe",
+    "lat": 40.85,
+    "lon": 14.27,
+    "iata": "NAP",
+    "wiki": "Naples",
+    "imagePage": [
+      "Naples",
+      "Pompeii"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 70,
+      "mid": 150
+    },
+    "tags": [
+      "city",
+      "food",
+      "history",
+      "culture"
+    ],
+    "tagline": "The birthplace of pizza, beneath Vesuvius, with Pompeii next door.",
+    "intro": "Naples is chaotic, vibrant and one of Italy's great food cities, with a UNESCO-listed old town, world-class archaeology and views across the bay to Vesuvius. Pompeii and Herculaneum are a short train ride away, and ferries run to Capri, Ischia and Procida.",
+    "highlights": [
+      "Pompeii and Herculaneum",
+      "Hiking up Vesuvius",
+      "The original Neapolitan pizza",
+      "The National Archaeological Museum",
+      "Ferries to Capri, Ischia and Procida"
+    ],
+    "best": "April–June and September–October: warm days for Pompeii and Vesuvius without the summer heat.",
+    "avoid": "July–August is hot and humid, and Pompeii has little shade; November is the wettest month.",
+    "adjust": {},
+    "events": {
+      "9": "Feast of San Gennaro on 19 September, when crowds gather at the cathedral for the 'miracle of the blood'.",
+      "12": "Nativity-scene workshops on Via San Gregorio Armeno are at their busiest in December."
+    },
+    "stay": [
+      [
+        "Centro Storico",
+        "UNESCO old town of pizzerias and churches"
+      ],
+      [
+        "Chiaia",
+        "Elegant seafront district with boutiques"
+      ],
+      [
+        "Sorrento",
+        "Clifftop base for Pompeii, Capri and the Amalfi Coast"
+      ]
+    ]
+  },
+  {
+    "slug": "lake-garda",
+    "name": "Lake Garda",
+    "country": "Italy",
+    "hub": "Italy",
+    "region": "Europe",
+    "lat": 45.6,
+    "lon": 10.65,
+    "iata": "VRN",
+    "wiki": "Lake Garda",
+    "climateWiki": [
+      "Riva del Garda",
+      "Salò",
+      "Verona"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 80,
+      "mid": 170
+    },
+    "tags": [
+      "nature",
+      "family",
+      "food",
+      "wine"
+    ],
+    "tagline": "Italy's largest lake: lemon groves, castles and windsurfing beneath the Alps.",
+    "intro": "Lake Garda stretches from the gentle vineyards and beaches of the south to fjord-like mountain scenery in the north, where wind makes Riva and Torbole Europe's windsurfing capitals. Ferries link pretty lakeside towns, and Verona is half an hour away.",
+    "highlights": [
+      "Sirmione's castle and the Grottoes of Catullus",
+      "The Monte Baldo cable car from Malcesine",
+      "Windsurfing and sailing at Riva del Garda and Torbole",
+      "Gardaland theme park",
+      "Lakeside towns by ferry, from Limone to Bardolino"
+    ],
+    "best": "May–June and September: warm enough to swim, with fewer crowds than midsummer.",
+    "avoid": "November–March is cool and quiet, and many hotels, lidos and ferry routes close.",
+    "adjust": {
+      "1": [
+        -5,
+        "Many lakeside hotels and ferry routes close for winter"
+      ],
+      "2": [
+        -5,
+        "Many lakeside hotels and ferry routes close for winter"
+      ],
+      "12": [
+        -5,
+        "Many lakeside hotels and ferry routes close for winter"
+      ]
+    },
+    "events": {
+      "7": "Opera season in the Roman arena in nearby Verona (June–September)."
+    },
+    "stay": [
+      [
+        "Sirmione",
+        "Medieval peninsula on the southern shore"
+      ],
+      [
+        "Riva del Garda",
+        "Mountain scenery and water sports in the north"
+      ],
+      [
+        "Bardolino & Lazise",
+        "Wine villages on the eastern shore"
+      ]
+    ]
+  },
+  {
+    "slug": "loire-valley",
+    "name": "Loire Valley",
+    "country": "France",
+    "hub": "France",
+    "region": "Europe",
+    "lat": 47.39,
+    "lon": 0.69,
+    "iata": "TUF",
+    "wiki": "Loire Valley",
+    "climateWiki": [
+      "Tours, France",
+      "Tours"
+    ],
+    "imagePage": [
+      "Château de Chenonceau",
+      "Château de Chambord"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 80,
+      "mid": 170
+    },
+    "tags": [
+      "history",
+      "culture",
+      "wine",
+      "food"
+    ],
+    "tagline": "Fairytale châteaux, vineyards and riverside cycling, an hour from Paris.",
+    "intro": "The UNESCO-listed Loire Valley is the \"Garden of France\": a gentle river landscape of Renaissance châteaux, vineyards and orchards, about an hour from Paris by high-speed train. It is ideal for cycling, with hundreds of kilometres of flat, signposted routes.",
+    "highlights": [
+      "Château de Chambord",
+      "Château de Chenonceau, built across the River Cher",
+      "Cycling the Loire à Vélo route",
+      "Wine tasting in Vouvray, Chinon and Sancerre",
+      "The gardens of Villandry"
+    ],
+    "best": "May–June and September: warm days for the châteaux and cycling, plus the grape harvest from late September.",
+    "avoid": "November–February is cold and grey, and some châteaux shorten their hours.",
+    "adjust": {},
+    "events": {
+      "7": "Sound-and-light shows at several châteaux on summer evenings (July–August).",
+      "9": "Grape harvest in the Loire vineyards (September–October)."
+    },
+    "stay": [
+      [
+        "Amboise",
+        "Royal château town between Chenonceau and Chambord"
+      ],
+      [
+        "Tours",
+        "Lively city with good train links"
+      ],
+      [
+        "Blois",
+        "Château town close to Chambord and Cheverny"
+      ]
+    ]
+  },
+  {
+    "slug": "bordeaux",
+    "name": "Bordeaux",
+    "country": "France",
+    "hub": "France",
+    "region": "Europe",
+    "lat": 44.84,
+    "lon": -0.58,
+    "iata": "BOD",
+    "wiki": "Bordeaux",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 80,
+      "mid": 170
+    },
+    "tags": [
+      "city",
+      "wine",
+      "food",
+      "culture"
+    ],
+    "tagline": "Elegant riverside city at the heart of the world’s most famous wine region.",
+    "intro": "Bordeaux's 18th-century centre is a UNESCO World Heritage Site, with grand stone façades along the Garonne, lively squares and excellent food. The vineyards of the Médoc, Saint-Émilion and Graves surround the city, and the Atlantic beaches and the Dune du Pilat are an hour away.",
+    "highlights": [
+      "Place de la Bourse and the Water Mirror",
+      "La Cité du Vin wine museum",
+      "Saint-Émilion's medieval village and vineyards",
+      "The Médoc château wine route",
+      "The Dune du Pilat near Arcachon"
+    ],
+    "best": "May–June and September–October: warm, sunny days for the city and the vineyards, with the harvest from September.",
+    "avoid": "November–February is mild but wet and grey.",
+    "adjust": {},
+    "events": {
+      "9": "Grape harvest in the Médoc, Saint-Émilion and Graves (September–October)."
+    },
+    "stay": [
+      [
+        "Saint-Pierre",
+        "Old-town lanes, bars and restaurants"
+      ],
+      [
+        "Chartrons",
+        "Antique shops and wine bars on the riverside"
+      ],
+      [
+        "Saint-Émilion",
+        "Stay among the vineyards"
+      ]
+    ]
+  },
+  {
+    "slug": "riga",
+    "name": "Riga",
+    "country": "Latvia",
+    "hub": [
+      "Eastern Europe",
+      "Baltic States"
+    ],
+    "region": "Europe",
+    "lat": 56.95,
+    "lon": 24.11,
+    "iata": "RIX",
+    "wiki": "Riga",
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+2 (+3 in summer)",
+    "budget": {
+      "low": 60,
+      "mid": 130
+    },
+    "tags": [
+      "city",
+      "history",
+      "culture",
+      "food"
+    ],
+    "tagline": "A medieval old town and Europe’s finest Art Nouveau streets.",
+    "intro": "Latvia's capital has a compact medieval Old Town, one of the world's largest collections of Art Nouveau buildings and a huge market housed in old Zeppelin hangars. It's good value, and the beaches of Jūrmala are half an hour away by train.",
+    "highlights": [
+      "The medieval Old Town (UNESCO)",
+      "Art Nouveau façades on Alberta iela",
+      "Riga Central Market in former Zeppelin hangars",
+      "A day on Jūrmala's beaches",
+      "The view from St. Peter’s Church tower"
+    ],
+    "best": "May–September: long, mild days, with the biggest celebrations at midsummer.",
+    "avoid": "November–March: cold, dark and often below freezing.",
+    "adjust": {},
+    "events": {
+      "6": "Jāņi, the midsummer festival on 23–24 June, is Latvia’s biggest celebration.",
+      "12": "Christmas market in the Old Town (late November to early January)."
+    },
+    "stay": [
+      [
+        "Old Town",
+        "Cobbled streets, churches and squares"
+      ],
+      [
+        "Quiet Centre (Art Nouveau district)",
+        "Grand buildings and cafés"
+      ],
+      [
+        "Jūrmala",
+        "Seaside resort 30 minutes away"
+      ]
+    ]
+  },
+  {
+    "slug": "hallstatt",
+    "name": "Hallstatt & the Salzkammergut",
+    "country": "Austria",
+    "hub": [
+      "Austria",
+      "Alps"
+    ],
+    "region": "Europe",
+    "lat": 47.56,
+    "lon": 13.65,
+    "iata": "SZG",
+    "wiki": "Hallstatt",
+    "climateWiki": [
+      "Hallstatt",
+      "Bad Ischl",
+      "Salzburg"
+    ],
+    "climate": "temperate",
+    "currency": "EUR",
+    "tz": "UTC+1 (+2 in summer)",
+    "budget": {
+      "low": 90,
+      "mid": 190
+    },
+    "tags": [
+      "nature",
+      "history",
+      "culture"
+    ],
+    "tagline": "A storybook lakeside village in the Austrian Alps.",
+    "intro": "Hallstatt, squeezed between a lake and the mountains, is one of the most photographed villages in Europe and the centre of the UNESCO-listed Salzkammergut lake district. It gets very busy with day-trippers, so stay overnight or visit early and late. Salzburg is about 90 minutes away.",
+    "highlights": [
+      "The lakeside village of Hallstatt (UNESCO)",
+      "Hallstatt Salt Mine, the oldest in the world",
+      "The Skywalk viewing platform above the village",
+      "Dachstein ice caves and the 5 Fingers platform",
+      "Wolfgangsee and St. Gilgen"
+    ],
+    "best": "May–June and September–October: lakeside walks and mountain views with fewer crowds than midsummer.",
+    "avoid": "Summer days are packed with coach tours; winter is cold and dark in the valley, though the snowy village is beautiful.",
+    "adjust": {},
+    "events": {
+      "6": "Corpus Christi procession on boats across the Hallstätter See (May or June)."
+    },
+    "stay": [
+      [
+        "Hallstatt",
+        "Stay overnight to see the village after the day-trippers leave"
+      ],
+      [
+        "Obertraun",
+        "Quieter lakeside base near the Dachstein cable car"
+      ],
+      [
+        "Bad Ischl",
+        "Imperial spa town with good transport links"
+      ]
+    ]
+  },
+  {
+    "slug": "montreal",
+    "name": "Montreal",
+    "country": "Canada",
+    "hub": "Canada",
+    "region": "North America",
+    "lat": 45.5,
+    "lon": -73.57,
+    "iata": "YUL",
+    "wiki": "Montreal",
+    "climate": "temperate",
+    "currency": "CAD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 100,
+      "mid": 200
+    },
+    "tags": [
+      "city",
+      "food",
+      "culture",
+      "nightlife"
+    ],
+    "tagline": "French-speaking festival city of bagels, cobbled streets and Mount Royal.",
+    "intro": "Montreal mixes European charm with North American energy: a cobbled old town on the St. Lawrence, neighbourhoods full of cafés and bars, and a packed summer festival calendar. Winters are long and very cold, but the city has an underground network and its own winter festivals.",
+    "highlights": [
+      "Old Montreal and Notre-Dame Basilica",
+      "The lookout on Mount Royal",
+      "Bagels, smoked meat and poutine",
+      "Jean-Talon and Atwater markets",
+      "The underground city (RÉSO)"
+    ],
+    "best": "June–September for warm days and festivals; late September–October for autumn colours.",
+    "avoid": "January–February: bitterly cold, with highs below freezing — though the city stays lively.",
+    "adjust": {},
+    "events": {
+      "2": "Montréal en Lumière winter festival of food, music and lights (February).",
+      "7": "International Jazz Festival (late June–early July) and the Just for Laughs comedy festival (July)."
+    },
+    "foliage": {
+      "where": "Mount Royal Park, and the Laurentians an hour to the north",
+      "months": {
+        "10": "peak"
+      }
+    },
+    "stay": [
+      [
+        "Old Montreal",
+        "Cobbled streets and the Old Port"
+      ],
+      [
+        "Plateau Mont-Royal",
+        "Colourful houses, cafés and bars"
+      ],
+      [
+        "Downtown",
+        "Shopping and festival venues"
+      ]
+    ]
+  },
+  {
+    "slug": "toronto",
+    "name": "Toronto",
+    "country": "Canada",
+    "hub": "Canada",
+    "region": "North America",
+    "lat": 43.65,
+    "lon": -79.38,
+    "iata": "YYZ",
+    "wiki": "Toronto",
+    "climate": "temperate",
+    "currency": "CAD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 110,
+      "mid": 220
+    },
+    "tags": [
+      "city",
+      "food",
+      "culture",
+      "family"
+    ],
+    "tagline": "Canada's biggest city: lakeside islands, global food and the CN Tower.",
+    "intro": "Toronto is one of the world's most multicultural cities, with distinct neighbourhoods, great food and big museums on the shore of Lake Ontario. In summer, ferries take you to the car-free Toronto Islands; Niagara Falls is a 90-minute drive away.",
+    "highlights": [
+      "The CN Tower and its EdgeWalk",
+      "Ferries to the Toronto Islands",
+      "Kensington Market and St. Lawrence Market",
+      "The Royal Ontario Museum",
+      "A day trip to Niagara Falls"
+    ],
+    "best": "June–September: warm, sunny days for the lakeshore, islands and festivals.",
+    "avoid": "December–March: cold and snowy, with highs around freezing.",
+    "adjust": {},
+    "events": {
+      "8": "Toronto Caribbean Carnival and its Grand Parade (early August).",
+      "9": "Toronto International Film Festival (early to mid-September)."
+    },
+    "stay": [
+      [
+        "Downtown & Entertainment District",
+        "Near the CN Tower, theatres and the waterfront"
+      ],
+      [
+        "Kensington & Queen West",
+        "Vintage shops, cafés and nightlife"
+      ],
+      [
+        "Yorkville",
+        "Upscale boutiques and museums"
+      ]
+    ]
+  },
+  {
+    "slug": "asheville",
+    "name": "Asheville",
+    "country": "United States",
+    "region": "North America",
+    "lat": 35.6,
+    "lon": -82.55,
+    "iata": "AVL",
+    "wiki": "Asheville, North Carolina",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 240
+    },
+    "tags": [
+      "nature",
+      "food",
+      "culture"
+    ],
+    "tagline": "Blue Ridge mountain town of breweries, art and fall colour.",
+    "intro": "Asheville sits in the Blue Ridge Mountains of North Carolina, known for the vast Biltmore Estate, craft breweries, arts studios and some of the best fall colour in the eastern US. The area is still recovering from Hurricane Helene in 2024, so check which roads and Blue Ridge Parkway sections are open.",
+    "highlights": [
+      "The Biltmore Estate",
+      "Drives along the Blue Ridge Parkway",
+      "Craft breweries in the South Slope",
+      "Studios in the River Arts District",
+      "Waterfalls in Pisgah National Forest"
+    ],
+    "best": "Late September–October for fall colour along the Blue Ridge Parkway; April–June for wildflowers and waterfalls.",
+    "avoid": "January–February is cold, and parts of the Blue Ridge Parkway close in winter.",
+    "adjust": {},
+    "events": {
+      "10": "Peak fall foliage brings the year’s biggest crowds (mid- to late October)."
+    },
+    "foliage": {
+      "where": "the Blue Ridge Parkway, from Mount Pisgah to Craggy Gardens",
+      "months": {
+        "10": "peak",
+        "11": "late"
+      }
+    },
+    "stay": [
+      [
+        "Downtown",
+        "Walk to breweries, restaurants and live music"
+      ],
+      [
+        "River Arts District",
+        "Studios and lofts by the French Broad River"
+      ],
+      [
+        "Biltmore Village",
+        "Next to the Biltmore Estate"
+      ]
+    ]
+  },
+  {
+    "slug": "santa-fe",
+    "name": "Santa Fe",
+    "country": "United States",
+    "region": "North America",
+    "lat": 35.69,
+    "lon": -105.94,
+    "iata": "SAF",
+    "wiki": "Santa Fe, New Mexico",
+    "climate": "highland",
+    "currency": "USD",
+    "tz": "UTC−7 (−6 in summer)",
+    "budget": {
+      "low": 120,
+      "mid": 240
+    },
+    "tags": [
+      "culture",
+      "history",
+      "food",
+      "nature"
+    ],
+    "tagline": "Adobe architecture, art galleries and green chile at 2,100 metres.",
+    "intro": "Founded in 1610, Santa Fe is the oldest state capital in the US and one of its great art towns, with adobe buildings, hundreds of galleries and a distinctive New Mexican cuisine. At 2,100 m it's sunny, dry and cool at night, with skiing in the mountains above town in winter.",
+    "highlights": [
+      "The Plaza and the Palace of the Governors",
+      "The galleries of Canyon Road",
+      "The Georgia O’Keeffe Museum",
+      "Meow Wolf's House of Eternal Return",
+      "Day trips to Taos and Bandelier National Monument"
+    ],
+    "best": "May–June and September–October: warm, sunny days and cool nights; September brings fiestas and chile roasting.",
+    "avoid": "July–August afternoons bring monsoon thunderstorms; winter is cold, though often sunny.",
+    "adjust": {
+      "7": [
+        -5,
+        "Monsoon thunderstorms most afternoons"
+      ],
+      "8": [
+        -5,
+        "Monsoon thunderstorms most afternoons"
+      ]
+    },
+    "events": {
+      "8": "Santa Fe Indian Market, the largest Native American art market in the world (August).",
+      "9": "Fiestas de Santa Fe and the burning of Zozobra (early September)."
+    },
+    "ski": {
+      "resorts": "Ski Santa Fe, 30 minutes from town",
+      "months": {
+        "1": "peak",
+        "2": "peak",
+        "3": "season",
+        "12": "season"
+      }
+    },
+    "stay": [
+      [
+        "Downtown Plaza",
+        "Adobe hotels and museums"
+      ],
+      [
+        "Canyon Road & Eastside",
+        "Galleries and quiet lanes"
+      ],
+      [
+        "Railyard District",
+        "Farmers market and local restaurants"
+      ]
+    ]
+  },
+  {
+    "slug": "scottsdale",
+    "name": "Scottsdale & Phoenix",
+    "country": "United States",
+    "hub": "Arizona",
+    "region": "North America",
+    "lat": 33.49,
+    "lon": -111.93,
+    "iata": "PHX",
+    "wiki": "Scottsdale, Arizona",
+    "climateWiki": [
+      "Phoenix, Arizona"
+    ],
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−7",
+    "budget": {
+      "low": 130,
+      "mid": 260
+    },
+    "tags": [
+      "luxury",
+      "wellness",
+      "nature",
+      "family"
+    ],
+    "tagline": "Desert golf, spa resorts and sunshine all winter.",
+    "intro": "Scottsdale and Phoenix are the winter-sun capital of the American Southwest: golf courses, spa resorts and hiking trails among giant saguaro cacti, with more than 300 sunny days a year. Summer is dangerously hot, so most visitors come between November and April. Arizona does not change its clocks in summer.",
+    "highlights": [
+      "The Desert Botanical Garden",
+      "Hiking Camelback Mountain",
+      "Old Town Scottsdale",
+      "Taliesin West, Frank Lloyd Wright's winter home",
+      "Golf and spa resorts"
+    ],
+    "best": "November–April: warm, sunny days of 20–30°C for golf, hiking and pools.",
+    "avoid": "June–September: dangerous heat, often above 40°C, even at night.",
+    "adjust": {},
+    "events": {
+      "2": "WM Phoenix Open, the best-attended event on the PGA Tour (February).",
+      "3": "Cactus League spring training, with 15 Major League Baseball teams (late February–March)."
+    },
+    "stay": [
+      [
+        "Old Town Scottsdale",
+        "Restaurants, galleries and nightlife"
+      ],
+      [
+        "North Scottsdale",
+        "Golf and desert resorts"
+      ],
+      [
+        "Downtown Phoenix",
+        "Museums and sports"
+      ]
+    ]
+  },
+  {
+    "slug": "palm-springs",
+    "name": "Palm Springs",
+    "country": "United States",
+    "hub": "California",
+    "region": "North America",
+    "lat": 33.83,
+    "lon": -116.55,
+    "iata": "PSP",
+    "wiki": "Palm Springs, California",
+    "climate": "temperate",
+    "currency": "USD",
+    "tz": "UTC−8 (−7 in summer)",
+    "budget": {
+      "low": 130,
+      "mid": 260
+    },
+    "tags": [
+      "wellness",
+      "nature",
+      "luxury"
+    ],
+    "tagline": "Mid-century modern style, pool resorts and desert mountains.",
+    "intro": "Palm Springs, two hours from Los Angeles, is a desert oasis of mid-century modern homes, boutique pool hotels and golf courses beneath the San Jacinto Mountains. Joshua Tree National Park is an hour away, and the Coachella festival takes place nearby every April.",
+    "highlights": [
+      "The Palm Springs Aerial Tramway up Mount San Jacinto",
+      "Mid-century modern architecture tours",
+      "Joshua Tree National Park",
+      "Hikes in the Indian Canyons",
+      "Pool and spa resorts"
+    ],
+    "best": "October–April: warm, sunny days and cool nights by the pool.",
+    "avoid": "June–September: highs of 40°C and above.",
+    "adjust": {},
+    "events": {
+      "3": "BNP Paribas Open tennis tournament at Indian Wells (March).",
+      "4": "Coachella and Stagecoach music festivals in nearby Indio (April)."
+    },
+    "stay": [
+      [
+        "Downtown Palm Springs",
+        "Walk to restaurants and shops"
+      ],
+      [
+        "Movie Colony",
+        "Mid-century boutique hotels"
+      ],
+      [
+        "Palm Desert & La Quinta",
+        "Golf and family resorts"
+      ]
+    ]
+  },
+  {
+    "slug": "jasper",
+    "name": "Jasper",
+    "country": "Canada",
+    "hub": [
+      "Canada",
+      "Rocky Mountains"
+    ],
+    "region": "North America",
+    "lat": 52.87,
+    "lon": -118.08,
+    "iata": "YEG",
+    "wiki": "Jasper, Alberta",
+    "imagePage": [
+      "Maligne Lake",
+      "Jasper National Park"
+    ],
+    "climate": "temperate",
+    "currency": "CAD",
+    "tz": "UTC−7 (−6 in summer)",
+    "budget": {
+      "low": 130,
+      "mid": 260
+    },
+    "tags": [
+      "nature",
+      "wildlife",
+      "adventure"
+    ],
+    "tagline": "Wild lakes, glaciers and elk in the quieter half of the Canadian Rockies.",
+    "intro": "Jasper National Park is the largest park in the Canadian Rockies and wilder than Banff, with turquoise lakes, glaciers and abundant wildlife. The Icefields Parkway links the two. A wildfire in July 2024 destroyed part of the town, which has reopened and is rebuilding.",
+    "highlights": [
+      "Maligne Canyon and Spirit Island on Maligne Lake",
+      "The Columbia Icefield and Athabasca Glacier",
+      "The Jasper SkyTram",
+      "Elk, bighorn sheep and bears",
+      "Stargazing in one of the world’s largest dark-sky preserves"
+    ],
+    "best": "Late June–September: warm days, open trails and the Icefields Parkway in full swing.",
+    "avoid": "November–April is very cold, and many trails are snowbound — though Marmot Basin has skiing.",
+    "adjust": {},
+    "events": {
+      "10": "Jasper Dark Sky Festival (October)."
+    },
+    "ski": {
+      "resorts": "Marmot Basin, 20 minutes from town",
+      "months": {
+        "1": "peak",
+        "2": "peak",
+        "3": "season",
+        "4": "late",
+        "12": "season"
+      }
+    },
+    "stay": [
+      [
+        "Jasper town",
+        "Hotels and cabins, rebuilding after the 2024 wildfire"
+      ],
+      [
+        "Pyramid Lake",
+        "Lakeside resort just outside town"
+      ],
+      [
+        "Hinton",
+        "Cheaper base an hour east"
+      ]
+    ]
+  },
+  {
+    "slug": "havana",
+    "name": "Havana & Cuba",
+    "country": "Cuba",
+    "hub": "Caribbean",
+    "region": "Caribbean",
+    "lat": 23.13,
+    "lon": -82.38,
+    "iata": "HAV",
+    "wiki": "Havana",
+    "climate": "tropical",
+    "currency": "CUP",
+    "tz": "UTC−5 (−4 in summer)",
+    "budget": {
+      "low": 60,
+      "mid": 140
+    },
+    "tags": [
+      "culture",
+      "history",
+      "nightlife",
+      "beach"
+    ],
+    "tagline": "Colonial plazas, classic cars and live music on every corner.",
+    "intro": "Havana's crumbling colonial streets, 1950s cars and live son and salsa make it unlike anywhere else in the Caribbean, with tobacco farms in Viñales and beaches at Varadero within a few hours. Power cuts and shortages have become common, cards issued by US banks don't work, and US citizens can only travel under certain categories — check your government's advice and bring cash.",
+    "highlights": [
+      "Old Havana (UNESCO) and its plazas",
+      "A classic-car ride along the Malecón",
+      "Live son and salsa music",
+      "Tobacco farms in the Viñales valley",
+      "Colonial Trinidad and the beaches of Varadero"
+    ],
+    "best": "November–April: the dry season, warm and sunny with little risk of storms.",
+    "avoid": "June–October is hot, humid and rainy, with the highest hurricane risk in September–October.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "1": "Havana International Jazz Festival (usually January).",
+      "7": "Carnival in Santiago de Cuba (July)."
+    },
+    "stay": [
+      [
+        "Old Havana",
+        "Colonial streets and casas particulares"
+      ],
+      [
+        "Vedado",
+        "Leafy district with jazz clubs and big hotels"
+      ],
+      [
+        "Varadero",
+        "Beach resorts two hours east"
+      ]
+    ]
+  },
+  {
+    "slug": "antigua",
+    "name": "Antigua & Barbuda",
+    "country": "Antigua and Barbuda",
+    "hub": "Caribbean",
+    "region": "Caribbean",
+    "lat": 17.12,
+    "lon": -61.85,
+    "iata": "ANU",
+    "wiki": "Antigua",
+    "climateWiki": [
+      "Antigua",
+      "V. C. Bird International Airport",
+      "Antigua and Barbuda"
+    ],
+    "imageFile": "Antigua_beach_view.jpg",
+    "climate": "tropical",
+    "currency": "XCD",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 120,
+      "mid": 260
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "luxury"
+    ],
+    "tagline": "A beach for every day of the year and the Caribbean’s sailing capital.",
+    "intro": "Antigua is said to have 365 beaches, ringed by reefs and calm turquoise water, and English Harbour is one of the Caribbean's great sailing centres. Little Barbuda, a short flight or ferry away, has miles of pink-sand beach and a huge frigate-bird colony.",
+    "highlights": [
+      "Beaches from Half Moon Bay to Dickenson Bay",
+      "Nelson's Dockyard (UNESCO)",
+      "Sunset and the Sunday party at Shirley Heights",
+      "Barbuda's pink sand and frigate-bird colony",
+      "Swimming with rays at Stingray City"
+    ],
+    "best": "December–April: dry, sunny and breezy — peak season and the time of Sailing Week.",
+    "avoid": "August–October: peak hurricane season.",
+    "adjust": {
+      "8": [
+        -5,
+        "Hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "4": "Antigua Sailing Week (late April–early May).",
+      "8": "Antigua Carnival (late July–early August)."
+    },
+    "stay": [
+      [
+        "Dickenson Bay",
+        "Resorts on the north-west coast"
+      ],
+      [
+        "English Harbour",
+        "Yachts, Nelson's Dockyard and restaurants"
+      ],
+      [
+        "Jolly Harbour",
+        "Marina and beaches on the west coast"
+      ]
+    ]
+  },
+  {
+    "slug": "grenada",
+    "name": "Grenada",
+    "country": "Grenada",
+    "hub": "Caribbean",
+    "region": "Caribbean",
+    "lat": 12.05,
+    "lon": -61.75,
+    "iata": "GND",
+    "wiki": "Grenada",
+    "climateWiki": [
+      "Grenada",
+      "Maurice Bishop International Airport",
+      "St. George's, Grenada"
+    ],
+    "imageFile": "Caribs_-_panoramio_(24).jpg",
+    "climate": "tropical",
+    "currency": "XCD",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 100,
+      "mid": 220
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nature",
+      "food"
+    ],
+    "tagline": "The Spice Island: nutmeg, waterfalls and one of the best beaches in the Caribbean.",
+    "intro": "Grenada, near the southern end of the Caribbean chain, is green, mountainous and unhurried, with nutmeg and cocoa plantations, rainforest waterfalls and the long white sweep of Grand Anse Beach. It lies near the southern edge of the hurricane belt, so storms are less frequent than further north, though not unknown — Hurricane Beryl hit Carriacou in 2024.",
+    "highlights": [
+      "Grand Anse Beach",
+      "The Underwater Sculpture Park at Molinere Bay",
+      "Nutmeg and chocolate estates",
+      "Annandale and Seven Sisters waterfalls",
+      "St. George's harbour (the Carenage)"
+    ],
+    "best": "January–May: the dry season, sunny with calm seas.",
+    "avoid": "June–November is the rainy season, with the most rain in October–November.",
+    "adjust": {
+      "9": [
+        -5,
+        "Hurricane season"
+      ],
+      "10": [
+        -5,
+        "Hurricane season"
+      ]
+    },
+    "events": {
+      "8": "Spicemas, Grenada’s carnival (August)."
+    },
+    "stay": [
+      [
+        "Grand Anse",
+        "The best beach and most resorts"
+      ],
+      [
+        "St. George's",
+        "Colourful harbour capital"
+      ],
+      [
+        "Carriacou",
+        "Sleepy sister island by ferry"
+      ]
+    ]
+  },
+  {
+    "slug": "bonaire",
+    "name": "Bonaire",
+    "country": "Bonaire",
+    "hub": [
+      "Caribbean",
+      "ABC Islands"
+    ],
+    "region": "Caribbean",
+    "lat": 12.15,
+    "lon": -68.27,
+    "iata": "BON",
+    "wiki": "Bonaire",
+    "climateWiki": [
+      "Bonaire",
+      "Kralendijk",
+      "Flamingo International Airport"
+    ],
+    "imageFile": "Crystal_Clear_waters_of_Bonaire_(13256547653).jpg",
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 110,
+      "mid": 230
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "adventure",
+      "nature"
+    ],
+    "tagline": "Shore diving, flamingos and sunshine outside the hurricane belt.",
+    "intro": "Bonaire, the quietest of the ABC islands, is one of the world's best places for shore diving: the whole coastline is a marine park, and you can simply wade in from yellow-painted stones that mark the dive sites. It's dry, sunny and almost never hit by hurricanes. The island is a special municipality of the Netherlands and uses the US dollar.",
+    "highlights": [
+      "Shore diving in the Bonaire National Marine Park",
+      "Flamingos at the Pekelmeer salt flats",
+      "Windsurfing at Lac Bay",
+      "Washington Slagbaai National Park",
+      "Klein Bonaire's beaches by water taxi"
+    ],
+    "best": "Any month: dry, sunny and outside the hurricane belt. February–September is driest.",
+    "avoid": "October–December brings short showers — the wettest time of a dry year.",
+    "adjust": {},
+    "events": {
+      "2": "Carnival in Kralendijk (February or March).",
+      "4": "King's Day celebrations on 27 April."
+    },
+    "stay": [
+      [
+        "Kralendijk",
+        "Small capital with dive shops and restaurants"
+      ],
+      [
+        "North of Kralendijk",
+        "Dive resorts with reefs off the jetty"
+      ],
+      [
+        "Lac Bay",
+        "Windsurfing and mangroves on the east coast"
+      ]
+    ]
+  },
+  {
+    "slug": "british-virgin-islands",
+    "name": "British Virgin Islands",
+    "country": "British Virgin Islands",
+    "hub": "Caribbean",
+    "region": "Caribbean",
+    "lat": 18.43,
+    "lon": -64.62,
+    "iata": "EIS",
+    "wiki": "British Virgin Islands",
+    "climateWiki": [
+      "British Virgin Islands",
+      "Road Town"
+    ],
+    "imagePage": [
+      "The Baths",
+      "Virgin Gorda"
+    ],
+    "climate": "tropical",
+    "currency": "USD",
+    "tz": "UTC−4",
+    "budget": {
+      "low": 150,
+      "mid": 320
+    },
+    "tags": [
+      "islands",
+      "beach",
+      "luxury",
+      "adventure"
+    ],
+    "tagline": "The Caribbean’s best sailing, among 60 islands and cays.",
+    "intro": "The British Virgin Islands are made for sailing: dozens of islands within sight of each other, sheltered water and steady trade winds. Most visitors charter a yacht, hopping between the giant boulders of The Baths, beach bars on Jost Van Dyke and the reefs of Anegada. The islands use the US dollar. Climate figures are for St Thomas in the neighbouring US Virgin Islands, about 30 km away.",
+    "highlights": [
+      "The Baths on Virgin Gorda",
+      "Island-hopping on a charter yacht",
+      "White Bay and the Soggy Dollar Bar on Jost Van Dyke",
+      "Anegada's flat sandy beaches and lobster",
+      "Diving the wreck of the RMS Rhone"
+    ],
+    "best": "December–April: dry, breezy and ideal for sailing.",
+    "avoid": "August–October: peak hurricane season (Hurricane Irma devastated the islands in 2017).",
+    "adjust": {
+      "8": [
+        -10,
+        "Peak hurricane season"
+      ],
+      "9": [
+        -15,
+        "Peak hurricane season"
+      ],
+      "10": [
+        -10,
+        "Peak hurricane season"
+      ]
+    },
+    "events": {
+      "3": "BVI Spring Regatta (late March–early April)."
+    },
+    "stay": [
+      [
+        "Tortola (Road Town)",
+        "Main island with ferries and marinas"
+      ],
+      [
+        "Virgin Gorda",
+        "The Baths and upscale resorts"
+      ],
+      [
+        "Jost Van Dyke",
+        "Tiny island of beach bars"
+      ]
+    ]
+  },
+  {
+    "slug": "santa-marta",
+    "name": "Santa Marta & Tayrona",
+    "country": "Colombia",
+    "hub": "Colombia",
+    "region": "Central & South America",
+    "lat": 11.24,
+    "lon": -74.2,
+    "iata": "SMR",
+    "wiki": "Santa Marta",
+    "imagePage": [
+      "Tayrona National Natural Park",
+      "Santa Marta"
+    ],
+    "climate": "tropical",
+    "currency": "COP",
+    "tz": "UTC−5",
+    "budget": {
+      "low": 45,
+      "mid": 110
+    },
+    "tags": [
+      "beach",
+      "nature",
+      "adventure",
+      "culture"
+    ],
+    "tagline": "Jungle beaches, the Lost City trek and mountain coffee farms.",
+    "intro": "Santa Marta, on Colombia's Caribbean coast, is the gateway to Tayrona National Park's palm-fringed coves, the multi-day trek to the Lost City (Ciudad Perdida) and the cool coffee village of Minca in the Sierra Nevada. Tayrona closes to visitors for a few weeks each year — usually in February, June and October — so check dates before you go.",
+    "highlights": [
+      "Tayrona National Park's jungle beaches",
+      "The four-to-six-day trek to the Lost City",
+      "Minca's coffee farms and waterfalls",
+      "Santa Marta's historic centre and seafront",
+      "Palomino, where the river meets the sea"
+    ],
+    "best": "December–April: the dry season, sunny and breezy.",
+    "avoid": "September–November are the wettest months, and the Lost City trail gets very muddy.",
+    "adjust": {
+      "2": [
+        -5,
+        "Tayrona National Park usually closes for about two weeks"
+      ],
+      "6": [
+        -5,
+        "Tayrona National Park usually closes for about two weeks"
+      ],
+      "10": [
+        -5,
+        "Tayrona National Park usually closes for about two weeks"
+      ]
+    },
+    "events": {
+      "7": "Fiestas del Mar, Santa Marta’s sea festival (late July)."
+    },
+    "stay": [
+      [
+        "Santa Marta centre",
+        "Colonial streets, restaurants and bars"
+      ],
+      [
+        "El Rodadero",
+        "City beach resort"
+      ],
+      [
+        "Minca",
+        "Cool mountain village with eco-lodges"
+      ]
+    ]
+  },
+  {
+    "slug": "ushuaia",
+    "name": "Ushuaia",
+    "country": "Argentina",
+    "hub": [
+      "Argentina",
+      "Patagonia"
+    ],
+    "region": "Central & South America",
+    "lat": -54.8,
+    "lon": -68.3,
+    "iata": "USH",
+    "wiki": "Ushuaia",
+    "climate": "temperate",
+    "currency": "ARS",
+    "tz": "UTC−3",
+    "budget": {
+      "low": 90,
+      "mid": 200
+    },
+    "tags": [
+      "nature",
+      "adventure",
+      "wildlife"
+    ],
+    "tagline": "The southernmost city in the world and the gateway to Antarctica.",
+    "intro": "Ushuaia sits on the Beagle Channel at the tip of Tierra del Fuego, with snowy peaks behind it and penguin colonies a boat ride away. Most Antarctic cruises leave from here between November and March. It's cool even in summer, but the days are very long.",
+    "highlights": [
+      "Beagle Channel boat trips to sea-lion and penguin colonies",
+      "Tierra del Fuego National Park",
+      "The hike to Laguna Esmeralda",
+      "The End of the World Train",
+      "Antarctic cruises (November–March)"
+    ],
+    "best": "November–March: the long summer days for hiking, the Beagle Channel and Antarctic cruises.",
+    "avoid": "June–August is cold and dark, with only about seven hours of daylight — though Cerro Castor has skiing.",
+    "adjust": {},
+    "events": {
+      "12": "Antarctic cruise season is in full swing (November–March), with nearly 17 hours of daylight around the solstice."
+    },
+    "ski": {
+      "resorts": "Cerro Castor, 26 km from town",
+      "months": {
+        "6": "early",
+        "7": "peak",
+        "8": "peak",
+        "9": "season"
+      }
+    },
+    "stay": [
+      [
+        "Town centre (San Martín)",
+        "Restaurants, shops and tour offices"
+      ],
+      [
+        "Hillside hotels",
+        "Views over the Beagle Channel"
+      ],
+      [
+        "Martial Glacier road",
+        "Lodges in the forest above town"
+      ]
+    ]
+  },
+  {
+    "slug": "florianopolis",
+    "name": "Florianópolis",
+    "country": "Brazil",
+    "hub": "Brazil",
+    "region": "Central & South America",
+    "lat": -27.6,
+    "lon": -48.55,
+    "iata": "FLN",
+    "wiki": "Florianópolis",
+    "climate": "temperate",
+    "currency": "BRL",
+    "tz": "UTC−3",
+    "budget": {
+      "low": 60,
+      "mid": 140
+    },
+    "tags": [
+      "beach",
+      "nightlife",
+      "nature",
+      "food"
+    ],
+    "tagline": "An island of 40 beaches, dunes and lagoons in southern Brazil.",
+    "intro": "Florianópolis, or 'Floripa', is mostly the island of Santa Catarina: dozens of beaches, from surf spots and party beaches to quiet coves, plus dunes, lagoons and fresh oysters. It's Brazil's favourite summer escape, with a milder, more European-feeling climate than Rio.",
+    "highlights": [
+      "More than 40 beaches, from Joaquina to Praia Mole",
+      "Lagoa da Conceição",
+      "Sandboarding on the Joaquina dunes",
+      "Oysters at Ribeirão da Ilha",
+      "The hike to Lagoinha do Leste"
+    ],
+    "best": "December–March for hot beach weather and nightlife; March–April is warm with fewer crowds.",
+    "avoid": "June–August is cool and rainy for the beach — though whales calve off the coast to the south.",
+    "adjust": {},
+    "events": {
+      "2": "Carnival (February or March).",
+      "8": "Southern right whales calve off the coast south of the island (July–November)."
+    },
+    "stay": [
+      [
+        "Lagoa da Conceição",
+        "Bars, restaurants and lagoon views"
+      ],
+      [
+        "Jurerê Internacional",
+        "Upscale beach clubs in the north"
+      ],
+      [
+        "Campeche",
+        "Surf beach and laid-back guesthouses"
+      ]
+    ]
+  },
+  {
+    "slug": "nha-trang",
+    "name": "Nha Trang",
+    "country": "Vietnam",
+    "hub": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "region": "Asia",
+    "lat": 12.24,
+    "lon": 109.19,
+    "iata": "CXR",
+    "wiki": "Nha Trang",
+    "climateWiki": [
+      "vi:Nha Trang (thành phố)",
+      "vi:Khánh Hòa",
+      "Quy Nhơn"
+    ],
+    "climate": "tropical",
+    "currency": "VND",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 35,
+      "mid": 90
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "nightlife"
+    ],
+    "tagline": "A long city beach, island boat trips and mud baths on the south-central coast.",
+    "intro": "Nha Trang is Vietnam's best-known beach city, with a 6 km sweep of sand in front of a busy, high-rise seafront and islands scattered across the bay. It's dry and sunny for much of the year, but gets its heaviest rain in the autumn, later than the rest of the country.",
+    "highlights": [
+      "The 6 km city beach",
+      "Island boat trips and snorkelling at Hon Mun",
+      "The Po Nagar Cham towers",
+      "Mud baths and hot springs",
+      "The Vinpearl cable car and island resort"
+    ],
+    "best": "February–August: dry, sunny beach weather.",
+    "avoid": "October–December is the rainy season, with the risk of typhoons and floods.",
+    "adjust": {
+      "10": [
+        -10,
+        "Rainy and typhoon season"
+      ],
+      "11": [
+        -10,
+        "Rainy and typhoon season"
+      ]
+    },
+    "events": {
+      "2": "Lunar New Year (Tết) celebrations along the seafront (late January or February)."
+    },
+    "stay": [
+      [
+        "Tran Phu beachfront",
+        "Hotels across the road from the beach"
+      ],
+      [
+        "City centre",
+        "Markets and local restaurants"
+      ],
+      [
+        "Bai Dai (Long Beach)",
+        "Resorts near the airport"
+      ]
+    ]
+  },
+  {
+    "slug": "sapa",
+    "name": "Sapa",
+    "country": "Vietnam",
+    "hub": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "region": "Asia",
+    "lat": 22.34,
+    "lon": 103.84,
+    "iata": "HAN",
+    "wiki": "Sa Pa",
+    "climateWiki": [
+      "vi:Sa Pa (thị xã)",
+      "vi:Sa Pa"
+    ],
+    "climate": "highland",
+    "currency": "VND",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 30,
+      "mid": 80
+    },
+    "tags": [
+      "trekking",
+      "nature",
+      "culture"
+    ],
+    "tagline": "Rice terraces, hill-tribe villages and Indochina’s highest peak.",
+    "intro": "Sapa, at about 1,500 m in the mountains of north-west Vietnam, is the base for treks through terraced rice valleys to Hmong and Red Dao villages, often with a homestay. It's five or six hours from Hanoi by bus or overnight train to Lao Cai, and much cooler than the lowlands.",
+    "highlights": [
+      "Trekking through rice terraces to Hmong and Red Dao villages",
+      "Fansipan, Indochina’s highest peak, by cable car",
+      "The Muong Hoa valley",
+      "Bac Ha Sunday market",
+      "Homestays in Ta Van and Lao Chai"
+    ],
+    "best": "September–November: clear skies, with golden rice terraces at harvest in September; March–May is also good.",
+    "avoid": "December–February is cold and foggy, with occasional frost or snow; June–August is the rainy season.",
+    "adjust": {},
+    "events": {
+      "9": "The rice terraces turn gold at harvest (late August–September)."
+    },
+    "stay": [
+      [
+        "Sapa town",
+        "Hotels with mountain views"
+      ],
+      [
+        "Ta Van",
+        "Village homestays in the valley"
+      ],
+      [
+        "Muong Hoa valley",
+        "Eco-lodges among the terraces"
+      ]
+    ]
+  },
+  {
+    "slug": "chiang-rai",
+    "name": "Chiang Rai",
+    "country": "Thailand",
+    "hub": [
+      "Thailand",
+      "Southeast Asia"
+    ],
+    "region": "Asia",
+    "lat": 19.91,
+    "lon": 99.84,
+    "iata": "CEI",
+    "wiki": "Chiang Rai",
+    "imagePage": [
+      "Wat Rong Khun",
+      "Chiang Rai"
+    ],
+    "climate": "tropical",
+    "currency": "THB",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 35,
+      "mid": 90
+    },
+    "tags": [
+      "culture",
+      "nature",
+      "history"
+    ],
+    "tagline": "The White Temple, tea hills and the Golden Triangle.",
+    "intro": "Chiang Rai, three hours north of Chiang Mai, is a relaxed city known for its extraordinary modern temples, the White Temple and the Blue Temple. It's the base for the Golden Triangle, where Thailand, Laos and Myanmar meet on the Mekong, and for tea plantations in the hills.",
+    "highlights": [
+      "The White Temple (Wat Rong Khun)",
+      "The Blue Temple and the Black House",
+      "The Golden Triangle on the Mekong",
+      "Tea plantations at Doi Mae Salong",
+      "The night bazaar"
+    ],
+    "best": "November–February: cool, dry and sunny.",
+    "avoid": "March–April is hazy with smoke from crop burning; May–October is the rainy season.",
+    "adjust": {
+      "2": [
+        -5,
+        "Smoke season often starts in late February"
+      ],
+      "3": [
+        -20,
+        "Burning season: heavy smoke and poor air quality"
+      ],
+      "4": [
+        -15,
+        "Burning season: smoke and poor air quality"
+      ]
+    },
+    "events": {
+      "4": "Songkran, the Thai New Year water festival (13–15 April)."
+    },
+    "stay": [
+      [
+        "City centre",
+        "Near the clock tower and night bazaar"
+      ],
+      [
+        "Kok River",
+        "Riverside resorts outside town"
+      ],
+      [
+        "Chiang Saen",
+        "Quiet base on the Mekong near the Golden Triangle"
+      ]
+    ]
+  },
+  {
+    "slug": "koh-lanta",
+    "name": "Koh Lanta",
+    "country": "Thailand",
+    "hub": [
+      "Thailand",
+      "Southeast Asia"
+    ],
+    "region": "Asia",
+    "lat": 7.62,
+    "lon": 99.04,
+    "iata": "KBV",
+    "wiki": "Ko Lanta",
+    "climateWiki": [
+      "Ko Lanta district",
+      "Krabi"
+    ],
+    "imagePage": [
+      "Ko Lanta",
+      "Ko Lanta Yai"
+    ],
+    "climate": "tropical",
+    "currency": "THB",
+    "tz": "UTC+7",
+    "budget": {
+      "low": 40,
+      "mid": 110
+    },
+    "tags": [
+      "beach",
+      "islands",
+      "family",
+      "adventure"
+    ],
+    "tagline": "Long, quiet beaches and island-hopping on the Andaman coast.",
+    "intro": "Koh Lanta, south of Krabi, is a laid-back alternative to Phuket and Phi Phi: long west-facing beaches with big sunsets, family-run resorts and easy boat trips to the reefs of Koh Rok and Koh Haa.",
+    "highlights": [
+      "Long, quiet beaches on the west coast",
+      "Snorkelling trips to Koh Rok and Koh Haa",
+      "The lighthouse in Mu Ko Lanta National Park",
+      "Lanta Old Town's stilt houses",
+      "Diving at Hin Daeng and Hin Muang"
+    ],
+    "best": "November–April: the dry season, with calm seas for boat trips and diving.",
+    "avoid": "May–October brings the south-west monsoon; many resorts close and boat trips are fewer.",
+    "adjust": {
+      "5": [
+        -10,
+        "Southwest monsoon: rough seas"
+      ],
+      "6": [
+        -10,
+        "Southwest monsoon: rough seas; many resorts close"
+      ],
+      "7": [
+        -10,
+        "Southwest monsoon: rough seas; many resorts close"
+      ],
+      "8": [
+        -10,
+        "Southwest monsoon: rough seas; many resorts close"
+      ],
+      "9": [
+        -10,
+        "Southwest monsoon: rough seas; many resorts close"
+      ],
+      "10": [
+        -10,
+        "Southwest monsoon: rough seas"
+      ]
+    },
+    "events": {},
+    "stay": [
+      [
+        "Long Beach (Phra Ae)",
+        "Beach bars and mid-range resorts"
+      ],
+      [
+        "Kantiang Bay",
+        "Quiet, upscale south"
+      ],
+      [
+        "Klong Dao",
+        "Family-friendly beach near the pier"
+      ]
+    ]
+  },
+  {
+    "slug": "agra",
+    "name": "Agra & the Taj Mahal",
+    "country": "India",
+    "hub": "India",
+    "region": "Asia",
+    "lat": 27.18,
+    "lon": 78.01,
+    "iata": "AGR",
+    "wiki": "Agra",
+    "imagePage": [
+      "Taj Mahal"
+    ],
+    "climate": "temperate",
+    "currency": "INR",
+    "tz": "UTC+5:30",
+    "budget": {
+      "low": 30,
+      "mid": 80
+    },
+    "tags": [
+      "history",
+      "culture"
+    ],
+    "tagline": "The Taj Mahal, Agra Fort and the abandoned Mughal city of Fatehpur Sikri.",
+    "intro": "Agra, two hours from Delhi by express train, is home to the Taj Mahal and two more UNESCO World Heritage Sites, Agra Fort and Fatehpur Sikri. It is the third point of India’s \"Golden Triangle\" with Delhi and Jaipur. The Taj Mahal is closed on Fridays.",
+    "highlights": [
+      "The Taj Mahal at sunrise (closed on Fridays)",
+      "Agra Fort",
+      "Fatehpur Sikri",
+      "Sunset view of the Taj from Mehtab Bagh",
+      "Itimad-ud-Daulah, the 'Baby Taj'"
+    ],
+    "best": "October–March: warm, dry days; December–February mornings are cool and often misty at the Taj.",
+    "avoid": "April–June brings extreme heat above 40°C; July–September is the monsoon.",
+    "adjust": {
+      "5": [
+        -5,
+        "Extreme pre-monsoon heat"
+      ]
+    },
+    "events": {
+      "2": "Taj Mahotsav, a ten-day festival of crafts, music and food (February).",
+      "3": "Holi, the festival of colours (March)."
+    },
+    "stay": [
+      [
+        "Taj Ganj",
+        "Walk to the Taj Mahal’s east gate"
+      ],
+      [
+        "Fatehabad Road",
+        "Big hotels, some with Taj views"
+      ],
+      [
+        "Sadar Bazaar",
+        "Markets and restaurants"
+      ]
+    ]
+  },
+  {
+    "slug": "varanasi",
+    "name": "Varanasi",
+    "country": "India",
+    "hub": "India",
+    "region": "Asia",
+    "lat": 25.32,
+    "lon": 83.01,
+    "iata": "VNS",
+    "wiki": "Varanasi",
+    "climate": "temperate",
+    "currency": "INR",
+    "tz": "UTC+5:30",
+    "budget": {
+      "low": 25,
+      "mid": 70
+    },
+    "tags": [
+      "culture",
+      "history"
+    ],
+    "tagline": "India's holiest city, on the ghats of the Ganges.",
+    "intro": "Varanasi is one of the world's oldest continuously inhabited cities and Hinduism's holiest, where pilgrims bathe in the Ganges and cremations take place on the riverside ghats day and night. The evening aarti ceremony and a sunrise boat ride are unforgettable.",
+    "highlights": [
+      "The evening Ganga Aarti at Dashashwamedh Ghat",
+      "A sunrise boat ride along the ghats",
+      "Kashi Vishwanath Temple",
+      "Sarnath, where the Buddha gave his first sermon",
+      "Banarasi silk weaving"
+    ],
+    "best": "October–March: pleasant days for the ghats; Dev Deepawali lights up the river in November.",
+    "avoid": "April–June is extremely hot; July–September brings monsoon floods that can submerge the lower ghats.",
+    "adjust": {
+      "5": [
+        -5,
+        "Extreme pre-monsoon heat"
+      ],
+      "8": [
+        -5,
+        "Monsoon floods often cover the lower ghats"
+      ]
+    },
+    "events": {
+      "3": "Holi, the festival of colours (March).",
+      "11": "Dev Deepawali, when a million oil lamps light the ghats on the full moon of Kartik (November)."
+    },
+    "stay": [
+      [
+        "Assi Ghat",
+        "Riverside guesthouses, cafés and yoga"
+      ],
+      [
+        "Dashashwamedh & Godowlia",
+        "In the thick of the old city"
+      ],
+      [
+        "Cantonment",
+        "Quieter, larger hotels"
+      ]
+    ]
+  },
+  {
+    "slug": "vanuatu",
+    "name": "Vanuatu",
+    "country": "Vanuatu",
+    "hub": "South Pacific",
+    "region": "Oceania",
+    "lat": -17.73,
+    "lon": 168.32,
+    "iata": "VLI",
+    "wiki": "Vanuatu",
+    "climateWiki": [
+      "Port Vila"
+    ],
+    "imagePage": [
+      "Champagne Beach",
+      "Mount Yasur",
+      "Vanuatu"
+    ],
+    "climate": "tropical",
+    "currency": "VUV",
+    "tz": "UTC+11",
+    "budget": {
+      "low": 90,
+      "mid": 200
+    },
+    "tags": [
+      "islands",
+      "beach",
+      "adventure",
+      "culture"
+    ],
+    "tagline": "An active volcano, blue holes and world-class wreck diving.",
+    "intro": "Vanuatu is an archipelago of more than 80 islands, where you can stand on the rim of an erupting volcano on Tanna, swim in the blue holes of Espiritu Santo and dive one of the world’s largest accessible wrecks. Village life and kastom traditions are still strong.",
+    "highlights": [
+      "The crater rim of Mount Yasur on Tanna",
+      "Diving the SS President Coolidge off Espiritu Santo",
+      "Champagne Beach and Santo's blue holes",
+      "Land diving on Pentecost Island (April–June)",
+      "Mele Cascades near Port Vila"
+    ],
+    "best": "May–October: the dry season, cooler and less humid.",
+    "avoid": "January–March: the cyclone season, hot and humid with heavy rain.",
+    "adjust": {
+      "1": [
+        -5,
+        "Cyclone season"
+      ],
+      "2": [
+        -5,
+        "Cyclone season"
+      ],
+      "3": [
+        -5,
+        "Cyclone season"
+      ]
+    },
+    "events": {
+      "5": "Land diving (Naghol) on Pentecost Island, the original bungee jump (April–June)."
+    },
+    "stay": [
+      [
+        "Port Vila (Efate)",
+        "The capital, with resorts and restaurants"
+      ],
+      [
+        "Espiritu Santo",
+        "Diving, blue holes and beaches"
+      ],
+      [
+        "Tanna",
+        "Bungalows near Mount Yasur"
+      ]
+    ]
+  },
+  {
+    "slug": "new-caledonia",
+    "name": "New Caledonia",
+    "country": "New Caledonia",
+    "hub": "South Pacific",
+    "region": "Oceania",
+    "lat": -22.27,
+    "lon": 166.45,
+    "iata": "NOU",
+    "wiki": "New Caledonia",
+    "climateWiki": [
+      "Nouméa"
+    ],
+    "imageFile": "Ilôt_Devert_Kaala-Gomen_NOUVELLE-CALEDONIE.jpg",
+    "climate": "tropical",
+    "currency": "XPF",
+    "tz": "UTC+11",
+    "budget": {
+      "low": 110,
+      "mid": 240
+    },
+    "tags": [
+      "islands",
+      "beach",
+      "nature",
+      "culture"
+    ],
+    "tagline": "A French Pacific territory around the world’s largest lagoon.",
+    "intro": "New Caledonia combines French food and culture with Melanesian Kanak traditions and one of the world's largest lagoons, a UNESCO World Heritage Site. Nouméa is the base for day trips to lighthouse islands and flights to the Isle of Pines and the Loyalty Islands. The territory saw serious unrest in 2024, so check current travel advice.",
+    "highlights": [
+      "The lagoons of New Caledonia (UNESCO)",
+      "The Isle of Pines and its natural pool at Oro",
+      "The Tjibaou Cultural Centre",
+      "Amédée Island and its lighthouse",
+      "Ouvéa's long white beaches"
+    ],
+    "best": "September–December: dry, sunny and warm before the cyclone season.",
+    "avoid": "January–March: hot, humid and the cyclone season.",
+    "adjust": {
+      "1": [
+        -5,
+        "Cyclone season"
+      ],
+      "2": [
+        -5,
+        "Cyclone season"
+      ],
+      "3": [
+        -5,
+        "Cyclone season"
+      ]
+    },
+    "events": {
+      "8": "Humpback whales in the Southern Lagoon (July–September)."
+    },
+    "stay": [
+      [
+        "Nouméa (Anse Vata)",
+        "Beachfront hotels and restaurants"
+      ],
+      [
+        "Isle of Pines",
+        "Bungalows on white-sand bays"
+      ],
+      [
+        "Bourail",
+        "West-coast dunes, turtles and surf"
       ]
     ]
   }

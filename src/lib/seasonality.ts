@@ -30,9 +30,12 @@ export function demand(d: Destination, m: number): number {
   const southern = d.lat < -10 && (SOUTH.has(d.region) || d.country === 'South Africa');
   // Summer school holidays in Europe and North America (July–August), felt almost everywhere,
   // and most of all at family destinations.
-  if (m === 6 || m === 7) x += (d.lat > 0 ? 0.25 : 0.1) + (d.tags.includes('family') ? 0.15 : 0);
+  // Not where the weather is bad (monsoon rain, desert heat) — except at family destinations such as Orlando,
+  // which fill up in the school holidays whatever the weather, unless it is dangerously hot.
+  const family = d.tags.includes('family');
+  if ((m === 6 || m === 7) && (mo.score >= 50 || (family && mo.high < 36))) x += (d.lat > 0 ? 0.25 : 0.1) + (family ? 0.15 : 0);
   // Winter sun: warm places in the northern subtropics fill up with travellers escaping the cold (November–March).
-  if ([10, 11, 0, 1, 2].includes(m) && mo.high >= 20 && d.lat > 0 && d.lat < 35) x += 0.15;
+  if ([10, 11, 0, 1, 2].includes(m) && mo.high >= 19 && d.lat > 0 && d.lat < 35) x += 0.15;
   // Southern-hemisphere summer holidays (December–January).
   if (southern && (m === 11 || m === 0)) x += 0.2;
   // Spring break and Easter in warm places; Golden Week in Japan.

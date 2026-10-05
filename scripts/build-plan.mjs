@@ -88,7 +88,7 @@ add = section('C. Country, state & region hubs', '"Best time to visit Thailand",
 for (const h of hubs) add(DONE, `Best time to visit ${h} — hub page with seasons, month table, heatmap, FAQ`);
 for (const h of hubs) for (const m of MONTHS) add(DONE, `${h} in ${m}`);
 // Next hub ideas; each needs at least two destinations before its page is built.
-for (const h of ['the Baltic states', 'Alaska', 'the Lowcountry (Charleston, Savannah, Hilton Head)', 'Sri Lanka & the Maldives', 'Southern Africa']) {
+for (const h of ['Alaska', 'the Lowcountry (Charleston, Savannah, Hilton Head)', 'Southern Africa', 'the French Caribbean (Guadeloupe & Martinique)', 'the Swiss & Bavarian Alps']) {
   add(PLAN, `Hub: best time to visit ${h} (needs 2+ destinations)`);
 }
 
@@ -238,6 +238,12 @@ const backlog = [
   ['Havana & Cuba', 'havana'], ['Antigua & Barbuda', 'antigua'], ['Grenada', 'grenada'], ['Bonaire', 'bonaire'], ['British Virgin Islands', 'british-virgin-islands'], ['Santa Marta & Tayrona', 'santa-marta'],
   ['Ushuaia', 'ushuaia'], ['Florianópolis', 'florianopolis'], ['Nha Trang', 'nha-trang'], ['Sapa', 'sapa'], ['Chiang Rai', 'chiang-rai'], ['Koh Lanta', 'koh-lanta'],
   ['Agra & the Taj Mahal', 'agra'], ['Varanasi', 'varanasi'], ['Vanuatu', 'vanuatu'], ['New Caledonia', 'new-caledonia'], ['Jasper', 'jasper'], ['Hallstatt & the Salzkammergut', 'hallstatt'],
+  // Next up (round 4).
+  ['La Digue (Seychelles)', 'la-digue'], ['Mozambique', 'mozambique'], ['Tunisia', 'tunisia'], ['Taormina', 'taormina'], ['Bavarian Alps', 'bavarian-alps'], ['Vilnius', 'vilnius'],
+  ['Sarajevo & Mostar', 'sarajevo'], ['Lake District', 'lake-district'], ['Northern Ireland', 'northern-ireland'], ['Hamburg', 'hamburg'], ['Lake Balaton', 'lake-balaton'], ['Budva & the Montenegrin coast', 'budva'],
+  ['Outer Hebrides', 'outer-hebrides'], ['Mérida & the Yucatán', 'merida'], ['Guadeloupe', 'guadeloupe'], ['Martinique', 'martinique'], ['Dominica', 'dominica'], ['Tobago', 'tobago'],
+  ['Sacred Valley (Peru)', 'sacred-valley'], ['Paraty', 'paraty'], ['Fernando de Noronha', 'fernando-de-noronha'], ['Uco Valley', 'uco-valley'], ['Paracas & the Ballestas Islands', 'paracas'], ['Charlevoix', 'charlevoix'],
+  ['Côn Đảo Islands', 'con-dao'], ['Kerala backwaters (Alleppey)', 'alleppey'], ['Hampi', 'hampi'], ['Bagan', 'bagan'], ['Lijiang', 'lijiang'], ['Hakuba', 'hakuba'],
 ];
 add = section('P. New destinations backlog (demand-ordered)', 'Next destinations to add — each brings 13 pages.');
 for (const [label, slug] of backlog) add(done(slugs.has(slug)), `Add destination: ${label} (guide + 12 monthly pages)`);

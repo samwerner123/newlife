@@ -52,13 +52,17 @@ async function getText(url, tries = 6) {
 }
 
 // Raw wikitext (served from Wikipedia's cache, so it isn't rate-limited like the API), following redirects.
+// Titles can name another language edition with a prefix ("vi:Sa Pa (thị xã)") when the English article has no
+// weather box; the prefix is kept in the returned title so the source link points to the right Wikipedia.
 async function wikitext(title) {
-  let t = title;
+  const [, lang = 'en', name] = title.match(/^(?:([a-z]{2,3}):)?(.+)$/);
+  const prefix = lang === 'en' ? '' : `${lang}:`;
+  let t = name;
   for (let hops = 0; hops < 3; hops++) {
-    const text = await getText(`https://en.wikipedia.org/w/index.php?title=${encodeURIComponent(t.replace(/ /g, '_'))}&action=raw`);
+    const text = await getText(`https://${lang}.wikipedia.org/w/index.php?title=${encodeURIComponent(t.replace(/ /g, '_'))}&action=raw`);
     if (text === null) return null;
-    const redirect = text.match(/^\s*#REDIRECT\s*\[\[([^\]|#]+)/i);
-    if (!redirect) return { title: t, text };
+    const redirect = text.match(/^\s*#(?:REDIRECT|ĐỔI)\s*\[\[([^\]|#]+)/i);
+    if (!redirect) return { title: prefix + t, text };
     t = redirect[1].trim();
   }
   return null;
@@ -182,9 +186,11 @@ async function findBox(title) {
     const good = weatherBoxes(page.text).map(parseBox).find(complete);
     if (good) return { ...good, page: page.title };
     // Follow transcluded weather templates ({{Tokyo weatherbox}}) and climate sub-articles.
+    const prefix = page.title.match(/^[a-z]{2,3}:/)?.[0] ?? '';
     for (const m of page.text.matchAll(/\{\{\s*([^{}|]*weather ?box[^{}|]*)\}\}/gi)) {
-      queue.push(`Template:${m[1].trim()}`);
+      queue.push(`${prefix}Template:${m[1].trim()}`);
     }
+    if (prefix) continue; // "Climate of …" articles only exist in English
     for (const m of page.text.matchAll(/\[\[(Climate of [^\]|#]+)/g)) queue.push(m[1].trim());
     queue.push(`Climate of ${page.title}`);
   }

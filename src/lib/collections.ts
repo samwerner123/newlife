@@ -209,7 +209,7 @@ export const ROMANTIC = [
   'maldives', 'seychelles', 'mauritius', 'st-lucia', 'turks-and-caicos', 'barbados', 'maui', 'kauai', 'bali', 'fiji',
   'cook-islands', 'zanzibar', 'tulum', 'dubrovnik', 'lake-bled', 'sedona', 'charleston', 'savannah', 'quebec-city', 'bruges',
   'marrakech', 'madeira', 'sicily', 'luang-prabang', 'rajasthan', 'serengeti', 'okavango', 'hoi-an', 'puglia', 'sardinia',
-  'big-sur',
+  'big-sur', 'lake-garda', 'loire-valley', 'hallstatt', 'antigua',
 ];
 
 COLLECTIONS.push({
@@ -243,7 +243,7 @@ COLLECTIONS.push({
 // US & Canadian national parks, ranked on the month's weather (with road and facility closures factored into the score).
 export const NATIONAL_PARKS = [
   'yellowstone', 'yosemite', 'grand-canyon', 'zion', 'arches-bryce', 'grand-teton', 'glacier-national-park', 'great-smoky-mountains',
-  'acadia', 'olympic-national-park', 'joshua-tree', 'banff', 'death-valley', 'mount-rainier', 'denali',
+  'acadia', 'olympic-national-park', 'joshua-tree', 'banff', 'death-valley', 'mount-rainier', 'denali', 'jasper',
 ];
 
 COLLECTIONS.push({
