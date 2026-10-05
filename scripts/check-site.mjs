@@ -50,6 +50,13 @@ for (const file of html) {
   if (h1 !== 1 && !page.startsWith('/404')) problems.push(`${page}: ${h1} <h1> elements`);
   if (!/<title>[^<]+<\/title>/.test(src)) problems.push(`${page}: missing <title>`);
   if (!/<meta name="description" content="[^"]+"/.test(src)) problems.push(`${page}: missing meta description`);
+  // Words glued to a following link or bold text ("See<a …>"), which happens when Astro drops a line break before an
+  // inline element; add {' '} at the end of the line. Ignores the logo and the score inside rating badges.
+  const body = src.replace(/<(script|style)[\s\S]*?<\/\1>/g, '');
+  for (const m of body.matchAll(/[a-z,;:]<(a|strong|em)[\s>]/g)) {
+    problems.push(`${page}: missing space before <${m[1]}> near "${body.slice(Math.max(0, m.index - 30), m.index + 1).replace(/<[^>]*>/g, '')}"`);
+    break;
+  }
   for (const m of src.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     blocks++;
     let data;

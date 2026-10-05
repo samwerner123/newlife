@@ -1,0 +1,57 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { hubByName, MONTHS } from '../../lib/data';
+import { crowdLevel, SEASON_SHORT } from '../../lib/seasonality';
+
+const ALL = MONTHS.map((_, i) => i);
+const japan = hubByName.get('Japan')!;
+const rows = ['hokkaido', 'tokyo', 'mount-fuji', 'kyoto', 'osaka', 'hiroshima', 'okinawa'].map((slug) => ({ slug }));
+const tokyo = japan.members.find((d) => d.slug === 'tokyo')!;
+---
+
+<Guide slug="best-time-to-visit-japan" photo="kyoto">
+  <p>
+    The best times to visit Japan are <strong>spring (late March to May)</strong> and <strong>autumn (October to
+    November)</strong>: mild, mostly dry weather, with cherry blossoms in spring and red maples in autumn. They are also the
+    busiest and most expensive times. Summer is hot, humid and rainy, with typhoons possible from August; winter is cold but
+    clear on the Pacific side and snowy in Hokkaido and the Japanese Alps — perfect for skiing.
+  </p>
+
+  <h2>Weather rating by month</h2>
+  <GuideTable caption="Weather rating in Japan by month" months={ALL} rows={rows} />
+  <p class="small muted">Ratings combine average temperature and rainfall from Japan Meteorological Agency normals, with points off for the rainy season.</p>
+
+  <h2>Crowds and prices in Tokyo</h2>
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Estimated travel season in Tokyo by month">
+    <table class="data-table">
+      <caption class="visually-hidden">Estimated travel season in Tokyo by month</caption>
+      <thead><tr><th scope="col">Month</th>{ALL.map((m) => <th scope="col">{MONTHS[m].slice(0, 3)}</th>)}</tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row">Season</th>
+          {ALL.map((m) => <td class="season" data-season={crowdLevel(tokyo, m)}>{SEASON_SHORT[crowdLevel(tokyo, m)]}</td>)}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Our estimate from the weather, holidays and blossom and foliage seasons (<a href="/about/#seasons">how we estimate it</a>).</p>
+
+  <h2>Japan season by season</h2>
+  <ul>
+    <li><b>Spring (March–May):</b> cherry blossoms open in Okinawa in January, Tokyo and Kyoto in late March to early April and Hokkaido in early May. Golden Week (29 April–5 May) is Japan's busiest holiday — book months ahead or avoid it. See <a href="/guides/cherry-blossom-season/">cherry blossom season</a> and <a href="/guides/golden-week-japan/">Golden Week</a>.</li>
+    <li><b>Rainy season (June–mid-July):</b> tsuyu brings grey, drizzly weeks to most of Japan except Hokkaido, which stays fresh and green. See <a href="/guides/japan-rainy-season/">Japan's rainy season</a>.</li>
+    <li><b>Summer (mid-July–August):</b> hot and humid (often 33°C+ in Tokyo and Kyoto), but it's festival season — Gion Matsuri in Kyoto in July, fireworks and Obon in mid-August — and the Mount Fuji climbing season. Typhoons can disrupt travel from August.</li>
+    <li><b>Autumn (September–November):</b> September can still be hot and stormy; October and November are dry and sunny, with autumn leaves moving south from Hokkaido in October to Kyoto in late November. See <a href="/where-to-see-fall-foliage-in-november/">where to see fall foliage in November</a>.</li>
+    <li><b>Winter (December–February):</b> cold, clear and quiet in Tokyo and Kyoto, with Fuji at its most visible; world-class powder snow in Hokkaido and Nagano; snow festivals in Sapporo in February. Avoid New Year (29 December–3 January), when many places close and trains are packed.</li>
+  </ul>
+
+  <h2>Region by region</h2>
+  <ul>
+    <li><b>Hokkaido:</b> June–September for hiking and flower fields; December–March for skiing. See <a href="/destinations/hokkaido/">Hokkaido</a>.</li>
+    <li><b>Tokyo, Kyoto and Osaka:</b> late March–May and October–early December. See <a href="/destinations/tokyo/">Tokyo</a> and <a href="/destinations/kyoto/">Kyoto</a>.</li>
+    <li><b>Mount Fuji:</b> October–February for clear views, July–early September to climb. See <a href="/destinations/mount-fuji/">Mount Fuji &amp; Hakone</a>.</li>
+    <li><b>Okinawa:</b> April–June and October–November for beaches outside the typhoon peak; swimming season runs from about April to October. See <a href="/destinations/okinawa/">Okinawa</a>.</li>
+  </ul>
+  <p>See also: <a href={japan.url}>best time to visit Japan</a> month by month.</p>
+</Guide>

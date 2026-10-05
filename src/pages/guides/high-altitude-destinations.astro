@@ -1,0 +1,76 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { bySlug, monthRanges } from '../../lib/data';
+
+// Approximate elevations of the main town or area visitors stay in.
+const places: { slug: string; where: string; m: number; note: string }[] = [
+  { slug: 'uyuni', where: 'Uyuni & the salt flat', m: 3660, note: 'Tours of the Lípez lagoons go above 4,500 m.' },
+  { slug: 'ladakh', where: 'Leh', m: 3500, note: 'Most visitors fly in, so spend two full days resting before going higher.' },
+  { slug: 'cusco', where: 'Cusco', m: 3400, note: 'Machu Picchu itself is lower, at 2,430 m — many travellers go there first.' },
+  { slug: 'atacama', where: 'San Pedro de Atacama', m: 2400, note: 'Geyser and lagoon tours climb to 4,300 m and above.' },
+  { slug: 'quito', where: 'Quito', m: 2850, note: 'One of the highest capitals in the world.' },
+  { slug: 'bhutan', where: 'Paro & Thimphu', m: 2300, note: 'Treks go far higher; the Tiger’s Nest monastery hike tops out at about 3,100 m.' },
+  { slug: 'santa-fe', where: 'Santa Fe', m: 2100, note: 'The highest state capital in the US; the ski area above town reaches 3,700 m.' },
+  { slug: 'mexico-city', where: 'Mexico City', m: 2240, note: 'Rarely causes problems beyond mild breathlessness and poor sleep.' },
+  { slug: 'kathmandu', where: 'Kathmandu', m: 1400, note: 'Everest Base Camp treks climb from about 2,800 m to 5,364 m.' },
+  { slug: 'kilimanjaro', where: 'Kilimanjaro', m: 5895, note: 'The summit; choose a seven- or eight-day route to give yourself time to acclimatise.' },
+];
+const rows = places.map((p) => ({ ...p, d: bySlug.get(p.slug)! }));
+---
+
+<Guide slug="high-altitude-destinations" photo="cusco">
+  <p>
+    Some of the world's most memorable destinations are high up: Cusco and Machu Picchu, the Bolivian salt flats, Ladakh, the
+    Atacama, Kilimanjaro and the Himalayas. Above about <strong>2,500 metres</strong>, the thinner air can cause altitude
+    sickness, whatever your fitness. Here's when to visit the main high-altitude destinations and how to stay well. This is
+    general travel information, not medical advice — talk to a doctor before a high-altitude trip, especially if you have
+    heart or lung problems or are pregnant.
+  </p>
+
+  <h2>High-altitude destinations and when to go</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Where</th><th scope="col">Altitude</th><th scope="col" class="left">Best time</th><th scope="col" class="left">Good to know</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d.url}>{r.where}</a></th>
+              <td>{r.m.toLocaleString('en-US')} m</td>
+              <td class="left">{monthRanges(r.d.bestMonths)}</td>
+              <td class="left">{r.note}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Altitudes are approximate. Best months are those rated great (or good) for weather in our climate data.</p>
+
+  <h2>What altitude sickness feels like</h2>
+  <p>
+    Acute mountain sickness (AMS) usually starts 6–24 hours after arriving at altitude, with a headache plus tiredness, nausea,
+    dizziness or poor sleep — rather like a hangover. Mild symptoms usually ease within a day or two as your body adjusts.
+    Severe symptoms — confusion, loss of coordination, breathlessness at rest or a persistent cough — are a medical emergency:
+    descend immediately and get help.
+  </p>
+
+  <h2>How to acclimatise</h2>
+  <ul>
+    <li><b>Go up gradually:</b> above 3,000 m, the usual advice is to sleep no more than 300–500 m higher each night, with a rest day every three to four days.</li>
+    <li><b>Start lower:</b> in Peru, spend a night or two in the Sacred Valley (about 2,900 m) before Cusco; in Ladakh, take it easy for the first 48 hours.</li>
+    <li><b>Climb high, sleep low:</b> day trips to higher points are fine if you return lower to sleep.</li>
+    <li><b>Drink water, skip alcohol</b> for the first couple of days, and eat light meals.</li>
+    <li><b>Ask your doctor</b> about medication such as acetazolamide if your itinerary involves a fast ascent.</li>
+    <li><b>Get insured:</b> check that your travel insurance covers trekking at the altitude you plan to reach. See <a href="/guides/travel-insurance/">travel insurance explained</a>.</li>
+  </ul>
+
+  <h2>Weather at altitude</h2>
+  <p>
+    High places have big day-night temperature swings: it can be 20°C in the afternoon sun in Cusco and close to freezing at
+    night. The sun is also much stronger, so bring high-SPF sunscreen and sunglasses, plus warm layers — see our{' '}
+    <a href="/guides/packing-list/">packing list by climate</a> or make a checklist with the{' '}
+    <a href="/packing-list-generator/">packing list generator</a>. For Machu Picchu specifically, see the{' '}
+    <a href="/guides/machu-picchu/">Machu Picchu guide</a>.
+  </p>
+</Guide>

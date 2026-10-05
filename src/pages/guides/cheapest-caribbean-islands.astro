@@ -1,0 +1,81 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { hubByName, usd, deg, monthRanges } from '../../lib/data';
+import { crowdLevel } from '../../lib/seasonality';
+
+const carib = hubByName.get('Caribbean')!;
+// Cheapest first by typical budget-traveller daily spend.
+const islands = [...carib.members].sort((a, b) => a.budget.low - b.budget.low || a.budget.mid - b.budget.mid);
+// For each island, the months that are low or shoulder season but still rate good or great — the value sweet spot.
+const value = islands.map((d) => ({
+  d,
+  months: d.months.filter((m) => crowdLevel(d, m.index) !== 'high' && m.score >= 65).map((m) => m.index),
+}));
+---
+
+<Guide slug="cheapest-caribbean-islands" photo="punta-cana">
+  <p>
+    The Caribbean doesn't have to be expensive. Daily costs vary a lot between islands — from all-inclusive bargains in the
+    Dominican Republic and Jamaica to some of the priciest beaches on Earth in Turks and Caicos and the British Virgin Islands —
+    and every island is cheaper outside the <strong>December–April high season</strong>. Here are {islands.length} islands
+    ranked by typical daily budget, with the months that combine good weather and lower prices.
+  </p>
+
+  <h2>Caribbean islands by daily budget</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr><th scope="col">Island</th><th scope="col">Budget / day</th><th scope="col">Mid-range / day</th><th scope="col" class="left">Best-value months</th></tr>
+      </thead>
+      <tbody>
+        {
+          value.map(({ d, months }) => (
+            <tr>
+              <th scope="row"><a href={d.url}>{d.name}</a></th>
+              <td>{usd(d.budget.low)}</td>
+              <td>{usd(d.budget.mid)}</td>
+              <td class="left">{months.length ? monthRanges(months) : 'High season is the only reliably good-weather time'}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">
+    Budgets are typical per-person daily costs excluding flights. Best-value months are outside our estimated high season but
+    still rate good or great for weather (<a href="/about/#seasons">how we estimate seasons</a>).
+  </p>
+
+  <h2>The cheapest islands</h2>
+  <ul>
+    {islands.slice(0, 4).map((d) => (
+      <li>
+        <a href={d.url}><b>{d.name}</b></a> — from {usd(d.budget.low)} a day. {d.tagline}{' '}
+        <span class="nowrap">May: {deg(d.months[4].high)} <RatingBadge score={d.months[4].score} rating={d.months[4].rating} note={d.months[4].note} /></span>
+      </li>
+    ))}
+  </ul>
+
+  <h2>When the Caribbean is cheapest</h2>
+  <ul>
+    <li><b>Late April to June:</b> the sweet spot. Prices fall after Easter, the weather is still mostly dry and sunny, and the hurricane season hasn't really started.</li>
+    <li><b>September to mid-November:</b> the cheapest months of all, but also the peak of hurricane season. Aruba, Bonaire and Curaçao, south of the hurricane belt, are the safe choice. See our <a href="/guides/hurricane-season/">hurricane season guide</a>.</li>
+    <li><b>Early December:</b> a short window of high-season weather at shoulder prices before Christmas.</li>
+    <li><b>Avoid:</b> Christmas and New Year, February half-term and spring break (March), when prices peak.</li>
+  </ul>
+
+  <h2>Ways to save</h2>
+  <ul>
+    <li><b>All-inclusives</b> can be good value in Punta Cana, Jamaica and Cancún, where competition is fierce.</li>
+    <li><b>Fly into a hub</b> such as San Juan, Punta Cana or Montego Bay, which usually have the cheapest fares from North America and Europe.</li>
+    <li><b>Watch for sargassum</b> on Atlantic-facing beaches from about May to August; see our <a href="/guides/sargassum-season/">sargassum guide</a>.</li>
+    <li>Compare the islands' weather month by month in <a href="/guides/caribbean-islands-compared/">Caribbean islands compared</a>, or see <a href={carib.url}>the best time to visit the Caribbean</a>.</li>
+  </ul>
+</Guide>
+
+<style>
+  .nowrap {
+    white-space: nowrap;
+  }
+</style>

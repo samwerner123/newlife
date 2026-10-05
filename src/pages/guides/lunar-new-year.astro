@@ -1,0 +1,74 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { bySlug, destMonthUrl, deg } from '../../lib/data';
+
+// Lunar New Year's Day 2027 is 6 February (Year of the Goat); the Lantern Festival, 15 days later, is 20 February.
+const FEB = 1;
+const places: { slug: string; name: string; what: string }[] = [
+  { slug: 'hong-kong', name: 'Hong Kong', what: 'A night parade in Tsim Sha Tsui on New Year’s Day, fireworks over Victoria Harbour on the second day and flower markets in Victoria Park.' },
+  { slug: 'singapore', name: 'Singapore', what: 'Chinatown street lights and markets, River Hongbao by Marina Bay and the Chingay Parade a week or two after New Year.' },
+  { slug: 'taiwan', name: 'Taiwan', what: 'Temple visits and night markets, then sky lanterns at Pingxi and the Taiwan Lantern Festival around the 15th day.' },
+  { slug: 'penang', name: 'Penang', what: "Malaysia's most Chinese city, with clan-house celebrations in George Town and Chap Goh Mei on the 15th day." },
+  { slug: 'kuala-lumpur', name: 'Kuala Lumpur', what: 'Lanterns in Chinatown and at Thean Hou Temple, and lion dances in shopping malls.' },
+  { slug: 'hanoi', name: 'Hanoi (Tết)', what: 'Peach-blossom and kumquat markets before Tết; then the city goes quiet as families gather, and many shops close for several days.' },
+  { slug: 'ho-chi-minh-city', name: 'Ho Chi Minh City (Tết)', what: 'The Nguyen Hue flower street and fireworks on New Year’s Eve; the most festive Tết in Vietnam for visitors.' },
+  { slug: 'bangkok', name: 'Bangkok', what: "Yaowarat, Bangkok's Chinatown, fills with stalls, lanterns and dragon dances." },
+  { slug: 'seoul', name: 'Seoul (Seollal)', what: 'Palaces and folk villages hold traditional games and performances, but many shops and restaurants close for the three-day holiday.' },
+  { slug: 'beijing', name: 'Beijing', what: 'Temple fairs at Ditan Park and around the city — but expect freezing temperatures and the world’s biggest travel rush.' },
+];
+const rows = places.map((p) => ({ ...p, d: bySlug.get(p.slug)! }));
+---
+
+<Guide slug="lunar-new-year" photo="hong-kong">
+  <p>
+    <strong>Lunar New Year's Day 2027 falls on Saturday 6 February</strong>, starting the Year of the Goat. It is the biggest
+    holiday of the year in China, Hong Kong, Taiwan, Singapore, Malaysia, Vietnam (as Tết) and South Korea (as Seollal), with
+    celebrations lasting up to 15 days, until the <strong>Lantern Festival on 20 February 2027</strong>. It's a spectacular time
+    to visit — lion dances, lanterns, fireworks and flower markets — but also a time when transport is packed and many
+    businesses close.
+  </p>
+
+  <h2>Where to celebrate</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Where</th><th scope="col" class="left">What happens</th><th scope="col">February weather</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d.url}>{r.name}</a></th>
+              <td class="left">{r.what}</td>
+              <td>
+                <a href={destMonthUrl(r.d, FEB)}>{deg(r.d.months[FEB].high)}</a> <RatingBadge score={r.d.months[FEB].score} rating={r.d.months[FEB].rating} note={r.d.months[FEB].note} />
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Average February highs from official climate normals.</p>
+
+  <h2>What closes, and what gets busy</h2>
+  <ul>
+    <li><b>Transport:</b> in mainland China, the Spring Festival travel rush (chunyun) runs for about 40 days around New Year, with hundreds of millions of journeys. Book trains and flights well ahead, or travel in the middle of the holiday when cities empty out.</li>
+    <li><b>Shops and restaurants:</b> in Vietnam, many family businesses close for three days to a week around Tết; in Seoul and parts of China, the first two or three days are the quietest. Big hotels, malls and tourist sights usually stay open.</li>
+    <li><b>Prices:</b> flights and hotels across the region rise, especially in Singapore, Hong Kong, Taiwan and the beach resorts of Thailand and Bali, which fill with holidaymakers.</li>
+    <li><b>Banks and offices</b> close for public holidays, typically two to three days (longer in China, Taiwan and Vietnam).</li>
+  </ul>
+
+  <h2>Weather around Lunar New Year</h2>
+  <p>
+    Early February is mid-winter in Beijing, Seoul and Shanghai (often below freezing), cool and sometimes drizzly in Hong Kong,
+    Taiwan and Hanoi, and hot and mostly dry in Bangkok, Ho Chi Minh City, Singapore and Penang. For warm weather with the
+    celebrations, the south — Singapore, Penang, Kuala Lumpur, Bangkok or Ho Chi Minh City — is the best bet.
+  </p>
+
+  <h2>Tips</h2>
+  <ul>
+    <li>Red envelopes (hongbao, lì xì) with crisp new notes are given to children and staff; you're not expected to give them as a visitor.</li>
+    <li>Arrive a few days early to see the flower markets and decorations, which are often the most photogenic part.</li>
+    <li>See also <a href="/where-to-go-in-february/">where to go in February</a> and the <a href="/guides/festival-calendar/">festival calendar</a>.</li>
+  </ul>
+</Guide>

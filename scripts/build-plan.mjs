@@ -110,8 +110,11 @@ add(done(exists('src/pages/compare/custom.astro')), 'Compare any two destination
 add = section('F. Seasonal & evergreen guides', 'Long-form content that earns links and ranks for seasonal queries.');
 for (const g of guides) add(done(exists(`src/pages/guides/${g.slug}.astro`)), `Guide: ${g.title}`);
 // Next guide ideas (each becomes ✅ once it is in src/lib/guides.ts and has a page).
-for (const g of ['Best time to visit Southeast Asia, country by country', 'Best time to visit Japan: seasons, crowds and festivals', 'Mediterranean sea temperatures by month', 'Lunar New Year 2027: where to celebrate and what closes', 'Oktoberfest and Europe’s autumn beer and wine festivals', 'The cheapest Caribbean islands, season by season', 'Rainy seasons in Africa: East vs Southern Africa', 'High-altitude destinations: when to go and how to avoid altitude sickness', 'Best beaches in Europe by month', 'Best time to visit the US national parks, park by park']) {
-  add(guides.some((x) => x.title.toLowerCase() === g.toLowerCase()) ? DONE : PLAN, `Guide: ${g}`);
+for (const g of ['Best time to visit Southeast Asia, country by country', 'Best time to visit Japan: seasons, crowds and festivals', 'Mediterranean sea temperatures by month', 'Lunar New Year 2027: where to celebrate and what closes', 'Oktoberfest and Europe’s autumn beer and wine festivals', 'The cheapest Caribbean islands, season by season', 'Rainy seasons in Africa: East vs Southern Africa', 'High-altitude destinations: when to go and how to avoid altitude sickness', 'Best beaches in Europe by month', 'Best time to visit the US national parks, park by park',
+  'Best time to visit South America, country by country', 'Best time to visit Mexico, region by region', 'Best time to visit India, region by region', 'Best time to visit Australia: north vs south', 'Best time for a Nile cruise', 'Turtle nesting seasons around the world', 'Cool summer escapes: Europe without the heatwaves', 'Hot springs and onsen by season', 'Patagonia: Torres del Paine vs El Chaltén by season', 'Best time to see the Northern Lights in Norway, Finland and Iceland compared']) {
+  // Ideas that already have a page are listed above with the other guides.
+  const norm = (t) => t.toLowerCase().replace(/’/g, "'");
+  if (!guides.some((x) => norm(x.title) === norm(g))) add(PLAN, `Guide: ${g}`);
 }
 
 // ---------------------------------------------------------------------------

@@ -1,0 +1,65 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { MONTHS } from '../../lib/data';
+
+const ALL = MONTHS.map((_, i) => i);
+const east = [
+  { slug: 'maasai-mara', label: 'Maasai Mara (Kenya)' },
+  { slug: 'serengeti', label: 'Serengeti (Tanzania)' },
+  { slug: 'kilimanjaro', label: 'Kilimanjaro (Tanzania)' },
+  { slug: 'zanzibar', label: 'Zanzibar' },
+  { slug: 'diani', label: 'Diani (Kenya coast)' },
+  { slug: 'rwanda', label: 'Rwanda' },
+];
+const south = [
+  { slug: 'kruger', label: 'Kruger (South Africa)' },
+  { slug: 'okavango', label: 'Okavango Delta (Botswana)' },
+  { slug: 'victoria-falls', label: 'Victoria Falls' },
+  { slug: 'namibia', label: 'Namibia' },
+  { slug: 'cape-town', label: 'Cape Town' },
+  { slug: 'madagascar', label: 'Madagascar' },
+];
+---
+
+<Guide slug="africa-rainy-seasons" photo="maasai-mara">
+  <p>
+    Africa's safari regions have opposite rainy seasons. <strong>East Africa</strong> — Kenya, Tanzania, Uganda and Rwanda —
+    has two: the <strong>long rains from March to May</strong> and the <strong>short rains in November</strong>, with dry
+    seasons in between. <strong>Southern Africa</strong> — South Africa's Kruger, Botswana, Zimbabwe, Zambia and Namibia — has
+    one summer rainy season from <strong>November to March</strong> and a long dry winter from May to October. Cape Town is the
+    exception: it has a Mediterranean climate with winter rain from May to August.
+  </p>
+
+  <h2>East Africa: rainfall by month</h2>
+  <GuideTable caption="Average monthly rainfall in East Africa" months={ALL} show="rain" rows={east} />
+  <h3>Weather rating</h3>
+  <GuideTable caption="Weather rating in East Africa by month" months={ALL} rows={east} />
+
+  <h2>Southern Africa: rainfall by month</h2>
+  <GuideTable caption="Average monthly rainfall in Southern Africa" months={ALL} show="rain" rows={south} />
+  <h3>Weather rating</h3>
+  <GuideTable caption="Weather rating in Southern Africa by month" months={ALL} rows={south} />
+  <p class="small muted">Average monthly rainfall and our weather ratings from national climate normals. Safari regions are often drier than the nearest weather station suggests.</p>
+
+  <h2>What the rains mean for a safari</h2>
+  <ul>
+    <li><b>Dry seasons</b> are the classic safari time: vegetation thins out and animals gather at rivers and waterholes, so game viewing is easiest. In East Africa that's late June–October (with the Great Migration in the Mara from about July to October) and January–February; in Southern Africa, June–October.</li>
+    <li><b>Green seasons</b> bring lush landscapes, newborn animals, migrant birds and much lower prices. In the Serengeti, the wildebeest calving season in January–February falls in a short dry spell between the rains.</li>
+    <li><b>The long rains (April–May)</b> are the hardest time in East Africa: some lodges and camps close, and roads in parks such as the Serengeti and Selous can become impassable.</li>
+    <li><b>Southern summer (December–March)</b> is hot and humid in the bush, with afternoon thunderstorms; the Okavango's floodwaters, by contrast, peak in the dry winter (June–August), fed by rain that fell months earlier in Angola.</li>
+    <li><b>Victoria Falls</b> is fullest in March–May, after the rains — spectacular but misty — and lowest in October–November.</li>
+  </ul>
+
+  <h2>The beaches</h2>
+  <p>
+    Zanzibar and the Kenyan coast follow the East African pattern: best from June to October and December to February, with
+    heavy rain in April–May, when many hotels close. Mauritius and the Seychelles are good most of the year; see the{' '}
+    <a href="/best-time-to-visit-indian-ocean-islands/">Indian Ocean islands</a>.
+  </p>
+  <p>
+    See also our month-by-month <a href="/guides/safari-season/">safari season guide</a>, and the best time to visit{' '}
+    <a href="/best-time-to-visit-east-africa/">East Africa</a>, <a href="/best-time-to-visit-tanzania/">Tanzania</a> and{' '}
+    <a href="/best-time-to-visit-south-africa/">South Africa</a>.
+  </p>
+</Guide>

@@ -48,7 +48,7 @@ const adjusted = destinations.filter((d) => Object.keys(d.adjust).length > 0);
       <ul>
         <li>
           <b>Temperature</b> starts at 100 when the average daily high sits in a comfortable range: {IDEAL_HIGH.temperate[0]}–{IDEAL_HIGH.temperate[1]}°C
-          for most cities, {IDEAL_HIGH.tropical[0]}–{IDEAL_HIGH.tropical[1]}°C for tropical beach and city destinations, and
+          for most cities, {IDEAL_HIGH.tropical[0]}–{IDEAL_HIGH.tropical[1]}°C for tropical beach and city destinations, and{' '}
           {IDEAL_HIGH.highland[0]}–{IDEAL_HIGH.highland[1]}°C for high-altitude places like Cusco or Mexico City. We subtract 9
           points per degree below the range and 10–11 per degree above it, plus up to 20 points for near-freezing nights.
         </li>
@@ -58,7 +58,7 @@ const adjusted = destinations.filter((d) => Object.keys(d.adjust).length > 0);
         </li>
         <li>
           <b>Seasonal adjustments.</b> Some things climate averages miss: Chiang Mai's smoke season, Caribbean hurricanes,
-          typhoons in central Vietnam, monsoon closures in Goa or the Inca Trail closing in February. For
+          typhoons in central Vietnam, monsoon closures in Goa or the Inca Trail closing in February. For{' '}
           {adjusted.length} destinations we subtract points in the affected months and say why on the page.
         </li>
       </ul>

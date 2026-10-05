@@ -182,7 +182,7 @@ const description = `${dest.name} in ${mo.name}: average high ${deg(mo.high)}, $
           {
             foliage && (
               <p>
-                <b>Autumn colours:</b> {FOLIAGE_LABEL[foliage].toLowerCase()} — {dest.foliage!.where}.
+                <b>Autumn colours:</b> {FOLIAGE_LABEL[foliage].toLowerCase()} — {dest.foliage!.where}.{' '}
                 {hasPage(foliagePage, m) && (
                   <>
                     {' '}See <a href={foliagePage.path(m)}>where to see fall foliage in {mo.name}</a>.

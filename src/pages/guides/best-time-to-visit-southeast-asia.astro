@@ -1,0 +1,81 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { rankForMonth, hubByName, destMonthUrl, MONTHS, MONTH_SHORT } from '../../lib/data';
+
+const ALL = MONTHS.map((_, i) => i);
+// One or two representative places per country, north to south.
+const rows = [
+  { slug: 'hanoi', label: 'Hanoi (north Vietnam)' },
+  { slug: 'hoi-an', label: 'Hoi An (central Vietnam)' },
+  { slug: 'ho-chi-minh-city', label: 'Ho Chi Minh City (south Vietnam)' },
+  { slug: 'luang-prabang', label: 'Luang Prabang (Laos)' },
+  { slug: 'siem-reap', label: 'Siem Reap (Cambodia)' },
+  { slug: 'chiang-mai', label: 'Chiang Mai (north Thailand)' },
+  { slug: 'bangkok', label: 'Bangkok (central Thailand)' },
+  { slug: 'phuket', label: 'Phuket (Andaman coast)' },
+  { slug: 'koh-samui', label: 'Koh Samui (Gulf of Thailand)' },
+  { slug: 'kuala-lumpur', label: 'Kuala Lumpur (Malaysia)' },
+  { slug: 'langkawi', label: 'Langkawi (Malaysia, west coast)' },
+  { slug: 'singapore', label: 'Singapore' },
+  { slug: 'bali', label: 'Bali (Indonesia)' },
+  { slug: 'palawan', label: 'Palawan (Philippines)' },
+  { slug: 'siargao', label: 'Siargao (Philippines, east)' },
+];
+const sea = hubByName.get('Southeast Asia')!;
+const best = ALL.map((m) => rankForMonth(m, sea.members).slice(0, 3));
+---
+
+<Guide slug="best-time-to-visit-southeast-asia" photo="ha-long-bay">
+  <p>
+    Southeast Asia is hot all year, so the best time to visit depends on <strong>rain</strong>, and the monsoons hit different
+    places at different times. As a rule, <strong>November to March</strong> is the dry season on the mainland — Thailand,
+    Vietnam, Cambodia, Laos and Myanmar — while Indonesia south of the equator is driest from <strong>April to October</strong>.
+    The Gulf of Thailand, central Vietnam and the eastern Philippines follow their own calendars. Here's how{' '}
+    {rows.length} key places compare, country by country.
+  </p>
+
+  <h2>Weather rating by month</h2>
+  <GuideTable caption="Weather rating across Southeast Asia by month" months={ALL} rows={rows} />
+  <p class="small muted">Ratings combine average temperature and rainfall from national climate normals, with points taken off for typhoons, smoke and monsoon closures.</p>
+
+  <h2>Country by country</h2>
+  <ul>
+    <li><b>Thailand:</b> November–March for Bangkok, the north and the Andaman coast (Phuket, Krabi); February–August for the Gulf islands (Koh Samui, Koh Phangan). Avoid the north in March–April, when crop burning causes smoke. See <a href="/best-time-to-visit-thailand/">Thailand</a> and <a href="/guides/thailand-islands-andaman-vs-gulf/">Andaman vs Gulf</a>.</li>
+    <li><b>Vietnam:</b> three climates. The north (Hanoi, Ha Long Bay, Sapa) is best in October–April but cool from December to February; the centre (Hoi An, Da Nang) in February–August; the south (Ho Chi Minh City, Phu Quoc) in December–April. See <a href="/best-time-to-visit-vietnam/">Vietnam</a>.</li>
+    <li><b>Cambodia and Laos:</b> November–February, before the heat builds in April and the rains arrive in May. Angkor is at its greenest — and quietest — in the wet season.</li>
+    <li><b>Malaysia:</b> the west coast (Kuala Lumpur, Penang, Langkawi) is driest from December to March; the east-coast islands (Perhentians, Tioman) from March to October, as they close in the north-east monsoon. See <a href="/best-time-to-visit-malaysia/">Malaysia</a>.</li>
+    <li><b>Singapore:</b> warm and wet all year; February–April is a little drier, November–January the wettest.</li>
+    <li><b>Indonesia:</b> Bali, Lombok and Komodo are best from April to October; Raja Ampat from October to April. See <a href="/best-time-to-visit-indonesia/">Indonesia</a>.</li>
+    <li><b>The Philippines:</b> December–May is dry for most islands, with typhoons most likely from July to November. Siargao and the east coast get rain from the north-east monsoon in December–January. See <a href="/best-time-to-visit-philippines/">the Philippines</a>.</li>
+  </ul>
+
+  <h2>The best places each month</h2>
+  <ul class="cols">
+    {best.map((items, m) => (
+      <li>
+        <b>{MONTH_SHORT[m]}:</b> {items.map((d, i) => <>{i > 0 && ', '}<a href={destMonthUrl(d, m)}>{d.name}</a></>)}
+      </li>
+    ))}
+  </ul>
+
+  <h2>Planning tips</h2>
+  <ul>
+    <li><b>Combine regions by season:</b> in July–August, pair Bali or Lombok with central Vietnam or the Gulf of Thailand; in December–February, pair northern Thailand with Cambodia and the Andaman coast.</li>
+    <li><b>Watch the big holidays:</b> Lunar New Year (late January or February) fills transport in Vietnam, Singapore and Malaysia; Songkran (13–15 April) does the same in Thailand. See our <a href="/guides/lunar-new-year/">Lunar New Year guide</a>.</li>
+    <li><b>Don't rule out the wet season:</b> rain usually comes in short afternoon bursts, prices drop and the countryside is green. See the <a href="/guides/monsoon-season-asia/">monsoon guide</a> and <a href="/guides/typhoon-season/">typhoon season</a>.</li>
+  </ul>
+  <p>See also: <a href={sea.url}>best time to visit Southeast Asia</a> month by month.</p>
+</Guide>
+
+<style>
+  .cols {
+    columns: 1;
+  }
+  @media (min-width: 640px) {
+    .cols {
+      columns: 2;
+      column-gap: 24px;
+    }
+  }
+</style>

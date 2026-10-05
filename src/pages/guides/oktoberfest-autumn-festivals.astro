@@ -1,0 +1,71 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { bySlug, destMonthUrl, deg, MONTHS } from '../../lib/data';
+
+// Oktoberfest starts on the Saturday after 15 September and ends on the first Sunday in October (or 3 October):
+// 18 September – 3 October 2027.
+const fests: { slug: string; name: string; m: number; when: string; what: string }[] = [
+  { slug: 'munich', name: 'Oktoberfest, Munich', m: 8, when: '18 September – 3 October 2027', what: 'The original: 16 days of beer tents, brass bands, roast chicken and fairground rides on the Theresienwiese. Free to enter; tent tables are booked months ahead for evenings and weekends.' },
+  { slug: 'florianopolis', name: 'Oktoberfest Blumenau (from Florianópolis)', m: 9, when: 'October', what: "Brazil's biggest German festival, in a town founded by German settlers, about two and a half hours' drive from Florianópolis." },
+  { slug: 'toronto', name: 'Kitchener-Waterloo Oktoberfest (from Toronto)', m: 9, when: 'October', what: 'The largest Bavarian festival outside Germany, around Canadian Thanksgiving, about 90 minutes from Toronto.' },
+  { slug: 'vienna', name: 'Sturm season and wine hikes, Vienna', m: 8, when: 'September – October', what: 'Cloudy, half-fermented Sturm is served in the heurigen wine taverns, and the city’s vineyards hold a wine-hiking day in late September.' },
+  { slug: 'prague', name: 'Burčák and Czech harvest festivals, Prague', m: 8, when: 'September – October', what: 'Young wine (burčák) is sold on the streets, and nearby Mělník holds a big harvest festival.' },
+  { slug: 'budapest', name: 'Budapest Wine Festival', m: 8, when: 'September', what: 'Tastings from Hungary’s wine regions, including Tokaj, in the courtyard of Buda Castle.' },
+  { slug: 'strasbourg', name: 'Alsace Wine Route harvest (from Strasbourg)', m: 8, when: 'September – October', what: 'Village harvest festivals and new-wine tastings along the half-timbered villages south of Strasbourg.' },
+  { slug: 'bordeaux', name: 'Grape harvest, Bordeaux', m: 8, when: 'September – October', what: 'Châteaux in the Médoc and Saint-Émilion bring in the harvest; some offer harvest experiences.' },
+  { slug: 'porto', name: 'Douro Valley harvest (from Porto)', m: 8, when: 'September', what: 'Grape-picking and treading in the port-wine quintas of the Douro, a scenic train or boat ride from Porto.' },
+  { slug: 'florence', name: 'Chianti harvest (from Florence)', m: 8, when: 'September', what: 'Wine festivals in Chianti towns such as Greve, and harvest season across Tuscany.' },
+  { slug: 'napa-valley', name: 'Harvest season, Napa Valley', m: 8, when: 'August – October', what: 'The crush, harvest dinners and winery events; the busiest and most expensive time in wine country.' },
+];
+const rows = fests.map((f) => ({ ...f, d: bySlug.get(f.slug)! }));
+---
+
+<Guide slug="oktoberfest-autumn-festivals" photo="munich">
+  <p>
+    Autumn is harvest time, and Europe celebrates it with beer and wine. <strong>Oktoberfest 2027 runs from 18 September to
+    3 October</strong> — despite the name, mostly in September — and from Vienna's heurigen to the Douro Valley, wine regions
+    hold harvest festivals and pour the first young wine of the year. September and early October also bring some of the year's
+    best travel weather: warm days, cooler nights and thinner crowds.
+  </p>
+
+  <h2>Autumn beer and wine festivals</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">Festival</th><th scope="col" class="left">When</th><th scope="col" class="left">What to expect</th><th scope="col">Weather</th></tr></thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row"><a href={r.d.url}>{r.name}</a></th>
+              <td class="left">{r.when}</td>
+              <td class="left">{r.what}</td>
+              <td>
+                <a href={destMonthUrl(r.d, r.m)}>{MONTHS[r.m].slice(0, 3)}: {deg(r.d.months[r.m].high)}</a>{' '}
+                <RatingBadge score={r.d.months[r.m].score} rating={r.d.months[r.m].rating} note={r.d.months[r.m].note} />
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Weather is the average daily high in the festival month, from official climate normals.</p>
+
+  <h2>Oktoberfest tips</h2>
+  <ul>
+    <li><b>Go on a weekday afternoon:</b> tents are easiest to get into before about 3 p.m. on weekdays; at weekends they can close their doors by late morning.</li>
+    <li><b>Book a table</b> for evenings, especially in the big tents — reservations open months ahead and usually include food and drink vouchers.</li>
+    <li><b>Book your hotel early:</b> Munich hotels sell out and prices can triple during the festival.</li>
+    <li><b>Dress the part:</b> plenty of visitors wear Lederhosen or a Dirndl, but it isn't required.</li>
+    <li><b>Mind the weather:</b> late September in Munich can be anywhere from 25°C and sunny to cold and wet — bring a layer for the evening.</li>
+  </ul>
+
+  <h2>Wine harvest tips</h2>
+  <ul>
+    <li>Harvest dates depend on the year's weather; most European regions pick from early September to mid-October.</li>
+    <li>Wineries are busy during the harvest, so book tastings ahead; some offer hands-on picking days.</li>
+    <li>Southern-hemisphere harvests (Mendoza, the Cape, New Zealand) run from February to April — Mendoza's Vendimia festival is in early March. See <a href="/destinations/mendoza/">Mendoza</a>.</li>
+    <li>For the rest of the season, see <a href="/where-to-go-in-september/">where to go in September</a>, <a href="/where-to-go-in-october/">October</a> and the <a href="/guides/festival-calendar/">festival calendar</a>.</li>
+  </ul>
+</Guide>

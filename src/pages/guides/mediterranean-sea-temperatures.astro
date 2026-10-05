@@ -1,0 +1,58 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { hubByName, destMonthUrl, deg, MONTHS } from '../../lib/data';
+
+const ALL = MONTHS.map((_, i) => i);
+const med = hubByName.get('Mediterranean')!;
+// Coastal members with sea data, warmest first in September.
+const coastal = med.members.filter((d) => d.months.every((m) => m.sea !== null)).sort((a, b) => b.months[8].sea! - a.months[8].sea!);
+const rows = coastal.map((d) => ({ slug: d.slug }));
+// The months when each place's sea is at least 22°C — comfortable for most swimmers.
+const swim = coastal.map((d) => ({ d, months: d.months.filter((m) => m.sea! >= 22).map((m) => m.index) }));
+const warmest = coastal[0];
+const coolest = coastal[coastal.length - 1];
+---
+
+<Guide slug="mediterranean-sea-temperatures" photo="sardinia">
+  <p>
+    The Mediterranean warms up slowly. In most places the sea is only around 15–17°C in spring, reaches{' '}
+    <strong>22°C or more from late June</strong>, peaks at <strong>25–28°C in August</strong> and stays warm well into{' '}
+    <strong>October</strong> — which makes September one of the best months for a beach holiday. The eastern Mediterranean
+    (Cyprus, southern Türkiye) is the warmest; the Balearics, the Riviera and the northern Adriatic are cooler.
+  </p>
+
+  <h2>Sea temperature by month</h2>
+  <GuideTable caption="Average sea temperature by month around the Mediterranean" months={ALL} show="sea" rows={rows} />
+  <p class="small muted">Average sea-surface temperatures for 2023–2025 from the Open-Meteo Marine API.</p>
+
+  <h2>When the sea is warm enough to swim</h2>
+  <p>
+    Most people find 22°C comfortable for a long swim, and 25°C or more warm. These are the months when each destination's sea
+    averages at least 22°C:
+  </p>
+  <ul>
+    {swim.map(({ d, months }) => (
+      <li>
+        <a href={d.url}>{d.name}</a>: {months.length ? months.map((m) => MONTHS[m]).join(', ') : 'rarely reaches 22°C on average'}
+      </li>
+    ))}
+  </ul>
+
+  <h2>Warmest and coolest</h2>
+  <p>
+    Of the destinations we cover, <a href={destMonthUrl(warmest, 7)}>{warmest.name}</a> has the warmest sea, averaging{' '}
+    {deg(warmest.months[7].sea!)} in August and still {deg(warmest.months[9].sea!)} in October.{' '}
+    <a href={destMonthUrl(coolest, 7)}>{coolest.name}</a> is among the coolest at {deg(coolest.months[7].sea!)} in August.
+    Water temperatures also vary locally: shallow, sheltered bays warm up faster, while upwelling along some coasts — the
+    Riviera in a mistral, Croatia in a bora — can drop the temperature by several degrees for a few days.
+  </p>
+
+  <h2>Tips</h2>
+  <ul>
+    <li><b>Go in September:</b> the sea is at its warmest of the year, the crowds have gone and prices drop.</li>
+    <li><b>Early-season swimming:</b> in May and early June, head east — Cyprus and Antalya warm up first.</li>
+    <li><b>Autumn sun:</b> in October, the sea is still above 22°C in much of the eastern and southern Mediterranean.</li>
+    <li>See also <a href={med.url}>the best time to visit the Mediterranean</a> and our <a href="/guides/diving-snorkelling-seasons/">diving and snorkelling seasons</a>.</li>
+  </ul>
+</Guide>

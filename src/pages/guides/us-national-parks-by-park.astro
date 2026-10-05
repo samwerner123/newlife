@@ -1,0 +1,72 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import GuideTable from '../../components/GuideTable.astro';
+import { hubByName, monthRanges, MONTHS } from '../../lib/data';
+import { crowdLevel } from '../../lib/seasonality';
+import { collectionByKey } from '../../lib/collections';
+
+const ALL = MONTHS.map((_, i) => i);
+const parks = hubByName.get('US National Parks')!;
+// Parks with the longest good-weather window first.
+const sorted = [...parks.members].sort((a, b) => b.bestMonths.length - a.bestMonths.length || a.name.localeCompare(b.name));
+const rows = sorted.map((d) => ({ slug: d.slug }));
+const NOTES: Record<string, string> = {
+  yellowstone: 'Most park roads open from late April to early November; in winter only the north entrance road is open to cars, with snowcoach tours inside.',
+  yosemite: 'Waterfalls peak in May–June; Tioga Road and Glacier Point Road usually open from late May or June to November. Timed-entry reservations may apply in summer.',
+  'grand-canyon': 'The South Rim is open all year; the North Rim only from mid-May to mid-October. Summer at the bottom of the canyon is dangerously hot.',
+  zion: 'Spring and autumn are ideal; summer brings heat and flash-flood risk in the Narrows. The shuttle runs most of the year.',
+  'arches-bryce': 'Arches can need a timed-entry reservation from April to October; Bryce is high and cold in winter, with snow on the hoodoos.',
+  'grand-teton': 'Best from June to September; most visitor facilities close from November to April.',
+  'glacier-national-park': 'Going-to-the-Sun Road is usually fully open only from early July to mid-October; vehicle reservations may apply.',
+  'great-smoky-mountains': 'Open all year and the most visited park; autumn colours peak in mid- to late October.',
+  acadia: 'Best from June to mid-October; the Park Loop Road and Cadillac Summit Road close in winter.',
+  'olympic-national-park': 'July–September is driest; Hurricane Ridge has snow from November to April.',
+  'joshua-tree': 'October–April; summer highs above 38°C.',
+  'death-valley': 'November–March; summer heat is dangerous.',
+  'mount-rainier': 'Late July–mid-September for snow-free trails and wildflowers.',
+  denali: 'Mid-June to mid-August, when park buses run.',
+};
+const parkCollection = collectionByKey.get('national-parks')!;
+---
+
+<Guide slug="us-national-parks-by-park" photo="yosemite">
+  <p>
+    There's no single best time to visit America's national parks: desert parks like Death Valley and Joshua Tree are best in
+    winter, mountain parks like Glacier and Mount Rainier only open fully in summer, and Utah's canyons shine in spring and
+    autumn. Here's every one of the {parks.members.length} parks we cover, park by park, with the weather month by month and
+    the seasonal road and facility closures to plan around.
+  </p>
+
+  <h2>Weather rating by park and month</h2>
+  <GuideTable caption="Weather rating for US national parks by month" months={ALL} rows={rows} />
+  <p class="small muted">Ratings combine temperature and rainfall from climate normals, with points off in months when key roads or facilities close.</p>
+
+  <h2>Park by park</h2>
+  <ul class="parks">
+    {sorted.map((d) => {
+      const busy = d.months.filter((m) => crowdLevel(d, m.index) === 'high').map((m) => m.index);
+      return (
+        <li>
+          <a href={d.url}><b>{d.name}</b></a> — best in {monthRanges(d.bestMonths)}
+          {busy.length > 0 && <>; busiest in {monthRanges(busy)}</>}. {NOTES[d.slug] ?? ''}
+        </li>
+      );
+    })}
+  </ul>
+
+  <h2>Tips for visiting the parks</h2>
+  <ul>
+    <li><b>Check reservations:</b> some of the busiest parks use timed-entry or vehicle reservations at peak times. Check the park's official website before you go.</li>
+    <li><b>Buy an annual pass</b> if you'll visit three or more parks in a year — it covers entrance fees at all national parks.</li>
+    <li><b>Go early or late:</b> parking at popular trailheads fills by mid-morning in summer.</li>
+    <li><b>Book lodges early:</b> in-park lodges at Yellowstone, Yosemite and the Grand Canyon open reservations about a year ahead.</li>
+    <li>For a month-by-month shortlist, see the <a href={parkCollection.path(new Date().getMonth())}>best national parks to visit this month</a>, or the <a href={parks.url}>best time to visit the US national parks</a>.</li>
+  </ul>
+</Guide>
+
+<style>
+  .parks {
+    display: grid;
+    gap: 8px;
+  }
+</style>

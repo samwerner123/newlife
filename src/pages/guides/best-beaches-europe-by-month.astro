@@ -1,0 +1,76 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import RatingBadge from '../../components/RatingBadge.astro';
+import { destinations, destMonthUrl, deg, MONTHS } from '../../lib/data';
+
+// European beach destinations with sea-temperature data.
+const pool = destinations.filter((d) => d.region === 'Europe' && d.tags.includes('beach') && d.months.every((m) => m.sea !== null));
+// Rank by the weather score (warmer sea breaks ties); only list places where the sea is at least 18°C.
+const byMonth = MONTHS.map((_, m) =>
+  [...pool]
+    .filter((d) => d.months[m].sea! >= 18)
+    .sort((a, b) => b.months[m].score - a.months[m].score || b.months[m].sea! - a.months[m].sea!)
+    .slice(0, 5),
+);
+---
+
+<Guide slug="best-beaches-europe-by-month" photo="sardinia">
+  <p>
+    Europe's beach season runs from about <strong>June to October</strong> around the Mediterranean, when the sea is warm and
+    the sun reliable. In spring and autumn the best bets are in the south and east — Cyprus, Crete, southern Spain and the
+    Algarve — and in winter only the <strong>Canary Islands</strong> and <strong>Madeira</strong> are warm enough for the beach.
+    We ranked {pool.length} European beach destinations for every month by weather, and show the average sea temperature, so
+    you know whether it's a swimming or a sunbathing trip.
+  </p>
+
+  {
+    byMonth.map((items, m) => (
+      <>
+        <h2>Best beaches in Europe in {MONTHS[m]}</h2>
+        {items.length ? (
+          <ul class="picks">
+            {items.map((d) => (
+              <li>
+                <a href={destMonthUrl(d, m)}>{d.name}</a> <RatingBadge score={d.months[m].score} rating={d.months[m].rating} note={d.months[m].note} />
+                <span class="muted small">air {deg(d.months[m].high)} · sea {deg(d.months[m].sea!)}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="muted">Nowhere in Europe has a sea of 18°C or more in {MONTHS[m]}.</p>
+        )}
+      </>
+    ))
+  }
+
+  <h2>Sea temperatures and swimming</h2>
+  <p>
+    Around 18°C feels bracing, 22°C is comfortable for a long swim and 25°C or more feels warm. The Mediterranean is warmest in
+    August and September; the Atlantic coasts of Portugal and the Canaries stay cooler but more even through the year. See{' '}
+    <a href="/guides/mediterranean-sea-temperatures/">Mediterranean sea temperatures by month</a> for the full table.
+  </p>
+  <p class="small muted">Sea temperatures are 2023–2025 averages from the Open-Meteo Marine API; ratings combine air temperature and rainfall.</p>
+
+  <h2>Tips</h2>
+  <ul>
+    <li><b>Go in June or September</b> for warm seas without the August crowds and prices.</li>
+    <li><b>Book early for August</b>, when much of Europe takes its holidays and coastal towns fill up.</li>
+    <li>See also <a href="/best-time-to-visit-mediterranean/">the best time to visit the Mediterranean</a>, <a href="/best-time-to-visit-greek-islands/">the Greek islands</a> and <a href="/best-time-to-visit-canary-islands/">the Canary Islands</a>.</li>
+  </ul>
+</Guide>
+
+<style>
+  .picks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 6px;
+    display: grid;
+    gap: 6px;
+  }
+  .picks li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+</style>

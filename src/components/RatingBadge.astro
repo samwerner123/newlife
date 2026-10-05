@@ -20,6 +20,5 @@ const tip = [
 ---
 
 <span class="badge" data-rating={rating} data-tip={tip}>
-  {RATING_LABEL[rating]}
-  {showScore && <b>{score}</b>}
+  {RATING_LABEL[rating]}{showScore && ' '}{showScore && <b>{score}</b>}
 </span>
